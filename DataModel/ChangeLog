@@ -1,0 +1,2540 @@
+2014-10-25  David Quarrie  <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Declare this package as a cmake metalibrary so that the libraries and header files from
+		package it depends on are available to its clients. Transparent to CMT.
+		Note that this was previously done by the cmt2cmake parser handling this package exceptionally.
+	* Tagged as DataModel-00-23-71
+	
+2013-09-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-70.
+	* DataModel/tools/SGgetDataSource.h: Remove forwarding header that
+	is no longer needed.
+	* DataModel/tools/GenerateIndexingPolicy.h: Likewise.
+	* DataModel/ArenaHandle.h: Likewise.
+	* DataModel/ArenaHeapAllocator.h: Likewise.
+	* DataModel/DeclareIndexingPolicy.h: Likewise.
+	* DataModel/ArenaCachingHandle.h: Likewise.
+	* DataModel/DataPtr.h: Likewise.
+	* DataModel/ConstDataList.h: Likewise.
+	* DataModel/ArenaPoolAllocator.h: Likewise.
+	* DataModel/ArenaHeaderGaudiClear.h: Likewise.
+	* DataModel/tools/findInContainer.h: Likewise.
+	* DataModel/tools/SetIndexingPolicy.h: Likewise.
+	* DataModel/tools/MapIndexingPolicy.h: Likewise.
+	* DataModel/tools/DataProxyStorage.h: Likewise.
+
+2013-08-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-69.
+	* Fix a couple forwarding headers.
+
+	* Tagging DataModel-00-23-68.
+	* Remove DataModel.xml and empty directories.
+	* Tagging DataModel-00-23-67.
+	* cmt/requirements: Remove cppflags overrides.
+	* Tagging DataModel-00-23-66.
+	* UserDataStore dict moved to AthContainers.
+	* Tagging DataModel-00-23-65.
+	* IProxyDict dict moved to AthenaKernel.
+	* Tagging DataModel-00-23-64.
+	* cmt/requirements: Checkreq fix.
+	* Tagging DataModel-00-23-63.
+	* IProxyDictWithPool and IStringPool dicts moved to SGTools.
+	* Tagging DataModel-00-23-62.
+	* Remove IStoragePolicy.h, IStorageState.h, UDSLabelHashTable.h.
+	* Tagging DataModel-00-23-61.
+	* AssociationMap moved to AthLinks.  Remove unused AssociationLink
+	and AssociationVector.
+	* Tagging DataModel-00-23-60.
+	* Remove unused AssociationVector_test and AssociationLink_test.
+	* Tagging DataModel-00-23-59.
+	* Moved Association collections to AthContainers.
+	* Tagging DataModel-00-23-58.
+	* Moved UserDataStore to AthContainers.
+
+2013-08-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-57.
+	* DataModel/tools/findInContainer.h: Fix forwarding.
+	* Tagging DataModel-00-23-56.
+	* DataVector / DataList code moved to AthContainers.
+
+	* Tagging DataModel-00-23-55.
+	* DataLink / ElementLink code moved to AthLinks.
+
+2013-08-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-54.
+	* Allocator code moved to AthAllocators.
+
+	* Tagging DataModel-00-23-53.
+	* cmt/requirements: Adjust patterns to ignore.
+
+2013-08-07  Sebastien Binet  <binet@farnsworth>
+
+	* Tagging DataModel-00-23-52
+	* fix package name
+	* M wscript
+
+2013-06-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-51.
+	* DataModel/ElementLink.h: Need to add swap() to
+	pair<ElementLink,...> specialization for c++11 compatibility.
+	* DataModel/tools/ArenaSharedHeapSTLAllocator.h: Add report()
+	methods.
+
+2013-06-15  Paolo Calafiura  <calaf@pb-d-128-141-141-103.cern.ch>
+
+	* Tagging DataModel-00-23-50.
+	* src/SGgetDataSource.cxx (SG::getDataSourcePointerFromGaudi): removed old "threaded" name from
+	store lookup
+
+2013-04-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-49.
+	* test/DataList_test.cxx: Fix gcc4.8 warnings.
+
+2013-04-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-48.
+	* cmt/requirements: More patterns to ignore.
+	* Tagging DataModel-00-23-47.
+	* Update reference files for new Gaudi.
+
+2013-04-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-46.
+	* DataModel/tools/DVLDataBucket.h,
+	DataModel/tools/DVLDataBucket.icc: Adjust for DataBucket::cast
+	interface change.
+
+2013-03-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-45.
+	* Clang warning fixes.
+
+2013-03-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-44.
+	* DataModel/tools/DVLCast.h: In cast(), make sure comparisons
+	against LONG_MAX are to compile-time constants --- that isn't
+	always the case when numeric_limits<>::max() is used.  Fixes a
+	problem observed with slc6/gcc4.7.
+
+2013-02-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-43.
+	* DataModel/DataVector.h, DataModel/DataList.h: Fix clang
+	warnings.
+
+2013-02-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-42.
+	* DataModel/tools/DVLInfo.icc (dvl_makecontainer): Fix warning.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging DataModel-00-23-41
+	* adding wscript file
+	* A wscript
+
+2012-11-28  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging DataModel-00-23-40.
+	* cmt/requirements: extra patterns to fix DataProxyStorage ref comparisons with gcc46
+
+2012-11-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-39.
+	* cmt/requirements: Checkreq fix.
+	* DataModel/tools/DVLIterator.h: Fix for boost 1.50.
+
+2012-08-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-38.
+	* DataModel/tools/DVLInfo.h, DataModel/tools/DVLInfo.icc: Add
+	initHelper().
+
+2012-06-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-37.
+	* Coverity warning fixes.
+	* Tagging DataModel-00-23-36.
+	* Fix previous changes for proper template argument-dependent
+	lookup.
+
+2012-06-28  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-35.
+	* DataModel/tools/DVLInfo.h, DataModel/tools/DVLInfo.cxx:
+	Generalize a bit to make it easier to use this machinery with
+	other container types.
+	* DataModel/DataVector.icc, DataModel/DataList.icc,
+	test/DVLInfo_test.cxx: Adjust.
+
+2012-04-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-34.
+	* DataModel/tools/ArenaSharedHeapSTLAllocator.h,
+	DataModel/tools/ArenaSharedHeapSTLAllocator.icc: Implement
+	operator=.
+
+2012-04-04  Sebastien Binet  <binet@cern.ch>
+
+	* tagging DataModel-00-23-33
+	* get classdef from SGTools rather than CLIDSvc
+	* M DataModel/UserDataStore.h
+
+2012-04-02 Walter Lampl <walter.lampl@ cern.ch>
+	* Add UserDataStore to selection.xml file
+	* Tag DataModel-00-23-32
+
+2012-03-30 Walter Lampl <walter.lampl@ cern.ch>
+	* UserDataStore: Add doxygen-style comments
+	* Tag DataModel-00-23-31
+
+2012-03-29 Walter Lampl <walter.lampl@cern.ch>
+	* UserDataStore: Use boost:any as payload object
+	* Tag DataModel-00-23-30
+
+2012-02-21 Walter Lampl <walter.lampl@cern.ch>
+	* Move IAthenaBarCode from Control/Navigation to Control/AthenaKernel
+          to braek circular dependency. No dependency any more on Naviagtion.
+	* Tag DataModel-00-23-29
+
+2012-02-09 Walter Lampl <Walter.Lampl@ cern.ch>
+	* Add first version of UserDataStore
+	* Tag DataModel-00-23-28
+
+2012-01-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-27.
+	* DataModel/tools/AssociationObjectIterator.h (find): Don't crash
+	on invalid ELs; just skip them.
+	* DataModel/tools/AssociationVectorIterator.h: Add isValid().
+
+2011-11-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-26.
+	* Add ArenaHeapSTLAllocator, ArenaSharedHeapSTLAllocator.
+
+2011-10-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-25.
+	* DataModel/DataVector.icc, DataModel/DataList.icc: Fix for
+	compiling with gcc 4.7.
+
+2011-10-07  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* Tagging DataModel-00-23-24.
+	* remove CLIDSvc use
+	* M test/DataVector_test.cxx
+	* M test/AssociationLink_test.cxx
+	* M test/AssociationVector_test.cxx
+	* M test/DataProxyStorage_test.cxx
+	* M test/DataList_test.cxx
+	* M test/AssociationMap_test.cxx
+	* M test/DVLDataBucket_test.cxx
+	* M cmt/requirements
+	* M DataModel/tools/DataProxyStorage.icc
+
+2011-09-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-23.
+	* DataModel/ConstDataVector.h, DataModel/ConstDataVector.icc,
+	DataModel/ConstDataList.h: DataModel/ConstDataList.icc: (new)
+	* DataModel/DataVector.h, DataModel/DataList.h: Update for adding
+	const variants.
+	* DataModel/tools/ElementProxy.icc: Update for const variants.
+	* test/DataVector_test.cxx, test/DataList_test.cxx: Test
+	ConstDataVector, ConstDataList.
+
+2011-08-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-22.
+	* cmt/requirements: More patterns to ignore.
+
+2011-07-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-21.
+	* DataModel/tools/DVLIterator.h: Make the value_type for
+	const_iterator a `const T*' (const_value_type), to be consistent
+	with the way the containers work.
+	* DataModel/DataVector.h: Define const_value_type.
+	* DataModel/DataList.h: Define const_value_type.
+	* test/DVL_iter_swap_test.cxx, test/DVLIterator_test.cxx,
+	test/DataList_test.cxx: Update tests.
+	* DataModel/DataList.icc: Work around gcc 4.6 bug in c++0x mode.
+
+2011-04-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-20.
+	* DataModel/DataVector.h, DataModel/DataVector.icc,
+	DataModel/DataList.h, DataModel/DataList.icc,
+	DataModel/tools/ElementProxy.h, DataModel/tools/DVLIterator.h: Fix
+	clang warnings.
+
+2011-04-14 Ilija Vukotic <ilija@vukotic.me>
+	* making checkreq happy
+	* tagging DataModel-00-23-19
+
+2011-03-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-18
+	* DataModel/tools/DVLCast.h: Add missing header for gcc 4.6
+	compatibility.
+
+2011-01-31  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging DataModel-00-23-17
+	* DataModel/ElementLink.icc (template): make clang happy
+
+2010-11-11  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging DataModel-00-23-16
+	* DataModel/ElementLink.icc: remove icc warning
+
+2010-09-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-15.
+	* test/DVLIterator_test.cxx: Fix bad use of typename kwd.
+	* test/DVL_iter_swap_test.cxx: Likewise.
+
+2010-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-14.
+	* DataModel/tools/DVLCast.h: Fix typo.
+
+	* Tagging DataModel-00-23-13.
+	* DataModel/tools/DVLNoBase.h: (new)
+	* DataModel/tools/DVL_algorithms.h,
+	DataModel/tools/DVL_algorithms.icc: (new)
+	* DataModel/DataVector.h, DataModel/DataVector.icc: Use them.
+	* DataModel/DataList.h, DataModel/DataList.icc: Use them.
+	* test/DataVector_test.cxx: Updated.
+	* test/DataList_test.cxx: Updated.
+
+2010-09-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-12.
+	* DataModel/tools/DVLIterator.h: (new)
+	* DataModel/tools/DVL_iter_swap.h: (new)
+	* DataModel/DataVector.h, DataModel/DataVector.icc: Use them.
+	* DataModel/DataList.h, DataModel/DataList.icc: Use them.
+	* test/DVL_iter_swap_test.cxx, share/DVL_iter_swap_test.ref: (new)
+	* test/DVLIterator_test.cxx, share/DVLIterator_test.ref: (new)
+	* test/DataList_test.cxx: Update use of iter_swap.
+	* cmt/requirements: Add them.
+
+2010-09-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-11.
+	* DataModel/tools/DATAMODEL_ASSERT.h: (new)
+	* DataModel/tools/ElementProxy.h,
+	DataModel/tools/ElementProxy.icc: (new)
+	* test/ElementProxy_test.cxx, share/ElementProxy_test.ref: (new)
+	* DataModel/DataVector.h, DataModel/DataVector.icc: Use
+	ElementProxy from DataModel_detail.  Use DATAMODEL_ASSERT.
+	* DataModel/DataList.h, DataModel/DataList.icc: Likewise.
+	* test/DataVector_test.cxx, test/DataList_test.cxx: Adjust for
+	change in assertion macros.
+	* test/DVLCast_test.cxx: Fix NDEBUG reference.
+	* cmt/requirements: Add the new tests.
+
+	* Tagging DataModel-00-23-10.
+	* DataModel/DataVector.h, DataModel/DataVector.icc: Use DVLCast
+	instead of do_cast.
+	* DataModel/DataList.h, DataModel/DataList.icc: Likewise.
+	* DataModel/tools/DVLCast.h: (new)
+	* test/DVLCast_test.cxx, share/DVLCast_test.ref: (new)
+
+2010-09-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-09
+	* DataModel/DataVector.h, DataModel/DataVector.icc: Add
+	specializations in std for sequence-modifying algorithms.
+	* test/DataVector_test.cxx: Test the changes.
+
+2010-08-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-08
+	* src/ArenaHeaderGaudiClear.cxx (release): Fix use-after-free.
+
+2010-07-25  David Quarrie  <David.Quarrie@cern.ch>
+
+	* tagging DataModel-00-23-07
+	* DataModel/tools/DVLEltBaseInfo.icc: Restore the MacOSX-specific code since it 
+	had side effects in other packages.
+
+2010-07-23  David Quarrie  <David.Quarrie@cern.ch>
+
+	* tagging DataModel-00-23-06
+	* DataModel/tools/DVLEltBaseInfo.icc: Remove MacOSX-specific override since it's obsolete and 
+	causes the build of the NavFourMon package to fail
+
+2010-07-15  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging DataModel-00-23-05
+	* cmt/requirements: remove major version numbers from use statements,
+	as they cause cmt v1r21 to skip locally checked out packages.
+
+2010-07-09  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging DataModel-00-23-04
+	* update ref-file for utest
+	* M share/AssociationMap_test.ref
+
+2010-06-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-03.
+	* DataModel/DataVector.icc, DataModel/DataList.icc: Prevent reflex
+	from trying to generate	dictionary entries for
+	VirtBases::has_virtual.
+
+2010-04-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-02.
+	* test/ArenaHandleBaseT_test.cxx: gcc 4.5 fix.
+
+2010-02-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-01.
+	* DataModel/ElementLink.icc (toPersistent): Fix warning about
+	uninitialized variable.
+
+2010-01-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-23-00.
+	* DataModel/DataVector.h, DataModel/DataVector.icc,
+	DataModel/DataList.h, DataModel/DataList.icc: Add the virtual
+	function dvlinfo_v, to ensure that the DVLInfo is always
+	instantiated when a DataVector/DataList is used.
+
+2009-12-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-22-00.
+	* DataModel/ElementLinkVector.h, DataModel/ElementLinkVector.icc:
+	DataModel/tools/SGELVRef.h: : Make DataLinkVector, ElemLink types
+	public.  Add hostDObjs(), moveHostDObjs(), toPersistentDL(),
+	toPersistent() returning shortrefs, push_back taking indices.
+	* DataModel/ElementLink.h, DataModel/ElementLink.icc:
+	DataModel/tools/DataProxyStorage.h,
+	DataModel/tools/PlainPtrStorage.h: Remove friends.  Add proxy().
+
+2009-10-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-21-08.
+	* DataModel/PackedArray.h, src/PackedArray.cxx,
+	test/PackedArray_test.cxx, share/PackedArray_test.ref: (deleted;
+	moved to CxxUtils).
+	* cmt/requirements: Remove from the list of tests.
+
+2009-10-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-21-07.
+	* DataModel/tools/fast_push_back.h, test/fast_push_back_test.cxx,
+	test/fast_push_back1_test.cxx, share/fast_push_back_test.ref,
+	share/fast_push_back1_test.ref: (deleted; moved to CxxUtils)
+	* cmt/requirements: Remove from the list of tests.
+
+2009-10-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-21-06.
+	* DataModel/tools/ForwardIndexingPolicy.h: Change deprecated
+	BOOST_CLASS_REQUIRE to BOOST_CONCEPT_ASSERT.
+	* DataModel/tools/IsSTLSequence.h: Likewise.
+	* DataModel/tools/MapIndexingPolicy.h: Likewise.
+	* DataModel/tools/SetIndexingPolicy.h: Likewise.
+
+	* DataModel/DataVector.h: Need to define static const members.
+	New version of genreflex will make dictionary entries for them.
+	* DataModel/DataList.h: Likewise.
+	* DataModel/tools/ForwardIndexingPolicy.h: Likewise.
+
+2009-09-30  Paolo Calafiura 
+
+	* Tagging DataModel-00-21-05
+	* DataModel/tools/ForwardIndexingPolicy.h (lookup): streamlined  
+	checking of valid m_index. Fix bug #37389
+
+2009-09-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-21-04.
+	* DataModel/tools/IdentContIndex.h (setHashAndIndex): Fix
+	warnings.
+	* test/DataVector_test.cxx: Fix warnings.
+	* test/DataPtr_test.cxx: Fix warnings.
+	* test/DataPool_test.cxx: Fix warnings.
+	* test/DataList_test.cxx: Fix warnings.
+
+2009-09-16  Sebastien Binet  <binet@lxplus304.cern.ch>
+
+	* tagging DataModel-00-21-03
+	* persistency fix: needs to declare friends for elcnv_p3
+	* M DataModel/ElementLink.h
+
+2009-09-07  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-21-02.
+	* DataModel/tools/SGELVRef.icc (toPersistent): Make the behavior
+	the same as ElementLink::toPersistent.  In particular, don't
+	attempt to dereference the link.
+
+2009-07-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-21-01.
+	* DataModel/tools/DataProxyStorage.h: Remove
+	NEW_DATAPROXYSTORAGE.  Check spelling.
+
+	* Tagging DataModel-00-21-00.
+	* DataModel/tools/DVLInfo.h: Add DVLIterator.
+	* test/DataVector_test.cxx: Test it.
+	* test/DataList_test.cxx: Test it.
+	* test/DVLInfo_test.cxx: Test it.
+
+	* Tagging DataModel-00-20-00.
+	* DataModel/DataVector.h: When DATAVECTOR_BASE is used,
+	automatically make BaseInfo entries for the DV element types as
+	well as for the vectors themselves.
+	* DataModel/DataVector.icc: Likewise.
+	* DataModel/DataList.h: Likewise.
+	* DataModel/DataList.icc: Likewise.
+	* DataModel/tools/DVLEltBaseInfo.icc: (new) Likewise.
+	* test/DataVector_test.cxx: Test the changes.
+
+2009-06-12  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-19-14.
+	* DataModel/tools/SGELVRef.icc (ELVRef): Handle null refs
+	properly.  Better error checking for out-of-range host indices.
+	(Fixes bug 51335.)
+
+2009-06-10  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-19-13.
+	* DataModel/tools/SGELVRef.icc (ELVRef): Don't try to convert hash
+	key to a string.
+
+2009-05-27  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-19-12.
+	* DataModel/tools/SGELVRef.icc (toPersistent, doRemap): Handle
+	links which are null or which point to thinned objects.
+	* DataModel/ElementLink.icc (index): Raise maybe_thinning_error
+	instead of runtime_error on bad index.
+	(cptr): Change test for print to cerr from !NDEBUG to EL_DEBUG.
+
+2009-05-13  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-19-11.
+	* DataModel/tools/DataProxyStorage.h: Add `explicit' keyword to
+	single-argument ctors to prevent unintended conversions.
+	* DataModel/tools/PlainPtrStorage.h: Likewise.
+
+2009-05-12  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-19-10.
+	* DataModel/DataLink.h, DataModel/DataLink.icc,
+	DataModel/tools/DataProxyStorage.h,
+	DataModel/tools/DataProxyStorage.icc: Need to have operator!= in
+	addition to operator==.
+	* test/DataProxyStorage_test.cxx: Test equality/inequality
+	comparisons.
+	* share/DataProxyStorage_test.ref: Updated.
+	* test/DataLink_test.cxx: Test DataLink operator==/!=.
+
+2009-05-10  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-19-09.
+	* DataModel/tools/DataProxyStorage.h (class DataProxyStorageBase),
+	src/DataProxyStorage.cxx: Add findProxy(), operator==().
+	* DataModel/tools/PlainPtrStorage.h: Add operator==.
+	* DataModel/ElementLink.h (class ElementLink): Add
+	storagePolicy(), indexingPolicy().
+	* DataModel/DataLink.h, DataModel/DataLink.icc: Add operator==.
+	Add constructor from StoragePolicy, storagePolicy().
+	* DataModel/ElementLinkVector.h, DataModel/ElementLinkVector.icc:
+	Fixes for handling of incomplete ELs.
+	* test/DataModel.xml: Test output differences are failures.
+
+2009-05-03  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-19-08
+	* DataModel/ElementLinkVector.h, DataModel/ElementLinkVector.icc:
+	Avoid converting from hashed to string key if we don't need to.
+	Avoids some warnings from ARA when reading old data.
+
+2009-01-26  scott s snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-19-07
+	* DataModel/DataVector.icc (struct do_cast): Optimize for the case
+	where the object's dynamic type is the same as the type to which
+	we're casting.
+	* DataModel/DataList.icc (struct do_cast): Likewise.
+
+2009-01-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging DataModel-00-19-06
+	* migrating ClassName to SGTools
+	* M DataModel/ClassName.h
+
+2008-12-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-19-05.
+	* DataModel/DataList.icc: Workaround for apparent Koenig lookup
+	bug in gccxml 0.9.0.
+	* DataModel/DataVector.icc: Likewise.
+
+2008-12-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-19-04.
+	* DataModel/tools/DVLInfo.icc: Hide from reflex inlined code
+	calling BaseInfo functions that are hidden from reflex.
+
+2008-12-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-19-03.
+
+	* DataModel/DataList.icc: const fix for iterators.
+	* DataModel/DataVector.icc: Likewise.
+	* DataModel/DataPool.h: Likewise.
+	* src/ArenaHeader.cxx: Add missing #includes.
+	* src/PackedArray.cxx: Add missing #includes.
+	* test/PackedArray_test.cxx: Add missing #includes.
+	* test/DataLink_test.cxx: Get rid of unused sstream code.
+	* test/DataProxyStorageData_test.cxx: Fix compilation warnings.
+
+2008-11-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-19-02.
+
+	* src/DataProxyStorage.cxx (raiseInvalidErrorBase): Improve error
+	reporting by including the current state in the error.
+	* test/DataProxyStorage_test.cxx: Test this.
+	* share/DataProxyStorage_test.ref (Athena): Updated.
+
+2008-11-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-19-01.
+
+	* DataModel/tools/ForwardIndexingPolicy.h: Fix use of boost
+	concept checks to work with boost >= 1.35.  Note that the
+	BOOST_CLASS_REQUIRE macro we use here is in fact deprecated for
+	boost >= 1.35 --- but it should work with 1.34 as well.  Once 1.34
+	is dead, this should change again.
+	* DataModel/tools/IsSTLSequence.h: Likewise.
+	* DataModel/tools/MapIndexingPolicy.h: Likewise.
+	* DataModel/tools/SetIndexingPolicy.h: Likewise.
+
+	* DataModel/tools/selection_ns.h: (new) Work around name change of
+	the reflex selection namespace.
+	* DataModel/DataVector.h: Use it.
+	* DataModel/DataVector.icc: Use it.
+	* DataModel/DataList.h: Use it.
+	* DataModel/DataList.icc: Use it.
+
+2008-09-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-19-00.
+
+	* src/SGgetDataSource.cxx: Remove thread-safety code.  (Was
+	causing crashes in trigger).
+	* DataModel/tools/SGgetDataSource.h: Likewise.
+	* DataModel/tools/DataProxyStorage.h: Likewise.
+	* DataModel/tools/DataProxyStorage.icc: Likewise.
+	* src/DataProxyStorage.cxx: Likewise.
+	* cmt/requirements: No longer need to link with boost thread
+	library.
+	* share/DataProxyStorage_test.ref: Updated.
+
+2008-09-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-18-01.
+	* DataModel/tools/DataProxyStorageData.h: Fix for 64 bits.
+	* DataModel/tools/DataProxyStorageData.icc: Likewise.
+
+2008-08-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-18-00.
+
+	* DataModel/tools/ArenaPoolSTLAllocator.h: Generalize a bit, so it
+	can be used with unordered_set as well as unordered_map.
+	* DataModel/tools/ArenaPoolSTLAllocator.icc: Likewise.
+	* test/ArenaPoolSTLAllocator_test.cxx: Updated.
+
+	* DataModel/ArenaAllocatorBase.h: Add no_ctor, no_dtor args to
+	initParams template.
+	* DataModel/ArenaAllocatorBase.icc: Likewise.
+	* DataModel/ArenaHeapAllocator.h: Likewise.
+	* DataModel/ArenaHeapAllocator.icc: Likewise.
+	* DataModel/ArenaHandle.h: Turn on no_ctor.
+
+2008-07-27  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-17-00.
+
+	* DataModel/tools/ArenaPoolSTLAllocator.h: (new)
+	* DataModel/tools/ArenaPoolSTLAllocator.icc: (new)
+	* test/ArenaPoolSTLAllocator_test.cxx: (new)
+	* share/ArenaPoolSTLAllocator_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* test/DataList_test.cxx, test/DataVector_test.cxx: Force NDEBUG
+	off.
+
+2008-07-28  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging DataModel-00-16-01
+	* DataModel/DataVector.h: Remove MacOSX-specific changes
+
+2008-07-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-16-00.
+	* DataModel/ElementLinkVector.h, DataModel/ElementLinkVector.icc,
+	DataModel/tools/SGELVRef.h, DataModel/tools/SGELVRef.icc: Remove
+	owner back-link from ELVRef.  Pass it as an argument of
+	toPersistent and toTransient instead.  Incidentally fixes problem
+	with the back-link getting corrupted when an ELV is copied.
+
+2008-07-23  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging DataModel-00-15-04
+	* DataModel/DataVector.h: Tweak the DATAVECTOR_BASE macro and add a DATAVECTOR_BASE_SINGLETON macro; both of which affect only MacOSX
+
+2008-07-21  Sebastien Binet  <binet@lblbox>
+
+	* tagging DataModel-00-15-03
+	* handle generating removed-indices for MapIndexingPolicy
+	* M DataModel/ElementLink.icc
+
+	* tagging DataModel-00-15-02
+	* fixing bug #38735
+	* handle thinned elements contained in an ELV
+	* M DataModel/tools/SGELVRef.icc
+	* M DataModel/ElementLink.icc
+
+2008-06-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-15-01.
+	* cmt/requirements: More patterns to ignore in comparing test
+	results.
+
+	* Moved DataModel-00-13-01-branch to mainline.
+	Existing -00-14-00 moved to -00-13-01-ILink-branch.
+	Tagging DataModel-00-15-00, identical to DataModel-00-13-01-13.
+
+2008-06-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging DataModel-00-13-01-13
+	* added dflt and copy constructors to ElementLink
+	* throw specialized runtime_error instance for Thinning's benefit
+	* M DataModel/ElementLink.h
+	* M DataModel/ElementLink.icc
+
+2008-06-12  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-13-01-12
+	* Make remapping work for ElementLinkVector:
+	* DataModel/DataLink.h: Add toPersistentNomap().
+	* DataModel/DataLink.icc: Add toPersistentNomap().  Initialize
+	index passed to tryELRemap.
+	* DataModel/ElementLinkVector.h: Add doRemap().
+	* DataModel/ElementLinkVector.icc: Add doRemap().  Call it from
+	toPersistent().
+	* DataModel/tools/SGELVRef.h: Add doRemap().
+	* DataModel/tools/SGELVRef.icc: Add doRemap().
+
+2008-06-04  scott snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-13-01-11
+	* DataModel/tools/SGELVRef.icc (toPersistent): Preserve the index
+	even if the link is not valid.
+
+2008-05-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging DataModel-00-13-01-10
+	* adding some friends (T/P converters) to ElementLink
+	* M DataModel/ElementLink.h
+
+2008-05-05  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-01-09.
+	* DataModel/ElementLink.icc (checkForRemap): Fix compilation
+	warning.
+
+	* test/DVLInfo_test.cxx (test_DVLInfo1): Fix typo.
+	* test/DataProxyStorage_test.cxx: Missing <cassert> include.
+
+2008-04-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-01-08.
+	* Check spelling throughout.
+
+2008-04-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-01-07.
+	* DataModel/tools/ForwardIndexingPolicy.h: Remove setValid() calls
+	when setting the index.  (Allow setting the index to invalid.)
+
+2008-04-17  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-01-06.
+	* DataModel/ElementLink.icc: Handle remapping.
+	* DataModel/DataLink.icc: Likewise.
+
+2008-04-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-01-05.
+	* share/DataProxyStorage_test.ref: Updated.
+
+2008-04-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-01-04.
+	* src/DataProxyStorage.cxx (findProxyFromKey): We can fail the
+	hash->string lookup here with-nav if the target isn't available.
+	Don't complain.
+
+2008-04-11  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-01-03.
+	* src/DataProxyStorage.cxx: Better diagnostics if hash->string
+	mapping isn't found.
+	* test/DataProxyStorage_test.cxx: Test the changes.
+	* share/DataProxyStorage_test.ref: Updated.
+
+2008-04-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-01-02.
+
+2008-04-07  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/tools/DVLDataBucket.icc (DVLDataBucket): Recopy the
+	container elements if the container size has changed.
+	* test/DVLDataBucket_test.cxx: Test the changes.
+	* test/DataVector_test.cxx: Likewise.
+	* test/DataList_test.cxx: Likewise.
+
+	* DataModel/tools/DVLInfo.h: Add size/clear methods, dvl_update.
+	* DataModel/tools/DVLInfo.icc: Likewise.
+	* test/DVLInfo_test.cxx: Test the changes.
+
+2008-03-31  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h: Specialize DataBucketTrait instead of
+	asStorable.
+	* DataModel/DataVector.icc: Likewise.
+	* DataModel/DataList.h: Likewise.
+	* DataModel/DataList.icc: Likewise.
+
+	* DataModel/DataVector.h: Add asStorable specialization to use
+	DVLDataBucket.
+	* DataModel/DataVector.icc: Likewise.
+	* DataModel/DataList.h: Likewise.
+	* DataModel/DataList.icc: Likewise.
+
+2008-03-29  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/tools/DVLDataBucket.h: (new)
+	* DataModel/tools/DVLDataBucket.icc: (new)
+	* test/DVLDataBucket_test.cxx: (new)
+	* share/DVLDataBucket_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* DataModel/tools/DVLInfo.h (class DVLInfoBase): Add del(),
+	copy().
+	* DataModel/tools/DVLInfo.icc: Likewise.
+	* test/DVLInfo_test.cxx: Test it.
+	* test/DataVector_test.cxx: Updated.
+	* test/DataList_test.cxx: Updated.
+
+	* DataModel/DataVector.h: Add s_info and dvlinfo().
+	* DataModel/DataVector.icc: Likewise.
+	* DataModel/DataList.h: Add s_info and dvlinfo().  Add ownPolicy
+	and clear (w/policy).
+	* DataModel/DataList.icc: Likewise.
+	* test/DataVector_test.cxx: Test copying conversion.
+	* test/DataList_test.cxx: Test changes.
+
+	* DataModel/tools/DVLInfo.h: (new)
+	* DataModel/tools/DVLInfo.icc: (new)
+	* src/DVLInfo.cxx: (new)
+	* test/DVLInfo_test.cxx: (new)
+	* share/DVLInfo_test.ref: (new)
+	* cmt/requirements: Add test.
+
+	* share/DataPool_test.ref: Updated.
+
+2008-03-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging DataModel-00-13-01-01
+	* fixing bug #34484 (minimal fix)
+	* M DataModel/ElementLink.icc: ::cptr() swallows printout if the 
+	  ElementLink state ::isDefault() as it corresponds to a thinned
+	  element.
+
+2008-01-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging DataModel-00-13-01
+	* fixing ref-files for utests
+	* M share/AssociationMap_test.ref
+	* M share/Associations_test.txt
+	* M share/DataPool_test.ref
+
+2008-01-03  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-13-00.
+
+	* Merge from -eltest branch into mainline:
+
+	* DataModel/ElementLink.icc (cptr): Call ElementLink_error when we
+	catch an exception.
+	* src/DataProxyStorage.cxx (toPersistentState): It's ok not to
+	find a matching proxy in IDENTIFIED.
+	* DataModel/tools/DataProxyStorage.h: Fix comments.
+	* test/DataProxyStorage_test.cxx: Updated.
+
+	* test/DataProxyStorage_test.cxx: Fix for IProxyDict change.
+
+	* DataModel/unordered_set.h: Forward to version in SGTools.
+	* DataModel/unordered_map.h: Forward to version in SGTools.
+	* DataModel/hashtable.h: (deleted)
+	* src/hashtable.cxx: (deleted)
+	* test/hashtable_test.cxx: (deleted)
+	* share/hashtable_test.ref: (deleted)
+	* cmt/requirements: Remove it.
+
+	* Add DataProxyStorage unit test.
+
+	* DataModel/tools/ForwardIndexingPolicy.h: Remove m_valid.
+
+	* DataModel/tools/DataProxyStorage.h: Reorganize.
+
+	* DataModel/tools/DataProxyStorage.h: Use DataProxyStorageData.
+
+	* DataModel/tools/DataProxyStorageData.h: (new)
+	* DataModel/tools/DataProxyStorageData.icc: (new)
+	* test/DataProxyStorageData_test.cxx: (new)
+	* share/DataProxyStorageData_test.ref: (new)
+	* cmt/requirements: Add the test.
+	* DataModel/DataModelDict.h: Add it.
+	* DataModel/selection.xml: Add it.
+
+	* DataModel/tools/DataProxyStorage.h: More reflex fixes.
+
+	* src/ElementLink.cxx: (new)
+	* DataModel/ElementLink.h: Declare ElementLink_error.
+	* DataModel/ElementLink.icc: Call it when appropriate.
+
+	* DataModel/tools/DataProxyStorage.h (setData): Fix storable
+	conversion.
+
+	* DataModel/tools/DataProxyStorage.h: Persistency fixes.
+
+	* DataModel/tools/DataProxyStorage.h: Fixes for setData.
+
+	* DataModel/DataLink.icc (toTransient): Missed one change here.
+
+	* DataModel/DataProxyStorage.h: Rewrite with a union.  Make
+	non-virtual.
+	* DataModel/ElementLink.icc: Adapt.
+
+	* DataModel/AssociationVectorCollection.icc (hasAssociations):
+	Fix syntax errors.
+
+	* DataModel/tools/IStorageState.h: Add a virtual dtor to prevent
+	compilation warnings (gcc 4).
+	* DataModel/tools/IStoragePolicy.h: Likewise.
+
+2007-12-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-15.
+
+	* DataModel/tools/ForwardIndexingPolicy.h: Fix compilation warning.
+
+	* DataModel/DataModelDict.h: Generate dict for IProxyDict here, to
+	get rid of missing dictionary warnings.
+	* DataModel/selection.xml: Likewise.
+
+2007-11-21  Paolo Calafiura 
+	* Tagging DataModel-00-12-14
+	* DataModel/tools/SGELVRef.icc (toPersistent): adjust error reporting
+	verbosity. Sync to 00-12-05-05
+
+2007-10-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-13.
+
+	* share/AssociationMap_test.ref: Update expected output.
+
+	* DataModel/tools/fast_push_back.h: Add non-const versions of
+	fast_push_back.
+
+	* test/DataVector_test.cxx (test2): Remove package name tests.
+	* test/DataList_test.cxx (test2): Likewise.
+
+2007-09-04  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* Tagging DataModel-00-12-12
+	* DataModel/tools/SGELVRef.icc (toPersistent): do not throw, simply 
+	return false
+
+2007-08-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-11.
+
+	* DataModel/tools/SGgetDataSource.h: Change to returning a
+	pointer-to-pointer.  Document.
+	* src/SGgetDataSource.cxx: Likewise.
+	* DataModel/tools/DataProxyStorage.h (class DataProxyStorage):
+	Cache pointer-to-pointer to data store, rather than pointer.
+
+2007-08-15  Paolo Calafiura 
+
+	* Tagging DataModel-00-12-10.
+	* DataModel/ElementLink.icc (cptr): catch runtime_error thrown during
+	index lookup (bug #28708)
+	* DataModel/tools/ForwardIndexingPolicy.h (lookup): check that m_index 
+	is in data container range (bug #28708)
+
+2007-08-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-09.
+
+	* DataModel/tools/AssociationVectorIterator.h
+	(AssociationVectorIterator) Fix compilation error in inlined
+	size().
+
+2007-07-24 Nir Amram <Nir.Amram@cern.ch>
+ 	* Changed used package AtlasSEAL to AtlasReflex
+ 	* Tagged as DataModel-00-12-08
+
+2007-06-15  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-07.
+
+	* test/ArenaHeaderGaudiClear_test.cxx: Fix.
+	* share/ArenaHeaderGaudiClear_test.ref: (new)
+
+2007-06-14  scott snyder  <snyder@bnl.gov>
+
+	* test/ArenaHeaderGaudiClear_test.cxx: (new)
+	* cmt/requirements: Add it.
+
+2007-06-14  scott s snyder  <snyder@bnl.gov>
+
+	* Fix doxygen warnings.
+
+2007-06-14  scott snyder  <snyder@bnl.gov>
+
+	* Check spelling throughout.
+	* ispellwords: (new)
+
+	* DataModel/ArenaHeaderGaudiClear.h: Document.
+	* src/ArenaHeaderGaudiClear.cxx: Document.
+
+	* src/ArenaHeapAllocator.cxx
+	(ArenaHeapAllocator::ArenaHeapAllocator): Fix typo.
+
+	* DataModel/ArenaHeader.h: Document.
+	* DataModel/ArenaHeader.icc: (new)
+	* src/ArenaHeader.cxx: Document.
+	* test/ArenaHeader_test.cxx: Document.
+
+2007-06-14  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/tools/AssociativeIndexingPolicies.h: (deleted) ---
+	redundant with (Map|Set)IndexingPolicy.h.
+
+	* DataModel/ArenaCachingHandle.h: Document.
+	* DataModel/ArenaCachingHandle.icc: (new)
+	* test/ArenaCachingHandle_test.cxx: Document.
+
+	* DataModel/ArenaAllocatorBase.h: Add minSize to parameters.
+	* DataModel/ArenaAllocatorBase.icc (initParams): Initialize it.
+	* DataModel/ArenaHeapAllocator.icc (initParams): Likewise.
+	* src/ArenaHeapAllocator.cxx (ArenaHeapAllocator): Check on
+	linkOffset.
+	* DataModel/ArenaHandle.icc (makeAllocator): Don't allow element
+	size to be below minSize.
+
+	* DataModel/ArenaHandle.h: Document.
+	* DataModel/ArenaHandle.icc: (new)
+	* test/ArenaHandle_test.cxx: Document.
+
+	* DataModel/ArenaHandleBaseT.h: Make free/resetTo non-const.
+	* DataModel/ArenaHandleBaseT.icc: Likewise.
+
+	* share/ArenaAllocatorCreatorInit_test.ref: (deleted)
+	* DataModel/ArenaAllocatorCreatorInit.h: (deleted)
+	* test/ArenaAllocatorCreatorInit_test.cxx: (deleted)
+	* cmt/requirements: Remove the test.
+	* test/ArenaHandleBaseAllocT_test.cxx: Adjust.
+	* test/ArenaHandleBaseT_test.cxx: Adjust.
+
+	* DataModel/ArenaHandleBaseAllocT.h (class
+	ArenaHandleBaseAllocT::Creator): Add a constructor.
+	* DataModel/ArenaHandleBaseAllocT.icc: Likewise.
+	* DataModel/ArenaHandle.h: Use it instead of
+	ArenaAllocatorCreatorInit.
+	* DataModel/ArenaCachingHandle.h: Likewise.
+
+2007-06-13  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaHandleBaseT.h: Document.
+	* DataModel/ArenaHandleBaseT.icc: (new)
+	* test/ArenaHandleBaseT_test.cxx: Document.
+
+	* DataModel/ArenaHandleBaseAllocT.h: Document.
+	* DataModel/ArenaHandleBaseAllocT.icc: (new)
+	* test/ArenaHandleBaseAllocT_test.cxx: Document.
+
+2007-06-06  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaHandleBase.h: Document.
+	* DataModel/ArenaHandleBase.icc: (new)
+	* src/ArenaHandleBase.cxx: Document
+	* test/ArenaHandleBase_test.cxx: Document.
+
+2007-06-01  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaHeapAllocator.h: Document.
+	* DataModel/ArenaHeapAllocator.icc: (new)
+	* src/ArenaHeapAllocator.cxx: Document.
+	* test/ArenaHeapAllocator_test.cxx: Document.
+
+2007-05-29  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaPoolAllocator.h: Document.
+	* DataModel/ArenaPoolAllocator.icc: (new)
+	* src/ArenaPoolAllocator.cxx: Document.
+
+2007-05-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-06.
+
+	* DataModel/tools/fast_push_back.h: Fix typos in comments.
+
+2007-05-20  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h (class ElementProxy): Avoid genreflex
+	warnings.
+	* DataModel/DataVector.icc: Likewise.
+
+2007-05-19  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h: Make all members of ElementProxy
+	transient.
+	* DataModel/DataList.h: Likewise.
+
+2007-05-16  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaBlockAllocatorBase.h: Comment.
+	* src/ArenaBlockAllocatorBase.cxx: Comment.
+	* test/ArenaBlockAllocatorBase_test.cxx: Comment.
+
+	* DataModel/ArenaBase.h: Comment.
+	* test/ArenaBase_test.cxx: Comment.
+	* DataModel/ArenaAllocatorRegistry.h: Comment.
+	* src/ArenaAllocatorRegistry.cxx: Comment.
+	* test/ArenaAllocatorRegistry_test.cxx: Comment.
+
+	* test/Arena_test.cxx: Comment.
+
+2007-05-16  Paolo Calafiura 
+
+	* Tagging DataModel-00-12-05.
+
+	* test/DataModel.xml: increased test time limit
+
+2007-05-16  David Quarrie <David.Quarrie@cern.ch>
+
+	* DataModel/DataList.icc: Remove redundant ";"
+
+2007-05-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-03.
+
+	* test/hashtable_test.cxx: Force NDEBUG off, for proper operation
+	in opt builds.
+	* test/ArenaHandleBase_test.cxx: Likewise.
+	* test/ArenaHeader_test.cxx: Likewise.
+	* test/ArenaCachingHandle_test.cxx: Likewise.
+	* test/ArenaHandle_test.cxx: Likewise.
+
+	* DataModel/ArenaAllocatorBase.h: Work around gcc 3.2.3
+	limitations.
+	* DataModel/ArenaAllocatorBase.icc: Likewise.
+	* DataModel/ArenaHeapAllocator.h: Likewise.
+	* DataModel/hashtable.h: Likewise.
+	* src/hashtable.cxx: (new) Likewise.
+
+2007-05-15  David Quarrie <David.Quarrie@cern.ch>
+	* DataModel/DataPool.icc: Add static_cast for max( ) comparison
+	* DataModel/DataVector.icc: Remove redundant ";"
+
+2007-05-14  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/Arena.h: Comment.
+	* src/Arena.cxx: Comment.
+
+2007-05-14  Paolo Calafiura  <calaf@localhost.localdomain>
+	* test/DataModel.xml: extended time limit.
+	tag DataModel-00-12-02
+                          
+2007-05-13  scott snyder  <snyder@bnl.gov>
+
+	* test/DataVector_test.cxx: Fix for removal of duplicate removal.
+	* test/DataList_test.cxx: Likewise.
+	* share/DataVector_test.ref: Updated.
+	* share/DataList_test.ref: Likewise.
+
+	* test/DataModel.xml: Increase time limit to 10 min.
+
+2007-05-11  Paolo Calafiura  <calaf@localhost.localdomain>
+	* disable remove_duplicates in DataVector and DataList
+	it can be re-enabled for debugging purposes with
+	#define DO_REMOVE_DUPLICATES
+	FIXME unit tests do not work yet
+
+2007-05-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-01.
+
+	* src/ArenaPoolAllocator.cxx (refill): Properly handle the case
+	where a block has a non-default size.
+
+2007-05-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-12-00.
+
+	* DataModel/ArenaAllocatorCreator.h: Comment.
+	* test/ArenaAllocatorCreator_test.cxx: Comment.
+
+	* Tag rearrangement.
+	Moved Paolo's test ElementLink code from the head to the branch
+	DataModel-00-11-02-paolo-branch.
+	Moved the AthenaROOTAccess test branch from
+	DataModel-00-10-10-01-branch to the mainline head.
+
+	* DataModel/ArenaBlock.h: Comment.
+	* DataModel/ArenaBlock.icc: (new)
+	* src/ArenaBlock.cxx: Comment.
+	* test/ArenaBlock_test.cxx: Comment.
+
+	* test/ArenaAllocatorBase_test.cxx: Add comment header.
+
+	* src/Arena.cxx (Arena::report): Don't print the header if there's
+	nothing to report.
+
+	* src/ArenaHeader.cxx: Need <cassert>.
+
+2007-05-03  scott snyder  <snyder@bnl.gov>
+
+	* src/ArenaHeader.cxx (report): Write a header for the default
+	allocators.
+	* test/ArenaHeader_test.cxx: Adjust.
+
+	* DataModel/Arena.h: Derive from ArenaBase.  Add name arg to ctor,
+	name(), and m_name.
+	* src/Arena.cxx: Likewise.  Register arena with the header.
+	* test/ArenaCachingHandle_test.cxx: Adjust.
+
+	* cmt/requirements: Make a dictionary.
+	* DataModel/selection.xml: (new)
+	* DataModel/DataModelDict.h: (new)
+
+	* DataModel/ArenaHeader.h: Add addArena, delArena, report.
+	reportStr.
+	* src/ArenaHeader.cxx: Likewise.
+	* test/ArenaHeader_test.cxx: Test the changes.
+
+	* DataModel/ArenaBase.h: (new)
+	* test/ArenaBase_test.cxx: (new)
+	* share/ArenaBase_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-05-02  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.icc: Turn off autoselect for VirtBases.
+
+2007-05-02  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaAllocatorBase.h: Add header() methods to
+	Stat/Stats.
+	* src/ArenaAllocatorBase.cxx (operator<<): Fix widths.
+	(ArenaAllocatorBase::Stats::header): (new)
+	* test/ArenaAllocatorBase_test.cxx: Adjust.
+	* src/Arena.cxx (Arena::report): Add header.
+	* test/Arena_test.cxx: Adjust.
+
+	* test/ArenaHandleBaseAllocT_test.cxx: Disable gaudi code.
+	* test/ArenaHandleBaseT_test.cxx: Likewise.
+	* test/ArenaCachingHandle_test.cxx: Likewise.
+	* test/ArenaHandleBase_test.cxx: Likewise.
+	* test/ArenaHandle_test.cxx: Likewise.
+	* test/ArenaHeader_test.cxx: Likewise.
+	* test/Arena_test.cxx: Likewise.
+
+	* DataModel/ArenaHeader.h (class ArenaHeader): Add reset().
+	* src/ArenaHeader.cxx (ArenaHeader::reset): (new)
+	(ArenaHeader::defaultHeader): Use GaudiClear.
+
+	* DataModel/ArenaHeaderGaudiClear.h: (new)
+	* src/ArenaHeaderGaudiClear.cxx: (new)
+
+	* DataModel/ArenaAllocatorBase.h: Document.
+	* src/ArenaAllocatorBase.cxx: Document.
+	* DataModel/ArenaAllocatorBase.icc: (new)
+
+2007-05-01  scott snyder  <snyder@bnl.gov>
+
+	* test/ArenaAllocateCreatorInit_test.cxx: (new)
+	* share/ArenaAllocateCreatorInit_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* test/ArenaHandleBaseT_test.cxx: (new)
+	* share/ArenaHandleBaseT_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* test/ArenaHandleBaseAllocT_test.cxx: (new)
+	* share/ArenaHandleBaseAllocT_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* DataModel/ArenaAllocatorCreatorInit.h: (new)
+	* DataModel/ArenaHandleBaseT.h: (new)
+	* DataModel/ArenaCachingHandle.h: Use them.
+	* DataModel/ArenaHandle.h: Likewise.
+
+2007-04-30  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaHandleBaseAllocT.h: (new)
+	* DataModel/ArenaHandleBase.h: Move ArenaHandleBaseT to
+	ArenaHandleBaseAllocT, renaming it.
+	* DataModel/ArenaHandle.h: Adjust.
+	* DataModel/ArenaCachingHandle.h: Adjust.
+
+	* DataModel/tools/IStoragePolicy.h: Comment out virtual dtor for
+	now.
+
+	* test/ArenaBlockAllocatorBase_test.cxx: (new)
+	* share/ArenaBlockAllocatorBase_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-29  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaBlockAllocatorBase.h: (new)
+	* src/ArenaBlockAllocatorBase.cxx: (new)
+	* src/ArenaPoolAllocator.cxx: Use it.
+	* DataModel/ArenaPoolAllocator.h: Likewise.
+	* DataModel/ArenaHeapAllocator.h: Likewise.
+
+2007-04-28  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h: Add stdCont(), clear that takes an
+	ownership policy.
+	* DataModel/DataVector.icc: Likewise.
+	* test/DataVector_test.cxx: Test the changes.
+
+2007-04-28  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaHeapAllocator.h: Remove custom Params struct;
+	just use the one from the base.  Change linkoffset -> linkOffset.
+	* DataModel/ArenaHandle.h: For the heap case, force link to
+	overlap structure.
+	* test/ArenaHandle_test.cxx: Test the changes.
+	* test/ArenaCachingHandle_test.cxx: Likewise.
+
+	* DataModel/ArenaAllocatorBase.h (class ArenaAllocatorBase): Move
+	link offset param here.
+	(ArenaAllocatorBase::initParams): Initialize it here.
+
+	* src/Arena.cxx (Arena::report): Fill in.
+	* test/Arena_test.cxx: Test it.
+
+	* DataModel/ArenaAllocatorBase.h (class ArenaAllocatorBase): Add
+	report.
+	* src/ArenaAllocatorBase.cxx (ArenaAllocatorBase::report): (new)
+	* test/ArenaAllocatorBase_test.cxx: Test the changes.
+
+	* DataModel/ArenaHandleBase.h: Name setting in params.
+
+2007-04-28  scott snyder  <snyder@bnl.gov>
+
+	* DataModel/ArenaHandle.h: Allow arena to be null on ctor.
+	* DataModel/ArenaCachingHandle.h: Likewise.
+
+	* DataModel/ArenaCachingHandle.h: Iterator fixes.
+	* DataModel/ArenaHandle.h: Likewise.
+	* DataModel/ArenaPoolAllocator.h: Likewise.
+	* test/ArenaPoolAllocator_test.cxx: Test the changes.
+	* test/ArenaHandle_test.cxx: Likewise.
+	* test/ArenaCachingHandle_test.cxx: Likewise.
+
+	* DataModel/DataPool.h: Use Arena code.  Now doesn't automatically
+	clear.
+	* DataModel/DataPool.icc: Likewise.
+	* test/DataPool_test.cxx: Updated.
+	* share/DataPool_test.ref: Updated.
+
+	* DataModel/ArenaHandleBase.h: makeIndex doesn't need the header.
+
+	* DataModel/ArenaHeader.h: Add defaultHeader().
+	* src/ArenaHeader.cxx (defaultHeader): (new)
+	* test/ArenaHeader_test.cxx: Test it.
+	* DataModel/Arena.h: Use default header if not specified.
+	* src/Arena.cxx: Likewise.
+	* src/ArenaHandleBase.cxx (ArenaHandleBase): Likewise.
+	* DataModel/ArenaHandle.h: Add a ctor using default header.
+	* DataModel/ArenaCachingHandle.h: Likewise.
+	* test/ArenaHandleBase_test.cxx: Test the changes.
+	* test/ArenaCachingHandle_test.cxx: Likewise.
+	* test/ArenaHandle_test.cxx: Likewise.
+
+2007-04-26  scott snyder  <snyder@fnal.gov>
+
+	* src/ArenaAllocatorBase.cxx: (new)
+
+	* DataModel/Arena.h: (new)
+	* src/Arena.cxx: (new)
+	* test/Arena_test.cxx: (new)
+	* share/Arena_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-25  scott snyder  <snyder@fnal.gov>
+
+	* DataModel/ArenaAllocatorRegistry.h: (new)
+	* src/ArenaAllocatorRegistry.cxx: (new)
+	* test/ArenaAllocatorRegistry_test.cxx: (new)
+	* share/ArenaAllocatorRegistry_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* DataModel/ArenaAllocatorCreator.h: (new)
+	* test/ArenaAllocatorCreator_test.cxx: (new)
+	* share/ArenaAllocatorCreator_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-24  scott snyder  <snyder@fnal.gov>
+
+	* DataModel/ArenaHandle.h: (new)
+	* test/ArenaHandle_test.cxx: (new)
+	* share/ArenaHandle_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-23  scott snyder  <snyder@fnal.gov>
+
+	* DataModel/ArenaCachingHandle.h: (new)
+	* test/ArenaCachingHandle_test.cxx: (new)
+	* share/ArenaCachingHandle_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* DataModel/ArenaHeader.h: (new)
+	* src/ArenaHeader.cxx: (new)
+	* test/ArenaHeader_test.cxx: (new)
+	* share/ArenaHeader_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-22  scott snyder  <snyder@fnal.gov>
+
+	* DataModel/ArenaHandleBase.h: (new)
+	* src/ArenaHandleBase.cxx: (new)
+	* test/ArenaHandleBase_test.cxx: (new)
+	* share/ArenaHandleBase_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-20  scott snyder  <snyder@fnal.gov>
+
+	* DataModel/ArenaHeapAllocator.h: (new)
+	* src/ArenaHeapAllocator.cxx: (new)
+	* test/ArenaHeapAllocator_test.cxx: (new)
+	* share/ArenaHeapAllocator_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* DataModel/ArenaPoolAllocator.h: (new)
+	* src/ArenaPoolAllocator.cxx: (new)
+	* test/ArenaPoolAllocator_test.cxx: (new)
+	* share/ArenaPoolAllocator_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-19  scott snyder  <snyder@fnal.gov>
+
+	* DataModel/ArenaBlock.h: (new)
+	* src/ArenaBlock.cxx: (new)
+	* test/ArenaBlock_test.cxx: (new)
+	* share/ArenaBlock_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* DataModel/ArenaAllocatorBase.h: (new)
+	* test/ArenaAllocatorBase_test.cxx: (new)
+	* share/ArenaAllocatorBase_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-10-10-01-03.
+
+	* Add TR1 hashtable classes.
+ 	* DataModel/hashtable.h: (new)
+	* DataModel/unordered_set.h: (new)
+	* DataModel/unordered_map.h: (new)
+	* test/hashtable_test.cxx: (new)
+	* share/hashtable_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2007-04-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-10-10-01-02.
+
+	* DataModel/DataPool.icc: Don't even try to find the incident svc
+	for now.
+
+	* DataModel/tools/SGgetDataSource.h: Add a hook to allow changing
+	the definition of the default data source.
+	* src/SGgetDataSource.cxx: Likewise.
+
+2007-03-24  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging DataModel-00-10-10-01-01
+
+	* Branching off DataModel-00-10-10-01-branch for tests with direct
+	I/O from ROOT. This should be a dead end branch. Just for testing.
+
+	* DataModel/DataPool.icc: commented out throw when IncidentSvc
+	cannot be found. Used for tests with direct I/O from ROOT
+
+2007-03-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging DataModel-00-10-10-01
+	* DataModel/ElementLink.icc (setStorableObject): added missing setData,
+	tested by Walter
+
+2007-03-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-10-10.
+
+	* DataModel/ElementLink.icc (setStorableObject): Fix bug in
+	previous change.
+
+2007-03-04  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging DataModel-00-10-09
+	* DataModel/tools/IdentContIndexingPolicy.h: removed test of
+	ForwardContainerConcept
+
+2007-03-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-10-08
+	* share/AssociationMap_test.ref: Updated.
+	* share/DataPool_test.ref: Updated.
+
+2007-03-03  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging DataModel-00-10-07
+
+	* DataModel/tools/IdentContIndex.h (class IdentContIndex): adding
+	helper class for compound index
+	* DataModel/tools/IdentContIndexingPolicy.h: adding new indexing
+	policy for identifiable container
+
+	* Tagging DataModel-00-10-06
+
+	* DataModel/ElementLink.h: added replace option to
+	setStorableObject, resetting the EL with new container ptr
+
+2007-03-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* Tagging DataModel-00-10-05
+
+	* DataModel/DataVector.icc: make remove_duplicates print an ERROR message all the times
+	* DataModel/DataList.icc: 
+	* src/DataVector.cxx (warn): 
+	* src/DataList.cxx (warn): 
+
+2007-02-19  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-10-04.
+
+	* DataModel/tools/findInContainer.h (findInContainer): Fix
+	compilation warning.
+
+2007-02-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-10-03.
+
+	* DataModel/PackedArray.h: (new)
+	* src/PackedArray.cxx: (new)
+	* test/PackedArray_test.cxx: (new)
+	* share/PackedArray_test.ref: (new)
+	* cmt/requirements: Add PackedArray test.
+
+2007-02-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-10-02.
+
+	* DataModel/tools/findInContainer.h: (new)
+	* DataModel/tools/ForwardIndexingPolicy.h: Use it.
+
+2007-02-09  Ilija Vukotic <ivukotic@cern.ch>
+	* Tagging DataModel-00-10-01.
+	* DataPool changed
+	* DataPool_test changed accordingly
+
+2007-01-31  scott snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-10-00.
+
+	* test/DataVector_test.cxx: Update for the changes.
+	* test/DataList_test.cxx: Likewise.
+	* share/DataVector_test.ref: Likewise.
+	* share/DataList_test.ref: Likewise.
+
+	* cmt/requirements: Remove gcc 3.4 crc.h bug workaround.
+
+	* DataModel/DataVector.h: Remove automatic CLID assignment,
+	dictionary generation.
+	* DataModel/DataVector.icc: Likewise.
+	* DataModel/DataList.h: Likewise.
+	* DataModel/DataList.icc: Likewise.
+	* src/DataVector.cxx: Likewise.
+	* src/DataList.cxx: Likewise.
+
+2007-01-26  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* Tagging DataModel-00-09-15
+	* DataModel/tools/DataProxyStorage.h (class DataProxyStorage): 
+	replace the comments below with an ifdef (also avoiding to include 
+	boost/thread/tss.hpp
+	
+
+2007-01-26  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging DataModel-00-09-14
+	* DataModel/tools/DataProxyStorage.h (class DataProxyStorage):
+	commented out the multithreaded version of defaultDataSource
+
+2007-01-24  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging DataModel-00-09-13
+
+	* DataModel/ElementLink.h (class ElementLink): added resetWithKeyAndIndex for 
+	efficient reset when reading back persistent ELs.
+	* DataModel/tools/DataProxyStorage.h (class DataProxyStorage): added resetWithKey 
+	for efficient reset when reading back persistent ELs.
+
+2007-01-11  Scott Snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-09-12.
+
+	* src/DataVector.cxx (register_dv_clid): Remember any classes we
+	deferred because of clidsvc not existing yet.
+	* src/DataList.cxx: Likewise.
+
+	* Tagging DataModel-00-09-11.
+
+	* src/DataList.cxx (register_dl_clid): Don't create clidsvc if it
+	doesn't already exist.
+	* src/DataVector.cxx (register_dv_clid): Likewise.
+
+2007-01-05  Scott Snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-09-10.
+
+	* share/Associations_test.txt: Don't read IOVSvc --- the config
+	file is empty now.
+	* share/AssociationMap_test.ref: Updated.
+
+	* src/DataVector.cxx (register_dv_clid): Add a couple more preload
+	exceptions.
+
+	* DataModel/ElementLink.h: Add a specialization for std::pair for
+	the case where the first element is an ElementLink.  This allows
+	avoiding creating an ElementLink temporary in some cases.
+
+	* DataModel/tools/fast_push_back.h: (new)
+	* test/fast_push_back_test.cxx: (new)
+	* test/fast_push_back1_test.cxx: (new)
+	* share/fast_push_back_test.ref: (new)
+	* share/fast_push_back1_test.ref: (new)
+	* cmt/requirements: Add them.
+
+	* test/DataPtr_test.cxx: Avoid compilation warning in opt mode.
+	* test/DataPool_test.cxx: Avoid test failure in opt mode.
+
+	* src/DefaultState.cxx (toAccessible): Fix compiler warning.
+	(toIdentified): Likewise.
+	(toPersistable): Likewise.
+
+2007-01-03 David Quarrie <David.Quarrie@cern.ch>
+
+	* Changes for Gaudi v19
+
+2006-12-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/tools/DataProxyStorage.h: init p_state in constructors
+	* tag DataModel-00-09-08
+
+2006-12-04  Peter van Gemmeren  <gemmeren@anl.gov>
+	* DataModel/tools/SGELVRef.icc: Have toTransient() create ElemLink's using
+	iHost->dataID(), rather than **iHost to avoid retrieving the containers of
+	the pointed-to objects. Thanks R.D. and Davide.
+	* tag DataModel-00-09-07
+
+2006-12-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/tools/IStoragePolicy.h (ID()): return a const string& rather than
+	a string 
+	* DataModel/tools/DataProxyStorage.h (ID()): return a const string& rather than
+	a string 
+	* tag DataModel-00-09-06
+
+2006-10-23  Peter van Gemmeren  <gemmeren@anl.gov>
+	* DataModel/ElementLink.icc: Have toTransient()
+	call changeState_identified() to speed up reading of ElementLinks.
+	* tag DataModel-00-09-05
+
+2006-10-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging DataModel-00-09-04
+	* test/DataModel.xml: added myself to the list of very privileged
+	  people to receive email-warnings.
+	* tagged the reference and (txt)jobOs files which have been dropped
+	  in latest tag.
+
+2006-09-29  Peter van Gemmeren  <gemmeren@anl.gov>
+	* DataModel/ElementLink.icc: Fix error message for copying ElementLink.
+	* tag DataModel-00-09-03
+
+2006-09-08  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataLink.h: fix compilation error :-/
+	* tag DataModel-00-09-02
+
+2006-09-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* fixing bug 19661: there was an ambiguity in DefaultState 
+	semantics that was used both for a "NULL pointer" link and for a
+	link to a default object. Introduced DefaultKeyState to disambiguate.
+	Needs more thought!
+	* tag DataModel-00-09-00
+
+2006-08-24  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-08-41.
+	
+	* share/DataVector_test.ref: Update for CLID changes.
+	* share/DataList_test.ref: Likewise.
+
+	* DataModel/DataVector.icc (class operator_arrow_result): Fix
+	compilation warning.
+
+2006-07-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/AssociationMap_test.cxx: resolve CLID conflicts
+	* test/DataList_test.cxx: resolve CLID conflicts
+	* test/DataVector_test.cxx: resolve CLID conflicts
+	* tag DataModel-00-08-40
+
+2006-06-30 S. Rajagopalan <srinir@bnl.gov>
+	* Fix bug introduced yesterday...
+	* introduce toAccessibleState() method in StoragePolicy and check
+	  on it before attempting to do lookup() in cptr()
+	* Introduce dummy method in PlainPtrStorage
+	* tag DataModel-00-08-39
+
+2006-06-29  Sebastien Binet  <binet@lblbox>
+	* tagging DataModel-00-08-38
+	* updated AssociationMap to sync with ElementLink changes
+	* some enhancements for good measure
+	* M DataModel/AssociationMap.h
+	* M DataModel/AssociationMap.icc
+	* M DataModel/tools/AssociationObjectIterator.h
+	* M share/AssociationMap_test.ref
+	* M test/AssociationMap_test.cxx
+	* TODO: code-cleanup in AssociationMap (DataMap+GaudiUtils::VectorMap ?)
+
+2006-06-29 S. Rajagopalan <srinir@bnl.gov>
+	* Add dummy toPersistentState() in PlainPtrStorage.
+	* Fix isValid() bug in ElementLink, should call StoragePolicy::clear()
+	* tag DataModel-00-08-37
+
+2006-06-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging DataModel-00-08-36
+	* test/DataVector_test.cxx: re-enabled DATAVECTOR_xyz macros
+	* test/DataList_test.cxx:   re-enabled DATALIST_xyz   macros
+
+2006-06-29 S. Rajagopalan <srinir@bnl.gov>
+	* But Fix in ElementLink::cptr() Move to persistent state to check if
+	  proxy is available from proxy providers. Otherwise does not work
+	  with backNavigation=False.
+	* make DataProxyStorage::toPersistentState() const 
+	* DataProxyStoragge::toPersistentState() always returned true. 
+	  Change to return true only if proxy is there.
+	* tag DataModel-00-08-35
+
+2006-04-18  Sebastien Binet  <binet@lblbox>
+	* tagging DataModel-00-08-34
+	* test/DataVector_test.cxx: removed all DATAVECTOR_xyz macros
+	* test/DataList_test.cxx: removed all DATALIST_xyz macros
+	
+
+2006-04-03  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-08-33.
+
+	* DataModel/DataVector.h: Change const_iterator for derived DV to
+	not use boost::transform_iterator.  Using transform_iterator gives
+	our iterator one of the new-style boost iterator categories, which
+	doesn't interact well with other parts of STL.  Instead, do the
+	same thing we did for iterator.
+	* DataModel/DataVector.icc: Likewise.
+	* DataModel/DataList.h: Likewise.
+	* DataModel/DataList.icc: Likewise.
+	* test/DataVector_test.cxx: Test use of concept checks.
+	* test/DataList_test.cxx: Likewise.
+
+2006-03-27  Scott Snyder  <snyder@bnl.gov>
+
+	* DataModel/ElementLinkVector.h (class ElementLinkVector):
+	Short2LongRef needs to be public for gcc 3.4.
+	* DataModel/DataVector.h: Add note to documentation about header
+	dependencies.
+	* DataModel/DataList.h: Likewise.
+
+2006-03-16  BINET Sebastien  <binet@atlas1.lbl.gov>
+
+	* tagging DataModel-00-08-31
+	* DataModel/tools/SGELVRef.icc: Changes for gcc 3.4 compatibility.
+
+2006-03-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/DataModel.xml: fixed
+	* test/DataModel.sh: removed
+	* tag DataModel-00-08-30
+
+2006-03-13  scott s snyder  <snyder@bnl.gov>
+
+	* cmt/requirements: AtlasReflex -> AtlasSEAL again to satisfy
+	checkreq.
+	* Tag DataModel-00-08-28.
+
+2006-03-12  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/ElementLink.h (class ElementLink): Reverse argument
+	order to avoid ambiguities.
+	* Tag DataModel-00-08-27.
+
+2006-03-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/DataModel.xml: replaces DataModel.sh
+	* tag DataModel-00-08-26
+
+2006-03-07  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/ElementLink.h (class ElementLink): Add a constructor
+	taking a pointer to the storable plus a given element.
+	* share/DataPool_test.ref (DirSearchPath): Updated.
+	* tag DataModel-00-08-25.
+
+	* DataModel/tools/DataProxyStorage.h (defaultDataSource):
+	Cache the result of this in a thread-local variable, rather than
+	recomputing it each time.
+	(changeState_default): (new)
+	(changeState_proxy): (new)
+	(changeState_identified): (new)
+	(changeState_accessible): (new)
+	(constructors, clear()): Use the above, and avoid redundant
+	initializations.
+	* cmt/requirements: DataModel DSO should now link with the boost
+	threads library.
+       	* tag DataModel-00-08-24.
+
+2006-03-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/tools/DataProxyStorage.h (dataGet): always set p_SG
+	* tag DataModel-00-08-23
+
+2006-03-04  Paolo Calafiura  <calaf@lxplus069.cern.ch>
+	* DataModel/tools/DataProxyStorage.h: defer setting p_sg till needed
+	* tag DataModel-00-08-22
+
+2006-03-03  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-08-21.
+
+	* src/DataList.cxx (find_dl_clid): Make DataList CLID's distinct
+
+
+	from DataVector.
+	* share/DataList_test.ref: Adjust for the changes.
+
+2006-03-03  Scott Snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-08-20.
+
+	* DataModel/DataList.icc: Changes for gcc 3.4 compatibility.
+	* src/AccessibleState.cxx: Likewise.
+	* DataModel/DataVector.icc: Likewise.
+	* DataModel/ElementLink.icc: Likewise.
+	* test/ClassName_test.cxx: Likewise.
+	* cmt/requirements: Likewise.
+
+2006-02-27 S. Rajagopalan <srinir@bnl.gov>
+	* do not delete m_element in ElementLink as it has no ownership
+	* simply set = 0
+	* tag DataModel-00-08-19
+	
+2006-02-23  Sebastien Binet  <binet@lxplus070.cern.ch>
+
+	* tagging DataModel-00-08-18
+	* arghh ! forgot to save ChangeLog !
+
+	* tagging DataModel-00-08-17
+	* DataModel/DataList.{h,icc} brought DataList up to speed with
+	  DataVector new architecture (for inheritance)
+	* src/DataList.cxx (new) machinery for DataList inheritance
+	* test/DataList_test.cxx (new) tests for this inheritance feature(s)
+	* share/DataList_test.log took into account these new tests
+
+2006-02-23  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h (class DataVector): Remove `explicit'
+	from copy ctor.
+	* test/DataVector_test.cxx: Test the changes.
+
+2006-02-03  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h (class iterator): Make do_cast()
+	static.
+	(sort): Declare specializations in DataVector_detail.
+	(iter_swap): Declare specializations in DataVector_detail.
+	* DataModel/DataVector.icc (iterator): Add DataVector typedef.
+	(ownership_policy, can_insert): (new)
+	(struct Compwrapper): (new)
+	(DataVector): Use Compwrapper.
+	(sort): Define specializations in DataVector_detail.
+	(iter_swap): Define specializations in DataVector_detail.
+	* test/DataVector_test.cxx: Test new sort specializations.
+
+2006-02-01  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h: Declare reverse_iterator.
+	(class DataVector): Use reverse_iterator from DataVector_detail.
+	* DataModel/DataVector.icc (reverse_iterator): (new) We'll want a
+	reverse_iterator in the DataVector_detail namespace.
+	(iterator::ownership_policy): (new)
+
+2006-01-29  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging DataModel-00-08-16
+	* cmt/requirements: moved use of AtlasReflex to public for
+	includes.
+
+2006-01-28  Scott Snyder  <snyder@bnl.gov>
+
+	* Tagging DataModel-00-08-15.
+
+	* DataModel/DataVector.h: seal::reflex::selection ->
+	ROOT::Reflex::Selection.
+	* DataModel/DataVector.icc: Likewise.
+	* cmt/requirements: AtlasSEAL -> AtlasReflex.
+
+	* Merged from -inherit-br to mainline.
+
+2005-12-19  Scott Snyder  <snyder@bnl.gov>
+
+	* src/DataVector.cxx (register_dv_clid): Hack around global ctor
+	ordering problem that comes up if we get loaded during preload.
+	* test/DataVector_test.cxx (test2): Fix package name comparison.
+
+2005-12-16  Scott Snyder  <snyder@bnl.gov>
+
+	* test/DataVector_test.cxx: Adjust to work with optimization on, too.
+
+	* DataModel/DataVector.h: Change from reflextion to reflex.
+	* DataModel/DataVector.icc: Likewise.
+	Replace assert with DATAVECTOR_ASSERT.
+
+2005-11-29  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.icc (class operator_arrow_result): Add a hack to
+	allow operator-> of the iterator to compile.  (It makes no sense
+	to use this, but dictionary generation may instantiate it.)
+
+2005-11-21  Scott Snyder  <snyder@bnl.gov>
+
+	* cmt/requirements: Set up to use the official seal release.
+	* DataModel/DataVector.h: Likewise.
+
+2005-11-19  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.icc: Set up automatic dict generation for VirtBases.
+
+2005-11-18  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.h: Ensure that the DataVector CLID gets registered
+	with the CLID service.
+	* DataVector.cxx (register_dv_clid): (new)
+	* DataVector.icc (ClassID_traits): Reference m_init_dummy here to
+	be sure the registration call gets instantiated.
+	(constructors): Call ClassID_traits<>::ID for the same reason.
+
+2005-11-10  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.h (DATAVECTOR_BASE, DATAVECTOR_VIRTBASES1,
+	DATAVECTOR_VIRTBASES2, DATAVECTOR_VIRTBASES3): Make SG_BASES decls
+	for DataVector classes.
+	* DataVector_test.cxx: Test the changes.
+
+2005-11-07  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h (struct ClassID_traits): Define
+	has_classID_tag.
+
+2005-11-03  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector_test.cxx: Test the traits changes.
+	* share/DataVector_test.ref: Likewise.
+
+2005-11-02  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h (struct ClassID_traits): Add
+	specialization for DataVector, so that every DataVector will have
+	a class ID.
+	* DataVector.icc: Likewise.
+	* DataVector.cxx (find_dv_clid): (new)
+	(find_dv_packageinfo): (new)
+
+2005-10-27  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.h (class DataVector): Remove sort_values().  We can't
+	have a dictionary stub being generated by this if T isn't
+	comparable.  We can keep sort(), though.
+	* DataVector.icc: Likewise.
+	* DataVector_test.cxx: Likewise.
+
+2005-10-05  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.h: Add sort methods.
+	* DataVector.icc: Likewise.
+	* DataVector_test.cxx: Test them.
+
+2005-09-30  scott s snyder  <snyder@bnl.gov>
+
+	* Merged DataModel-00-08-13 to the branch.
+
+2005-07-11  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h: Add ClassName specializations for
+	DataVector.
+	* DataModel/DataVector.icc (ClassName): (new)
+	* test/DataVector_test.cxx: Test ClassName specialization.
+
+2005-06-21  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.icc (iterator_adaptor): Fix const_iterator
+	conversions.
+
+2005-06-10  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.icc: Add overloads to allow iterator-const_iterator
+	and const_iterator-iterator to work.
+	* DataVector_test.cxx: Test taking the difference between
+	iterators and const_iterators.
+
+2005-06-06  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.icc (iterator): Use std::random_access_iterator_tag
+	as the category in the iterator_adapter, rather than using the
+	boost default.
+	* DataVector_test.cxx: Make sure that sort() will compile.
+
+2005-06-03  scott s snyder  <snyder@bnl.gov>
+
+	* DataVector.icc (class CompareAndPrint): Fix pointer type for
+	warn().
+	* DataVector.cxx (warn): Likewise.
+
+	* DataModel/DataVector.icc: Add comparison operators between
+	iterator and const_iterator.
+	* DataModel/DataVector.h (class DataVector): Add experimental
+	lcg_autoselect typedefs.
+
+2005-06-02  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.icc (class CompareAndPrint): Move the warn
+	definition to the cxx file.
+	* src/DataVector.cxx: (new)
+
+2005-05-31  scott s snyder  <snyder@bnl.gov>
+
+	* DataModel/DataVector.h: Rewrite to allow for inheritance.
+	* DataModel/DataVector.icc: (new)
+	* test/DataVector_test.cxx: Test the changes.
+	* share/DataVector_test.ref: Updated.
+
+	* Branched at DataModel-00-08-07.
+
+2005-10-06  scott s snyder  <snyder@bnl.gov>
+
+	* tagging DataModel-00-08-14.
+	* DataModel/DataVector.h (class DataVector): Add sort() method, in
+        order to help with migration to new DataVector.
+
+2005-08-03  Emil Obreshkov  <Emil.Obreshkov@cern.ch>
+
+	* tagging DataModel-00-08-13
+	* DataModel/ElementLink.h - bug fix for gcc344
+
+
+2005-07-31  BINET Sebastien  <binet@clratlas06.in2p3.fr>
+
+	* tagging DataModel-00-08-12
+	* DataModel/AssociationMap.{h,icc} : new getAssociations method
+	* test/AssociationMap_test.cxx: more tests
+	* share/AssociationMap_test.ref: updated reference file
+
+	* tagging DataModel-00-08-11
+	* DataModel/AssociationMap.h : fixes
+	* DataModel/AssociationMap.icc : fixes
+	* DataModel/tools/AssociationVectorIterator.h : fixes
+	* share/Associations_test.txt: (new) jobO for associations tests
+	* share/AssociationMap_test.ref: (new) reference file
+
+2005-07-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/tools/AssociationHelpers.h: fixes from Mattias
+        * DataModel/AssociationLinkCollection.icc: various typos (Mattias) 
+	* tag DataModel-00-08-10
+
+2005-02-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/ElementLinkVector.h: Mattias fixes for gcc 3.4.3
+	* tag DataModel-00-08-09
+
+2005-07-21  scott s snyder  <snyder@bnl.gov>
+
+	* Tagged DataModel-00-08-08.
+
+	* share/DataPool_test.ref: Update expected output.
+
+	* Provide a traits-like interface for getting the name of a class
+	as a string.
+	* DataModel/ClassName.h: (new)
+	* DataModel/ClassName.icc: (new)
+	* test/ClassName_test.cxx: (new)
+	* share/ClassName_test.ref: (new)
+	* cmt/requirements: Add ClassName test.
+
+2005-06-02  scott s snyder  <snyder@bnl.gov>
+
+	* test/DataList_test.cxx: Fix double-deletion.
+
+2005-02-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h: fix (dv[0])-> arrow problem
+	* tag DataModel-00-08-07
+
+2004-11-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h: new method swapElement 
+	* test/DataVector_test.cxx: test swapElement
+	* tag DataModel-00-08-06
+	
+2004-11-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/DataModel.sh: moved from TestTools
+	* share/*.ref: updated
+	* tag DataModel-00-08-05
+
+2004-10-09 P. van Gemmeren  <gemmeren@bnl.gov>
+	* test/DataVector_test.cxx:  use boost 1.31 iterators 
+	* DataModel/ElementLinkVector.h: use boost 1.31 iterators 
+	* tag DataModel-00-08-04
+
+2004-10-06 P. van Gemmeren  <gemmeren@bnl.gov>
+	* fixed some more bugs in ElementLinkVector
+	* see Savannah bug report #5078
+	* needed for migration to SEAL_1_5_0/POOL_2_0_0
+	* tag DataModel-00-08-03
+
+2004-08-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/DataVector_test.cxx:   revert to
+	use boost 1.30 iterator adaptors
+	* DataModel/ElementLinkVector.h: revert to
+	use boost 1.30 iterator adaptors
+	* tag DataModel-00-08-02
+
+2004-08-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * class ElementLink: added comparison ops, isDefault method
+	* DataModel/tools/DataProxyStorage.h (class DataProxyStorage): 
+	added isDefault method. Made storable() public
+	* DataModel/tools/PlainPtrStorage.h: added isDefault & storable methods
+	* test/DataLink_test.cxx: test EL comparison ops
+	* tag DataModel-00-08-01
+ 
+2004-08-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/DataVector_test.cxx:  use boost 1.31 iterators 
+	* DataModel/ElementLinkVector.h: use boost 1.31 iterators 
+	* tag DataModel-00-08-00
+
+2004-08-19  Paolo Calafiura  <calaf@lxplus061.cern.ch>
+	* DataModel/ElementLink.icc (toPersistent): fix logic (thanks Peter!)
+	Things are too messy now. We are going to need states!
+	* DataModel/tools/DataProxyStorage.h: need IProxyDict.h
+	* tag DataModel-00-07-01
+	
+2004-08-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * class ElementLink: new behavior of default-constructed EL: now
+	it can be written out as long as it is not modified. toPersistent
+	does not throw anymore.
+	
+	* cmt/requirements: AtlasSEAL needed to run tests
+	* tag DataModel-00-07-00
+
+2004-08-04  David Quarrie  <David.Quarrie@cern.ch>
+	* cmt/requirements: Change dependency on Boost to one on
+	AtlasBoost to avoid a name clash
+	* tag DataModel-00-06-08
+	
+2004-07-15 P. van Gemmeren
+	* fixed some more bugs in ElementLinkVector
+	* tag DataModel-00-06-07
+
+2004-07-14 S. Rajagopalan for P. van Gemmeren
+	* Found all of Srini's bugs in ElementLinkVector toPersistent 
+	* and toTransient
+	* tag DataModel-00-06-05
+
+2004-07-10  Paolo Calafiura  <calaf@lxplus054.cern.ch>
+	* DataModel/tools/ForwardIndexingPolicy.h: use test_tools::Copy 
+	to define ElementType as a const T* for pointers
+	* DataModel/tools/MapIndexingPolicy.h: use test_tools::Copy 
+	* tag DataModel-00-06-04
+
+2004-07-02 S. Rajagopalan <srinir@bnl.gov>
+	* DataModel-00-06-02 messed up!
+	* ElementLink check on StoragePolicy::isValid() does not work
+	- introduced StoragePolicy::isPersistable that ensures that is
+	- is in a persistable (non-Default) state.
+	* tag DataModel-00-06-03
+	
+2004-07-02 S. Rajagopalan <srinir@bnl.gov>
+	* new ELementLink::setElement() method, allows caching pointer
+	- without Collection (which can be done later using setStorable())
+	* return bool (not void) in toIndexedElement, toContainedElement
+	- and setStorableObject()
+	* Check in ElementLink: Cannot set ElementLink to a state if that
+	- state has already been set. otherwise return false.
+	* Add ElementLink::reset() method that sets it to invalid state
+	* Add reset method in IndexingPolicies
+	* Clean up typedef's in SetIndexingPolicy
+	* tag DataModel-00-06-02
+	
+2004-06-29  Paolo Calafiura  <pcalafiura@lbl.gov> for Srini
+	* DataModel/ElementLink.h: remove superfluous typedefs
+	* DataModel/tools/ForwardIndexingPolicy.h: remove superfluous typedefs
+	* DataModel/tools/MapIndexingPolicy.h: remove superfluous typedefs
+	* DataModel/tools/SGELVRef.h: remove superfluous typedefs
+	* tag DataModel-00-06-01
+
+2004-06-29  Paolo Calafiura  <pcalafiura@lbl.gov> for Srini
+	* DataModel/ElementLink.{h,icc}: hold m_element by VALUE. This
+	allows to create an ElementLink starting from a temporary. Of
+	course it requires to perform a deep copy to cache the element.
+	Will see if we can afford this (not an issue for DataVector).
+	* DataModel/tools/MapIndexingPolicy.h: add ElementType typedef
+	* DataModel/tools/ForwardIndexingPolicy.h: add ElementType typedef
+	* tag DataModel-00-06-00
+
+2004-06-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * SG::ElvRef:  holds ElementLink by value, remove shortRef accessor,
+        fix dataID accessor 
+	* DataModel/ElementLinkVector.h: "remove elementShortRef accessor
+	* DataModel/tools/DataProxyStorage.h: make valgrind happy
+	* tag DataModel-00-05-02
+
+2004-06-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* updated ref outputs
+	* tag DataModel-00-05-01
+
+2004-06-24 S. Rajagopalan <srinir@bnl.gov>
+        * ElementLink, DataLink, ElementLinkVector changed for IOHandler
+	* element cached in toContainedElement : index calculated only
+	* during persistency.
+	* toTransient() method called by IOHandler to readback
+	* toPersistent() method called by IOHandler during write out
+	* IndexingPolicy modified extensively to support element caching
+	* clean-up typedef's (ElementParameter simplified)
+	* test classes modified to support new functionalities
+	* SGElvRef (short_ref) caches ElementLink pointer instead of pointer
+	* IndexingPolicy holds a transient only m_valid data member
+	* in this tag, ElementLink into vector<Foo> will not work unless
+	  Foo supplies an == operator.
+	* tag DataModel-00-05-00
+
+	
+2004-06-08  Peter Loch <loch@physics.arizona.edu>
+	* AssociationBase[.h,.cxx]: base class for Associations added
+	* AssociationBaseCollection[.h,.cxx]: base class for Association 
+	collections added
+	* DataModel/AssociationLink[.h,.icc]: added templated association class
+	for 1-to-1 stores
+	* DataModel/AssociationLinkCollection[.h,.icc]: added templated 
+	container class for AssociationLinks
+	* DataModel/AssociationVector[.h,.icc]: added templated Association
+	class for 1-to-many look-ups
+	* DataModel/AssociationVectorCollection[.h,.icc]: added templated
+	container class for AssociationVector
+	* DataModel/AssociationMap[.h,.icc]: added templated association class
+	for many-to-many stores
+	* DataModel/tools/AssociationVectorIterator.h: added iterator for
+	Association 1-to-many objects
+	* DataModel/tools/AssociationObjectIterator.h: added iterator for
+	Association many-to-many objects
+	* test/AssociationLink_test.cxx: added unit test for AssociationLink 
+	incomplete, only compilation test!
+	* test/AssociationVector_test.cxx: added unit test for 
+	AssociationVector, incomplete, only compilation test!
+	* test/AssociationMap_test.cxx: added unit test for AssociationMap,
+	incomplete, only compilation test!
+	
+2004-05-18  Markus Elsing
+	* DataModel/DataVector.h (class DataVector): fix rbegin, rend
+	returned iterator type (bug #3410)
+	* tag DataModel-00-04-01
+
+2004-05-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h: removed #ifndef __ATLAS_SEAL_DICT__ around
+	m_ownPolicy enum. Not needed anymore and was causing huge
+        leaks when reading back! Unfortunately data written until now will
+        still cause a leak.  (ADDED 5/18: this was not the cause of leaks)
+	* tag DataModel-00-04-00
+
+2004-05-12  Hong Ma <hma@bnl.gov>
+	* DataModel/tools/DataProxyStorage.h (class DataProxyStorage): quick
+	fix to make Pool automatic converters work. FIXME Performance!
+	* tag DataModel-00-03-05
+
+2004-05-03  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/tools/DataProxyStorage.h (class DataProxyStorage): make 
+	Fedora/gccxml happy (savannah bug #3241)
+	* tag DataModel-00-03-04
+
+2004-04-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/tools/PlainPtrStorage.h: fix includes
+
+	* DataModel/DataLink.icc:      use athena::getMessageSvc
+	* DataModel/ElementLink.icc: 
+	* DataModel/tools/AssociativeIndexingPolicy.h
+	* DataModel/tools/DataProxyStorage.h
+	* DataModel/tools/ForwardIndexingPolicy.h
+	* DataModel/tools/SGELVRef.icc
+
+	* updated a couple of ref outputs
+	* tag DataModel-00-03-03
+
+2004-04-01  Peter Loch <loch@physics.arizona.edu>
+	* DataModel/DataVector.h : add type base_value_type for navigation
+	* DataModel/DataList.h   : add type base_value_type for navigation
+	* DataModel/ElementLink.h: access methods to retrieve storable object
+	pointer and reference
+
+2004-03-15  scott s snyder  <snyder@bnl.gov>
+	* DataModel/DataVector.h (DataVector): Fix types of
+	const_reference, const_pointer.
+
+2004-02-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * ElementLinkVector: changes for POOL
+	* DataModel/tools/SGELVRef.h: extracted ElementLinkVector::ElemLinkRef
+	* DataModel/DataLink.h: add default constructor (POOL) 
+	* DataModel/ElementLink.h: add default constructor (POOL) 
+	* DataModel/tools/DataProxyStorage.h: public default constructor
+	* tag DataModel-00-03-00
+
+2004-02-20  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* DataModel/tools/AssociativeIndexingPolicies.h: fixed a couple of
+	"const" tdefs
+	* DataModel/tools/ForwardIndexingPolicy.h: fixed a couple of "const" 
+	tdefs
+
+	* DataModel/ElementLinkVector.[h,icc]: a new version that will 
+	hopefully work with AthenaPOOL (still testing) 
+	* tag DataModel-00-02-03
+
+2004-02-09  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/SGgetDataSource.cxx (getDataSource): add MT support from Werner.
+	Extract to stand-alone function
+
+2004-01-23  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* moved SGFolder to SGTools to fix pkg dependencies
+	* tag DataModel-00-02-00
+
+2004-01-22  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* DataModel/SGFolder.h: new class FolderItem, going towards a composite
+	* tag DataModel-00-01-24
+
+2004-01-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h: pop_back deletes pointed element before
+	popping it 
+	* test/DataVector_test.cxx: add test for pop_back
+	* tag DataModel-00-01-23
+
+2003-12-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* new class SG::Folder allows to logically group related data objects.
+	At this time it works at the level of CLID/key. It may evolve to
+	provide access to the data objects themselves and or their proxies.
+	Perspective users include out streams, pile-up and perhaps calibration.
+	SGFolder_test illustrates initial functionality.
+	
+2003-12-03  Paolo Calafiura  <calaf@lxplus007.cern.ch>
+	* cmt/requirements: can not have run time use statement for SG
+	* tag DataModel-00-01-22
+w
+2003-12-02  Paolo Calafiura  <calaf@lxplus007.cern.ch>
+	* DataModel/ElementLinkVector.icc: removed spurious include
+	* cmt/requirements: clean up according to checkreq
+	* tag DataModel-00-01-21
+
+2003-11-14 S. Rajagopalan <srinir@bnl.gov>
+	* fix erase method in DataVector and DataList
+	* tag DataModel-00-01-20
+	
+2003-10-16 S. Rajagopalan <srinir@bnl.gov>
+	* fix const-ness in ElementLinkVector
+	
+2003-10-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.hR: fixed a couple of typedefs (the usual
+	"ignored const" problem). 
+	* test/DataVector_test.cxx: deal with changes above. Also confirm
+        what reported in bug #1640
+	* tag DataModel-00-01-18
+
+2003-08-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h (class DataVector): introduced a few 
+	non-standard changes that allow to deal with pointer to abstract 
+	or otherwise non-copyable classes. Hopefully will find a way to undo
+	them.
+	* test/DataVector_test.cxx: deal with changes above
+	* tag DataModel-00-01-17
+	
+2003-08-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h: new internal class ElementProxy to handle
+	different memory management for returned lvalues and rvalues refs.
+	Similar work probably needed for iterator accessors. 
+	* DataList now seriously outdated
+	* DataModel/DataPool.icc: fixed resizePool printout
+	* test/DataVector_test.cxx: extended tests and improved printouts
+	* tag DataModel-00-01-16
+
+2003-08-18  Paolo Calafiura  <calaf@localhost.localdomain>
+	* DataModel/DataVector.h (class DataVector ): more ownership fixes.
+	* test/DataVector_test.cxx: more ownership testing. valgrind shows
+	no leak now
+	* tag DataModel-00-01-15
+
+2003-08-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h (class DataVector): missing header
+	file. Improved doc.
+	* tag DataModel-00-01-14
+
+2003-08-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h: lots of changes to correct ownership behavior
+	LOOKS LIKE THERE ARE STILL PROBLEMS (see test output). Also added
+	ifdef to help SEAL_DICT
+	* DataModel/DataList.h: corrected big bug seen in DataVector. More
+	changes to come after DataVector is ok 
+	* test/DataVector_test.cxx: extended and fixed. More to come
+	* tag DataModel-00-01-13
+
+	
+2003-07-31 S. Rajagopalan <srinir@bnl.gov>
+	* DataPool modified. It now holds a pool of (T*) instead of T.
+	* This allows resize to work properly, otherwise resize moves all
+	* the elements and the client is screwed because he has a cached
+	* pointer. Now resize moves the POOL to a new memory location but
+	* not the elements.
+	* Added a destructor of DataPool.
+	* Fixed bug in the erase signature (needed iterators)
+	* erase() no longer creates new pool elements.
+	* Modified DataPool_test to add more tests.
+	* tag DataModel-00-01-12
+	
+2003-07-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h: fix bug in erase(f,l)
+	* test/DataVector_test.cxx: test for the above
+	* tag DataModel-00-01-11
+
+2003-07-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataVector.h: badly place #endif
+	* DataModel/DataList.h: badly place #endif
+	* tag DataModel-00-01-10
+
+2003-07-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataList.h (class DataList):  completely rewritten.
+	Use containment rather than inheritance from list.
+	* DataModel/DataVector.h (class DataVector): completely rewritten.
+	Use containment rather than inheritance from vector.
+	* DataModel/tools/IsSTLSequence.h: modified for the above
+	* test/*_test.cxx: somewhat extended. MORE NEEDED
+	* tag DataModel-00-01-09
+
+2003-06-04  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* DataModel/ElementLink.h: remove extraneous include guard around ElementLink.icc
+	* DataModel/ElementLink.icc: remove extra include
+	* tag DataModel-00-01-06
+
+2003-05-26  RD Schaffer  <R.D.Schaffer@cern.ch>
+	* DataModel/DataVector.h (T*>): added temporarily protection for
+	seal dictionary.
+	* tag DataModel-00-01-05
+
+2003-05-23  Paolo Calafiura  <pcalafiuar@lbl.gov
+	* DataModel/tools/IsSTLSequence.h: changes for boost 1.30.0
+	* tag DataModel-00-01-04
+
+2003-04-29  Paolo Calafiura  <calaf@localhost>
+	* cmt/requirements: use TestTools with -no_auto_imports
+	* share/DataPool_test.ref: update output
+	* tag DataModel-00-01-03
+
+2003-04-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: add missing use SGTools 
+	* tag DataModel-00-01-02
+
+2003-04-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/*.h: used Charles script to add include guards
+	* tag DataModel-00-01-01
+
+2003-04-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* moved DataLink, ElementLink and all the related stuff from StoreGate
+	* DataModel/DataList.h: replace bool flag with OwnershipPolicy to
+	fix compiler ambiguities 
+	* DataModel/DataVector.h: same as DataList
+	* DataModel/OwnershipPolicy: enum describing whether a container owns
+	or views its elements
+	* tag DataModel-00-01-00
+
+2003-04-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/DataPool_test.cxx: added 
+	* tag DataModel-00-00-05
+
+2003-04-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataModel/DataPool.icc: added typename for ret values (gcc 3.2)
+        * DataPool_test: moved to ControlTest
+	* initGaudi: get from TestTools
+	* share/*.ref: added reference outputs for unit tests
+	* cmt/requirements: use new TestTools
+	* tag DataModel-00-00-04
+
+2003-01-28  Paolo Calafiura  <calaf@pb-d-128-141-37-41.cern.ch>
+
+	* cmt/requirements: disable DataPool_test to avoid circular dep
+	* tag DataModel-00-00-03
+
+2003-01-23 S. Rajagopalan <srinir@bnl.gov>
+	* Add DataPool_test
+	* Copied initGaudi from StoreGate
+	* requirements file needed a private use StoreGate
+	* add DataPoolTest_jobOptions in share
+	* tag DataModel-00-00-02
+	
+2003-01-22 S. Rajagopalan <srinir@bnl.gov>
+	* Move DataList, DataPtr, DataVector from StoreGate
+	* DataList, DataVector do not use DataPtr anymore
+	  - control of delete of elements in their destructors
+	  - flag  (settable via constructor) specifies whether DataVector
+	    & DataList own their elements
+	* Introduce DataPool
+	  - pool for pre-allocating objects
+	* tag DataModel-00-00-01
+	
+	

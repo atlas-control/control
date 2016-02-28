@@ -1,0 +1,715 @@
+2016-01-14  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpTools-01-18-00
+	* PileUpTools/IPileUpTool.h, PileUpTools/PileUpToolBase.h - drop
+	specific PileUpEventInfo overload of processBunchXing
+	method. Instead define a SubEventIterator typedef which can be
+	switched between the old and new EDM. ATLASSIM-2122
+
+2015-09-30  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpTools-01-17-01
+	* PileUpTools/PileUpToolBase.h - add missing dummy implementation
+	of xAOD::EventInfo-based processBunchXing method. ATLASSIM-2122
+
+2015-08-24  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpTools-01-17-00
+	* PileUpTools/IPileUpTool.h, PileUpTools/PileUpToolBase.h - extend
+	interface to deal with xAOD::EventInfo. ATLASSIM-2122
+
+2015-05-31  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PileUpTools-01-16-02.
+	* src/PileUpMergeSvc.cxx (doRefresh): Avoid redundant division.
+
+2014-10-09  Zach Marshall <ZLMarshall@lbl.gov>
+
+	* tag PileUpTools-01-16-01
+
+	* PileUpTools/IPileUpTool.h: Adding virtual resetFilter method
+
+	* PileUpTools/PileUpToolBase.h: Adding concrete resetFilter method.
+	 more of ATLASSIM-1620
+
+2014-10-08  Zach Marshall <ZLMarshall@lbl.gov>
+
+	* tag PileUpTools-01-16-00
+	
+	* PileUpTools/IPileUpTool.h: Adding virtual filterPassed method.
+	
+	* PileUpTools/PileUpToolBase.h: Adding concrete filterPassed
+	method. ATLASSIM-1620
+	
+	* src/PileUpToolbase.cxx: set m_filterPassed to true in the
+	constructor.
+
+2014-04-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PileUpTools-01-15-01.
+	* PileUpTools/PileUpMergeSvc.icc: Make compatible with new
+	AthLinks version.
+
+2013-06-19  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-15-00
+
+	* PileUpTools/IBkgStreamsCache.h - add bool loadEventProxies
+	argument to addSubEvts method declaration. This will be used in
+	AthenaMP digitization jobs.
+
+	* PileUpTools/PileUpStream.h, src/PileUpStream.cxx - remove
+	deprecated nextRecordPost and nextEventPost methods. Switch to
+	using MsgStreamMember and AthMsgStreamMacros. Add
+	nextRecordPre_Passive and nextEventPre_Passive methods for use in
+	AthenaMP digitization jobs. These will allow the job to move the
+	background event caches to the correct state without needing to
+	load all invening background event headers.
+
+	* PileUpTools/PileUpMergeSvc.icc - update to use
+	AthMsgStreamMacros wherever possible. There are still two VERBOSE
+	messages which have not been updated.
+
+2013-06-13  Paolo Calafiura  <calaf@pb-d-128-141-154-169.cern.ch>
+
+	* tag PileUpTools-01-14-01
+	* PileUpTools/PileUpMergeSvc.icc (retrieveSubEvtsData): const_cast
+	needed to set DataLink
+	* src/PileUpStream.cxx (loadStore): replace obsolete createProxy with recordAddress
+
+2013-05-29  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-14-00
+
+	* PileUpTools/IPileUpTool.h - add processAllSubEvents pure virtual
+	method. This method is an alternative interface for PileUpTools
+	which uses the PileUpMergeSvc to obtain all the required
+	SubEvents.
+
+	* PileUpTools/PileUpToolBase.h - dummy implementation of
+	processAllSubEvents to allow compilation while all Digitization
+	packages are migrated to use this new interface.
+
+2013-05-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PileUpTools-01-13-01.
+	* Fix clang warning.
+
+2012-10-19  Paolo Calafiura  <calaf@lxplus403.cern.ch>
+
+	* tag PileUpTools-01-13-00
+	* src/PileUpStream.cxx (loadStore): fix for new EventSelector functionality (Peter)
+
+2012-03-22  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-10
+
+	* PileUpTools/PileUpMergeSvc.h - add assignment operator for Range
+	class. Fixes Coverity Defect 55800.
+
+2011-11-24  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-09
+
+	* PileUpTools/PileUpMergeSvc.h - fix uninitialized member
+	variables in default constructor of Range class. Coverity Defect
+	13564.
+
+2011-10-10  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-08
+
+	* PileUpTools/PileUpMergeSvc.icc - calling
+	retrieveSubEvtsData(const KEY&,TIMEDDATA&,unsigned int&) from
+	retrieveSubEvtsData(const KEY&,TIMEDDATA&) is not possible as the
+	latter is used for some classes which lack a size()
+	method. Therefore have to duplicate code between the two methods.
+
+2011-10-07  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-07 
+
+	* PileUpTools/PileUpMergeSvc.h, PileUpTools/PileUpMergeSvc.icc -
+	add new PileUpMergeSvc::retrieveSubEvtsData method which takes
+	numberOfSimHits by reference as an argument and counts the number
+	of SimHits in the collections it returns.
+
+2011-07-11  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-06
+	* PileUpTools/IBeamIntensity.h - add largestElementInPattern
+	method. Required by the BkgStreamsCaches to ensure the background
+	caches are large enough.
+	
+2011-04-08  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-05
+	* PileUpTools/PileUpMergeSvc.icc - protect DEBUG and
+	VERBOSE MsgSvc calls and use AthService built-in MessageSvc.
+
+	* tag PileUpTools-01-12-04
+	* src/PileUpMergeSvc.cxx, src/PileUpStream.cxx - protect DEBUG and
+	VERBOSE MsgSvc calls
+
+	* tag PileUpTools-01-12-03
+	* requires PileUpComps-00-10-02 later
+	* PileUpTools/IBeamIntensity.h - add getBeamPatternLength() method to interface.
+
+2010-10-07  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-02
+	* src/PileUpStream.cxx - fixes for bug #73681 - thanks to Peter van Gemmeren. 
+
+2010-10-06  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-01
+	* what should have been in the previous tag.
+
+2010-10-05  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpTools-01-12-00
+	* PileUpTools/IBeamIntensity.h: add getCurrentT0BunchCrossing() method
+	to return a fake BCID corresponding to the t0 bunch-crossing.
+	* PileUpTools/IBkgStreamsCache.h: add addSubEvts() method where BCID can be specified.
+
+2010-08-30  Ayana Arce <atarce@phy.duke.edu>
+
+	tag PileUpTools-01-11-01
+	* PileUpTools/IBeamLuminosity.h: provides relative lumi as a function 
+	of the bunch xing
+	* PileUpTools/IBkgStreamsCache.h: use the above
+
+2010-06-02  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpTools-01-11-00
+	* PileUpTools/IBeamIntensity.h: new iface to support beam trains 
+	* PileUpTools/IBkgStreamsCache.h: use IBeamIntensity
+
+2010-04-15  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpTools-01-10-00
+	* PileUpTools/IPileUpTool.h (prepareEvent): fix signature 
+	
+
+2009-11-16  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpTools-01-09-01
+	* src/PileUpStream.cxx (PileUpStream::nextEventPre): fix bug in logic
+	with which we mark stream as used
+
+2009-11-13  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpTools-01-09-00
+	* PileUpTools/PileUpStream.h: keep track of whether stream has been
+	used or not and in which ring it was originally used
+	* PileUpTools/IBkgStreamsCache.h: setup now receives first xing
+
+2009-09-18  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpTools-01-08-00
+	* src/PileUpStream.cxx: initialize store so that it can
+	be finalized (and cleared) at the end. Adjust ownership of store and
+	context. Fixes various memory leaks (55220, 55221, 55225, plus older)
+
+2009-09-01  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpTools-01-07-05
+	* PileUpTools/IPileUpTool.h (IAlgTool): from John change prepareEvent
+	tag PileUpTools-01-07-04
+	* src/PileUpMergeSvc.cxx (clearDataCaches): revert last change. Go back
+	to old name for global clear
+
+2009-08-27  Paolo Calafiura  <calaf@lxplus229.cern.ch>
+
+	tag PileUpTools-01-07-03
+	* src/PileUpMergeSvc.cxx: add support for XingByXing mode
+	
+2009-07-08  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpTools-01-07-02
+	* PileUpTools/IPileUpTool.h (IAlgTool): added prepareEvent dummy method
+
+2009-07-03  Paolo Calafiura  
+
+	tag PileUpTools-01-07-01
+	* PileUpTools/IPileUpTool.h (processBunchXing): small signature change 
+
+2009-06-24  Paolo Calafiura  
+
+	tag PileUpTools-01-07-00
+	* new class PileUpTools/IPileUpTool.h
+        * new class PileUpTools/PileUpToolBase.h
+        Interface and base class for the new PileUpTool call back framework
+
+2009-04-27  Paolo Calafiura  
+
+	tag PileUpTools-01-06-00
+	* src/PileUpStream.cxx (PileUpStream::setupStore): add AddressRemappingSvc to the list of IAP for all background streams
+
+2008-12-12  scott snyder  <snyder@bnl.gov>
+
+	tag PileUpTools-01-05-01
+	* src/PileUpStream.cxx: Fix compilation warnings.
+	* PileUpTools/PileUpMergeSvc.icc: Fix compilation warnings.
+
+2008-10-31  Paolo Calafiura  <calaf@localhost.localdomain>
+	
+	tag PileUpTools-01-05-00
+	* src/PileUpStream.cxx (PileUpStream::setupStore): first look if a store with the conventional _SG
+	name exists already. In that case configure it.
+
+2008-09-29  Paolo Calafiura  
+
+	tag PileUpTools-01-04-02
+	* src/PileUpStream.cxx (PileUpStream::finalize): hack to adapt to
+	different v19/v20 FSM APIs
+
+2008-09-18  Paolo Calafiura  
+	tag PileUpTools-01-04-01
+	* src/PileUpStream.cxx (PileUpStream::PileUpStream): init m_neverLoaded
+	(bug 41671)
+	
+2008-09-10  Paolo Calafiura  
+	tag PileUpTools-01-04-00
+	* PileUpTools/PileUpStream.h (class PileUpStream): do not preload
+	events on setupStore (removed readNextEvent flag). Always load events on
+	first nextEventPre/Post call
+
+2008-08-27  Paolo Calafiura  
+	tag PileUpTools-01-03-02
+	* src/PileUpStream.cxx: introduced m_log to speed up messages. Added a
+	DEBUG message when a new event is read.
+	FIXME Added assignment operator, called by 
+	vector<PileUpStream>::push_back. 
+	Not clear why existing CC wasn't good enough
+
+2008-06-27  Paolo Calafiura  
+	tag PileUpTools-01-03-01
+	* src/PileUpStream.cxx (PileUpStream::finalize): new method that cleans
+	up the resources we have been using
+
+2008-04-23  Paolo Calafiura  
+	tag PileUpTools-01-03-00
+	* IBkgStreamsCache.h: addSubEvts t0BinCenter is an int now 
+
+2008-04-02  Paolo Calafiura 
+	tag PileUpTools-01-02-03
+	* PileUpTools/PileUpMergeSvc.h: added retrieveOriginal;
+
+2008-02-07  Paolo Calafiura  
+
+	tag PileUpTools-01-02-02
+	* src/PileUpMergeSvc.cxx : fixing two bugs 
+	1) m_intervals should be a private (not public) TAH
+	2) call Service::initialize at the beginning of initialize (hem, hem...)
+
+2007-10-22  Paolo Calafiura  
+
+	* src/PileUpStream.cxx (PileUpStream::nextEvent): reintroduced for 
+	backward compatibility. Calls nextEventPost.
+	tag PileUpTools-01-02-01
+
+2007-10-17  Paolo Calafiura  
+
+	* PileUpTools/PileUpStream.h: allow to load current or next event in store 
+	when moving stream to next event. Made some private methods private
+
+	* src/PileUpStream.cxx (PileUpStream::setupStore): fixed bug when readNextEvent false
+	tag PileUpTools-01-02-00
+
+2007-10-16  Paolo Calafiura  
+
+	* src/PileUpStream.cxx (PileUpStream::nextEvent): return NULL pointer
+	when no more events are available.
+	tag PileUpTools-01-01-03
+
+2007-07-06  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* PileUpMergeSvc: handle properly m_pITriggerTime 
+        * PileUpTools/IBkgStreamsCache.h (addSubEvts): return StatusCode 
+	instead of void (part of a bug fix from zhijun)
+	tag PileUpTools-01-01-02
+	
+2007-06-23  Paolo Calafiura  <calaf@localhost.localdomain>
+	* PileUpTools/PileUpMergeSvc.h: include IPileUpXing.h for the benefit 
+	of our clients
+	tag PileUpTools-01-01-01
+
+2007-06-22  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+        * doc/mainpage.h: added
+	* PileUpTools/IPileUpXingFolder.h: new iface for PileUpXingFolder
+	which has been moved to PileUpComps
+	* PileUpTools/PileUpMergeSvc.*: use Service/Tool Handles
+	* src/PileUpStream.cxx: use IProxyProviderSvc rather than PPS
+	tag PileUpTools-01-01-00
+	
+2007-03-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* moved PileUpStream back from PileUpComps (needed by InDetOverlay)
+	tag PileUpTools-01-00-02
+
+2007-03-01  Paolo Calafiura <pcalafiura@lbl.gov>
+	* cmt/requirements: fixed reqs according to checkreq result
+	tag PileUpTools-01-00-01
+
+2007-02-28  Paolo Calafiura 
+	* moved BkgStreamsCache and, crucially, PileUpEventLoopMgr to 
+	new PileUpComps package. Now only PileUpMergeSvc here. This fixes 
+	a problem with rootmap files that were loading all of Gaudi...
+	tag PileUpTools-01-00-00
+
+2007-02-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/BkgStreamsCache.cxx: added missing include file
+	tag PileUpTools-00-09-01
+
+2007-02-10  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+        * provide feature requested in bug 23688:
+	* class BkgStreamsCache: turned into an AlgTool. There is one of those
+	per bkg type
+	* class PileUpEventLoopMgr: moved quite a bit of functionality out 
+	to the tool
+	tag PileUpTools-00-09-00
+
+2006-12-20  Charles Leggett
+	* PileUpMergeSvc: IID -> InterfaceID
+	tag PileUpTools-00-08-13
+
+2006-10-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx (setupStreams): fixed calculation of
+	m_nStores for small m_collXing (thanks Guillaume!)
+        tag PileUpTools-00-08-12
+
+2006-09-06  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Remove redundant "do_genconf"
+        tag PileUpTools-00-08-11
+
+2006-07-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: don't install txt jos
+	added apply_pattern to do_genconf...
+        tag PileUpTools-00-08-10
+
+2006-03-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: added do_genconf
+        tag PileUpTools-00-08-09
+
+2006-01-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx (nextEvent): do not read extra original
+	event at end of loop (thanks Doug!)
+        tag PileUpTools-00-08-08
+
+2006-01-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx (setupStreams): fix number of bkg stores
+	created when using "Fixed" distribution
+        tag PileUpTools-00-08-07
+
+2005-11-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpMergeSvc.cxx (clearDataCaches): unchecked StatusCode
+        tag PileUpTools-00-08-06
+
+	* src/PileUpStream.cxx (nextEvent): fixed logic!
+        tag PileUpTools-00-08-05
+
+2005-11-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx (setupStreams): call selector next() 
+	before loadAddresses() for original evt stream
+	* src/PileUpStream.cxx (setupStore): remove StatusCode warning,
+	clean up logic
+	* src/PileUpXingFolder.cxx: remove StatusCode warning
+        tag PileUpTools-00-08-04
+
+2005-08-02  Paolo Calafiura <pcalafiura@lbl.gov>
+	* PileUpTools/PileUpMergeSvc.icc (retrieveSubEvtsData): fix sign in
+	time offset
+        tag PileUpTools-00-08-03
+
+2005-06-22  Paolo Calafiura <pcalafiura@lbl.gov>
+	* PileUpMergeSvc uses new ITriggerTime 
+
+2005-05-12  Paolo Calafiura <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx: missed commit
+	* src/BkgStreamsCache.cxx: missed commit!
+        tag PileUpTools-00-08-02
+
+2005-05-11  Paolo Calafiura <pcalafiura@lbl.gov>
+	* class PileUpStream: adapted to IEvtSelector::Context. UNTESTED 
+        tag PileUpTools-00-08-01
+
+2005-05-10  Paolo Calafiura <pcalafiura@lbl.gov>
+	* cmt/requirements: temporarily remove BkgStreamsCache, PileUpStream
+	and PileUpEventLoopMgr from build
+        tag PileUpTools-00-08-00
+
+2005-02-19  Paolo Calafiura <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx (nextEvent): Davide workaround for
+	root 4 crash when reading
+        tag PileUpTools-00-07-01
+
+2005-01-14  Paolo Calafiura <pcalafiura@lbl.gov>
+	* class PileUpMergeSvc: use PileUpTimeEventInfo
+        tag PileUpTools-00-07-00
+
+2005-01-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr): m_firstRun should 
+	be init to true
+	* cmt/requirements: remove unnecessary definition of GaudiSvc_libraries
+        tag PileUpTools-00-06-13
+
+2004-11-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx (nextEvent): return FAILURE when over 
+	time limit 
+        tag PileUpTools-00-06-12
+
+2004-08-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * cmt/requirements: as below but with new use AtlasCLHEP for 8.7.0
+        tag PileUpTools-00-06-11
+
+2004-08-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/PileUpOptions.txt: overlay(=copy) also GEN_EVENT
+        tag PileUpTools-00-06-10
+
+2004-08-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * cmt/requirements: as below but with old use CLHEP for 8.0.7
+        tag PileUpTools-00-06-09
+
+2004-08-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx (nextEvent): use new setupStore signature,
+	clean up main event loop 
+	* src/BkgStreamsCache.cxx: use new setupStore signature
+	* class PileUpStream (setupStore): use EventSelectorAthenaPool bug
+	fix to clean up init (constr and setupstore)
+        tag PileUpTools-00-06-08
+
+2004-08-04  David Quarrie  <David.Quarrie@cern.ch>
+	* cmt/requirements: Change dependency on CLHEP to one on
+	AtlasCLHEP to avoid a name clash
+        tag PileUpTools-00-06-07
+
+2004-05-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/PileUpOptions.txt: fix typo in MuonRange.ItemList
+	* PileUpTools/PileUpMergeSvc.h (class Range): fix assert on inputs
+        tag PileUpTools-00-06-06
+	
+2004-05-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/components/PileUpTools_load.cxx: it was missing!
+        tag PileUpTools-00-06-05
+
+2004-05-03  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpStream.cxx (PileUpStream): remove double invocation
+	of setupStore
+        tag PileUpTools-00-06-04
+
+2004-04-30  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/PileUpOptions.txt: need to copy CollPerXing to 
+	LArAutoCorrTotalTool (FIXME)
+        tag PileUpTools-00-06-03
+
+2004-04-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* PileUpTools/PileUpMergeSvc.icc (retrieveSubEvtsData): reset active 
+	store pointer to default event store 
+	* src/PileUpMergeSvc.cxx: empty stores trash at end of event
+        tag PileUpTools-00-06-02
+
+2004-04-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/PileUpOptions.txt: fixed typo, adjust to default configuration
+        tag PileUpTools-00-06-01
+
+2004-04-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* PileUpXingFolder: new property CacheRefreshFrequency
+	* PileUpMergeSvc (clearDataCaches): new method to remove
+	dobjs in Xing folders from Bkg caches 
+	* PileUpEventLoopMgr (nextEvent): optimize bkg cache size,
+	invoke PileUpMergeSvc::clearDataCaches
+	* share/PileUpOptions.txt: define CacheRefreshFrequencies
+        tag PileUpTools-00-06-00
+
+2004-04-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/PileUpOptions.txt: added MergeMcEventCollection
+        tag PileUpTools-00-05-02
+
+2004-04-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpStream.cxx (PileUpStream): bug fix in Original evt stream
+	constructor, improve error handling in setupStream
+        tag PileUpTools-00-05-01
+
+2004-04-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* BkgStreamsCache and PileUpStream: fix handling of store loading.
+	This will probably break pile-up of ZebraTDR events
+        tag PileUpTools-00-05-00
+
+2004-04-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/PileUpOptions.txt: major cleanup
+	* PileUpTools/PileUpMergeSvc.h: remove keyless retrieveSubEvts
+	* src/PileUpEventLoopMgr.cxx (executeEvent): always fire beginRun on 
+	first event
+        tag PileUpTools-00-04-00
+
+2004-03-26  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* PileUpTools/PileUpMergeSvc.icc (retrieveSubEvtsData): convert time
+	to int before passing it to isLive. The real solution is to get
+	the subevt beam xing #
+        tag PileUpTools-00-03-01
+
+2004-03-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class PileUpXingFolder: a group of data objects those detectors 
+	are active for the same beam xing range.
+	FIXME although it inherits from SG::Folder wildcards may not yet be
+	used in the ItemList specification. 
+	* class PileUpMergeSvc: extensive changes to support the above concept
+        tag PileUpTools-00-03-00
+	
+2004-03-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class PileUpEventLoopMgr: fire beginRun, use TimeKeeper
+	* src/BkgStreamsCache.cxx: do not throw away first set of evts read
+        tag PileUpTools-00-02-07
+
+2004-03-01  Paolo Calafiura  <calaf@lxplus039.cern.ch>
+	* share/PileUpOptions.txt: fix BkgEventSelectors opt
+        tag PileUpTools-00-02-05
+
+2004-01-28  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* share/PileUpOptions.txt: use AthenaOutputStream
+        tag PileUpTools-00-02-04
+
+2003-12-06  Paolo Calafiura  <calaf@lxplus028.cern.ch>
+	* src/PileUpMergeSvc.cxx: use keyed contains
+	* src/PileUpEventLoopMgr.cxx (nextEvent): use keyed record
+        tag PileUpTools-00-02-03
+
+2003-12-02  Paolo Calafiura  <calaf@lxplus007.cern.ch>
+	* cmt/requirements: fixed use stats using checkreq
+        tag PileUpTools-00-02-02
+
+2003-11-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.cxx: fire EventIncidents, 
+	symlink PileUpEventInfo to EventInfo in out store,
+	no PPS for output store
+        tag PileUpTools-00-02-01
+
+2003-11-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpStream.cxx (setupStore): deal with AthenaPool EventSelector
+	which acts as AddressProvider. FIXME needs to be refined so as to
+	create on PPS per AddressProvider rather than per store.
+        tag PileUpTools-00-02-00
+2003-11-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class PileUpMergeSvc: work around some gcc crazyness and use
+	sgsvc::contains to check if PileUpEventInfo obj is there
+
+	* class PileUpStream: renamed resetStore() loadStore() (and updated 
+	to use the Pool Address Provider)
+	* src/BkgStreamsCache.cxx: call loadStore()
+	* src/PileUpEventLoopMgr.cxx (nextEvent): check both the event pointer
+	and the current stream pointer. The latter is 0 when the stream 
+	selector is empty.
+        tag PileUpTools-00-01-12 (first AthenaPool tag)
+	
+2003-10-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* PileUpTools/PileUpMergeSvc.icc (retrieveSubEvtsData): don't fail 
+	if PileUpEventInfo not there, just return the original event.
+        tag PileUpTools-00-01-11
+	
+2003-06-11  Paolo Calafiura  <calaf@electra.lbl.gov>
+        * class PileUpStream: basically rewritten... removed hideous hack
+	to force dobj load
+	* src/PileUpEventLoopMgr.cxx (nextEvent): added debug printout
+	* PileUpTools/PileUpMergeSvc.icc (PileUpMergeSvc): added missing
+	EventInfo header 
+	* src/BkgStreamsCache.cxx(initialize): fix active store handling
+	tag PileUpTools-00-01-10
+
+2003-05-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/BkgStreamsCache.cxx(nextEvent): another bug fix!
+	tag PileUpTools-00-01-09
+
+2003-05-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+        *fixes from Guillaume
+        *src/PileUpMergeSvc.cxx: remove extraneous inline
+        *src/CloneService.cxx: remove needed code from inside assert!
+        *src/PileUpStream.cxx: hack to force load from zebra,
+        remove needed code from inside assert
+        *cmt/requirements: temporary hack to force load from zebra
+        * PileUpTools/PileUpMergeSvc.h: remove bad include guard         
+	tag PileUpTools-00-01-08
+
+2003-04-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * class BkgStreamsCache: fix way to prevent event reuse          
+	tag PileUpTools-00-01-07
+
+2003-04-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * class BkgStreamsCache: do not provide same bkg event more than
+	once per overlaid event
+	* src/PileUpEventLoopMgr.cxx (nextEvent): inform cache we overlay
+	a new event 
+	* src/PileUpStream.cxx: replace createProxy->recordAddress
+        tag PileUpTools-00-01-06
+
+2003-04-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * PileUpTools/*.h: applied Charles tool to add include guards
+	* src/BkgStreamsCache.cxx (BkgStreamsCache): fixed streamName
+        tag PileUpTools-00-01-05
+
+2003-04-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* RPileUpMergeSvc: new DataLink location            
+        tag PileUpTools-00-01-04
+
+2003-04-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requriements: add leading space in front of -I
+        tag PileUpTools-00-01-03
+
+2003-03-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* PileUpTools/PileUpStream.h: include EventInfo
+	* src/BkgStreamsCache.cxx: fix sstream for 3.2 
+	tag PileUpTools-00-01-02
+
+2003-02-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/PileUpEventLoopMgr.cxx (nextEvent): don't call getProxies
+	tag PileUpTools-00-01-01
+
+2002-10-31  Paolo Calafiura  <calaf@0-c0-f0-5a-1b-8b.dhcp.lbl.gov>
+
+	* share/PileUpOptions.txt: new job opts file that configures pile-up 
+
+2002-10-19  Paolo Calafiura  <calaf@0-c0-f0-5a-1b-8b.dhcp.lbl.gov>
+
+	* PileUpTools/PileUpMergeSvc.icc: added a couple of asserts to check
+	sub-evts 
+
+	* class PileUpStream: new method nextEvent optionally moves stream to
+	next record and returns EventInfo ptr.
+
+	* class BkgStreamsCache: first functional cache impl. Constr argument 
+	nStores sets the cache depth, while downscaleFactor controls the 
+	average rate with which new events are read into the cache
+
+	* class PileUpEventLoopMgr: uses nextEvent methods of PileUpStream 
+	and BkgStreamsCache. New property ReadDownscaleFactor allows to set
+	BkgStreamsCache downscale factor above
+	tag PileUpTools-00-01-00
+	
+2002-09-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* new class BkgStreamsCache: to optimize access to min bias events
+	* src/PileUpEventLoopMgr.cxx: use BkgStreamsCache
+	* src/PileUpStream.cxx: fix logic bug
+	tag PileUpTools-00-00-04
+
+2002-09-08  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/PileUpEventLoopMgr.cxx: bug fix and getProxies
+	* class PileUpMergeSvc: need ActiveStoreSvc(FIXME this sucks) 
+	tag PileUpTools-00-00-03
+
+2002-09-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* PileUpTools/PileUpMergeSvc.icc: more fixes for DataLink changes
+	tag PileUpTools-00-00-02
+
+2002-09-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* PileUpTools/PileUpMergeSvc.icc (retrieveSubEvtsData): fix for
+	DataLink changes
+
+2002-07-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* new package to group the core tools (algs, services, utilitities)
+	to simulate pile-up in athena
+

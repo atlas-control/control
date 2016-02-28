@@ -1,0 +1,90 @@
+2015-12-09  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Adding AthenaInterprocess/Utilities.h
+
+2015-09-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaInterprocess-00-02-09.
+	* Comply with ATLAS naming conventions.
+
+2015-06-22  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Adding random components to the shared queue names in ProcessGroup
+
+2015-04-23  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Switch to unique_ptr in return value of IMessageDecoder::operator()
+
+2015-02-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixes in ProcessGroup::launchProcess() and ProcessGroup::wait_once()
+
+2015-02-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaInterprocess-00-02-05.
+	* src/IdentifiedSharedQueue.cxx: Fix clang warning.
+
+2014-11-01  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing UpdateAfterFork
+
+2014-02-08  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Added FdsRegistry
+
+2013-12-17  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix for IdentifiedSharedQueue: don't append std::ends to messages
+
+2013-12-13  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Several changes related to the introduction of process polling
+	* Allow launching individual processes
+	* Allow mapping onto individual processes
+	* Distinguish between process returns and process statuses
+	* New method wait_one() for non-blocking waits
+	
+2013-12-13  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Reverting to AthenaInterprocess-00-00-08
+
+2013-12-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Allow launching new processes in the group after initial fork has been made
+	* Allow mapping functions on individual processes in the group
+
+2013-07-03  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Alow storing the pointers to SharedQueue objects into the StoreGate
+
+2013-05-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaInterprocess-00-00-07.
+	* Fix compilation warning.
+
+2013-04-15  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Drop yampl SharedMemory duplicates from here
+
+2012-12-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix coverity warnings
+
+2012-12-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Process: interrupt main loop immediately if mapped function returned an error
+	* ProcessGroup: new method getChildrenReturns()
+
+2012-12-12  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix memory leak
+
+2012-12-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Temporarily include SharedMemory from yampl
+
+2012-09-11  Vakho Tsulaia  <tsulaia@.cern.ch>
+
+	* First version. Consists of a subset of files from Wim's interprocess library originally included into AthenaMP package
+	
+

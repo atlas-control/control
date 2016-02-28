@@ -1,0 +1,101 @@
+## package header
+package: {
+    name:    Control/AthLinks,
+    authors: ["Paolo Calafiura <Paolo.Calafiura@cern.ch>",
+              "Hong Ma <hma@bnl.gov>",
+              "Srini Rajagopalan <srinir@bnl.gov>",
+              "scott snyder <snyder@bnl.gov>",
+              ],
+
+
+    deps: {
+        public: [
+            AtlasPolicy,
+            Control/AthenaKernel,
+            Control/SGTools,
+            External/AtlasBoost,
+            External/GaudiInterface,
+        ],
+        private: [
+            AtlasTest/TestTools,
+            External/AtlasReflex,
+        ],
+        runtime: [],
+    }
+}
+
+options: {
+}
+
+configure: {
+}
+
+build: {
+    
+    AthLinks: {
+        features: "atlas_library",
+        source:   ["src/*.cxx"],
+        use:      [
+            "AthenaKernel",
+            "SGTools",
+            "GaudiKernel",
+            "AtlasBoost",
+        ],
+    },
+    
+    AthLinksDict: {
+        features: "atlas_dictionary",
+        source:   ["AthLinks/AthLinksDict.h"],
+        selection_file: "AthLinks/selection.xml",
+        use:      ["AthLinks"],
+    },
+
+
+    ### tests ---
+    
+    AthLinks-IsSTLSequence-test: {
+        features: "atlas_unittest",
+        source:   "test/IsSTLSequence_test.cxx",
+        use:      ["AthLinks"],
+    },
+    
+    AthLinks-DataLink-test: {
+        features: "atlas_unittest",
+        source:   "test/DataLink_test.cxx",
+        use:      ["AthLinks"],
+    },
+    
+    AthLinks-DataPtr-test: {
+        features: "atlas_unittest",
+        source:   "test/DataPtr_test.cxx",
+        use:      ["AthLinks"],
+    },
+    
+    AthLinks-DataProxyStorageData-test: {
+        features: "atlas_unittest",
+        source:   "test/DataProxyStorageData_test.cxx",
+        use:      ["AthLinks"],
+    },
+    
+    AthLinks-DataProxyStorage-test: {
+        features: "atlas_unittest",
+        source:   "test/DataProxyStorage_test.cxx",
+        extrapatterns: "MessageSvc not found, will use std::(cerr|cout)|SG::DataProxyStorageData::pointer|DataProxyStorageBase::dataID|DataProxyStorageBase::DataProxyStorageBase",
+        use:      ["AthLinks"],
+    },
+    
+    AthLinks-ElementHolder-test: {
+        features: "atlas_unittest",
+        source:   "test/ElementHolder_test.cxx",
+        use:      ["AthLinks"],
+    },
+    
+    AthLinks-AssociationMap-test: {
+        features: "atlas_unittest",
+        source:   "test/AssociationMap_test.cxx",
+        extrapatterns: "ClassIDSvc Initialized successfully|^HistogramPersis.* INFO",
+        use:      ["AthLinks"],
+    },
+}
+
+## EOF ##

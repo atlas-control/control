@@ -1,0 +1,77 @@
+10
+
+dir
+726715
+svn+ssh://svn.cern.ch/reps/atlasoff/Control/GaudiSequencer/trunk
+svn+ssh://svn.cern.ch/reps/atlasoff
+
+
+
+2015-08-18T11:42:39.369726Z
+689935
+seuster
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+4525493e-7705-40b1-a816-d608a930855b
+
+python
+dir
+
+share
+dir
+
+cmt
+dir
+
+GaudiSequencer
+dir
+
+src
+dir
+
+ChangeLog
+file
+
+
+
+
+2016-02-28T22:26:13.000000Z
+7bd525686a6091db8417fec68ddc8e72
+2015-08-18T11:42:39.369726Z
+689935
+seuster
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5696
+

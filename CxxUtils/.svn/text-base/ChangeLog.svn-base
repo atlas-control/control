@@ -1,0 +1,974 @@
+2016-02-24 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a hand-written CMakeLists.txt file to the package, to
+	  express the dependencies between the different libraries of
+	  the package correctly.
+	* Tagging as CxxUtils-00-01-57
+
+2016-02-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-56.
+	* Root/SealSignal.cxx (CxxUtils_installFatalHandler): Direct
+	traceback to stdout.
+
+2016-02-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-55.
+	* CxxUtils/SealSignal.h, Root/SealSignal.cxx: Add a hook to turn
+	on fatal error handling that can easily be called from python via
+	ctypes.
+
+2016-02-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-54.
+	* CxxUtils/make_unique.h: Avoid naming checker warnings.
+
+2015-09-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-53.
+	* CxxUtils/algorithms.h: Another fix to identifier names.
+
+2015-09-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-52.
+	* Adjust some identifier names for better compliance with ATLAS
+	conventions.
+
+2015-07-09 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Turned on pedantic compilation with RootCore.
+	* Removed the hscript.yml file, as hwaf will not come back any
+	  time soon.
+	* Added a <cstdlib> include to pointer_list_test.cxx, to be able
+	  to use std::abort in it on MacOS X as well.
+	* Tagging as CxxUtils-00-01-51
+
+2015-05-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-50.
+	* test/fpcompare_test.cxx (pt): Avoid redundant division
+	warnings.
+	* test/hashtable_test.cxx (test06): Likewise.
+
+2015-05-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-49.
+	* test/pointer_list_test.cxx: Fix gcc5 warning.
+
+2015-05-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-48.
+	* CxxUtils/Array.icc: Work around apparent cling inconsistency in
+	application of NDEBUG: use UNUSED instead of #ifndef NDEBUG.
+
+2015-04-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-47.
+	* test/pointer_list_test.cxx: Fix gcc5 compilation warning.
+
+2015-03-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-46.
+	* Root/FloatPacker.cxx (min_int): Avoid undefined behavior in bit
+	shifting.
+	* CxxUtils/procmaps.h, Root/procmaps.cxx: Work correctly on
+	64-bit platforms.
+	* test/stacktrace_test.cxx: Fix for compatibility with address
+	sanitizer.
+
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-45.
+	* CxxUtils/hashtable.h: Fix clang warning.
+
+2015-02-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-44.
+	* CxxUtils/hashtable.h: Make hashtable_iterator_base::m_cur_bucket
+	protected to avoid pyroot warnings in root6.
+
+2015-02-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-43.
+	* BitUnpacker, BitPacker: Fix coverity warning.  #include fix.
+
+2015-01-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-42.
+	* cmt/Makefile.RootCore: Dependency fix.
+
+2014-12-08  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Specify required Boost components for cmake (transparent to CMT)
+	* Tagged as CxxUtils-00-01-41
+
+2014-12-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-40.
+	* cmt/requirements: Fix checkreq warning.
+	* Tagging CxxUtils-00-01-39.
+	* CxxUtils/StringUtils.h, Root/StringUtils.cxx: Try to fix
+	coverity warnings.
+
+2014-11-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-38.
+	* Remove fast_push_back.
+
+2014-11-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-37.
+	* Rework 8/16 bit bitpacker specializations so that the byte
+	ordering is consistent with the generic versions.
+
+2014-11-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-36.
+	* CxxUtils/BitPacker.h, CxxUtils/BitPacker.icc: (new)
+	* CxxUtils/BitUnpacker.h, CxxUtils/BitUnpacker.icc: (new)
+	* test/BitPackerUnpacker_test.cxx,
+	share/BitPackerUnpacker_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2014-10-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-35.
+	* CxxUtils/FloatPacker.h, Root/FloatPacker.cxx: Change repeated
+	divisions by scale to multiplication.
+
+	* Tagging CxxUtils-00-01-34.
+	* CxxUtils/ones.h: (new)
+	* Root/FloatPacker.cxx: Use it.
+	* test/ones_test.cxx, share/ones_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2014-08-18 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Defined XAOD_ANALYSIS for the standalone RootCore compilation.
+	* Tagging as CxxUtils-00-01-33
+
+2014-07-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-32.
+	* CxxUtils/enable_if.h: (new)
+
+	* Tagging CxxUtils-00-01-31.
+	* cmt/requirements: Fix exctrace2_test dependencies.
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Move creation of the calg library before the AthDSoCallBacks library since the latter depends upon the former (needed for cmake build)
+	* Tagged as CxxUtils-00-01-30
+
+2014-07-15 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removed a warning about an unused variable in StringUtils.cxx.
+	  (Showed up on MacOS X.)
+	* Tagging as CxxUtils-00-01-29
+
+2014-05-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* The recent changes added a dependence on boost_regex. Updated
+	  the RootCore Makefile to reflect this.
+	* Tagging as CxxUtils-00-01-28
+
+2014-06-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-27.
+	* Updates for c++98 compatibility.
+
+2014-06-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-26.
+	* CxxUtils/make_unique.h: (new)
+	* test/make_unique_test.cxx, share/make_unique_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2014-06-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-25.
+	* Add ClassName::Rules::size().
+	* More spelling check adjustments.
+
+	* Tagging CxxUtils-00-01-24.
+	* cmt/requirements: Comment out references to non-existent tests.
+
+	* Tagging CxxUtils-00-01-23.
+	* Small fix for last commit.
+
+	* Tagging CxxUtils-00-01-22.
+	* CxxUtils/ClassName.h, Root/ClassName.cxx: (new)
+	* test/expect_exception.icc: (new)
+	* test/ClassName_test.cxx, share/ClassName_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* Check spelling throughout.
+
+2014-06-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-21.
+	* CxxUtils/StrFormat.h: Add a format attribute, so the compiler
+	will check argument lists.
+	* test/StrFormat_test.cxx: Updated.
+	* src/AthDsoCbk.c: Add some more UNUSED qualifiers for
+	parameters.
+
+2014-04-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-20.
+	* cmt/requirements: Fix compilation of read_athena_statm.
+
+	* Tagging CxxUtils-00-01-19.
+	* CxxUtils/override.h (new): Add ATH_OVERRIDE.
+
+2014-04-14 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made the new function, read_athena_statm, compile with RootCore
+	  on MacOS X. Not sure if it works correctly though, but it does
+	  compile at least.
+	* Removed a warning from SealSignal.cxx that I've been seeing on
+	  MacOS X since the beginning of the xAOD work.
+	* Tagging as CxxUtils-00-01-18
+
+2014-04-09  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* Tagging CxxUtils-00-01-17
+	* CxxUtils/read_athena_statm.h: adapted and moved from CoreDumpSvc
+
+2014-04-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-15.
+	* test/SEGVHandler_test.cxx: Avoid output ordering dependency.
+	* test/FloatPacker_test.cxx: Don't fail if denormals are
+	disabled.
+
+2014-04-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed a problem in hashtable_test.cxx that showed up on
+	  MacOS X, in C++11 mode.
+	* Tagging as CxxUtils-00-01-14
+
+2014-03-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-13.
+	* CxxUtils/noreturn.h: gcc only implements [[noreturn]] attribute
+	in version 4.8.
+
+2014-02-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-12.
+	* Root/SealDebug.cxx (coredump): Fix coverity warning (ignored
+	syscall return status).
+
+2014-02-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-11.
+	* CxxUtils/noreturn.h: (new)
+
+2014-02-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Merging in the changes from the standalone branch into
+	  the trunk.
+	* No additional changes on top of that.
+	* Tagging as CxxUtils-00-01-10
+
+2014-01-31 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making the test compile on MacOS X (10.8).
+	* Unfortunately runtime tests still don't work on this
+	  platform, but these should still be reasonable changes I
+	  hope...
+	* Tagging as CxxUtils-00-01-09-03
+
+2014-01-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixing a compilation issue in test/prefetch_test.cxx when
+	  compiling the package on top of an environment set up by
+	  ATLASLocalRootBase.
+	* Tagging as CxxUtils-00-01-09-02
+
+2014-01-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Seems to work fine in Athena.
+	* Tagging as CxxUtils-00-01-09-01
+
+2014-01-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* A first stab at making the package compile with RootCore.
+	  It does compile now on SLC6 with RootCore now.
+	* Tried updating the requirements file to work with the new
+	  setup, but didn't try it yet.
+	* Had to disable test/copy_bounded_test.cxx as it is trying
+	  to use a Boost header that is not available on SLC6's
+	  system-default Boost.
+	* Not tagging yet.
+
+2013-12-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-09.
+	* CxxUtils/prefetch.h: Add prefetchNext, prefetchTwo.
+	* test/prefetch_test.cxx, share/prefetch_test.ref: Test it.
+
+	* Tagging CxxUtils-00-01-08.
+	* Missed a commit.
+	* Tagging CxxUtils-00-01-07.
+	* CxxUtils/prefetch.h: (new)
+	* test/prefetch_test.cxx, share/prefetch_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2013-11-21 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Silencing some compile time warnings. Still don't understand
+	  though what MacOS has against the printout in
+	  SealSignal.cxx:1140... :-/
+	* Tagging as CxxUtils-00-01-06
+
+2013-11-16 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made the package compile on MacOS X with hwaf.
+	* This included adding a missing include to SealSignal.cxx, and
+	  disabling two tests that rely on headers not available on
+	  MacOS. Will probably turn off all the tests in xaod-standalone
+	  mode anyway...
+	* Tagging as CxxUtils-00-01-05
+
+2013-11-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CxxUtils-00-01-04
+	* hwafize
+	* A hscript
+
+2013-10-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-03.
+	* CxxUtils/hashtable.h, CxxUtils/unordered_set.h,
+	CxxUtils/unordered_map.h: Clang fixes.
+
+2013-10-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-02.
+	* CxxUtils/final.h: (new)
+
+2013-09-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-01-01.
+	* test/SEGVHandler_test.cxx: Remove obsolete comments.
+	* Tagging CxxUtils-00-01-00.
+	* test/SEGVHandler_test.cxx: Make more robust my ensuring that
+	each monitored object is allocated on its own page.
+	* share/SEGVHandler_test.ref: Updated.
+
+2013-08-20  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* Tagging CxxUtils-00-00-99
+	* remove c++ comment-style from c header
+	* M CxxUtils/unused.h
+
+2013-08-07  Sebastien Binet  <binet@farnsworth>
+
+	* Tagging CxxUtils-00-00-98
+	* fix package name
+	* M wscript
+
+2013-07-18  Rolf Seuster
+
+	* Tagging CxxUtils-00-00-97.
+	* src/AthDsoCbk.c: #define linux does not work for c++11, need now #define __linux__
+
+2013-06-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-96.
+	* cmt/requirements: Dependency fix for unit tests.
+
+2013-04-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-95.
+	* Fix tests for clang.
+
+2013-04-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-94.
+	* test/hashtable_test.cxx: Fix warnings.
+	* Tagging CxxUtils-00-00-93.
+	* test/FloatPacker_test.cxx: Make sure NDEBUG is off.
+
+2013-03-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-92.
+	* CxxUtils/copy_bounded.h, test/copy_bounded_test.cxx,
+	share/copy_bounded_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2013-03-01  Sebastien Binet  <binet@cern.ch>
+
+	* tagging CxxUtils-00-00-91
+	* make CxxUtils/unused.h usable from a C89 compilation unit
+	* M CxxUtils/unused.h
+
+2013-02-26  Sebastien Binet  <binet@cern.ch>
+
+	* tagging CxxUtils-00-00-90
+	* fix clang warnings about unused parameters
+	* M src/AthDsoCbk.c
+
+2013-02-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-89.
+	* src/clock.cxx, src/SealSignal.cxx: Fix MacOS warnings.
+	* src/exctrace/exctrace_collector.cxx: Remove include of
+	unwind.h.  Not needed, and causes problems with clang.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging CxxUtils-00-00-88
+	* adding wscript file
+	* A wscript
+
+2012-11-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-87.
+	* share/stacktrace_test.ref: Update for last change.
+
+2012-11-16  Rolf Seuster
+	* add information so that new utilities in AtlasGdb will now print line numbers for crashes
+	* in releases where no debug files are installed. Needs access to AFS builds area though.
+	* tagging CxxUtils-00-00-86
+
+2012-11-16  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging CxxUtils-00-00-85.
+	* src/exctrace/exctrace_collector.cxx: clang fixes (savannah 98888)
+
+2012-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-84.
+	* CxxUtils/PageAccessControl.h: Coverity warning fixes.
+
+2012-04-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-83.
+	* test/stacktrace_test.cxx: Fix last change for gcc 4.3.5.
+	* Tagging CxxUtils-00-00-82.
+	* test/stacktrace_test.cxx: Rework to not use malloc hooks (which
+	are deprecated).
+
+2011-10-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-81.
+	* CxxUtils/hashtable.h: Avoid copying allocator in node
+	allocation/deallocation.
+
+2011-07-21  Rolf Seuster < seuster AT cern.ch>
+	* fix problem in SealDebug.cxx
+	* no line numbers
+	* tagging CxxUtils-00-00-80
+
+2011-06-16  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging CxxUtils-00-00-79
+	* add macros for __builtin_expect to help branch predictions
+	* A CxxUtils/AthUnlikelyMacros.h
+
+2011-05-31  Rolf Seuster < seuster AT cern.ch>
+	* quadruple (!) backslashes in SealDebug.cxx
+	* tagging CxxUtils-00-00-78
+
+2011-05-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-77.
+	* test/SEGVHandler_test.cxx (main): Be more robust against how
+	memory is allocated.
+
+2011-05-10  Rolf Seuster < seuster AT cern.ch>
+	* use different command line options for eu-addr2line, if present on the system
+	* and run through c++filt to demangle symbols
+	* fix small overwrite obscuring the stack trace a little bit
+	* tagging CxxUtils-00-00-76
+
+2011-04-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-75.
+	* CxxUtils/SealDebug.h, src/SealDebug.cxx: Allow specifying the
+	binary used for symbolization.
+	* test/stacktrace_test.cxx: Force use of addr2line, to get
+	consistent results across platforms.
+
+	* Tagging CxxUtils-00-00-74.
+	* CxxUtils/hashtable.h: Fix clang warnings.
+
+2011-04-20  Rolf Seuster < seuster AT cern.ch>
+	* use eu-addr2line, if present on the system
+	* eu-addr2line follows .gnu_debuglink (debug symbols in a separate library)
+	* tagging CxxUtils-00-00-73
+
+2011-03-26  scott snyder  <snyder@bnl.gov>
+
+	* CxxUtils/unused.h: (new)
+        * tagging CxxUtils-00-00-72
+
+2011-03-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * changes of sprintf -> snprintf for coverity
+        * tagging CxxUtils-00-00-71
+
+2011-02-07  scott snyder  <snyder@bnl.gov>
+
+	* tagging CxxUtils-00-00-70.
+	* src/SealSignal.cxx (fatal): Update last change: move the abort()
+	on null s_fatalReturn to within the region protected by the
+	s_inFatal count.
+
+2010-11-20  scott snyder  <snyder@bnl.gov>
+
+	* tagging CxxUtils-00-00-69.
+	* src/SealDebug.cxx (stacktraceLine): Protect against null
+	dli_sname.
+
+2010-10-01  scott snyder  <snyder@bnl.gov>
+
+	* tagging CxxUtils-00-00-68.
+	* src/Arrayrep.cxx (error): Improve error message formatting.
+
+2010-08-26  scott snyder  <snyder@bnl.gov>
+
+	* tagging CxxUtils-00-00-67.
+	* src/SealSignal.cxx (fatal): Abort if s_fatalReturn is null.
+
+2010-08-18  scott snyder  <snyder@bnl.gov>
+
+	* tagging CxxUtils-00-00-66.
+	* share/StrFormat_test.ref: (new)
+	* src/MD5.cxx: Coverity warning fix.
+	* CxxUtils/fpcompare.h: Fix typos in comments.
+	* src/AthDsoCbk.c: Comment out printfs to stdout.
+
+2010-06-30  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging CxxUtils-00-00-65
+	* adding a string formatter helper
+	* A CxxUtils/StrFormat.h
+	* A src/StrFormat.cxx
+	* A test/StrFormat_test.cxx
+
+
+2010-04-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-64
+	* test/SEGVHandler_test.cxx: Another try at making this work on
+	both slc and recent fedora.
+	* share/SEGVHandler_test.ref: Updated.
+
+
+2010-04-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-63.
+	* share/SEGVHandler_test.ref: Updated.
+
+	* Tagging CxxUtils-00-00-62
+	* test/SEGVHandler_test.cxx: Add a flush to make output ordering
+	more predictable.
+	* share/SEGVHandler_test.ref: Updated.
+
+2010-03-01  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging CxxUtils-00-00-61
+	* CxxUtils/excepts.h: ) Add implementation of feenableexcept()/fedisableexcept() functions for MacOSX
+	* src/excepts.cxx:    )  
+
+2010-03-05  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * add <cstdio> to SealSignal.cxx for sprintf
+
+2010-03-01  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging CxxUtils-00-00-60
+	* CxxUtils/BasicTypes.h: Add header file to provide missing basic types for MacOSX 
+
+2010-02-27  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging CxxUtils-00-00-59
+	* cmt/requirements: Grrr, the problems come back again, so the library name change wasn't successful. Add the AthDsoCbk.c file to the libCxxUtils.so library for MacOSX as a workaround for failing to load the symbols at runtime. 
+
+2010-02-25  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging CxxUtils-00-00-58
+	* cmt/requirements: Rename the libAthDsoCbk.so library to libAthDsoCallbacks.so since this solves the mysterious problem with the MacOSX runtime resolution of symbols. Don't ask me why...
+
+2010-02-24  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging CxxUtils-00-00-57
+	* cmt/requirements: Add the AthDsoCbk.c file to the libCxxUtils.so library for MacOSX as a workaround for failing to load the symbols at runtime. I haven't found a work of making it work otherwise.
+
+2010-02-24  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CxxUtils-00-00-56
+	* fixing utest ref-file
+	* M share/exctrace1_test.ref
+
+2010-02-22  Sebastien Binet  <binet@lxplus302.cern.ch>
+
+	* tagging CxxUtils-00-00-55
+	* cleaning-up CxxUtils_linkopts
+	* M cmt/requirements
+
+2010-02-18  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging CxxUtils-00-00-54
+	* fixing (sort of) utest ref-file
+	* M share/exctrace1_test.ref
+
+2010-02-17  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging CxxUtils-00-00-53
+	* cmt/requirements: Use the named_installed_library pattern for the exctrace_collector library
+	* src/AthDsoCbk.c: Fix compilation failure for MacOSX
+
+2010-02-16  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CxxUtils-00-00-52
+	* new dso-callbacks with proper list management
+	* M CxxUtils/AthDsoCbk.h
+	* M src/AthDsoCbk.c
+	* M cmt/requirements
+	* A src/libcalg
+	* A CxxUtils/libcalg
+
+2010-02-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CxxUtils-00-00-51
+	* new dso-callbacks (with C closures)
+	* A CxxUtils/AthDsoCbk.h
+	* A src/AthDsoCbk.c
+	* M cmt/requirements
+
+2010-02-12  Charles Leggett
+	* added MD5.h, MD5.cxx: RSA MD5 digest generator
+	* tag CxxUtils-00-00-50
+	
+2010-01-30  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging CxxUtils-00-00-49.
+	* CxxUtils/clock.h: ) Provide a simplified clock_gettime() function for MacOSX
+	* src/clock.cxx:    )
+	* CxxUtils/sincosf.h: ) Provide a simple sincosf() function for MacOSX
+	* src/sincosf.cxx:    )
+	
+2010-01-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-48.
+	* test/stacktrace_test.cxx: Filter out file/linenumber as well.
+	Needed for a clean comparison in opt builds.
+	* share/stacktrace_test.ref: Updated.
+
+2010-01-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-47.
+	* src/SealDebug.cxx: Remove unneeded malloc.h include.
+	* share/stacktrace_test.ref: Updated.
+
+2010-01-10  David Quarrie <David.Quarrie>
+
+	* Tagging CxxUtils-00-00-46.
+	* src/FloatPackage.cxx: Hack ieee754_double definition for MacOSX. There's probably a better way of doing this
+	* src/SealDebug.cxx: Remove #include <malloc.h> for MacOSX since it's missing (and not needed)
+
+2010-01-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-45.
+	* src/SealDebug.cxx: Rewrite stack trace so that on linux it
+	doesn't require dynamic memory allocation.
+	* CxxUtils/SealDebug.h: Include SealDebug.h.
+
+	* test/stacktrace_test.cxx: (new)
+	* share/stacktrace_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* test/exctrace1_test.cxx: Update comments.
+	* test/exctrace2_test.cxx: Update comments.
+
+2010-01-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-44.
+	* Remove some files that weren't supposed to have been committed.
+
+	* Tagging CxxUtils-00-00-43.
+	* test/hashtable_test.cxx: gcc 4.4 fixes.
+	* CxxUtils/fast_push_back.h: gcc 4.4 fixes.
+
+2009-12-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-42.
+	* CxxUtils/FloatPacker.h, src/FloatPacker.cxx,
+	test/FloatPacker_test.cxx, share/FloatPacker_test.ref: (new)
+
+2009-11-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-41.
+
+	* CxxUtils/pointer_list.h, CxxUtils/pointer_list.icc,
+	src/pointer_list.cxx, test/pointer_list_test.cxx: More efficient
+	way of testing for the end of a block.
+
+	* CxxUtils/fpcompare.h: Add equality test.
+	* test/fpcompare_test.cxx: Test it.
+
+2009-11-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-40.
+	* CxxUtils/pointer_list.h, CxxUtils/pointer_list.icc,
+	src/pointer_list.cxx, test/pointer_list_test.cxx,
+	share/pointer_list_test.ref: First pointer_list implementation.
+	* CxxUtils/PackedArray.h: Fix include guard.
+
+2009-11-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-39.
+	* src/exctrace.cxx: Add a couple missing #includes.
+
+2009-11-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-38.
+	* CxxUtils/SealDebug.h, src/SealDebug.cxx: Add stacktraceLine.
+	* CxxUtils/exctrace.h: (new)
+	* src/exctrace.cxx: (new)
+	* src/exctrace/exctrace_collector.cxx: (new)
+	* test/exctrace1_test.cxx: (new)
+	* test/exctrace2_test.cxx: (new)
+	* share/exctrace1_test.ref: (new)
+	* share/exctrace2_test.ref: (new)
+	* cmt/requirements: Add them.
+
+2009-10-22  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-37.
+	* CxxUtils/fpcompare.h: Add overloads for float as well as
+	double.
+	* test/fpcompare_test.cxx: Test changes.
+
+2009-10-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-36.
+	* CxxUtils/PackedArray.h, src/PackedArray.cxx,
+	test/PackedArray_test.cxx, share/PackedArray_test.ref: (new, from
+	DataModel)
+	* cmt/requirements: Add the test.
+
+2009-09-24  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-35.
+	* test/procmaps_test.cxx: Fix warnings with optimization.
+
+	* Tagging CxxUtils-00-00-34.
+	* CxxUtils/hashtable.h: Fix warnings.
+	* test/hashtable_test.cxx: Fix warnings.
+	* CxxUtils/no_conversion_warning.h: (new)
+
+2009-09-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-33.
+	* src/SealDebug.cxx (stacktrace): Fix spurious NULs in backtrace.
+
+2009-08-05  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+	* src/PageAccessControl.cxx (protectPage): size gymnastics to remove
+	printf warnings 
+	* CxxUtils/page_access.h: size gymnastics to remove printf warnings 
+	* src/page_access.cxx: size gymnastics to remove printf warnings 
+	* tagging CxxUtils-00-00-32
+
+2009-04-15  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+	* added addr2line functionality in stack trace as provided by Rolf Seuster
+	* added error handling, compiler warning and other fixes for the above patch
+	* tagging CxxUtils-00-00-31
+
+2009-04-15  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging CxxUtils-00-00-30
+	* src/page_access.cxx: Use size_t instead of unsigned int for 64-bit compatibility
+	
+2009-04-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-29.
+	* src/Arrayrep.cxx: Remove Gaudi dependency.
+	* test/Arrayrep_test.cxx: Adjust.
+	* test/Array_test.cxx: Adjust.
+	* cmt/requirements: Fix for SEGVHandler test miscompares.
+
+2009-04-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-28.
+	* CxxUtils/Array.h: Bring WritableArray and WritableArrayData into
+	CaloRec n/s.
+	* CxxUtils/Arrayrep.h, src/Arrayrep.cxx: Need to move into CaloRec
+	n/s for now, for backwards compatibility with existing data.
+	* CxxUtils/fpcompare.h: Fix typo in comments.
+
+2009-04-06  Paolo Calafiura  for Ed Moyse
+
+	* tagging CxxUtils-00-00-27
+	* src/procmaps.cxx: OSX does not have C getline, use ifstream instead
+
+2009-04-02  Paolo Calafiura
+
+	* tagging CxxUtils-00-00-26
+	* src/PageAccessControl_test.cxx: added #undef NDEBUG
+	* src/SEGVHandler_test.cxx: added #undef NDEBUG
+
+2009-04-02  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CxxUtils-00-00-25
+	* temporarily disabling failing tests (PageAccessControl+SEGVHandler)
+	* M cmt/requirements
+
+2009-04-01  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CxxUtils-00-00-24
+	* various cosmetic fixes (for emacs)
+	* M CxxUtils/page_access.h
+	* M CxxUtils/procmaps.h
+
+2009-03-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-23
+
+	* test/SEGVHandler_test.cxx: Make test more reproducible.
+	* share/SEGVHandler_test.ref: Updated.
+
+	* CxxUtils/Arrayrep.h, CxxUtils/ArrayScanner.h, CxxUtils/Array.h,
+	CxxUtils/Array.icc, src/ArrayScanner.cxx, src/Arrayrep.cxx,
+	src/Array.cxx, test/ArrayScanner_test.cxx, test/Arrayrep_test.cxx,
+	test/Array_test.cxx, share/ArrayScanner_test.ref,
+	share/Arrayrep_test.ref, share/Array_test.ref: Copied here from
+	CaloConditions.
+
+	* CxxUtils/fast_push_back.h: Fix include guard.
+
+	* test/CxxUtils.xml: Make sure test differences are considered
+	errors.
+
+	* Tagging CxxUtils-00-00-22
+
+	* CxxUtils/fast_push_back.h, test/fast_push_back_test.cxx,
+	test/fast_push_back1_test.cxx, share/fast_push_back_test.ref,
+	share/fast_push_back_test1.ref: Copied here from DataModel.
+	* cmt/requirements: Add the tests.
+
+	* src/procmaps.cxx: Add missing #include.
+	* src/PtrAccessSEGVHandler.cxx: Add missing #include.
+	* test/SEGVHandler_test.cxx: Add missing #include.
+
+	* test/procmaps_test.cxx (nop): Fix compilation warning.
+
+	* share/PageAccessControl_test.ref, share/SEGVHandler_test.ref,
+	share/procmaps_test.ref: (new)
+
+2009-03-11  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CxxUtils-00-00-21
+	* adding utests for CxxUtils::copy_if
+	* A test/copyif_test.cxx
+	* A share/copyif_test.ref
+
+	* tagging CxxUtils-00-00-20
+	* adding CxxUtils::copy_if implementation (from gcc4.4)
+	* A CxxUtils/algorithms.h
+
+2009-03-10  Paolo Calafiura  
+	* Tagging CxxUtils-00-00-19 
+	* src/procmaps.cxx (procmaps::Entry): fix sscanf compilation warning (thanks Wim)
+
+2009-03-04  Paolo Calafiura  
+	* Tagging CxxUtils-00-00-18
+	* class PageAccessControl: add support for counting number of times page was accessed, and for accessing list of protected ptrs
+	* src/procmaps.cxx (procmaps::procmaps): do not print maps content
+
+2009-02-12  Paolo Calafiura  
+	* Tagging CxxUtils-00-00-17
+	* CxxUtils/PageAccessControl.h (class PageAccessControl): adapted iface
+	to SG needs. Key m_protected entries by page boundary address
+
+2009-02-03  Paolo Calafiura
+
+	* Tagging CxxUtils-00-00-16
+	* new class PageAccessControl, major rewrite of PtrAccessSEGVHandler
+	It is starting to work, sort of...
+
+2009-01-29  Paolo Calafiura
+	* Tagging CxxUtils-00-00-15
+        * added PtrAccessSIGVHandler and its test. This class provides a handle function that logs the  
+	addresses that had an access violation. It can be installed as sigaction handler using its
+        C facade in cPtrAccessSIGVHandler
+
+2009-01-26  Paolo Calafiura
+	* Tagging CxxUtils-00-00-14
+        * turned procmaps into a "pseudo-singleton" so that maps can be read only once. At the same time
+	added support for rereading maps when an address can not be located in loaded entries.
+
+2009-01-23  Paolo Calafiura
+	* Tagging CxxUtils-00-00-13
+        * new class procmaps and its test
+
+2008-12-12  Frank Winklmeier  <fwinkl@cern>
+
+	* Tagging CxxUtils-00-00-11
+	* src/SealDebug.cxx: Demangle symbol names on Linux.
+	* CxxUtils/SealSignal.h: Make 'describe' public so it can be used by CoreDumpSvc.	
+	* src/SealSignal.cxx: Fix typos in 'describe'.
+
+2008-12-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-10.
+	* CxxUtils/hashtable.h: Fix gcc 4.3 warnings.
+	* cmt/requirements: We depend on boost now.
+
+2008-12-09  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging CxxUtils-00-00-09
+	* CxxUtils/hashtable.h:  )
+	* src/SealDebug.cxx:     ) Add gcc 4.3 support
+	* src/SealSharedLib.cxx: )
+	* src/SealSignal.cxx:    )
+
+2008-11-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-08.
+	
+	* CxxUtils/sincos.h: (new)
+	* test/sincos_test.cxx: (new)
+	* share/sincos_test.ref: (new)
+	* cmt/requirements: Add sincos_test.
+
+	* CxxUtils/fpcompare.h: Note that you run into the same problem
+	using floats as keys for associative containers.
+	* CxxUtils/SealSignal.h: Fix compilation warnings.
+
+2008-11-17  David Quarrie <David.Quarrie@cern.ch>
+	* CxxUtils/SealCommon.h: Extend Apple #defines
+	* CxxUtils/SealSignal.h: Add #include <climits> in order to get access to CHAR_BIT and add fields in siginfo_t for MacOSX
+	* src/SealSignal.cxx: Add #include <sys/stat.h>
+	* Tagging CxxUtils-00-00-07
+
+2008-11-14  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added Apple #defines to SealCommon.h (taken from MacOSX 10.5 config.h)
+
+2008-10-29  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * binutils on SLC4 appears not to consider /lib/ld-linux.so for symbols -> worked around
+        * tagging CxxUtils-00-00-06
+
+2008-10-28  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added a stripped-down version of the seal signal handler
+        * tagging CxxUtils-00-00-05
+
+2008-10-22  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-04.
+	* CxxUtils/hashtable.h: Add default constructors for hashtable
+	iterators (ForwardIterator requirements).
+	* test/hashtable_test.cxx: Test use of default ctors.
+
+2008-09-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CxxUtils-00-00-03.
+	* CxxUtils/fpcompare.h: Make more robust.
+
+	* Tagging CxxUtils-00-00-02.
+	* CxxUtils/fpcompare.h: (new)
+	* test/fpcompare_test.cxx: (new)
+	* share/fpcompare_test.ref: (new)
+	* cmt/requirements: Add the test.
+
+2008-09-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging CxxUtils-00-00-01
+	* adding ATN unit test hook
+	* A test/CxxUtils.xml
+
+2008-09-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging CxxUtils-00-00-00
+	* first import of a package holding a set of C++ classes and template
+	  utilities w/o any external dependency (apart from boost)
+

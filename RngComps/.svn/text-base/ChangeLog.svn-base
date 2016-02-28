@@ -1,0 +1,89 @@
+2015-03-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RngComps-00-00-11.
+	* share/TestSeedRunEvent.ref: Update reference file for CLHEP
+	changes.
+
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RngComps-00-00-10.
+	* src/interpretSeeds.cxx: Fix clang warnings.
+
+2014-12-22  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging RngComps-00-00-09.
+	* cmt/requirements: Add test pattern for ROOT6.
+
+2014-12-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RngComps-00-00-08.
+	* src/interpretSeeds.cxx (interpretSeeds): Suppress uninitialized
+	variable warnings from lexical_cast.
+
+2014-09-02  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging RngComps-00-00-07
+	* add python/RandomFlags.py - jobproperties to replace shared
+	random number configuration code in DigitizationFlags.py and
+	SimFlags.py. ATLASSIM-503
+
+2013-12-20  scott snyder  <snyder@bnl.gov>
+
+        * Tagging RngComps-00-00-06.
+	* cmt/requirements: Fix test mismatch.
+
+2013-09-27  scott snyder  <snyder@bnl.gov>
+
+        * Tagging RngComps-00-00-05.
+	* src/AtRndmGenSvc.cxx: Fix compilation warnings.
+	* Regenerate ref files.
+
+2013-05-06  scott snyder  <snyder@bnl.gov>
+
+        * Tagging RngComps-00-00-04.
+	* Update reference files for new Gaudi version.
+
+2013-04-05 Paolo Calafiura
+
+        * Tagging RngComps-00-00-03 
+	* test/TestSeedRunEvent.ref: updated for new SGSvc printout 
+
+2013-03-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Add reseed incident handlers, used in pileup MP digitization 
+
+2013-01-30  Sebastien Binet  <binet@cern.ch>
+
+	* tagging RngComps-00-00-01
+	* refactor from AthenaServices
+	* A test
+	* A test/AtRndmGen_test.cxx
+	* A test/AtDSFMT_test.cxx
+	* A test/RngComps.xml
+	* A test/AtRanlux_test.cxx
+	* A share
+	* A share/AtDSFMT_test.txt
+	* A share/TestSeedRunEvent.ref
+	* A share/AtRanlux_test.ref
+	* A share/AtRndmGen_test.ref
+	* A share/AtRanlux_test.txt
+	* A share/AtDSFMT_test.ref
+	* A share/AtRndmGen_test.txt
+	* A share/TestSeedRunEvent.py
+	* A cmt
+	* A cmt/requirements
+	* A ChangeLog
+	* A src
+	* A src/AtRndmGenSvc.h
+	* A src/interpretSeeds.cxx
+	* A src/components
+	* A src/components/RngComps_entries.cxx
+	* A src/components/RngComps_load.cxx
+	* A src/AtRanluxGenSvc.cxx
+	* A src/interpretSeeds.h
+	* A src/crc_combine.h
+	* A src/AtDSFMTGenSvc.cxx
+	* A src/AtRanluxGenSvc.h
+	* A src/AtRndmGenSvc.cxx
+	* A src/AtDSFMTGenSvc.h
+

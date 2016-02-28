@@ -1,0 +1,32 @@
+2015-09-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CoWTools-00-00-07.
+	* Comply with ATLAS naming conventions.
+
+2015-03-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CoWTools-00-00-06.
+	* CoWTools/CoWRecordStats.h: Another couple coverity warnings.
+	* Tagging CoWTools-00-00-05.
+	* Fix coverity warnings.
+
+	* Tagging CoWTools-00-00-04.
+
+2015-02-27 sami kama<sami.kama@cern.ch>
+	* Adding detailed monitoring information
+
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CoWTools-00-00-03.
+	* CoWTools/CoWRecord.h: Fix clang compilation warning.
+
+2015-02-05 sami kama<sami.kama@cern.ch>
+	* Added Swap monitoring
+
+2015-02-01 sami kama<sami.kama@cern.ch>
+	* Added Monitor
+	* Tagging CoWTools-00-00-02
+
+2015-01-23 sami kama<sami.kama@cern.ch>
+	* Initial import
+	* Tagging CoWTools-00-00-01

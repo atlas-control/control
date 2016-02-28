@@ -1,0 +1,57 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'Control/RootUtils',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+    ctx.use_pkg('External/AtlasPython')
+    ctx.use_pkg('External/AtlasROOT')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_linklib(
+        name     = 'RootUtils',
+        source   = '*.cxx',
+        use      = ['ROOT', 'Reflex',
+                    ],
+        )
+
+    ctx.build_linklib(
+        name     = 'RootUtilsPyROOT',
+        source   = 'pyroot/*.cxx',
+        use      = ['ROOT', 'Reflex', 'PyROOT',
+                    'RootUtils',
+                    'python',
+                    ],
+        lib      = ['TreePlayer',],
+        )
+
+    ctx.build_reflex_dict(
+        name     = 'RootUtils',
+        source   = 'RootUtils/RootUtilsDict.h',
+        selection_file = 'RootUtils/selection.xml',
+        use      = ['RootUtils','ROOT', 'Reflex',],
+        )
+
+    ctx.build_reflex_dict(
+        name     = 'RootUtilsPyROOT',
+        source   = 'RootUtils/RootUtilsPyROOTDict.h',
+        selection_file = 'RootUtils/selection_PyROOT.xml',
+        use      = ['RootUtilsPyROOT','ROOT', 'Reflex', 'PyROOT'],
+        lib      = ['TreePlayer',],
+        )
+
+    ctx.install_headers()
+    ctx.build_pymodule(source=['python/*.py'])
+    

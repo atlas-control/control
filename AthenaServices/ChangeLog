@@ -1,0 +1,4172 @@
+2016-02-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adding a hand-written CMakeLists.txt file to the package.
+	* This one declares the build of the package's libraries correctly,
+	  and declares all the tests in the package that are declared in the
+	  requirements file.
+	* Added two helper scripts (test/TestStopRun.sh and test/AthTPCnvSvc.sh)
+	  for running the athena.py based tests.
+	* Removed the executable flag from all the files in the share/
+	  directory as well.
+	* Tagging as AthenaServices-01-59-55
+
+2016-02-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-54.
+	* cmt/requirements: More patterns to ignore.
+
+2016-02-17 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* src/LoggedMessageSvc.cxx: Exchanged the usage of the now private
+	  m_msgsvc variable with the msgSvc() function.
+	* Removed the executable flag from all the files that clearly didn't
+	  need it.
+	* Tagging as AthenaServices-01-59-53
+
+2016-02-16  Charles Leggett
+	* src/AthenaHiveEventLoopMgr: put full event info into EventContext
+	* Tag AthenaServices-01-59-52
+
+M       src/AthenaHiveEventLoopMgr.cxx
+
+2016-02-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-51.
+	* src/ThinningSvc.h, src/ThinningSvc.cxx: Update for IProxyDict
+	changes.
+
+2016-01-20 Will Buttinger <will@cern.ch>
+        * src/AthenaEventLoopMgr.cxx: Added EvtStore property to allow change of Storegate
+        * tagging AthenaServices-01-59-50
+
+2015-12-18  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-49
+	* src/AthenaEventLoopMgr.cxx: Set EventInfo without EventType when
+	making from TAG AttributeList
+
+2015-12-04  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-48
+	* src/AthenaSharedMemoryTool.cxx: Tweak start/stop for data client.
+
+2015-11-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-46.
+	* cmt/requirements: Fix reference file comparison for
+	AthTPCnvSvc_test.
+
+2015-11-17  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-45
+	* src/AthenaSharedMemoryTool.cxx: Allow start/stop for data client.
+
+2015-11-17  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-44
+	* src/AthenaEventLoopMgr.cxx: Create EventInfo from TAG AttributeList
+	if available.
+
+2015-11-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-43.
+	* src/AthenaEventLoopMgr.cxx (executeEvent): Const fix.
+
+2015-11-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-42.
+	* cmt/requirements: cmt fixes.
+	* Tagging AthenaServices-01-59-41.
+	* Extend AthTPCnvSvc to add optional arguments to the converter
+	retrieval functions to specify which type is wanted.  Add unit
+	test.
+
+2015-10-30  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-40
+	* src/MetaDataSvc.cxx: Call EventSelector::releaseContext to fire
+	End...File incidents.
+
+2015-10-22  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-39
+	* src/AthenaSharedMemoryTool: Implement stop() transition to
+	unregister data client.
+
+2015-10-20  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-38
+	* src/AthenaSharedMemoryTool, AthenaYamplTool: Drop functions for metadata sharing.
+
+2015-10-13  Rolf Seuster
+	* tagging AthenaServices-01-59-37
+	* PyAthenaEventLoopMgr: fix compilation problem in cmake nightly, likely due to
+	* changes in Gaudi trunk
+
+2015-10-06  Charles Leggett
+	* tagging AthenaServices-01-59-36
+	* AthenaHiveEventLoopMgr: explicitly set the key of the EventInfo
+	object recorded in the store
+
+M       src/AthenaHiveEventLoopMgr.cxx
+
+2015-10-02  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-35
+	* src/AthenaSharedMemoryTool, AthenaYamplTool: Implement functions for
+	metadata sharing.
+
+2015-10-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-34.
+	* src/AthenaYamplTool.cxx (putEvent): Fix coverity warning.
+
+2015-09-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-33.
+	* src/AthenaOutputStream.cxx, src/MixingEventSelector.cxx,
+	src/MultipleEventLoopMgr.cxx: Fix placement of using declarations.
+
+2015-09-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-32.
+	* src/ItemListSvc.cxx: Comply with ATLAS naming conventions.
+
+2015-09-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-31
+	* src/AthenaEventLoopMgr.cxx: Clean up some ugly type coercion.
+
+2015-08-28  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-30
+	* src/AthenaYamplTool.cxx: Fix putEvent() to handle end of processing.
+
+2015-08-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-29
+	* src/AthenaSharedMemoryTool.cxx: Fix finalize() to only remove shared
+	memory if this is the server.
+
+2015-08-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-28
+	* src/AthenaSharedMemoryTool: Fix shared memory allocation for data
+	streaming mode (more work needed).
+
+2015-07-30  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-26
+	* src/AthenaSharedMemoryTool, AthenaYamplTool: Add number of bytes to
+	getObject() implementation.
+
+2015-07-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-25.
+	* src/ThinningSvc.h: Temp warning fix.
+
+	* Tagging AthenaServices-01-59-24.
+	* src/ThinningSvc.cxx, src/ThinningSvc.h: Add interfaces for
+	recordObject / updatedObject.  Remove deep_proxy and proxy(CLID).
+	Add IStringPool interfaces.
+
+	* Tagging AthenaServices-01-59-23.
+	* cmt/requirements: Fix test miscompare with hive.
+
+2015-06-28  Paolo Calafiura  <calaf@lxplus0130.cern.ch>
+
+	* Tagging AthenaServices-01-59-22
+	* src/DecisionSvc.cxx (DecisionSvc): OBO J. Chapman, get rid of
+	CutFlowSvc runtime dependency for simulation releases
+
+2015-06-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-21.
+	* src/AthenaSharedMemoryTool.cxx: Fix coverity warning.
+	* src/AthenaOutputStream.cxx: Remove reference to obsolete Gaudi
+	header.
+
+2015-06-08  Charles Leggett
+	* AthenaHiveEventLoopMgr: carry EventContext when firing event related incidents
+	* tag AthenaServices-01-59-20
+
+M       src/AthenaHiveEventLoopMgr.cxx
+
+2015-06-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-19.
+	* Avoid redundant divisions.
+
+2015-06-04  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* Merged with AthenaServices-01-59-06-02:
+	* Creating a fix for the issue where some derivation outputs
+	  changed their output branches when put into trains in
+	  certain configurations. It boiled down to properly "resetting"
+	  SG::IAuxStoreIO objects to not applying variable selections,
+	  if the current stream didn't require a selection.
+	* Modifed the logic in src/AthenaOutputStream.cxx to make this
+	  happen.
+	* Importing Jack's INFO->DEBUG changes from AthenaServices-01-59-05-01.
+	* tagging AthenaServices-01-59-18
+
+2015-06-02  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-17
+	* src/AthenaSharedMemoryTool, AthenaYamplTool: Implement modified
+	IAthenaIPCTool interface
+
+2015-06-01  Charles Leggett
+	* AthenaHiveEventLoopMgr: propage errors when reading event header 
+	  from file
+	* tag AthenaServices-01-59-16
+
+M       src/AthenaHiveEventLoopMgr.cxx
+M       src/AthenaHiveEventLoopMgr.h
+
+2015-06-01  Charles Leggett
+	* fixed end of input file processing for hive
+	* tag AthenaServices-01-59-15
+
+M       src/AthenaHiveEventLoopMgr.cxx
+M       src/AthenaHiveEventLoopMgr.h
+
+2015-06-01  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-14
+	* src/AthenaSharedMemoryTool, AthenaYamplTool: Implement unlockEvent()
+	from modified IAthenaIPCTool interface
+
+2015-05-21  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* tagging AthenaServices-01-59-13
+	* cmt/requirements: remove use ToyConversion
+	* test/FooBar.h: copied from ToyConversion to remove dependency 
+
+2015-03-24  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-12
+	* src/AthenaSharedMemoryTool, AthenaYamplTool: Some cleanup.
+
+2015-04-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-11.
+	* src/AthenaSharedMemoryTool.cxx (putEvent): Fix coverity
+	warning.
+
+2015-03-24  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-10
+	* src/AthenaSharedMemoryTool.cxx: Fix location for shared memory
+	segment (status information).
+
+2015-03-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-09
+	* src/AthenaSharedMemoryTool, AthenaYamplTool: Implement modified
+	IAthenaIPCTool interface and don't have AthenaSharedMemoryTool wait
+
+2015-03-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-08.
+	* src/AthDictLoaderSvc.cxx (load_type): Fix coverity warning
+	* src/AthenaStopperAlg.h, src/AthenaStopperAlg.cxx: (new)
+	* src/components/AthenaServices_entries.cxx: Add it.
+	* share/TestStopRun.py: StopperAlg -> AthenaStopperAlg.
+	* share/TestStopRun.ref: Updated.
+
+2015-03-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-07.
+	* src/ThinningSvc.h, src/ThinningSvc.cxx: Fix minor memory leaks.
+
+2015-02-20  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-59-06
+	* src/MetaDataSvc.cxx: Delay clearing of the InputMetadata store to
+	allow access for FilePeeker in case of event-less files
+
+2015-02-07  scott snyder  <snyder@bnl.gov>
+	* Tagging AthenaServices-01-59-05.
+	* src/AthenaSummarySvc.cxx: Fix clang compilation.
+
+2015-01-31  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-59-04.
+	* src/AthenaOutputStream.cxx (finalize): Release memory allocated
+	during event processing.
+	* src/ThinningSvc.cxx (finalize): Likewise.
+
+	* Tagging AthenaServices-01-59-03.
+	* src/AthenaOutputStream.cxx (collectAllObjects): Remove debugging
+	printout that was breaking regression tests.
+
+2015-01-28 Jack Cranshaw <cranshaw@anl.gov>
+	* Tagging AthenaServices-01-59-02
+	* AthenaOutputStream.cxx, ItemListSvc.cxx
+	* Make ItemListSvc work correctly with dynamic store
+
+2015-01-09  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging AthenaServices-01-59-01
+	* src/AthenaEventLoopMgr.[h,cxx]: some cleanup
+	* src/ClearStorePolicy.[h,cxx]: split from AthenaEventLoopMgr
+	to use in Hive EVL as well
+	* src/AthenaHiveEventLoopMgr.[h,cxx]: merge back from Hive branch 
+
+2015-01-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-32.
+	* python/PyAthenaEventLoopMgr.py: PyCintex -> cppyy.
+
+2014-12-23  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+	* tagging AthenaServices-01-58-31
+	* src/AthenaEventLoopMgr.cxx: replace createProxy with recordAddress 
+	* src/AthTPCnvSvc.cxx: remove unneeded include file
+
+2014-12-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-58-30
+	* src/AthenaOutputStream.cxx (and test refs): Optimized specification
+	on writing of dynamic auxiliary store members.
+
+2014-12-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-29.
+	* cmt/requirements: Small fix to previous change.
+
+2014-12-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-28.
+	* cmt/requirements: More patterns to ignore.
+
+2014-12-02  Karsten Koeneke  <karsten.koeneke@cern.ch>
+	* src/AthenaOutputStream.cxx: Fix wildcard handling
+	* tagging AthenaServices-01-58-27
+
+2014-11-28  Karsten Koeneke  <karsten.koeneke@cern.ch>
+	* src/DecisionSvc.cxx: Prepare for cutflow bundle
+	* tagging AthenaServices-01-58-26
+
+2014-11-26  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\AthenaSealSvc.cxx (member_is_ok): added DataVector::m_pCont
+	to the ignore list for type checks
+	* tagging AthenaServices-01-58-25
+
+2014-11-21  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\AthenaSealSvc.cxx (missing_member_types): ignore anonymous enums
+	* tagging AthenaServices-01-58-24
+
+2014-09-23  Peter van Gemmeren  <gemmeren@anl.gov>
+	* src/AthenaSealSvc.cxx: For ROOT 6, don't load STLRflx dictionary to
+	avoid error message.
+	* tagging AthenaServices-01-58-22
+
+2014-11-19  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\AthenaSealSvc.cxx (missing_member_types): don't use not existing Reflex::Member::IsEnum()
+	* tagging AthenaServices-01-58-21
+
+2014-11-05  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\AthenaSealSvc.cxx: skipping enums from dict check. added
+	'string' to ignored types
+	* tagging AthenaServices-01-58-20
+
+2014-10-29  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\AthDictLoaderSvc.cxx (load_type): for ROOT6 calling directly
+	RootType(name)
+	* tagging AthenaServices-01-58-19
+
+2014-10-22  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* src/AthenaOutputStream.h/cxx: Improve/bugfix wildcard functionality
+	* tagging AthenaServices-01-58-18
+
+2014-09-23  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-58-17
+	* src/AthenaOutputStream.cxx, MetaDataSvc.cxx: Instead of clearing the
+	Metadata store after output file transitions, call preInit() on helper
+	tools to remove selected proxies.
+
+2014-09-17  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-58-16
+	* src/OutputStreamSequencerSvc.cxx: Rename outputfile only on first
+	call. This seems to be needed, as AthenaMP forks after opening output
+	files and sends the first name range incident while the stream has an
+	existing file without range extension.
+
+2014-09-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-15.
+	* cmt/requirements: More patterns to ignore.
+
+2014-09-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-14.
+	* cmt/requirements: More patterns to ignore.
+
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-13.
+	* Fix coverity warnings.
+
+2014-09-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-12.
+	* cmt/requirements: Fix checkreq warning.
+
+2014-08-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-11.
+	* Rework AthTPCnvSvc to use use Gaudi plugin service w/o reflex.
+
+2014-08-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-58-10.
+	* cmt/requirements: Fix checkreq warning.
+
+2014-08-20  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-58-09
+	* src/MetaDataSvc.cxx: Disconnect output files when transitioning
+	metadata.
+
+2014-08-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-58-08
+	* src/MetaDataSvc.cxx: Fix small memory leak when loading transient
+	addresses.
+
+2014-08-13  Rolf Seuster
+	* move FPEAuditor and helpers into new package AthenaAuditors to remove
+	* dependency on AtlasGdb
+	* Tagged as AthenaServices-01-58-07
+
+2014-08-05  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* cmt\requirements: put "use Gaudi" back in
+	* Tagged as AthenaServices-01-58-06
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Add cmake compatibility (fully backwards compatible on CMT side)
+	* Tagged as AthenaServices-01-58-05
+
+2014-06-27  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-58-04
+	* src/OutputStreamSequencerSvc.cxx: Fix bug from move sequence label to end of
+	filename.
+
+2014-06-12  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* ROOT6 changes to AthenaSealSvc and AthDictLoaderSvc from Wim
+	* tag AthenaServices-01-58-03
+
+2014-06-02  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\CoreDumpSvc.cxx drop the hack around #include "CxxUtils/read_athena_statm.h"
+	* tag AthenaServices-01-58-02
+
+2014-05-30  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\AthDictLoaderSvc.h: restored backward compatibility with ROOT5.
+	* merged in AthenaServices-01-57-39-01
+	* tag AthenaServices-01-58-01
+
+2014-05-20  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* ROOT 6 adaptations, removed AthenaSealSvc functionality (need verification)
+	*  Tagging AthenaServices-01-58-00
+
+2014-05-23  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-39-01
+	* src/OutputStreamSequencerSvc: Move sequence label to end of
+	filename.
+
+2014-05-08  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\AthenaOutputStream.cxx (addItemObjects): add protection
+	against python exception when SG-casting to AUXStore*
+	* Tagging AthenaServices-01-57-39
+
+2014-04-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-57-38.
+	* cmt/requirements (extrapatterns): More patterns to ignore.
+
+2014-04-10  Paolo Calafiura  <calaf@calaf-desktop>
+	* tagging AthenaServices-01-57-37
+	* src/CoreDumpSvc.cxx (dump): use read_athena_statm
+	* share/AthenaOutputStream_test.ref: updated (as well as extrapatterns)
+
+2014-02-27  Jack Cranshaw <cranshaw@anl.gov>
+	* tagging AthenaServices-01-57-36
+	* changes to ItemListSvc output
+
+2014-02-24  scott snyder  <snyder@bnl.gov>
+        * Tagging AthenaServices-01-57-35.
+        * src/AthenaOutputStream.cxx (addItemObjects): Pass quiet to
+        fromStorable, to prevent printing warnings for every non-aux
+        object.
+
+2014-02-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-34
+	* src/AthenaOutputStream.cxx (and test refs): Add Marcins changes to
+	specify writing of dynamic auxiliary store members.
+
+2014-02-05  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* tagging AthenaServices-01-57-33
+	* Bringing back AthenaYamplTool entries to AthenaServices_entries
+
+2014-02-05  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-32
+	* src/OutputStreamSequencerSvc: Allow some customization of file
+	sequence labels.
+
+2014-01-30  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Tagging AthenaServices-01-57-29
+	* Updaes for the AthenaYamplTool for running with TokenProcessor in AthenaMP
+
+2014-01-30  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-28
+	* src/MetaDataSvc.cxx: Handle alias and symlink when reading metadata.
+
+2014-01-24  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-27
+	* src/AthenaOutputStream: [post/pre][Initialize/Finalize] helper tools
+	in io_reinit() and io_finalize().
+
+2014-01-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-57-26.
+	* test/AthenaOutputStream_test.cxx,
+	share/AthenaOutputStream_test.ref: Turn on hideErrorLocus for
+	better test portability.
+
+2014-01-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-57-25.
+	* cmt/requirements: More patterns to ignore.
+	* src/ThinningSvc.h, src/ThinningSvc.cxx: addToStore and
+	proxy_exact added to IProxyDict.
+
+2013-11-22  Jack Cranshaw <cranshaw@anl.gov>
+	* AthenaServices-01-57-24
+	* First version of the ItemListSvc
+
+2014-01-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-57-23.
+	* src/AthenaSealSvc.cxx (missingTypes): Fix base class checks.
+
+2014-01-13  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-22
+	* src/AthenaOutputStream: Implement io_reinit() and io_finalize().
+
+2013-11-28  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Tagging AthenaServices-01-57-20
+	* Adding the missing AthenaYamplTool
+
+2013-11-27  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Tagging AthenaServices-01-57-19
+	* New AthenaYamplTool, yampl-based implementation of the IAthenaTPCTool
+
+2013-11-18  Jack Cranshaw <cranshaw@anl.gov>
+	* Tagging AthenaServices-01-57-18
+	* new ref file for gmake check
+	* Tagging AthenaServices-01-57-17
+	* make IDecisionSvc accessors const
+	* remove property settings for DecisionSvc
+	* add statistics to DecisionSvc
+	* general code cleanup for DecisionSvc
+	* fix unchecked status code in AthenaEventLoopMgr
+
+2013-10-20  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaServices-01-57-16
+	* src/AthenaEventLoopMgr.cxx (executeEvent): fix for printout of 64bit event number
+
+2013-10-11  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-15
+	* src/AthenaOutputStream.cxx: Fix unchecked StatusCode (Thanks Rocco).
+
+2013-10-05  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-14
+	* src/MetaDataSvc, OutputStreamSequencerSvc: Add property to disable
+	input file boundary requirement for file sequencing.
+
+2013-09-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-57-12.
+	* src/ThinningSvc.h: unordered_map.h moved to CxxUtils.
+
+2013-07-26  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-11
+	* src/AthenaSharedMemoryTool: New SharedMemoryTool, implements IAthenaTPCTool.
+
+2013-06-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-57-10.
+	* Fix warning.  Add more patterns to ignore for test comparisons.
+
+2013-04-10  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-09
+	* src/MetaDataSvc.cxx: Use Token class object only, no string.
+
+2013-04-01  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tagging AthenaServices-01-57-08
+	* share/AthenaOutputStream_test.ref: update for new SG debug printout
+
+2013-03-28  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tagging AthenaServices-01-57-07
+	* cmt/requirements (extrapatterns): fix AthenaOutputStream unit test
+
+2013-03-08  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-06
+	* src/MetaDataSvc.cxx: Use Token class object rather than string.
+
+2013-02-26  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaServices-01-57-05
+	* fix bug #100629: clang-3.2 uncovered it
+	* update reference file for AthenaOutputStream test
+	* M src/MixingEventSelector.cxx
+	* M share/AthenaOutputStream_test.ref
+
+2013-02-18  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-57-04
+	* src/MetaDataSvc.cxx: Do nothing if reading from shared memory (currently used for BS only).
+
+2013-01-30  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* tagging AthenaServices-01-57-03
+	* dont fail if RngComps failed to compile (or isnt there)
+	* M python/RedirectRngComps.py
+
+2013-01-30  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaServices-01-57-02
+	* extract random number generators into Control/RngComps (src+tests)
+	* A python/RedirectRngComps.py
+	* D src/AtDSFMTGenSvc.cxx
+	* D src/AtDSFMTGenSvc.h
+	* D src/AtRanluxGenSvc.cxx
+	* D src/AtRanluxGenSvc.h
+	* D src/AtRndmGenSvc.cxx
+	* D src/AtRndmGenSvc.h
+	* D src/crc_combine.h
+	* D src/hashCombine.h
+	* D src/interpretSeeds.cxx
+	* D src/interpretSeeds.h
+	* D test/AtDSFMT_test.cxx
+	* D test/AtRanlux_test.cxx
+	* D test/AtRndmGen_test.cxx
+	* M cmt/requirements
+	* M python/__init__.py
+	* M src/components/AthenaServices_entries.cxx
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaServices-01-57-01
+	* adding wscript file
+	* A wscript
+
+2013-01-17  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tagging AthenaServices-01-57-00
+	* src/MetaDataSvc.cxx (updateAddress): new signature
+	* src/MixingEventSelector.cxx (updateAddress): new signature
+
+2013-01-16  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tagging AthenaServices-01-56-46
+	* share/McEvSelTestSeedRunEvent.py: new job opt file to test
+	reseeding in athenaMP, using McEventSelector to drive it.
+	Introduces a runtime dependency on AtlasSimulation, so can't go in ATN
+
+2012-12-18  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-45
+	* src/MetaDataSvc.cxx: Make sure to clear input MetaDataStore. Attempt to fix Savannah #99518.
+
+2012-12-03  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaServices-01-56-44
+	* putting fpeaudit platform dependent code in different files for
+	  cleaner organization
+	* M src/FPEAudit.cxx
+	* A src/FPEAudit_dummy.icc
+	* A src/FPEAudit_linux.icc
+	* A src/FPEAudit.icc
+	* A src/FPEAudit_darwin.icc
+
+2012-11-30  Paolo Calafiura  <calaf@lxplus448.cern.ch>
+
+	* Tagging AthenaServices-01-56-43
+	* cmt/requirements (extrapatterns): one more try at fixing make check
+
+2012-11-28  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging AthenaServices-01-56-42
+	* share/AthenaOutputStream_test.ref: updated
+
+2012-11-16 Rolf Seuster
+	* Tagging AthenaServices-01-56-41
+	* src/CoreDumpSvc: add little info how to get line number in stacktraces from jobs
+	* running on releases without debug files installed
+
+2012-11-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-40
+	* src/AthenaOutputStream, MetaDataSvc, OutputStreamSequencerSvc: 1st draft of new OutputStreamSequencerSvc
+
+012-11-02 Walter Lampl <walter.lampl@ cern.ch>
+	* UserDataSvc: Always provide a non-const access to the UserDataStore object
+	  (asked for by Karsten, agreed in A-Team meeting on Nov 1st.
+	* Forward getLabels method of the underlying data object
+	* tag AthenaServices-01-56-38
+
+2012-10-30  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* tagging AthenaServices-01-56-37
+	* src/AthenaEventLoopMgr.cxx (AthenaEventLoopMgr::handle): call loadEventProxies no matter what
+
+2012-10-26  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* tagging AthenaServices-01-56-36
+	* fixes for darwin: malloc.h is unneeded, just use stdlib.h. there is no link.h
+	  this provides compilation, not functionality.
+	* M src/FPEAudit.cxx
+
+2012-10-24  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-35
+	* src/MixingEventSelector, share/MixingEventSelector_test.py: Adjustments needed for EventSelector w/o
+	IAddressProvider as interface.
+
+2012-10-12  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-34
+	* src/MetaDataSvc.cxx: Retrieve EventSelector (other than ByteStream) to force initializations
+	and FirstInputFile incident.
+
+2012-09-26  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-33
+	* src/MetaDataSvc.cxx: Retrieve EventSelector to force initialization and FirstInputFile incident.
+
+2012-09-25  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tagging AthenaServices-01-56-32
+	* src/AthenaEventLoopMgr.cxx (AthenaEventLoopMgr::nextEvent): call
+	loadEventProxies no matter what
+
+2012-09-19  Charles Leggett
+
+	* tagging AthenaServices-01-56-31
+	* src/MetaDataSvc: merged changes for new IFileMgr interfaces
+
+2012-09-19  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tagging AthenaServices-01-56-30
+	* src/FPEControlSvc.cxx (FPEControlSvc::FPEControlSvc): fix "init out
+	of order" compiler warning
+
+2012-09-15  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+	* tagging AthenaServices-01-56-29
+	* src/AthenaEventLoopMgr.cxx: Back to the previous verion of seek() in order to make MultipleEventLoopMgr happy
+
+2012-09-13  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-28
+	* src/MetaDataSvc: Added POOL-free MetaDataSvc from EventSelectorAthenaPool.
+
+2012-09-13  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+	* tagging AthenaServices-01-56-27
+	* src/AthenaOutputStream.cxx: IIoComponentMgr::IoMode renaming (merged from AthenaServices-01-56-26-01)
+	* src/AthenaEventLoopMgr.(h,cxx): Became a listener for BeforeFork incident. Needed for AthenaMP-2
+
+2012-08-31  Paolo Calafiura
+	* tagging AthenaServices-01-56-26
+	* src/AthenaEventLoopMgr.cxx (AthenaEventLoopMgr::nextEvent):
+	Sebastien fix for #95173 (save loadEventProxies status code)
+
+2012-08-31  Rolf Seuster <seuster AT cern.ch>
+	* tagging AthenaServices-01-56-25
+	* add option to FPEControlSvc to change rounding mode (for stability tests of algorithms only!!)
+
+2012-07-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-56-24.
+	* src/AthenaSealSvc.cxx (find_extra_types): Fix error reporting
+	(template arg name was blank in the error message).
+	* cmt/requirements: Fix test mismatch.
+
+2012-07-19  Rolf Seuster <seuster AT cern.ch>
+	* tagging AthenaServices-01-56-23
+	* remove signal handler at end of job in FPEAuditor, if it was installed
+
+2012-07-11  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+        * tagging AthenaServices-01-56-22
+	* Add missing registration of the output file on IIoComponentMgr in AthenaOutputStream
+	* Dummy out AthenaOutputStream::io_reinit()
+
+2012-07-09  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-21
+	* src/AthenaOutputStream: Vakho's changes for AthenaMP re-initialization.
+
+2012-07-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-56-20.
+	* src/AthenaSealSvc.cxx: Ignore static data members.
+
+2012-07-02  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-19
+	* src/AthenaOutputStream: Next addition of metadata streaming.
+
+2012-07-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-56-18
+	* Coverity warning fixes.
+
+2012-06-27  Rolf Seuster <seuster AT cern.ch>
+	* tagging AthenaServices-01-56-17
+	* src/FPEAuditor.cxx: add code to print stacktrace on FPE but continue job
+	*   for only a configurable number of FPEs stacktraces are printed
+
+2012-06-22  John Chapman  <John.Chapman@cern.ch>
+	* tagging AthenaServices-01-56-16
+	* src/AtRndmGenSvc.cxx, src/AtRndmGenSvc.h - added CLHEP namespace
+	to mentions of HepRandomEngine, RandGauss and RanecuEngine. (CLHEP
+	2.1.2.3 compatibility)
+	* src/AtRanluxGenSvc.cxx, src/AtRanluxGenSvc.h - added CLHEP namespace
+	to mentions of HepRandomEngine, RandGauss and Ranlux64Engine. (CLHEP
+	2.1.2.3 compatibility)
+	* src/AtDSFMTGenSvc.cxx, src/AtDSFMTGenSvc.h - added CLHEP
+	namespace to mentions of HepRandomEngine. (CLHEP 2.1.2.3
+	compatibility). Add reset of RandGauss state to BeginEvent
+	incident.
+
+2012-06-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-15
+	* src/AthenaOutputStream: First complete addition of metadata streaming.
+
+2012-06-11  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-14
+	* share/AthenaOutputStream_test.ref: Adjustments for AthenaServices-01-56-13
+
+2012-06-08  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-13
+	* src/AthenaOutputStream: Draft addition of metadata streaming,
+	w/o backward compatibility for now. Shoud not break existing client code.
+
+2012-05-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-12
+	* src/AthenaOutputStream: Removing obsolete CommitOnStop property.
+
+2012-05-03  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-56-11
+	* src/AthenaOutputStream.cxx: Make missing objects fatal.
+
+2012-05-01  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tagging AthenaServices-01-56-10
+	* src/interpretSeeds.cxx (interpretSeeds): support AtDSFMTGenSvc
+	* added AtDSFMT_test
+
+2012-04-16 Walter Lampl <walter.lampl@ cern.ch>
+	* UserDataSvc.cxx: Put addRef in queryInterface
+	* tag AthenaServices-01-56-09
+
+2012-04-05 Walter Lampl <walter.lampl@ cern.ch>
+	* UserDataSvc.cxx: Downgrade per-event INFO message to DEBUG
+	* tagging AthenaServices-01-56-08
+
+2012-04-04  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaServices-01-56-07
+	* be explicit about empty body of while loops
+	* M src/AtRndmGenSvc.cxx
+	* M src/AtRndmGenSvc.cxx
+	* M src/AtDSFMTGenSvc.cxx
+
+2012-03-29 Walter Lampl
+	* Redesign (I)UserDataSvc. StoreGate based implementation
+	* tag AthenaServices-01-56-06
+
+2012-03-22  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-56-05
+	* fix reference files as a consequence of -01-56-04
+	* M share/TestSeedRunEvent.ref
+	* M share/TestStopRun.ref
+
+2012-03-20  John Chapman  <John.Chapman@cern.ch>
+
+	* tagging AthenaServices-01-56-04
+	* src/AthenEventLoopMgr.cxx: Change Histograms saving not required
+	WARNING to DEBUG and protect DEBUG level messages.
+
+2012-03-10  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-56-03.
+	* src/UserDataSvc.cxx: Comment out debugging printouts.
+
+2012-03-02  Paolo Calafiura for Thomas Kittelmann
+
+	* tagging AthenaServices-01-56-02
+	* src/UserDataSvc.cxx: protect DEBUG printouts
+
+2012-03-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-56-01
+	* support for disabling EventPrintoutInterval with value==0
+	* M src/AthenaEventLoopMgr.cxx
+
+2012-02-21  John Chapman  <John.Chapman@cern.ch>
+
+	* tagging AthenaServices-01-56-00
+	* add src/AtDSFMTGenSvc.cxx, src/AtDSFMTGenSvc.h - new service
+	which uses a Mersenne Twister random number generator. (By Michael
+	and Paolo.) Requires External/AtlasDSFMT and
+	Simulation/Tools/AtlasCLHEP_RandomGenerators packages to be in the
+	release.
+	* src/components/AthenaServices_entries.cxx - add entries for
+	AtDSFMTGenSvc.
+	* cmt/requirements - add use statement for
+	AtlasCLHEP_RandomGenerators package.
+
+2012-02-01  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tagging AthenaServices-01-55-05
+	* src/AtRndmGenSvc.cxx (AtRndmGenSvc::CreateStream): fix #90947
+	setSeeds requires a 0-terminated array(thanks Michael)
+
+2012-01-27  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-55-04
+	* src/AthenaSummarySvc.cxx, DecisionSvc.cxx, UserDataSvc.cxx: Directly #include FileIncident from Gaudi.
+
+2011-12-15  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-55-03
+	* fixing bug #89811: extend IThinningSvc api to know if a given
+	  container was thinned. (instead of just per-event)
+	* M src/ThinningSvc.h
+	* M src/ThinningSvc.cxx
+
+	* tagging AthenaServices-01-55-02
+	* use a c++ impl. for DsoDb + fix dict-loading test for manacore
+	* M python/Dso.py
+	* M share/AthDictLoaderSvc_test.py
+	* M src/AthDictLoaderSvc.h
+	* M src/AthDictLoaderSvc.cxx
+
+2011-12-07  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* Tagging AthenaServices-01-55-01
+	* fixing unchecked statuscode
+	* M src/DecisionSvc.cxx
+
+2011-11-15  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging AthenaServices-01-55-00
+	* src/AthenaEventLoopMgr.cxx (AthenaEventLoopMgr::executeEvent):
+	first attempt at producing an hearthbeat file
+	* src/AtRanluxGenSvc.cxx (AtRanluxGenSvc::initialize): apply reseeding
+	offsets also before 1st event
+	* src/AtRndmGenSvc.cxx (AtRndmGenSvc::initialize): apply reseeding
+	offsets also before 1st event
+
+2011-10-07  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+
+	* Tagging AthenaServices-01-54-01
+	* share/MultiplePass_test.py:
+	* share/MultiplePassWithAlgFilter_test.py:
+	* share/MixingEventSelector_test.py: fix input file names
+
+2011-10-04  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging AthenaServices-01-54-00
+	* src/AtRndmGenSvc.cxx (AtRndmGenSvc::handle):
+	* src/AtRanluxGenSvc.cxx (AtRanluxGenSvc::handle):
+	clear static RandGauss cache at begin event , see savannah #80574
+
+2011-10-03  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging AthenaServices-01-53-13
+	* share/*.ref: updated to reflect changed printouts
+
+2011-08-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-53-12.
+	* src/UserDataSvc.cxx: Coverity warning fix.
+
+2011-07-27  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-53-11
+	* src/ThinningSvc.cxx: Change empty set of stream names to be a
+	warning, rather than an error.  Needed to avoid crashes in d3pd
+	making.
+
+2011-07-14 Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-53-10
+	* src/AthenaOutputStream: Add property to exempt classes from pers to pers copy by early retrieve.
+
+2011-07-07  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging AthenaServices-01-53-09
+	* src/AtRndmGenSvc.cxx: introduced reseeding OFFSET (savannah 80574)
+	* src/AtRanluxGenSvc.cxx: introduced reseeding OFFSET
+	* src/interpretSeeds.cxx: introduced reseeding OFFSET
+
+2011-06-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-53-08
+	* src/LoggedMessageSvc.cxx, src/UserDataSvc.cxx: Fix coverity
+	warnings.
+	* src/AthenaOutputStream.cxx: Fix gcc 4.5 compilation.
+
+	* UserDataSvc: picked up some changes from Wim.
+
+2011-06-18  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag AthenaServices-01-53-07
+	* share/TestStopRun.ref: updated after fix in Gaudi
+
+2011-05-26  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag AthenaServices-01-53-06
+	* src/AthenaEventLoopMgr.cxx (AthenaEventLoopMgr::nextEvent):
+	make sure that nextEvent(0) returns immediately (needed by athenaMP)
+
+2011-05-25  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag AthenaServices-01-53-05
+	* src/AthenaEventLoopMgr.h: fix typo (thanks Vakho)
+
+2011-05-24  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag AthenaServices-01-53-04
+	* src/AthenaEventLoopMgr.cxx: move the firing of incidents away
+	from nextEvent into executeRun, endRunAlgorithms, and
+	beginRunAlgorithms (which gains an EventInfo& argument). This is
+	to ease MpEventLoopMgr work. Same needs to be done for other ELMs
+
+2011-05-19  Charles Leggett
+	* tag AthenaServices-01-53-03
+	* remove warning message in opt mode
+	  M src/LoggedMessageSvc.cxx
+
+2011-04-08  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag AthenaServices-01-53-02
+	* cmt/requirements: yet another go at fixing TestSeedRunEvent
+
+2011-04-24  Charles Leggett
+	* tag AthenaServices-01-53-01
+	* make LoggedMessageSvc follow Gaudi inheritance pattern, so
+	  Gaudi::Cast<> works properly
+	  M src/LoggedMessageSvc.h
+	  M src/LoggedMessageSvc.cxx
+
+2011-03-25  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag AthenaServices-01-53-00
+	* AtRndmGenSvc and AtRanluxGenSvc do not use anymore SetSeedRunEventSvc
+	which was removed. Instead they handle the reseeding internally.
+	This greatly eases the configuration step. To reproduce the old
+	behaviour of the random services set
+	UseOldBrokenSeeding=True
+	EventReseeding=False
+
+2011-03-23  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag AthenaServices-01-52-14
+	* cmt/requirements: fixed ignore patterns for TestSeedRunEvent
+
+	* tag AthenaServices-01-52-13
+	* src/AtRndmGenSvc.cxx (oldSetOnDefinedSeeds): added a hack to allow
+	using old (and broken) scheme to turn event/run# into seeds. Set
+	UseOldBrokenSeeding to "True" to use
+	* src/AtRanluxGenSvc.cxx (oldSetOnDefinedSeeds): likewise
+
+2011-03-22  Charles Leggett
+	* tag AthenaServices-01-52-12
+	* put inactive message counting stuff back in. apparently some do
+	  need it!
+	  M src/LoggedMessageSvc.h
+	  M src/LoggedMessageSvc.cxx
+
+2011-03-16  Charles Leggett
+	* tag AthenaServices-01-52-11
+	* remove message counting interface - don't need it.
+	  M src/LoggedMessageSvc.h
+	  M src/LoggedMessageSvc.cxx
+
+2011-03-11  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaServices-01-52-10
+	* src/AthenaSealSvc.cxx (find_extra_types): removed some excess
+	printing
+
+2011-03-08  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag AthenaServices-01-52-09
+	* src/UserDataSvc.cxx (UserDataSvc::outputstreamHandler): fix
+	Coverity 13644
+	* src/MixingEventSelector.cxx (MixingEventSelector::decodeTrigger):
+	Coverity 13640
+	* src/AthenaEventLoopMgr.cxx (AthenaEventLoopMgr::initialize): fix
+	Coverity 13635
+
+2011-03-05  Charles Leggett
+	* tag AthenaServices-01-52-08
+	* add incrInactiveCount method to LoggedMessageSvc to match new
+	  IMessageSvc interface (gaudi v22)
+	  M src/LoggedMessageSvc.h
+	  M src/LoggedMessageSvc.cxx
+
+2011-03-04  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-52-07
+	* fixing UserDataSvc msgstream outputlevel + fixup its configurable
+	* M src/UserDataSvc.h
+	* M src/UserDataSvc.cxx
+	* M python/TheUserDataSvc.py
+
+	* tagging AthenaServices-01-52-06
+	* fixing UserDataSvc msgstream outputlevel + fixup its configurable
+	* M src/UserDataSvc.h
+	* M src/UserDataSvc.cxx
+	* M python/TheUserDataSvc.py
+
+2011-02-28  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-52-05
+	* fixing coverity report 13571
+	* M src/EvtIdModifierSvc.h
+	* M src/EvtIdModifierSvc.cxx
+
+2011-02-16  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaServices-01-52-04
+	* fixing wrong conversion of clids - uncovered by bug #78287
+	* M python/Configurables.py
+
+2011-02-07  Paolo Calafiura  <calaf@lxplus424.cern.ch>
+
+	* tagging AthenaServices-01-52-03
+	* cmt/requirements (post_script): YAA at fixing exclusion pattern
+
+2011-02-04  Paolo Calafiura  <calaf@lxplus424.cern.ch>
+
+	* tagging AthenaServices-01-52-02
+	* cmt/requirements (post_script): fixed exclusion pattern
+
+2011-02-03  Paolo Calafiura  <calaf@lxplus424.cern.ch>
+
+	* tagging AthenaServices-01-52-01
+	* cmt/requirements (post_script): fixed exclusion pattern
+
+2010-12-21  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-52-00
+	* src/interpretSeeds.*: use uint32_t consistently
+	* src/AtRndmGenSvc.cxx (AtRndmGenSvc::setOnDefinedSeeds): pass seed
+	to Ranecu as a int32_t to allow the test on the seed of the sign to
+	work properly on both 32 and 64 bits. General cleanup
+	* src/AtRanluxGenSvc.cxx (AtRanluxGenSvc::setOnDefinedSeeds): pass seed
+	to Ranlux63 as a int32_t to allow the test on the seed of the sign to
+	work properly on both 32 and 64 bits. General cleanup
+	* share/TestSeedRunEvent.py: run for 10 events
+	* share/TestSeedRunEvent.ref: updated
+
+2010-12-20  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-51-09
+	* cmt/requirements (post_script): improved pattern matching
+
+2010-12-17  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-51-07
+	* updated ref files for tests, improved pattern matching
+
+2010-12-16  Frank Winklmeier  <fwinkl@cern>
+
+	* tagging AthenaServices-01-51-06
+	* src/AtRanluxGenSvc.cxx: Fix luxury level selection (#76465)
+
+2010-12-13  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-51-05
+	* cmt/requirements (post_script): ignore spurious GaudiExamples printout
+	in TestStopRun
+
+2010-12-08  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-51-04
+	* class TestRandomSeqAlg: new test algorithm
+
+
+2010-12-06  Paolo Calafiura  <calaf@calaf-laptop>
+	* src/AtRanluxGenSvc.cxx (AtRanluxGenSvc::setOnDefinedSeeds):
+	fix printouts
+
+	* tagging AthenaServices-01-51-03
+	* src/hashCombine.h: added. Use SG::Fnv<4> for architecture independence in combining the seeds
+	* src/crc_combine.h: added. Use crc32 for architecture independence in combining the seeds
+	* src/AtRndmGenSvc.cxx (AtRndmGenSvc::setOnDefinedSeeds):
+	use crc_combine to combine seeds in an architecture independent way
+	* src/AtRanluxGenSvc.cxx (AtRanluxGenSvc::setOnDefinedSeeds):
+	use crc_combine to combine seeds in an architecture independent way
+	(AtRanluxGenSvc::setOnDefinedSeeds):
+
+2010-12-05  Rolf Seuster <seuster AT cern.ch>
+
+	* tagging AthenaServices-01-51-02
+	* adding AlgorithmTimer to CoreDumpSvc, provoke abort after 30 min wall time
+	* add option _not_ to disable FPE flags in finalize of FPEControlSvc, to detect FPEs _after_ finalize
+
+2010-12-03  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-51-01
+	* src/SetSeedRunEventSvc.cxx (SetSeedRunEventSvc::handle): by
+	default seeds all streams managed by our rndm svc
+	* src/AtRanluxGenSvc.cxx (AtRanluxGenSvc::setAllOnDefinedSeeds):
+	* src/AtRndmGenSvc.cxx (AtRndmGenSvc::setAllOnDefinedSeeds):
+	new functions that allow to seed all streams managed by a rndmsvc
+
+2010-12-02  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-51-00
+	* src/AtRanluxGenSvc.cxx (AtRanluxGenSvc::setOnDefinedSeeds): rewritten
+	to achieve better seed uniformity (hopefully)
+	* src/AtRndmGenSvc.cxx (AtRndmGenSvc::setOnDefinedSeeds): rewritten
+	to achieve better seed uniformity (hopefully)
+	* SetSeedRunEventSvc: new Service to reseed rndm generators
+	using run/event numbers. Also added its unit test
+
+
+2010-11-23  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-50-00
+	* AtRanluxGenSvc: added support for luxury level in Seeds property
+
+2010-11-22 Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-49-24
+	* src/AthenaOutputStream.cxx: Log ERROR message if accessData fails to get DataObject
+
+2010-10-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-49-23
+	* share/MixingEventSelector_test.py: Reorder AddressProviderSvc for ProxyProviderSvc
+
+2010-10-05 David Cote  <david.cote@cern.ch>
+	* tagging AthenaServices-01-49-22
+	* typo fix swapping Veto<->Accept declaration to ICutFlowSvc in DecisionSvc.cxx
+
+2010-10-03  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-49-21
+	* share/MixingEventSelector_test.py: Add AthenaPoolAddressProviderSvc to ProxyProviderSvc
+
+2010-09-29  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-20
+	* fix bug #73271 - correctly initialize the python interpreter
+	* M src/AthDictLoaderSvc.cxx
+	* M src/AthTPCnvSvc.cxx
+	* A src/initPyInterpreter.cxx
+
+2010-09-28  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-19
+	* attempt at fixing bug #73271 (imports with a . are failing in 16.x.y)
+	* M src/AthDictLoaderSvc.cxx
+	* M src/AthTPCnvSvc.cxx
+
+2010-09-22  scott snyder  <snyder@bnl.gov>
+
+	* src/AthenaSealSvc.cxx (missing_member_types): Change missing
+	type message to a warning.  Include type name in message.
+	* tagging AthenaServices-01-49-17
+
+2010-09-22 Yushu Yao
+	* M      src/UserDataSvc.cxx
+	* Let userdata return failure if trying to decorate and element that has dummy AthenaBarCode.
+	* tagging AthenaServices-01-49-16
+
+2010-09-21 David Cote  <david.cote@cern.ch>
+	* Tweaked DecisionSvc.cxx so that CutFlowSvc is retrieved only when top filters were explicitely requested
+	* tagging AthenaServices-01-49-15
+
+2010-09-15 David Cote  <david.cote@cern.ch>
+	* Added DecisionSvc filters/stream/logic registration to CutFlowSvc
+	* tagging AthenaServices-01-49-14 (requires AthenaKernel-00-46-09)
+
+2010-09-13  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-13
+	* handle new location of tpcnv.db files
+	* handle ara-specific t/p-cnv
+	* M python/TPCnvDb.py
+
+2010-09-08 David Cote  <david.cote@cern.ch>
+	* Removed EventBookkeeperMetaData dependency from the requirements file
+	* tagging AthenaServices-01-49-12
+
+2010-09-08 Joao Firmino da Costa  <joao.costa@cern.ch>
+	* Effective removal of files CutFlowSvc from the trunk of AthenaServices
+	* tagging AthenaServices-01-49-11
+
+2010-09-08 Joao Firmino da Costa  <joao.costa@cern.ch>
+	* Removed CutFlowSvc from the trunk of AthenaServices and migrated	it to EventBookkeeperTools
+	* M src/components/AthenaServices_entries.cxx
+	* tagging AthenaServices-01-49-10
+
+2010-09-06 David Cote  <david.cote@cern.ch>
+        * Moved CutFlowSvc developments from AthenaServices-01-46-03-06 back to the trunk
+	* Temporarily introduced dependency to EventBookkeeperMetaData, will disappear soon when CutFlowSvc is migrated to package EventBookkeeperTools.
+	* tagging AthenaServices-01-49-09 (requires AthenaKernel-00-46-03)
+
+2010-08-31  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-08
+	* implement the EvtIdModifierSvc.SkipEvents feature
+	* M src/EvtIdModifierSvc.h
+	* M src/EvtIdModifierSvc.cxx
+
+	* tagging AthenaServices-01-49-07
+	* support for pure C++ AthTPCnvSvc t/p-cnv db loader
+	* M python/TPCnvDb.py
+
+2010-08-26  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-06
+	* implement extended IEvtIdModifierSvc to query of run-nbr ranges
+	* M src/EvtIdModifierSvc.h
+	* M src/EvtIdModifierSvc.cxx
+
+2010-08-25  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-05
+	* removing debug printout (fix for bug #71526)
+	* enable pyroot fix for iterators
+	* M python/Configurables.py
+	* M python/Dso.py
+
+2010-08-24  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-04
+	* implement extended IEvtIdModifierSvc to allow queries of applied
+	  modifications
+	* M src/EvtIdModifierSvc.h
+	* M src/EvtIdModifierSvc.cxx
+
+	* tagging AthenaServices-01-49-03
+	* improved customized configurable
+	* allow modification of run-nbr,evt-nbr,timestamp and lbk
+	* M python/Configurables.py
+	* M src/EvtIdModifierSvc.h
+	* M src/EvtIdModifierSvc.cxx
+
+2010-08-23  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-02
+	* only modify EventIDs going into the specified evt store
+	* M src/EvtIdModifierSvc.h
+	* M src/EvtIdModifierSvc.cxx
+
+2010-08-20  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-49-01
+	* src/AthenaOutputStream.cxx: Try avoid sequencing problems when writing Metadata for Generator jobs.
+
+2010-08-19  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-49-00
+	* adding new service to be able to modify EventIDs on the fly
+	* A src/EvtIdModifierSvc.cxx
+	* A src/EvtIdModifierSvc.h
+	* M src/components/AthenaServices_entries.cxx
+
+2010-08-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-48-08.
+	* cmt/requirements: Suppress warnings from boost.
+	* Coverity fixes:
+	* src/UserDataSvc.cxx: Fix return of address of local.
+	* src/CoreDumpSvc.cxx: Check for negative return from read().
+	* src/JobIDSvc.cxx, src/AthenaEventLoopMgr.cxx: Uninit fixes.
+
+2010-08-18  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-48-07
+	* retrieve item-list from first input file only
+	* M python/Configurables.py
+
+2010-07-15  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaServices-01-48-06
+	* cmt/requirements (post_script): ignore temporary python warning
+
+2010-07-15  Joao Firmino da Costa <joao.costa@cern.ch>
+	* Removed some now unsupported useless functions in CutFlowSvc (addMessage and getMessage)
+
+2010-07-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-48-05.
+	* src/AthenaEventLoopMgr.h, src/AthenaEventLoopMgr.cxx: Implement
+	ICollectionSize interface.
+
+2010-07-07  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-48-04
+	* improved utest for loading t/p cnvs
+	* M python/TPCnvDb.py
+	* M cmt/requirements
+
+2010-07-06  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-48-03
+	* adding a simple utest for loading t/p cnvs
+	* load all tpcnv.db files from all projects (in reverse order)
+	* A share/test_tpcnvdb.py
+	* M python/TPCnvDb.py
+
+	* tagging AthenaServices-01-48-02
+	* fixing utest
+	* changing installation location of tpcnv.db file
+	* M test/AthenaOutputStream_test.cxx
+	* M share/TestStopRun.ref
+	* M python/TPCnvDb.py
+
+2010-06-30  David Cote  <david.cote@cern.ch>
+	* First 'Hello World' version of CutFlowSvc from Joao Costa
+	* Tag AthenaServices-01-48-01 (requires AthenaKernel-00-43-01)
+
+2010-06-25  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-48-00
+	* adding new infrastructure for auto-loading T/P cnvs
+	* A python/TPCnvDb.py
+	* A src/AthTPCnvSvc.h
+	* A src/AthTPCnvSvc.cxx
+
+2010-06-22  binet  <binet@pb-d-128-141-128-224.cern.ch>
+
+	* tagging AthenaServices-01-47-06
+	* robuster FPEAuditor
+	* M src/FPEAuditor.cxx
+
+	* tagging AthenaServices-01-47-05
+	* adding an fpe auditor
+	* A src/FPEAuditor.h
+	* A src/FPEAuditor.cxx
+	* M src/components/AthenaServices_entries.cxx
+
+2010-06-11  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-47-04
+	* test/AthenaOutputStream_test.cxx (main): leftover IID_IAlgManager
+
+2010-06-08  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-47-03
+	* src/AthenaOutputStream.cxx: Avoid usage of StatusCode as the automatic check does not work.
+
+2010-06-07  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-47-02
+	* share/MixingEventSelector_test.py: replace obsolete Service calls with getConfigurable
+	print events 1 and 300 to work around problem with ATN output parsing
+
+2010-06-04  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-47-01
+	* more fwd compat w/ gaudi v21
+	* M src/LoggedMessageSvc.h
+	* M src/AthenaSummarySvc.cxx
+
+2010-06-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaServices-01-47-00
+	* fwd compat w/ gaudi v21
+	* M src/LoggedMessageSvc.cxx
+	* M src/AthenaJobOptionsSvc.cxx
+	* M src/AthenaSummarySvc.cxx
+	* M src/MultipleEventLoopMgr.cxx
+	* M src/LoggedMessageSvc.h
+	* M src/AthenaEventLoopMgr.cxx
+	* M src/DecisionSvc.cxx
+
+2010-04-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-46-04.
+	* src/LoggedMessageSvc.cxx, src/AthenaSummarySvc.cxx: Fix for
+	c++0x compatibility.
+	* test/SimplePOSIXTimeKeeperSvc_test.cxx: Fix compilation warnings.
+
+2010-04-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-46-03
+	* src/AthenaOutputStream(Tool): Remove forceCommit from commitOutput() and write() methods.
+	This should not longer be needed, as PoolSvc::stop() should ensure that data is committed
+	before ROOT optimization is called.
+	* src/AthenaOutputStream.cxx (handle): add handling of plain 'LastInput' incidents to trigger
+	write. These incidents are thrown by non-File EventSelector (i.e. Generator).
+
+2010-04-13  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaServices-01-46-02
+	* merging in  AthenaServices-01-45-05-04
+	* src/AthenaOutputStream.cxx (handle): move write to LastInputFile
+	incident
+
+2010-04-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-46-01
+	* address bug #64536
+	* provide an API to install the seeking ops
+	* M python/PyAthenaEventLoopMgr.py
+
+2010-03-31  Yushu Yao <yyao@lbl.gov>
+
+	* Tagging AthenaServices-01-46-00
+	* m src/UserDataSvc.cxx
+	* m src/UserDataSvc.h
+	* Added Support to containsXXX functions
+
+2010-03-18  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaServices-01-45-05
+	* share/MixingEventSelector_test.py: do not use files in private castor areas
+
+2010-03-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-45-04.
+	* src/LoggedMessageSvc.cxx: Change default for outputLevel from
+	NIL to INFO.  Prevents spurious debug printouts during genconf.
+
+2010-03-08  David Quarrie <David.Quarrie@cern.ch>
+
+    * tagging AthenaServices-01-45-03
+    * src/FPEControlSvc.cxx: Add support for MacOSX
+
+2010-02-26  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-45-02
+	* track change of AthDsoCbk name
+	* M python/AthDsoLogger.py
+
+2010-02-22  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-45-01
+	* prepare for fix of bug #62926 (fix regr tests)
+	* M cmt/requirements
+
+2010-02-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-45-00
+	* migrate dso-cbk monitor to CxxUtils
+	* D src/AthDsoLogger.c
+	* M python/AthDsoLogger.py
+	* M cmt/requirements
+
+2010-02-15  David Quarrie <David.Quarrie@cern.ch>
+
+    * tagging AthenaServices-01-44-43
+    * src/CoreDumpSvc.cxx: Add minimal support for MacOSX
+
+2010-02-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-42
+	* attempt at making dso-logging thread safe
+	* M cmt/requirements
+	* M src/AthDsoLogger.c
+
+2010-02-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-44-41.
+	* src/UserDataSvc.h, src/UserDataSvc.cxx: Fix memory leaks and a
+	malloc/delete mismatch.
+
+2010-02-02  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-40
+	* avoid bringing up the whole C++ layer too early in the game
+	  so one can create a scriptable event-loop from the jobos
+	* better macosx compat
+	* M python/PyAthenaEventLoopMgr.py
+	* M python/AthDsoLogger.py
+
+2010-02-01  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging AthenaServices-01-44-38
+	* python/AthDsoLogger.py: Preliminary support for MacOSX (not yet functional, but doesn't kill jobs)
+
+2010-01-29  Yushu Yao <yyao@lbl.gov>
+
+	* tagging AthenaServices-01-44-37
+	* src/UserDataSvc.cxx: Fixed counting problem when read-back element level decoration
+
+2010-01-25  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* tagging AthenaServices-01-44-36
+	* share/AthenaOutputStream_test.ref: Adjust output to new ExcludeList handling (Thanks Paolo).
+
+2010-01-25  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* tagging AthenaServices-01-44-35
+	* src/AthenaOutputStream: Cleanup itemList and excludeList handling.
+
+2010-01-15  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* tagging AthenaServices-01-44-33
+	* src/AthenaOutputStream.cxx: Trying to eliminate double counting for NumberOfWrites.
+
+2010-01-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-31
+	* adding a special JobOptionsSvc to chase component duplicates
+	* A share/AthenaJobOptionsSvc_jobOptions.py
+	* M src/AthenaJobOptionsSvc.cxx
+	* M cmt/requirements
+
+2010-01-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-30
+	* adding a special JobOptionsSvc to chase component duplicates
+	* A src/AthenaJobOptionsSvc.h
+	* A src/AthenaJobOptionsSvc.cxx
+	* M src/components/AthenaServices_entries.cxx
+
+2010-01-10  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging AthenaServices-01-44-29
+	*src/CoreDumpSvc.cxx: Remove #include <sys/sysinfo.h> for MacOSX since it doesn't exist and isn't needed
+
+2010-01-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-28
+	* adding free/total ram and free/total swap informations in coredumpsvc
+	* A share/CoreDumpSvc_test.py
+	* M src/CoreDumpSvc.cxx
+
+2009-12-22  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaServices-01-44-27
+	* src/MixingEventSelector.cxx: adding selector helper tools support
+
+2009-12-19  Paolo Calafiura
+
+	* tagging AthenaServices-01-44-25
+	* cmt/requirements (post_script): use post.sh in PATH
+	* share/TestStopRun.ref: updated
+
+2009-12-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaServices-01-44-24
+	* src/AthenaOutputStream.cxx (AthenaOutputStream): turn off
+	CheckNumberOfWrites as default
+
+2009-12-08  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* tagging AthenaServices-01-44-23
+	* src/UserDataSvc.cxx, src/DecisionSvc.cxx: Remove calls to FileIncident::isPayload()
+
+2009-12-07  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaServices-01-44-22
+	* src/AthenaOutputStream.cxx (write): moved to debug Object/count
+	messages
+
+2009-12-06  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaServices-01-44-21
+	* src/AthenaOutputStream.cxx (stop): added stop to call finalizeOutput on tool
+	* src/AthenaOutputStreamTool.h (IAthenaOutputStreamTool): added
+	dummy finalizeOutput method
+
+2009-11-22  Charles Leggett
+	* AthenaSummarySvc: add choice of file output format
+	                    add stack trace during segfaults
+	                    list source of extra incidents
+	* CoreDumpSvc: give info to AthenaSummarySvc when triggered
+	* tag AthenaServices-01-44-20
+
+2009-12-01  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* tagging AthenaServices-01-44-19
+	* AthenaOutputStream.cxx: Some more refines on the output messages.
+
+2009-11-30  Paolo Calafiura
+
+	* tagging AthenaServices-01-44-17
+	* share/*.ref: updating ref files to avoid failing ATN tests
+
+2009-11-30  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* tagging AthenaServices-01-44-16
+	* AthenaOutputStream.cxx: Make message about missing data objects from DEBUG to WARNING.
+
+2009-11-28  Sebastien Binet  <binet@lxplus301.cern.ch>
+
+	* tagging AthenaServices-01-44-15
+	* checkreq fix
+	* M cmt/requirements
+
+2009-11-27  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-14
+	* remove AthenaServicesDict
+	* migrate SetFatalHandler functionality into CoreDumpSvc.FatalHandler
+	* M src/CoreDumpSvc.cxx
+	* M cmt/requirements
+	* D AthenaServices/selection.xml
+	* D AthenaServices/AthenaServicesDict.h
+
+2009-11-22  Charles Leggett
+      * python/SummarySvc.py: fix indent bug
+      * tag AthenaServices-01-44-13
+
+2009-11-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-44-12.
+	* src/UserDataSvc.h, src/UserDataSvc.cxx: Make v* methods public.
+	Add quiet arg for vgetInMemElementDecoration.  Add
+	m_doWriteTransient.
+
+2009-11-18  Yushu Yao
+	* tag AthenaServices-01-44-11
+	* UserDataSvc added InMem function
+	* M src/UserDataSvc.cxx
+	* M src/UserDataSvc.h
+
+2009-11-09  Charles Leggett
+	* AthenaSummarySvc: demote lack of PerfMon messages to DEBUG so
+	  don't see printouts when job aborts and is triggered by
+	  runbactch.py
+	* M src/AthenaSummarySvc.cxx
+	* tag AthenaServices-01-44-10
+
+2009-11-09  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-09
+	* extended interface of IThinningHdlr::isMapping
+	* M src/ThinningSvc.cxx
+
+2009-11-04  Charles Leggett
+	* python/SummarySvc.py added to ease use of AthenaSummarySvc
+	* tag AthenaServices-01-44-08
+
+2009-11-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-07
+	* fix IDC thinning
+	* M src/ThinningSvc.cxx
+
+2009-10-30  Charles Leggett
+	* AthenaSummarySvc: formatting and scanning optimizations.
+	* LoggedMessageSvc: formatting and scanning optimizations.
+	* tag AthenaServices-01-44-06
+
+2009-10-30  Charles Leggett
+	* AthenaSummarySvc: don't make not finding the ILoggedMessageSvc
+	                    an ERROR
+	* LoggedMessageSvc: trigger saving messages by keyword search
+	* tag AthenaServices-01-44-05
+
+2009-10-23  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-44-04
+	* removing gcc34 warnings
+	* M src/CoreDumpSvc.cxx
+
+2009-10-21  Charles Leggett
+	* AthenaSummarySvc::setStatus(int) to set exit status
+	* tag AthenaServices-01-44-03
+
+2009-10-21  Charles Leggett
+	* AthenaSummarySvc: output a python dictionary
+	* tag AthenaServices-01-44-02
+
+2009-10-16  Charles Leggett
+	* LoggedMessageSvc.cxx: property callback for "loggingLevel"
+	* AthenaSummarySvc.cxx: use AthenaPoolKernel-00-00-07
+	* tag AthenaServices-01-44-01
+
+2009-10-16  Charles Leggett
+	* added LoggedMessageSvc.h/.cxx
+	  duplicates funtionality of MessageSvc, keeps all messages
+	  above user set threshold
+	* AthenaSummarySvc: get message info from LoggedMessageSvc
+	                    get PerfMon stuff
+	* tag AthenaServices-01-44-00
+
+2009-10-16  Sebastien Binet  <binet@lxplus301.cern.ch>
+
+	* tagging AthenaServices-01-43-04
+	* add memory informations (vmem/rss) when dumping core
+	* M src/CoreDumpSvc.cxx
+	* M src/AthenaSummarySvc.cxx: hack to get it compile w/o waiting for
+	  AthenaPoolKernel update...
+
+2009-10-16 Balint Radics <Balint.Radics@cern.ch>
+	* src/DecisionSvc.cxx: changing WARNING to DEBUG level
+	in isEventAccepted(stream) for cases when a stream is
+	not found registered.
+
+2009-10-14 Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * finished up re-ordering of instantiation in PyAthenaEventLoopMgr
+
+2009-10-13 Balint Radics <Balint.Radics@cern.ch>
+	* src/DecisionSvc.cxx/h: fixing memory leak
+	in DecisionSvc::decodeAlgorithms()
+
+2009-10-12  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+	* initial re-ordering of instantiation in PyAthenaEventLoopMgr
+
+2009-10-08  Charles Leggett
+	* AthenaSummarySvc.cxx: modified to work with AthenaPoolKernel-00-00-07
+	* tag AthenaServices-01-43-03
+
+2009-10-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-43-02
+	* sanitize and restore to AthenaServices-01-43-00
+	* M python/PyAthenaEventLoopMgr.py
+
+2009-10-07  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-43-01
+	* fix bug #53173: install py-athenaeventloopmgr when needed
+	* M python/PyAthenaEventLoopMgr.py
+
+2009-10-01  Charles Leggett
+	* added AthenaSummarySvc.cxx AthenaSummarySvc.h
+	* tag AthenaServices-01-43-00
+
+2009-09-21  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* tagging AthenaServices-01-42-06
+	* reupdated AthenaOutputStream ref file
+
+
+2009-09-19  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaService-01-42-05
+	* updated ref files
+
+2009-09-18  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaService-01-42-04
+	* src/AthenaSealSvc.cxx (checkClass): completed move into to debug
+
+2009-09-17  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaService-01-42-03
+	* src/AthenaSealSvc.cxx (missingTypes): moved info to debug
+
+2009-09-17 Balint Radics <radbal@cern.ch>
+	* tagging AthenaService-01-42-02
+	* updating AthenaOutputStream_test.ref
+
+2009-09-16 Balint Radics <radbal@cern.ch>
+	* tagging AthenaService-01-42-01
+	* change DecisionSvc default decision is true
+	* implementing addStream function
+
+2009-09-14  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* tagging AthenaServices-01-42-00
+	* src/AthenaEventLoopMgr.cxx (initialize): move here  setup of
+	EventSelector to get proper error handling. Removed property callback.
+
+2009-09-09  Balint Radics <radbal@cern.ch>
+	* tagging AthenaServices-01-41-16
+	* change DecisionSvc default decision to false
+	* M src/DecisionSvc.cxx
+
+2009-08-25  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-41-15
+	* display python exceptions when imports fail
+	* M src/AthDictLoaderSvc.cxx
+
+2009-08-20  Balint Radics  <radbal@cern.ch>
+	* tagging AthenaServices-01-41-14
+	* updated DecisionSvc, fixed memory leaks in interpretXYZAlgs()
+
+2009-08-18  Paolo Calafiura
+
+	* tagging AthenaServices-01-41-13
+	* updated AthenaOutputStream ref file
+
+2009-08-18  Balint Radics  <radbal@cern.ch>
+
+	* tagging AthenaServices-01-41-12
+	* M src/DecisionSvc.cxx, tightening further,
+	if in decodeAlgorithms a non-existing Algorithm found
+	it returns StatusCode::FAILURE
+
+2009-08-16  Balint Radics  <radbal@cern.ch>
+
+	* tagging AthenaServices-01-41-11
+	* M src/DecisionSvc.cxx, getXYZAlgs function
+	always checks if Alg exists before adding
+
+
+2009-08-15  Balint Radics  <radbal@cern.ch>
+
+	* tagging AthenaServices-01-41-10
+	* M src/DecisionSvc.cxx, getXYZAlgs function
+	now gets list of Alg names from decoded Algorithms
+
+2009-08-14  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* tagging AthenaServices-01-41-09
+	* share/AthenaOutputStream_test.ref: updated
+	* test/AthenaOutputStream_test.cxx (main): remove redundant call
+	to pAlg initialize
+
+2009-08-13  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-41-08
+	* clean-up DecisionSvcGetter + leaks + bulky API
+	* TODO: some refactorization of all DecisionSvc::decodeXyz
+	* M python/DecisionSvcGetter.py
+	* M src/DecisionSvc.h
+	* M src/DecisionSvc.cxx
+
+2009-08-12  Balint Radics <radbal@cern.ch
+
+	* tagging AthenaServices-01-41-07
+	* DecisionSvc: introduced 'freezed' incident functionality,
+	* moved decodeing of AlgNames to a separate function
+
+2009-08-10  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* tagging AthenaServices-01-41-06
+	* AthenaOutputStream.cxx: Make some ERROR logs FATAL because they couse method to return failure.
+
+2009-08-10  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* tagging AthenaServices-01-41-05
+	* AthenaOutputStream.cxx: Trying to fix unchecked StatusCode in write() problem reported by Savannah #54181
+
+2009-08-07  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* tagging AthenaServices-01-41-04
+	* cmt/requirements: fix checkreq warnings
+
+2009-08-06  Yushu Yao <yyao@nospamfree.cern.ch>
+
+	* tagging AthenaServices-01-41-03
+	* Fix unhandled statuscode in UserDataSvc
+	* M src/UserDataSvc.cxx
+	* Change stream name in UserdataSvc, prepare for multiple stream migration
+	* M python/TheUserDataSvc.py
+
+
+
+2009-08-05  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* tagging AthenaServices-01-41-02
+	* cmt/requirements (post_script): fix comparisons to make TestStopRun
+	succed on x86 where tcmalloc is not available
+
+2009-08-03  Yushu Yao <yyao@nospamfree.cern.ch>
+
+	* tagging AthenaServices-01-41-01
+	* Using ServiceHandle instead of getService to fix warning message
+	* M src/UserDataSvc.cxx
+
+2009-08-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-41-00
+	* implement the extended IEventSeek interface + fix bug #53173
+	* M src/AthenaEventLoopMgr.h
+	* M src/AthenaEventLoopMgr.cxx
+	* M python/PyAthenaEventLoopMgr.py
+
+2009-07-31  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-40-00
+	* extended IDictLoaderSvc to load types by CLID
+	* M src/AthDictLoaderSvc.h
+	* M src/AthDictLoaderSvc.cxx
+
+	* src/UserDataSvc.cxx (outputstreamHandler): fixing gcc43 warning
+
+2009-07-29  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-39-06
+	* AthenaOutputStream: Adding options to allow default persistent state representations for missing
+	data objects on ItemList (and hence avoid ROOT sync error) and direct persistent to persistent copy.
+
+2009-07-22 Balint Radics <radbal@cern.ch>
+	* Tagging AthenaServices-01-39-05
+	* Updated DecisionSvc implementation
+
+2009-07-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-39-04.
+	* src/FPEControlSvc.h, src/FPEControlSvc.cxx: Add a ToolSvc
+	observer to redo the FPU exception mask setting after every tool
+	is created.  This is because some tools end up masking off all
+	exceptions as a side effect.  (This happens when libgfortran is
+	loaded.)
+	* test/FPEControlSvc_test.cxx: Hide line numbers.
+	* share/FPEControlSvc_test.ref: Updated.
+
+2009-07-17  Balint Radics <radbal@cern.ch>
+	* tagging AthenaServices-01-39-03
+	* Adding DecisionSvc
+
+2009-07-17 David Cote  <david.cote@cern.ch>
+	* Added new file python/DecisionSvcGetter.py (not tagged)
+
+2009-07-16  Paolo Calafiura
+	* tagging AthenaServices-01-39-02
+	* test/AtRndmGen_test.cxx (main): use FLOAT_EQassert to compare doubles
+	* test/AtRanlux_test.cxx (main): use FLOAT_EQassert to compare doubles
+
+2009-07-15  Yushu Yao <yyao@nospam.lbl.gov>
+	* tagging AthenaServices-01-39-01
+	* fixed synchronizing problem in userdata when reading back
+
+2009-07-14  Paolo Calafiura
+	* tagging AthenaServices-01-39-00
+	* added properties to AtRndmGenSvc and to AtRanluxGenSvc to control if status of engines should be written out to file (bug #52932)
+
+2009-06-22  Paolo Calafiura
+	* tagging AthenaServices-01-38-05
+	* cmt/requirements: suppress pattern failing TestStopRun
+
+2009-06-12  Yushu Yao <yyao@lbl.gov>
+	* tagging AthenaServices-01-38-04
+	* M src/UserDataSvc.cxx: fixed compile warning
+
+
+2009-06-11  Paolo Calafiura
+	* tagging AthenaServices-01-38-03
+	* cmt/requirements: suppress pattern failing TestStopRun
+
+2009-06-12  Yushu Yao <yyao@lbl.gov>
+	* tagging AthenaServices-01-38-02
+	* M src/UserDataSvc.cxx:
+	* 1. Removed no use fields Evt# and Run#
+	* 2. use Type.Name(SCOPED) instead of Type.Name() to ease readback.
+
+2009-06-11  Paolo Calafiura
+	* tagging AthenaServices-01-38-01
+	* updated TestStopRun.ref
+
+2009-06-09  Yushu Yao <yyao@lbl.gov>
+	* tagging AthenaServices-01-38-00
+	* Added function to list element level userdata
+	* M src/UserDataSvc.h
+	* M src/UserDataSvc.cxx
+
+2009-06-02  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-37-01
+	* src/UserDataSvc.h, src/UserDataSvc.cxx: Fix compilation
+	warnings.
+	* test/AthenaServices.xml: Test differences are errors.
+
+2009-05-28  Yushu Yao <yyao@lbl.gov>
+	* tagging AthenaServices-01-37-00
+	* Added support for File and Element Level UserData
+	* M src/UserDataSvc.h
+	* M src/UserDataSvc.cxx
+
+2009-05-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* first attempt to prepare for Gaudi v21
+
+2009-04-01  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-46
+	* porting fixes from AthenaServices-01-36-40-branch branch:
+          - compat with cleansing
+          - fix bug 48271: don't crash when no initialized python interpreter
+          - fixing dict-lib loading
+	* M python/AthDsoLogger.py
+	* M python/Dso.py
+	* M src/AthDictLoaderSvc.cxx
+
+2009-03-30  Charles Leggett
+	* tagging AthenaService-01-36-45
+	* src/AthenaEventLoopMgr.cxx: fire EndEvtLoop incident
+
+2009-03-16  Charles Leggett
+
+	* tagging AthenaService-01-36-44
+	* src/AthenaEventLoopMgr.cxx: fix typo in stats counting
+
+2009-03-16  Charles Leggett
+
+	* tagging AthenaService-01-36-43
+	* src/AthenaEventLoopMgr: change to allow users to attach tool
+	  for event pre-selection, via jobOption PreSelectTools
+
+2009-03-06  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-42
+	* fixing dict-lib loading
+	* M python/Dso.py
+
+2009-03-04  Paolo Calafiura
+
+	* tagging AthenaServices-01-36-41
+	* new service PageAccessControlSvc
+
+2009-02-24  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging AthenaServices-01-36-40
+	* src/AthDsoLogger.c: Comment everything out for platforms other than linux
+
+2009-02-23  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-39
+	* gcc43 fixes + possible "wrap around" casting problem
+	* M src/ThinningOutputTool.cxx
+
+2009-02-23  David Quarrie <David.Quarrie@cern.ch>
+	* tagging AthenaServices-01-36-38
+	* src/ThinningOutputTool.cxx: Add gcc 4.3 compatibility
+
+2009-02-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-37
+	* optimize thinningsvc by only force-reading really needed proxies
+	  would have avoided bug #47077
+	* M python/Configurables.py
+	* M src/ThinningOutputTool.cxx
+	* M src/ThinningOutputTool.h
+
+2009-02-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-36
+	* more dict-loading fixes
+	* M python/Dso.py
+
+2009-02-16  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-35
+	* fixing stupid typo
+	* M python/Dso.py
+
+	* tagging AthenaServices-01-36-34
+	* python/Dso.py: refactorization
+
+	* cmt/requirements: checkreq fixes
+
+2009-02-13  Sebastien Binet  <binet@farnsworth>
+
+	* python/Dso.py: refactorization
+
+2009-02-10  scott s snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-36-33
+	* src/AthenaConditionStream.cxx: Fix compilation warning.
+	* cmt/requirements: More patterns to ignore in test comparison.
+
+2009-01-27  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-32
+	* improved AthDsoLogger:
+	   ability to register a cb-fct (at py-level)
+	   dumps data into a CSV file
+	* M python/AthDsoLogger.py
+	* M src/AthDsoLogger.c
+
+2009-01-23  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-31
+	* adding AthDsoLogger
+	* M cmt/requirements
+	* A python/AthDsoLogger.py
+	* A src/AthDsoLogger.c
+
+2009-01-17  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-30
+	* removed setStoreGateSvc usage
+	* removed EventDumperSvc
+	* M cmt/requirements
+	* M src/AthenaConditionStream.cxx
+	* M src/AthenaEventLoopMgr.h
+	* R src/EventDumperSvc.cxx
+	* R src/EventDumperSvc.h
+	* M src/components/AthenaServices_entries.cxx
+
+2009-01-08  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaServices-01-36-29
+	* src/AthenaSealSvc.cxx (AthenaSealSvc::find_extra_types): fix
+	warning printout for missing template arg types.
+
+2009-01-06  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-36-28
+	* cmt/requirements: Fix test miscompare in -lcg nightly.
+
+2008-12-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaServices-01-36-27
+	* fixing property cross-talk problem
+	* M src/AthenaOutputStream.h
+	* M src/AthenaOutputStream.cxx
+
+2008-12-15  Frank Winklmeier  <fwinkl@cern>
+
+	* tagging AthenaServcices-01-36-26
+	* src/CoreDumpSvc.cxx: Use CxxUtils/SealSignal
+
+2008-12-14  Sebastien Binet  <binet@lxplus204.cern.ch>
+
+	* tagging AthenaServices-01-36-25
+	* fix for new ROOT version
+	* M python/Dso.py
+
+2008-12-12  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-36-24
+	* src/interpretSeeds.cxx: Fix compilation warnings.
+	* cmt/requirements: More patterns to ignore for TestStopRun.
+
+	* tagging AthenaServices-01-36-23
+	* src/MixingEventSelector.cxx: Fix compilation warnings.
+	* src/UserDataSvc.h: Fix compilation warnings.
+	* src/UserDataSvc.cxx: Fix compilation warnings.
+
+2008-12-11  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging AthenaServices-01-36-22
+	* AthenaServices/AthenaServicesDict.h: Add some more header files for solve template problems
+	* src/EventDumperSvc.cxx: Add ROOT version specific Invoke()
+	* src/PyAthenaEventLoopMgr.h: Add some unimplemented features to keep Reflex happy
+
+2008-12-10  David Quarrie <David.Quarrie@cern.ch>
+
+        * tagging AthenaServices-01-36-21
+	* src/AthenaEventLoopMgr.h: )
+	* src/AthenaSealSvc.cxx:    ) An attempt at adding backwards
+	* src/AthenaSealSvc.h:      ) compatibility with ROOT change
+	* src/EventDumperSvc.cxx:   ) of Reflex namespace
+
+2008-12-09  Frank Winklmeier  <fwinkl@cern>
+        * tagging AthenaServices-01-36-20
+	* src/AthenaEventLoopMgr.cxx: reset timeout singleton on each event
+        * src/AthenaEventLoopMgr.h: inherit from TimeoutMaster
+
+2008-11-04  Paolo Calafiura
+
+	* tagging AthenaServices-01-36-19
+	* src/AthenaEventSelector.cxx: new property EventPrintoutInterval
+
+2008-11-20  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-18
+	* fix mem-leak when slimming registration failed
+	* M src/ThinningSvc.cxx (register_slimmer)
+
+	* tagging AthenaServices-01-36-17
+	* fix for slimming when no thinning were performed
+	* M src/ThinningSvc.cxx
+
+2008-11-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-16
+	* integrating AthenaSealSvc + checkreq fixes
+	* A src/AthenaSealSvc.cxx
+	* A src/AthenaSealSvc.h
+	* M src/components/AthenaServices_entries.cxx
+	* M cmt/requirements
+
+2008-11-05  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaServices-01-36-15
+	* fix failing utest (not enough AtlasXyzProject karma)
+	* M share/AthDictLoaderSvc_test.py
+
+2008-11-04  Paolo Calafiura
+
+	* tagging AthenaServices-01-36-14
+	* src/MixingEventSelector.cxx: fix failing unit test. The
+	decodeTriggerList call back was trying to use the random # stream
+	before it was setup in initialize.
+
+2008-10-29  Yushu Yao <yyao@lbl.gov>
+
+	* tagging AthenaServices-01-36-13
+	* Killed 1 unchecked statuscode in Userdatasvc
+	* M src/UserDataSvc.cxx
+
+2008-10-29  Sebastien Binet  <binet@lxplus207.cern.ch>
+
+	* tagging AthenaServices-01-36-12
+	* hardened python/Dso.py
+	* M python/Dso.py
+
+2008-10-28  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * desealed ... needs CxxUtils-00-00-05 or later
+        * tagging AthenaServices-01-36-11
+
+2008-10-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-10
+	* adding jobo to req-file pattern
+	* M cmt/requirements
+
+2008-10-27  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-09
+	* improved AthDictLoaderSvc + utest
+	* A share/AthDictLoaderSvc_test.py
+	* M python/Dso.py
+	* M src/AthDictLoaderSvc.cxx
+	* M test/AthenaServices.xml
+
+2008-10-23  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-07
+	* fixing IDC-thinning
+	* M src/ThinningSvc.cx
+
+2008-10-22  Frank Winklmeier  <fwinkl@cern>
+
+	* tagging AthenaServices-01-36-06
+	* src/CoreDumpSvc.cxx: Fix two typos
+
+2008-10-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-05
+	* adding some cpp-builtins and more handling of Root/Reflex
+	  non-consistent naming problems
+	* M python/Dso.py
+
+2008-10-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-04
+	* added rflx type-visitor hook
+	* M python/Dso.py
+
+2008-10-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-36-03.
+	* src/CoreDumpSvc.cxx (describeSignalCode): Fix typo in message.
+	* share/*: Update test reference files.
+
+2008-09-30  Yushu Yao <yyao@lbl.gov>
+
+	* tagging AthenaServices-01-36-02
+	* Fixed finalization problem in UserDataSvc
+	* M src/UserDataSvc.cxx
+
+2008-09-30  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-01
+	* improved reflex-type loading mechanism
+	* M src/AthDictLoaderSvc.cxx
+	* M src/AthDictLoaderSvc.h
+	* A python/Dso.py
+
+2008-09-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-36-00
+	* gcc4 fixes + de-SEAL'ed EventDumperSvc + new AthDictLoaderSvc
+	* A src/AthDictLoaderSvc.cxx
+	* A src/AthDictLoaderSvc.h
+	* M src/EventDumperSvc.cxx
+	* M src/EventDumperSvc.h
+	* M src/UserDataSvc.cxx
+	* M src/components/AthenaServices_entries.cxx
+	* TODO: de-SEAL SetFatalHandler
+
+
+	* tagging AthenaServices-01-35-01
+	* more migration to AthenaBaseComps base classes
+	* M src/AthenaConditionStream.cxx
+	* M src/AthenaConditionStream.h
+	* M src/AthenaOutputStream.cxx
+	* M src/AthenaOutputStream.h
+
+2008-09-23  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-35-00
+	* migration to AthenaBaseComps base classes
+	* M src/AtRanluxGenSvc.cxx
+	* M src/AtRanluxGenSvc.h
+	* M src/AtRndmGenSvc.cxx
+	* M src/AtRndmGenSvc.h
+	* M src/AthenaOutputStreamTool.cxx
+	* M src/AthenaOutputStreamTool.h
+	* M src/CoreDumpSvc.cxx
+	* M src/CoreDumpSvc.h
+	* M src/EventDumperSvc.cxx
+	* M src/EventDumperSvc.h
+	* M src/FPEControlSvc.cxx
+	* M src/FPEControlSvc.h
+	* M src/JobIDSvc.cxx
+	* M src/JobIDSvc.h
+	* M src/MemoryRescueSvc.cxx
+	* M src/MemoryRescueSvc.h
+	* M src/MixingEventSelector.cxx
+	* M src/MixingEventSelector.h
+	* M src/SimplePOSIXTimeKeeperSvc.cxx
+	* M src/SimplePOSIXTimeKeeperSvc.h
+	* M src/ThinningOutputTool.cxx
+	* M src/ThinningOutputTool.h
+	* M src/ToyNextPassFilterAlg.cxx
+	* M src/ToyNextPassFilterAlg.h
+	* M src/ToyNextPassFilterTool.cxx
+	* M src/ToyNextPassFilterTool.h
+	* M src/UserDataSvc.cxx
+	* M src/UserDataSvc.h
+
+2008-09-23  Jack Cranshaw <cranshaw@anl.gov>
+	* fix exclude loop in AthenaOutputStream::addItemObjects
+	* Tagging AthenaServices-01-34-05
+
+2008-09-22  Paolo Calafiura
+
+	* Tagging AthenaServices-01-34-04
+	* src/FPEControlSvc.cxx (FPEControlSvc::prophand): vile hack to handle
+	v19/v20 API diff without branching
+
+2008-09-15  Jack Cranshaw <cranshaw@anl.gov>
+	* Fix problems with ExcludeList
+	* Remove commented code in OutStreamTool as unused/defunct
+
+2008-09-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-34-02.
+	* src/AthenaEventLoopMgr.h, src/AthenaEventLoopMgr.cxx: Don't call
+	StoreGate::pointer() here, as that can lead to the wrong store
+	being saved.  It suffices to just ensure that ActiveStoreSvc gets
+	created during initialization.
+
+2008-09-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-34-01.
+	* cmt/requirements: More patterns to ignore.
+	* src/AthenaEventLoopMgr.cxx: Make sure that StoreGate::pointer()
+	is initialized before we process any events.
+	* src/CoreDumpSvc.cxx: Handle StoreCleared; try to defragment the
+	heap.
+
+2008-09-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-34-00
+	* new IThinningSvc interface to support slimming and IDC thinning
+	* M cmt/requirements
+	* M src/ThinningSvc.cxx
+	* M src/ThinningSvc.h
+
+2008-08-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-33-15
+	* working around bug #40823 (collateral damage of AthenaOutputStream
+	  tools being now private)
+	* M python/Configurables.py
+
+2008-08-27  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-33-14
+	* AthenaOutputStream: Using Jack Cranshaw's new FilteredAlgorithm base class for AthenaOutputStream.
+
+2008-08-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* (presumably) fixed unchecked status code AthenaEventLoopMgr::executeEvent
+
+2008-08-07  Frank Winklmeier  <fwinkl@cern>
+	* tagging AthenaServices-01-33-13
+	* src/CoreDumpSvc: Add event counter and host name
+
+2008-07-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-33-12
+	* fixing possible bug wrt ThinningSvc configuration if/when no stream
+	  scheduled
+	* M python/Configurables.py
+
+	* tagging AthenaServices-01-33-11
+	* mods to the ThinningSvc custom configurable to accomodate with
+	  AthenaOutputStream tools being private
+	* M python/Configurables.py:
+
+2008-07-24  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-33-10
+	* M src/AthenaOutputStream: Make AthenaOutputStream tools private.
+
+2008-08-14  David Quarrie <David.Quarrie@cern.ch>
+	* tagging AthenaServices-00-33-09
+	* src/CoreDumpSvc.cxx: Tweaks for Mac OS C
+	* src/FPEControlSvc.cxx: Tweaks for Mac OS X
+
+2008-07-04  Yushu Yao <yyao@lbl.gov>
+	* tagging AthenaServices-01-33-08
+	* python/TheUserDataSvc.py: M
+	* src/AthenaOutputStream.h: Added a friend class UserDataSvc
+	* src/UserDataSvc.cxx: M
+	* src/UserDataSvc.h: M
+
+2008-07-04  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaServices-01-33-07
+	* src/AthenaOutputStream.cxx (AthenaOutputStream::write): adding
+	test for incorrect object count to catch things not written each
+	event.
+
+2008-07-01  Frank Winklmeier  <fwinkl@cern>
+	* tagging AthenaServices-01-33-06
+	* src/CoreDumpSvc.cxx: some fixes after seal removal
+
+2008-06-26  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-33-05
+	* more compliant with big configurables cleansing
+	* M python/PyAthenaEventLoopMgr.py
+
+2008-06-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-33-04
+	* removed some more seal stuff
+	* M src/CoreDumpSvc.cxx
+
+2008-06-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-33-03
+	* making ThinningSvc::deep_proxy use ::proxy + improved ::index_impl
+	* M src/ThinningSvc.cxx
+
+2008-06-10  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-33-02
+	* share/AthenaOutputStream_test.ref: Update expected results.
+
+2008-06-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-33-01
+	* fixing bug 37211: if any output stream is configured w/ 'ForceRead'
+	  the ThinningOutputTool will call (preventively) accessData() on every
+	  SG::DataProxy of the associated IThinningSvc.
+	* M python/Configurables.py
+	* M src/AthenaOutputStream.cxx
+	* M src/AthenaOutputStream.h
+	* M src/CoreDumpSvc.cxx
+	* M src/ThinningOutputTool.cxx
+	* M src/ThinningOutputTool.h
+	* M src/ThinningSvc.cxx
+
+2008-06-03  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaServices-01-33-00
+	* Same as AthenaServices-01-31-01, so any development based on AthenaServices-01-31-01 can be carried over
+	* Moved UserDataAraReader to PhysicsAnalysis/AraTool
+	* Roll back the changes to AthenaServices-01-31-01
+
+2008-06-02  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaServices-01-32-00
+	* UserDataSvc: Add interface to access userdata from ROOT/PyROOT
+	* src/UserDataAraReader.cxx: new file
+	* python/PyUserDataAraReader.py: new file
+
+2008-05-28  Frank Winklmeier  <fwinkl@cern>
+	* tag AthenaServices-01-31-01
+	* CoreDumpSvc: Some cleanup, fix interface
+
+2008-05-27  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaServices-01-31-00
+	* UserDataSvc: Added getEventDecoration() and getCollectionDecoration()
+
+2008-05-27  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-30-01
+	* M src/AthenaOutputStream: Call postInitialize() for IAthenaOutputTool.
+	* M src/ThinningOutputTool.h: Implement no-op postInitialize().
+
+2008-05-27  Frank Winklmeier  <fwinkl@cern>
+	* tag AthenaServices-01-30-00
+	* CoreDumpSvc: Add new service
+
+2008-05-25  scott snyder  <snyder@bnl.gov>
+
+        * tag AthenaServices-01-29-05
+	* share/TestStopRun.ref: Updated.
+
+2008-05-24 Yushu yao <yyao@lbl.gov>
+        * tag AthenaServices-01-29-04
+	* UserDataSvc: fixed one return value in getDecoration()
+
+2008-05-20  Paolo Calafiura
+        * tag AthenaServices-01-29-03
+	* python/TheUserDataSvc.py (TheUserDataSvc): use "UserDataSvc" as default name for the configurable
+	* UserDataSvc: fix a few unchecked StatusCodes
+
+
+2008-05-20  Yushu Yao <yyao@lbl.gov>
+        * tag AthenaServices-01-29-02
+        * UserDataSvc: Storing demangled type in UserData instead ofmangledtype name.
+        * UserDataSvc: Default value ofdecoration is set to the objectconstructed by its default constructor(e.g. int()), instead of the value set in the first call to decorateEvent()
+
+2008-05-19  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaServices-01-29-01
+	* Fixed Compling problem
+
+2008-05-19  Yushu Yao <yyao@lbl.gov>
+	* Updated UserDataSvc to add getDecoration, also changed decorateEvent/Collection to take reference as input, instead of pointer
+	* Added Default value function for UserDataSvc
+	* UserDataSvc.h: Modify
+	* UserDataSvc.cxx: Modify
+	* tag AthenaServices-01-29-00
+
+2008-05-16  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* tag AthenaServices-01-28-00
+	* MixingEventSelector: use IAtRndmGenSvc to manage randoms
+
+	* tag AthenaServices-01-27-05
+	* src/MixingEventSelector.cxx (MixingEventSelector::initialize): defer
+	StoreGateSvc retrieval to break init loop
+
+2008-05-15  Charles Leggett
+	* AthenaEventLoopMgr.cxx: when no event selector is used, and a bare
+	  EventInfo object created, with only a run and event number, set the
+	  lumi_block number to the event number
+	* tag AthenaServices-01-27-04
+
+2008-05-12  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-27-03
+	* try to automatically install 'seeking operations' when in interactive
+	  mode (athena -i).
+	  Install will silently and gracefully fail (ie: debug-level) if the
+	  EventSelector does not support seeking.
+	* M python/PyAthenaEventLoopMgr.py
+
+2008-04-14  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* Tagging AthenaServices-01-27-02
+	* src/AthenaEventLoopMgr.cxx: improve start/end event printout (bug #32550)
+
+2008-05-07  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-27-01
+	* some more optimizations to enhance thinning lazyness
+	* M src/ThinningOutputTool.cxx
+	* M src/ThinningSvc.cxx
+
+2008-05-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-27-00
+	* implemented new IThinningSvc interface to fix bug #36274
+	* M src/ThinningSvc.cxx
+	* M src/ThinningSvc.h
+
+2008-04-23  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-26-11
+	* share/AthenaOutputStream_test.ref: Update for change in SG
+	history default.
+
+2008-04-22  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaServices-01-26-10
+	* cmt/requirements: More patterns to ignore.
+
+2008-04-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-26-09
+	* optimization: remove MsgStreams temporaries
+	* M src/AthenaEventLoopMgr.cxx
+	* M src/AthenaEventLoopMgr.h
+
+2008-04-14  Yushu Yao <yyao@lblbox>
+
+	* Tagging AthenaServices-01-26-08
+	* src/UserDataSvc.cxx: fixed message type and return value according to error reporting policy.
+
+2008-04-14  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* Tagging AthenaServices-01-26-07
+	* src/UserDataSvc.h: move UserDataAssociation to AthenaKernel
+	* Tagging AthenaServices-01-26-05
+	* src/UserDataSvc.h: for misterious reasons we need to #include
+	ITHistSvc and StoreGateSvc here or the _entries build in opt mode
+	fails. To be understood...
+
+
+2008-04-13  Yushu Yao  <yyao@lblbox>
+
+	* Tagging AthenaServices-01-26-04
+	* Fixed UserDataSvc to use user defined class as decoration
+
+2008-04-11  Yushu Yao  <yyao@lblbox>
+
+	* Tagging AthenaServices-01-26-03
+	* Fixed UserDataSvc to use templated methods
+
+2008-04-09  Yushu Yao  <yyao@lblbox>
+
+	* Tagging AthenaServices-01-26-02
+	* Fixed UserDataSvc to provide more functions
+
+2008-04-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-26-01.
+	* src/UserDataSvc.cxx: Fix compilation warnings.
+	* share/TestStopRun.ref: Updated.
+	* share/AthenaOutputStream_test.ref: Updated.
+
+2008-04-04  Yushu Yao  <yyao@lblbox>
+
+	* Tagging AthenaServices-01-26-00
+	* Added New Service UserDataSvc to allow user to add user data to an AOD
+	* src/UserDataSvc.cxx : new file
+	* src/UserDataSvc.h : new file
+
+
+2008-03-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-25-01
+	* src/FPEControlSvc.cxx (prophand): Try adding a non-GNU
+	alternative for changing FPE masks.
+
+2008-03-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-25-00
+	* really fixing bug #34500: in some cases an inactive ThinningSvc could
+	  become active, unadvertantly thinning not-suppose-to-be-thinned
+	  output streams !
+	* M src/ThinningOutputTool.cxx
+
+2008-03-12  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-24-07
+	* fixing bug #34500
+	* M src/ThinningSvc.cxx
+	* M src/ThinningSvc.h
+
+2008-03-12  Frank Winklmeier
+	* tagging AthenaServices-01-24-06
+	* src/AthenaEventLoopMgr.h,cxx: fixed beginRun handling, added endRun
+
+2008-03-12  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-24-05
+	* python/PyAthenaEventLoopMgr.py: fixing gaudimodule import
+	* fixing bug #34441
+	* M python/Configurables.py
+	* M src/ThinningOutputTool.cxx
+	* M src/ThinningSvc.cxx
+
+2008-03-11  Paolo Calafiura  <calaf@localhost.localdomain>
+	* tagging AthenaServices-01-24-04
+	* src/AthenaEventLoopMgr.cxx (AthenaEventLoopMgr::beginRunAlgorithms):
+	new method calling Algorithm::beginRun
+
+2008-03-10  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaServices-01-24-03
+	* M src/AthenaOutputStream: Pass MsgStream into addItem() for efficiency.
+
+2008-03-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-24-02
+	* python/Configurables.py: pre-initializing the 'Streams' property
+	  for users' convenience
+
+2008-02-26  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaServices-01-24-01
+	* completed multi-stream thinning
+	* M src/ThinningOutputTool.cxx
+	* M src/ThinningOutputTool.h
+	* M src/ThinningSvc.cxx
+	* M src/ThinningSvc.h
+	* M python/Configurables.py
+
+2008-01-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-24-00
+	* simpler (and working) multi-stream friendly thinning interface
+	* M src/ThinningSvc.h
+	* M src/ThinningSvc.cxx
+	* M python/PyAthenaEventLoopMgr.py: fixing typo
+
+2007-12-15  Paolo Calafiura
+	* Tagging AthenaServices-01-23-02
+	* share/MixingEventSelector_test.py: run without catalog
+	* share/MultiplePass_test.py:  run without catalog
+	* share/MultiplePassWithAlgFilter_test.py:  run without catalog
+
+2007-12-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-23-01
+	* cmt/requirements: removed use stmt for CLIDSvc
+	* src/MixingEventSelector.cxx: migration to SGTools
+	* share/AthenaOutputStream_test.ref: update for
+	  StoreGateSvc::typeless_record
+
+	* tagging AthenaServices-01-23-00
+	* M src/JobIDSvc.{cxx,h}: fixed uuid generation
+	* M src/Thinning{OutputTool,Svc}.{cxx,h}: support for safe multistream
+	  thinning and somewhat friendlier to python API
+	* M cmt/requirements: added explicit dependency against uuid
+
+2007-12-11  Yushu Yao  <yyao@lbl.gov>
+
+	* tagging AthenaServices-01-22-01
+	* Adding JobIDSvc to provide unique UUID for each job
+	* src/JobIDSvc.h: new file
+	* src/JobIDSvc.cxx: new file
+
+2007-12-10  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-22-00
+	* implementation of extended IProxyDict interface
+	* M src/ThinningSvc.cxx
+	* M src/ThinningSvc.h
+
+	* tagging AthenaServices-01-21-03
+	* small fix to AthenaEventLoopMgr (invalid delete could occur)
+	* M src/AthenaEventLoopMgr.cxx
+
+2007-12-05  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging AthenaServices-01-21-02
+	* src/AthenaOutputStream.cxx (addItemObjects): allow alias match
+	for item list match
+
+2007-12-04  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging AthenaServices-01-21-01
+	* cmt/requirements: Use the <options> argument to pass additional compilation flags etc.
+
+2007-11-18  Paolo Calafiura
+	* Tagging AthenaServices-01-21-00
+	* share/MixingEventSelector_test.py: added missing import
+	* share/MultiplePassBootStrap.py: turn into a dummy.
+	* share/MultiplePass_test.py: define EventLoop here
+	* share/MultiplePassWithAlgFilter_test.py: define EventLoop here
+
+2007-11-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-20-04.
+	* test/FPEControlSvc_test.cxx: Fix optimization problem with
+	test.
+	* src/AtRanluxGenSvc.cxx: Fix reproducibility problem on 64-bit
+	platforms
+	* cmt/requirements: Ignore some patterns in test comparisions.
+	* share/AthenaOutputStream_test.ref: Updated.
+
+2007-11-08  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-20-03.
+	* share/TestStopRun.ref: Updated.
+	* share/AthenaOutputStream_test.ref: Updated.
+	* share/AtRanlux_test.ref: Updated.
+
+	* src/FPEControlSvc.h: (new)
+	* src/FPEControlSvc.cxx: (new)
+	* test/FPEControlSvc_test.cxx: (new)
+	* share/FPEControlSvc_test.ref: (new)
+	* share/FPEControlSvc_test.txt: (new)
+	* src/components/AthenaServices_entries.cxx: Add it.
+	* cmt/requirements: Add the test.
+
+2007-11-07  Paolo Calafiura
+
+	* tagging AthenaServices-01-20-02
+	* share/SimplePOSIXTimeKeeperSvc_test.py: adapt to new job config
+
+2007-11-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-20-01
+	* python/PyAthenaEventLoopMgr.py: improve user report and UI
+
+2007-10-31  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-20-00
+	* python/PyAthenaEventLoopMgr.py: sanitizing. Made the binding a
+	  full-fledged Configurable for proper lazy instantiation of the
+	  C++ AppMgr.
+	* TODO: - what should happen when/if Configurable-dict is off-loaded ?
+	        - present a nicer UI for installing seek-functionality
+
+2007-10-18  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* tagging AthenaServices-01-19-01
+	* share/MixingEventSelector_test.py: updated to new style job configuration
+	* share/MultiplePass_test.py: updated to new style job configuration
+	* share/MultiplePassWithAlgFilter_test.py: updated to new style job configuration
+	* src/ToyNextPassFilterAlg.cxx (ToyNextPassFilterAlg::doNextPass): fix bug
+	* src/ToyNextPassFilterTool.cxx (ToyNextPassFilterTool::doNextPass): fix bug
+
+
+2007-10-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-19-00
+	* improving IProxyDict interface to allow to 'deep' find a proxy given
+	  a transient pointer.
+	* fixing bug #29753
+	* M src/ThinningSvc.cxx
+	* M src/ThinningSvc.h
+
+2007-10-10  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-18-10
+	* added a property to control when clearing the event store shall
+	  happen: BeginEvent or EndEvent (default)
+	* M src/AthenaEventLoopMgr.h
+	* M src/AthenaEventLoopMgr.cxx
+	* M src/PyAthenaEventLoopMgr.cxx
+
+2007-10-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * update requirements file to pass CMT pedantic mode
+        * Tagging AthenaServices-01-18-09
+
+2007-10-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix-up of PyAthenaEventLoopMgr, requires AthenaCommon-02-06-06
+	* Tagging AthenaServices-01-18-08
+
+2007-10-08  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging AthenaServices-01-18-07
+	* cmt/requirements: Add explicit dependency against AtlasPython
+	* src/AtRanluxGenSvc.cxx src/AtRndmGenSvc.cxx: Add #include <assert.h>
+
+2007-10-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-18-06.
+	* share/ReadAthenaPoolSeek_jobOptions.py: Fix for removal of
+	configuration compatibility hacks.
+
+2007-09-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-18-05
+	* improved support of thinning of symlinked containers (rely on
+	  SG::DataProxy)
+	* M src/ThinningSvc.h
+	* M src/ThinningSvc.cxx
+
+2007-09-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix-up for AthenaCommon backwards compat removals
+
+2007-09-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-18-04
+        * python/Configurables.py: correctly handles AthenaOutputStreams which
+          have been scheduled in the TopAlg rather than in the OutStream
+          sequence, as this is now the baseline model.
+
+2007-08-29  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* tagging AthenaServices-01-18-03
+	* src/AthenaOutputStream.cxx (AthenaOutputStream::collectAllObjects): update the list of valid
+	items in the folder to be written out. (bug 29015)
+	This allows to get the CLIDs of types those libraries have been loaded after the folder was configured
+
+
+2007-08-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-18-02
+	* src/ThinningSvc.cxx: removed 'print coucou' debug leftover.
+
+	* tagging AthenaServices-01-18-01
+	* better handling of holes (thinned elements) in DataVector:
+	  compactifies such vectors to present a segfault-free container to
+	  persistency.
+
+2007-08-22  Sebastien Binet  <binet@lxplus219.cern.ch>
+
+	* tagging AthenaServices-01-18-00
+	* trying to clear data store at EndEvent rather than at BeginEvent
+	* M src/AthenaEventLoopMgr.cxx
+
+2007-08-17  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging AthenaServices-01-17-04.
+	* src/AthenaOutputStream: Make some ERROR messages DEBUG
+
+2007-08-16  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* Tagged AthenaServices-01-13-08 with AthenaServices-01-13-08-01
+	* branched off MemoryRescueSvcBranch
+	* added a version of the MemoryRescueSvc that get theApp directly
+	* Tagged branch as AthenaServices-01-13-08-02
+	* restored MemoryRescueSvc.cxx in HEAD
+
+2007-08-09  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* src/AthenaEventLoopMgr.cxx: honour IEvtProcessor::stopRun requests
+	* share/TestStopRun.py: test for the above
+ 	* Tagged as AthenaServices-01-17-03
+
+2007-08-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-17-00
+	* added a special AthenaOutputTool for thinning purposes
+	* A python/__init__.py
+	* A python/Configurables.py
+	* A src/ThinningOutputTool.cxx
+	* A src/ThinningOutputTool.h
+	* M src/ThinningSvc.cxx
+	* M src/components/AthenaServices_entries.cxx
+
+2007-08-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* added src/MemoryRescueSvc.h and src/MemoryRescueSvc.cxx
+	* Tagged as AthenaServices-01-16-00
+
+2007-08-07 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+ 	* Put back AtlasSEAL since clearly that package needs it.
+ 	* Tagged as AthenaServices-01-15-01
+
+2007-08-07  Paolo Calafiura  <calaf@localhost.localdomain>
+	* src/AthenaEventLoopMgr.h: get MinimalEventLoopMgr from GaudiKernel
+	* cmt/requirements: remove hack to link against GaudiSvc (no dupes)
+ 	* Tagged as AthenaServices-01-15-00
+
+2007-08-02  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-14-00
+	* implementation of the new IThinningSvc interface
+	* M src/ThinningSvc.cxx
+	* M src/ThinningSvc.h
+
+2007-08-02  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging AthenaServices-01-13-09.
+	* src/AthenaOutputStream: Make HelperTools property a ToolHandleArray<IAthenaOutputTool>.
+
+2007-08-01  Paolo Calafiura  <calaf@localhost.localdomain>
+	* share/MultiplePassBootstrap.py: use the right "theApp": in bootstrap
+	files we need the proxy to ApplicationMgr, not a ref to AthAppMgr
+ 	* Tagged as AthenaServices-01-13-08
+
+2007-08-01 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+ 	* Removed AtlasReflex and put back SEAL
+ 	* Tagged as AthenaServices-01-13-07
+
+2007-07-24 Nir Amram <Nir.Amram@cern.ch>
+ 	* Changed used package AtlasSEAL to AtlasReflex
+ 	* Tagged as AthenaServices-01-13-06
+
+2007-07-10  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging AthenaServices-01-13-05.
+	* src/AthenaOutputStream.cxx: Avoid forceRead for invalid HLT objects. Fix Savannah #27985.
+
+2007-07-10  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging AthenaServices-01-13-04.
+	* MakeEventStreamInfo: Move MakeEventStreamInfo tool to OutputStreamAthenaPool to avoid
+	DBDataModel dependency.
+
+2007-07-09  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging AthenaServices-01-13-03.
+	* AthenaOutputStream: Fix unchecked status code.
+
+2007-07-06  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* tagging AthenaServices-01-13-02
+	* cmt/requirements: make chkconfig happy
+
+2007-06-23  Paolo Calafiura
+	* tagging AthenaServices-01-13-01
+	* src/AthenaOutputStream.cxx (addItemObjects): fixed for flat ItemLists
+	FIXME: Folders containing Folders not supported. Refactor recursion
+	in SG::Folder (treat as composite)
+	* share/AtRanlux_test.txt: don't create a priori services in ExtSvc
+	or test will fail...
+
+2007-06-22  Paolo Calafiura
+	* tagging AthenaServices-01-13-00
+        * AthenaOutputStream: use ToolHandle<SG::IFolder> rather than own SG::Folders
+        * AthenaOutputStreamTool: use SG::IFolder rather than SG::Folder
+	* share/AthenaOutputStream_test.[txt,py]: no more StoreGateSvc.FolderNameList
+
+2007-06-18  Paolo Calafiura
+	* tagging AthenaServices-01-12-10
+	* cmt/requirements: install missing test jo file
+
+2007-06-15  Paolo Calafiura
+	* tagging AthenaServices-01-12-09
+        * documentation standdown
+	* new AtRunluxGenSvc unit test
+	* new SimplePOSIXTimeKeeper ATN test
+
+2007-05-30  Paolo Calafiura
+	* Tagging AthenaServices-01-12-08 (for 13.X.0)
+	* src/AthenaEventLoopMgr.cxx: resetExecuted returns void in v19r4
+
+	* Tagging AthenaServices-01-12-07 (for 13.0.X)
+	* src/AthenaEventLoopMgr.cxx: temporarily revert the resetExecuted fix
+	* reintroduced AthenaServices dir and moved selection.xml and
+	AthenaServicesDict.h there to make lcgdict pattern happy.
+	Removed dict directory
+	* cmt/requirements: changes for the above
+
+	* Tagging AthenaServices-01-12-06
+	* src/AthenaEventLoopMgr.cxx: resetExecuted returns void in v19r4
+	* src/MixingEventSelector.cxx: ifdef away creation of ofstream file at
+	global scope
+
+2007-05-24  Paolo Calafiura
+
+	* Tagging AthenaServices-01-12-05
+	* cmt/requirements: clean up "private" dependencies, thus removing two
+	test libs from AthenaServices link list (Sebastien)
+
+2007-05-22  Charles Leggett
+	* AthenaEventLoopMgr: minor output formatting changes.
+	* Tagging AthenaServices-01-12-04
+
+2007-05-22  Charles Leggett
+
+	* Tagging AthenaServices-01-12-03
+	* AthenaEventLoopMgr: fix behaviour of FailureMode so that return
+	    codes of Algorithms properly handled:
+	    0: All !SUCCESS terminate job
+	    1: RECOVERABLE skips to next event
+	       FAILURE terminates job
+	    2: RECOVERABLE and FAILURE skip to next event
+
+2007-05-21  Paolo Calafiura
+
+	* Tagging AthenaServices-01-12-02
+	* cmt/requirements: use CLIDSvc wasn't redundant after all...
+
+2007-05-18  Paolo Calafiura
+
+	* Tagging AthenaServices-01-12-01
+	* src/MixingEventSelector.cxx: stick to the ReportingErrors policy
+	* src/AthenaEventLoopMgr.cxx (finalize): ignore() a few StatusCodes
+
+	* Tagging AthenaServices-01-12-00
+	* emptied AthenaServices include directory. All files moved to src or
+	to the new dict directory
+	* cmt/requirements:removed redundant use CLIDSvc, updated dict
+	generation for the above
+
+2007-05-09  Paolo Calafiura  <calaf@localhost.localdomain>
+	* Tagging AthenaServices-01-11-09 (on behalf of Giorgos)
+	* src/AtRanluxGenSvc.* (CreateStream): RanLux64 seeds are vector<unsigned long>
+	* src/interpretSeeds.* (interpretSeeds): add support for vector<unsigned long
+
+	* Tagging AthenaServices-01-11-08
+	* share/MixingEventSelector_test.py: update test for zhijun liang fixes
+
+2007-05-04  Paolo Calafiura  <calaf@localhost.localdomain>
+	* Tagging AthenaServices-01-11-07
+	* src/MixingEventSelector.cxx: zhijun liang fixes to handle properly
+	EOF conditions, continuing with the other streams until we ran out.
+
+2007-04-20  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging AthenaServices-01-11-06.
+	* AthenaOutputStream: Commit failures cannot be recovered.
+
+2007-03-23  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging AthenaServices-01-11-05.
+	* MakeEventStreamInfo: Add new MakeEventStreamInfo Tool to create and fill EventStreamInfo.
+
+2007-03-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging AthenaServices-01-11-04.
+	* AthenaOutputStream: Use new (non-writing) AthenaOutputStream tools.
+
+2007-03-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-11-03.
+	* src/AthenaOutputStream.cxx: Fix memory leak.
+	* share/AtRndmGen_test.ref: Updated.
+	* share/AthenaOutputStream_test.ref: Updated.
+
+2007-02-22  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Remove redundant setting of GaudiSvc_libraries
+	macro
+
+2007-02-21  Paolo Calafiura <pcalafiura@lbl.gov>
+	* tagging AthenaServices-01-11-01
+        * share/MixingEventSelector_test.py: updated inputs. Fix for plugin mr
+	* share/MultiplePass*_test.py: updated inputs
+
+2007-02-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* tagging AthenaServices-01-11-00
+	* AtRanluxGenSvc: use Ranlux64
+
+2007-02-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* tagging AthenaServices-01-10-00
+	* AtRanluxGenSvc: added new ranlux service (on behalf of Giorgos)
+	* interpretSeeds.*: free function used by both rndm number services
+	* moved the following header files
+	   AtRndmGenSvc.h
+	   EventDumperSvc.h
+	   MixingEventSelector.h
+	   MultipleEventLoopMgr.h
+	   SimplePOSIXTimeKeeperSvc.h
+	   ThinningSvc.h
+	into the src directory. This should prevent people from trying to get
+	the services directly rather than via the corresponding
+	Gaudi/AthenaKernel interface.
+
+2007-02-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-09-00
+	* migration (partial one) to XyzHandles and Configurables
+	* M AthenaServices/AthenaEventLoopMgr.h
+	* M AthenaServices/AthenaOutputStream.h
+	* M AthenaServices/AthenaOutputStreamTool.h
+	* M AthenaServices/EventDumperSvc.h
+	* M AthenaServices/MixingEventSelector.h
+	* M AthenaServices/MultipleEventLoopMgr.h
+	* M share/SimplePOSIXTimeKeeperOptions.py
+	* M src/AthenaConditionStream.cxx
+	* M src/AthenaEventLoopMgr.cxx
+	* M src/AthenaOutputStream.cxx
+	* M src/AthenaOutputStreamTool.cxx
+	* M src/EventDumperSvc.cxx
+	* M src/MixingEventSelector.cxx
+	* M src/MultipleEventLoopMgr.cxx
+	* M test/AtRndmGen_test.cxx
+	* M test/AthenaOutputStream_test.cxx
+	* M test/SimplePOSIXTimeKeeperSvc_test.cxx
+
+2007-01-23  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStream: Get rid of Stream.Output property (use OutputFile instead).
+	* tag AthenaServices-01-08-04
+
+2007-01-19  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-08-03
+	* ThinningSvc: finalized migration hash_map
+
+2007-01-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-08-02
+	* ThinningSvc: partial migration to GaudiUtils::HashMap (problem with
+	  GaudiUtils::HashMap<const void*, Blah>)
+
+2007-01-15  Sebastien Binet  <binet@lxplus013.cern.ch>
+
+	* tagging AthenaServices-01-08-01
+	* src/AthenaEventLoopMgr.cxx: initialized un-initialized pointers
+	* fix bug #22847
+
+2006-12-22  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+        * MixingEventSelector: IID -> InterfaceID
+	* src/AthenaEventLoopMgr.cxx (initialize): use v19 prop.toString()
+	* src/Toy*.cxx: get rid of obsolete factories
+	* Tagging AthenaServices-01-08-00.
+
+
+2006-12-15  Scott Snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaServices-01-07-81.
+
+	* share/AthenaOutputStream_test.ref: Updated.
+	* cmt/requirements: Add DataModel dependency to fix checkreq
+	warning.
+
+2006-11-29  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStream: Make sure AthenaOutputStream fails if AthenaOutputStreamTool
+	is used for POOL data.
+	* AthenaOutputStreamTool: Get rid of Compiler warning.
+	* tag AthenaServices-01-07-80
+
+2006-11-28  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStreamTool: Make some WARNING level DEBUG messages.
+	* tag AthenaServices-01-07-78
+
+2006-11-21  Charles Leggett <charles.leggett@cern.ch>
+      * EventDumperSvc: write output to user selectable streams
+                        filter output on key name
+
+2006-11-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-07-77
+	* src/EventDumperSvc.cxx: bullet-proof'ed against missing AthenaPOOL
+	  converters resulting in invalid DataProxies.
+
+2006-11-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-07-76
+	* few modifications to EventDumperSvc:
+	  - added a pointer to seal::IDictionaryService to automatically load
+	    the (doh!) dictionaries.
+	  - fixed dereferencing null pointers
+	  - walk up the inheritance tree of classes
+	  - call user-defined "print" or "dump" method
+	* TODO: allow to dump the dump into some stream (MsgStream/STDOUT/File)
+	  at the jobO level.
+
+2006-11-16  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStreamTool: Getting rid of the DataHeader. Can not use AthenaOutputStreamTool
+	for AthenaPool. Use AthenaPoolOutputStreamTool (from Database/AthenaPOOL/OutputStreamAthenaPool)
+	instead.
+	* tag AthenaServices-01-07-75
+
+2006-11-14  Charles Leggett <charles.leggett@cern.ch>
+      * EventDumperSvc: added service that walks the event store and uses
+                        Reflex to display the values of the data members.
+      * tag AthenaServices-01-07-74
+
+2006-11-10  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStreamTool: Report an ERROR if AthenaOutputStreamTool is used for POOL file.
+	AthenaPoolOutputStreamTool should be used instead. And exit with error.
+	* tag AthenaServices-01-07-72
+
+2006-11-07  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-07-70
+	* src/ThinningSvc.cxx: Worked around bug #21395 of VectorMap
+
+2006-10-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaServices-01-07-69
+	* added implementation for IThinningSvc interface
+	* A AthenaServices/ThinningSvc.h: implementation of IThinningSvc
+	* A src/ThinningSvc.cxx: likewise
+	* M src/components/AthenaServices_entries.cxx: likewise
+	* M src/AtRndmGenSvc.cxx: fixed compilation warning
+
+2006-10-06  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStreamTool: Report an ERROR if AthenaOutputStreamTool is used for POOL file.
+	AthenaPoolOutputStreamTool should be used instead.
+	* tag AthenaServices-01-07-68
+
+2006-10-05  Peter van Gemmeren  <gemmeren@anl.gov>
+	* share/*_test.py: Use new AthenaPoolOutputStream to set up OutputStream
+	* tag AthenaServices-01-07-67
+
+2006-09-26  Peter van Gemmeren  <gemmeren@anl.gov>
+	* src/AthenaOutputStreamTool.cxx: Strip "Tool" from name when creating SG key for DataHeader.
+	* tag AthenaServices-01-07-66
+
+2006-09-22  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStream: WritingTool was lost in RDs modification...
+	* tag AthenaServices-01-07-65
+
+2006-09-20  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaServices-01-07-64
+	* src/AthenaOutputStream.cxx (initialize): append "Tool" to tool name
+
+	* tag AthenaServices-01-07-63
+	* src/AthenaOutputStream.cxx (addItemObjects): allowed more
+	general wildcarding for itemlist keys. Allow ONE '*' in key.
+
+2006-09-06  Paolo Calafiura  <calaf@lxplus052.cern.ch>
+	* AthenaServices/AtRndmGenSvc.h: (hopefully) fix bug 19585
+	* tag AthenaServices-01-07-62
+
+2006-09-06  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Remove redundant "do_genconf"
+
+2006-08-28  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStream: New property "WritingTool" allows to configure AthenaOutputStream
+	to have a different AthenaOutputStreamTool. For AthenaPool data we will use a new
+	AthenaPoolOutputStreamTool.
+	* tag AthenaServices-01-07-60
+
+2006-08-23  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStream: Remove IConversionSvc member and connectConversionSvc() method.
+	* tag AthenaServices-01-07-59
+
+2006-08-18  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Remove MakeInputDataHeader (Moved to Database/AthenaPOOL/OutputStreamAthenaPool).
+	* tag AthenaServices-01-07-58
+
+2006-08-15  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaOutputStream: Remove addDataHeaderObjects() and some cleanup.
+	* AthenaOutputStreamTool: Implement AthenaOutputStream::addDataHeaderObjects()
+	functionality as AthenaOutputStreamTool::getInputItemList() method.
+	* tag AthenaServices-01-07-56
+
+2006-08-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/MixingEventSelector.cxx: added property doc strings
+	* tag AthenaServices-01-07-55
+
+2006-08-09  Peter van Gemmeren  <gemmeren@anl.gov>
+	* share/MixingEventSelector_test.py: Use AthenaPoolCnvSvc/AthenaPool_jobOptions.py
+	to load AthenaPool support.
+	* tag AthenaServices-01-07-54
+
+2006-08-03  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AthenaEventLoopMgr.cxx: handle properly failure in evtsel
+	retrieval
+	* tag AthenaServices-01-07-53
+
+2006-07-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/MixingEventSelector.cxx: clarify printout
+	* tag AthenaServices-01-07-52
+
+2006-07-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/MultiplePass_test.py: eventSelector is a Service not an
+	Algorithm! Added PoolSvc to DLLs
+	* share/MultiplePassWithAlgFilter_test.py: same as MultiplePass_test.py
+	* share/MixingEventSelector_test.py: same again
+	* tag AthenaServices-01-07-51
+
+2006-07-03  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tag AthenaServices-01-07-49
+
+2006-06-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AtRndmGenSvc.cxx (setOnDefinedSeeds): added new version that
+	takes both run and event number as input. Fixed two arg version so that
+	it does not return negative int. Should fix bug #17654
+	* test/AtRndmGen_test.cxx (main): updated to test the above
+        * tag AthenaServices-01-07-47
+
+2006-06-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/MultiplePass*_test.py: remove reference to TruthExamples DLL (not in AtlasEvent)
+        * tag AthenaServices-01-07-46
+
+2006-06-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/Test*.sh: moved to AtlasEvent/EventTest/EventLoopTest to get runtime environment right.
+        * tag AthenaServices-01-07-43
+	* share/MixingEventSelector_test.py: remove reference to TruthExamples DLL (not in AtlasEvent)
+          update configuration of AthenaPool
+        * tag AthenaServices-01-07-45
+
+2006-05-05  scott s snyder  <snyder@bnl.gov>
+
+	* share/ReadAthenaPoolSeek_jobOptions.py: Protect against trying
+	to change ExplicitROOT to SeekableROOT.
+        * tag AthenaServices-01-07-42
+
+2006-05-04  Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaServices/AthenaOutputStream.h, src/AthenaOutputStream.cxx:
+	Added Jack's ExcludeList for the simple copy based in input data headers.
+        * tag AthenaServices-01-07-41
+
+2006-04-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: added apply_pattern to do_genconf
+        * moved unit test to xml
+        * tag AthenaServices-01-07-40
+
+2006-03-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: added do_genconf
+        * tag AthenaServices-01-07-39
+
+2006-03-13  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * added dictionary for MinimalEventLoopMgr to allow building the whole
+        inheritance trees of AthenaEventLoopmgr and PyAthenaEventLoopMgr
+        * tag with AthenaServices-01-07-38
+
+2006-02-28  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * fix returns for PyAthenaEventLoopMgr
+        * tag with AthenaServices-01-07-37
+
+2006-01-18  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * get Algorithms through theApp.algorithm rather than Algorithm class
+
+2006-01-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/*_test.cxx: added undef NDEBUG
+	* tag AthenaServices-01-07-35
+
+2006-01-09  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaServices-01-07-34
+	* src/AthenaOutputStream.cxx (addDataHeaderObjects):
+	Jack added new method to allow simple copy based in input data headers.
+	added check of success
+
+2005-11-30  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/TestMultiplePass.sh: corrected success message
+        * tag AthenaServices-01-07-33
+
+2005-11-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* got nightly test to work
+	* src/AthenaEventLoopMgr.cxx (nextEvent): check status codes
+        * tag AthenaServices-01-07-32
+
+2005-11-26  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: take out SimplePOSIXTimeKeeperSvc_utest which hangs
+        * tag AthenaServices-01-07-30
+
+2005-11-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaServices-01-07-29
+	* cmt/requirements: removed the forced use of reflection
+
+2005-10-29  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaServices-01-07-28
+	* src/MultipleEventLoopMgr.cxx: reset run number to force begin
+	run to be called after rewind.
+
+2005-10-21 Peter van Gemmeren <Peter.van.Gemmeren@cern.ch>
+	* src/AthenaOutputStreamTool.cxx: Do not stream DataHeader if not AthenaPoolCnvSvc.
+	* tag AthenaServices-01-07-26
+
+2005-10-19 Peter van Gemmeren <Peter.van.Gemmeren@cern.ch>
+	* src/AthenaOutputStreamTool.cxx: If any of the DataObjects fails streaming, log an ERROR
+	message, but continue streaming the other DataObjects. The function returns failure.
+	* src/AthenaOutputStreamTool.cxx: No matter what happens with the DataObjects in
+	the streamObjects() method, always try to stream the DataHeader and add a selfReference.
+	Files without DH are useless. A ERROR message is logged for problems with the DataHeader.
+	* src/AthenaOutputStream.cxx: Check the exit status of the streamObjects() function, log
+	a message and exit on FAILURE if the DataObjects/DataHeader was not streamed successfully.
+	* tag AthenaServices-01-07-26
+
+2005-10-18  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaServices-01-07-25
+	* cmt/requirements: temporarily force dict to generate reflection dict
+
+2005-09-23  Paolo Calafiura  <pcalafiura.lbl.gov>
+	* AthenaServices/AthenaEventLoopMgr.h: hack to work around pylcgdict problem
+	* share/PyAthenaEventLoopMgr.py (_PyAthenaEventLoopMgrClass.name): same
+
+2005-08-30 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Remove "ToolSvc." from SG key for DataHeader.
+	* tag AthenaServices-01-07-24
+
+2005-08-29 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Fix processTag handling in AthenaOutputStreamTool.
+	* Use AthenaOutputStreamTool in AthenaOutputStream.
+	* tag AthenaServices-01-07-23
+
+2005-08-26  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaServices-01-07-22
+	* src/AthenaOutputStreamTool.cxx (AthenaOutputStreamTool): cleaned
+	a number of things up
+
+2005-08-24 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Remove DataHeader from ItemList and write it seperately.
+	* Use OutStream name() as SG key for DataHeader.
+	* tag AthenaServices-01-07-21
+
+2005-08-23 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Use key member of DataHeaderElement for Provenance DataHeader to store process tag.
+	* tag AthenaServices-01-07-20
+
+2005-08-19  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaServices-01-07-19
+	* AthenaServices/AthenaOutputStreamTool.h: add new strm tool
+
+2005-08-18 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Add processTagHandler to add DataHeader to ItemList using processTag as key.
+	* tag AthenaServices-01-07-18
+
+2005-08-04  Paolo Calafiura <pcalafiura@lbl.gov>
+	* class MultipleEventLoopMgr: add possibility to use Algorithms as
+	INextPassFilters
+	* class ToyNextPassFilterAlg: a toy INextPassFilter implementation
+        * tag AthenaServices-01-07-17
+
+2005-07-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class AthenaOutputStream: added writeOnExecute, writeOnFinalize
+	properties that make AthenaConditionStream redundant
+        * tag AthenaServices-01-07-16
+
+2005-07-19  RD Schaffer  <R.D.Schaffer@cern.ch>
+	* src/AthenaOutputStream.cxx (vetoAlgsHandler): checking return
+	codes.
+        * tag AthenaServices-01-07-15
+
+2005-07-05 Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * AthenaServices/AtRndmGenSvc.h: forward -> include for CLHEP
+        * tag AthenaServices-01-07-14
+
+2005-06-24 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Use key member of DataHeaderElement for Provenance DataHeader to store process tag.
+	* Adapt AthenaOutputStream to new DataHeader interface.
+	* tag AthenaServices-01-07-13
+
+2005-06-17  Paolo Calafiura <pcalafiura@lbl.gov>
+	* src/AthenaOutputStream.cxx (acceptAlgsHandler): check status code
+	* share/AthenaOutputStream_test.txt: test acceptAlgsHandler
+        * tagged with AthenaServices-01-07-12
+
+2005-06-17  Paolo Calafiura <pcalafiura@lbl.gov>
+	* requirements: put back the missing macro bug #8901
+        * tagged with AthenaServices-01-07-11
+
+2005-06-13  Paolo Calafiura <pcalafiura@lbl.gov>
+	* src/AthenaOutputStream.cxx: use service instead of getService
+        * tagged with AthenaServices-01-07-10
+
+2005-06-10  Paolo Calafiura <pcalafiura@lbl.gov>
+        * added MultipleEventLoopMgr and its tests
+	* AthenaServices/AthenaEventLoopMgr.h: cleanup includes, constr private
+	* src/AthenaOutputStream.cxx: check StatusCodes
+        * tagged with AthenaServices-01-07-09
+
+2005-06-02  Wim Lavrijsen <WLavrijsen.lbl.gov>
+        * removed obsolete macro from requirements file
+        * tagged with AthenaServices-01-07-07
+
+2005-05-18  Scott Snyder  <snyder@bnl.gov>
+
+	* share/ReadAthenaPoolSeek_jobOptions.py: Remove reference to
+	AthenaPoolSeek dll.
+	* tag AthenaServices-01-07-06
+
+2005-05-17 Charles Leggett <charles.leggett@cern.ch>
+	* AthenaEventLoopMgr: return SUCCESS when no more events in selector.
+	* tag AthenaServices-01-07-05
+
+2005-05-16  Scott Snyder  <snyder@bnl.gov>
+
+	* share/ReadAthenaPoolSeek_jobOptions.py: Fix for merge of seeking
+	code into existing EventSelectorAthenaPool, rather than creating a
+	new one.
+	* src/AthenaEventLoopMgr.cxx (seek): Fix to work with other gaudi
+	16 changes.
+	* tag AthenaServices-01-07-04
+
+2005-03-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* requirements: fixed CLIDSvc use stat to make checkreq happy
+	* tag AthenaServices-01-07-03
+
+2005-05-06  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * move PyLCGDict -> pylcgdict
+        * tagged AthenaServices-01-07-02
+
+2005-05-05  Paolo Calafiura  <calaf@localhost.localdomain>
+        * removed MixingEventIterator
+	* adapted MixingEventSelector to use new interface.
+	KNOWN BUG: can't detect EOF conditions anymore, users beware!
+	* src/AthenaEventLoopMgr.cxx (seek): no more evt iterators in Gaudi 16
+	* tag AthenaServices-01-07-01
+
+2005-05-05  scott s snyder  <snyder@bnl.gov>
+
+	* Tagged AthenaServices-01-07-00.
+
+	* share/ReadAthenaPoolSeek_jobOptions.py: (new)
+	* cmt/requirements: Add it.
+
+	* share/PyAthenaEventLoopMgr.py: Add seek() and curEvent().
+	* src/AthenaEventLoopMgr.cxx (seek): (new)
+	(curEvent): (new)
+	* AthenaServices/AthenaEventLoopMgr.h: Declare them.
+
+2005-05-03 Charles Leggett <charles.leggett@cern.ch>
+	* AthenaEventLoopMgr: changes for Gaudi 16 - Context
+	* AtRndmGenSvc, SimplePOSIXTimeKeeperSvc - IID -> InterfaceID
+	* tag AthenaServices-01-06-00
+
+2005-05-02 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+	* link dict library to be built agains the lib in the package
+	* tag AthenaServices-01-05-27
+
+2005-04-29 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+	* repleace pattern lcg_dictionary with lcgdict
+	* tag AthenaServices-01-05-26
+
+2005-04-28 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Fix incorrect if statement for extendProvenanceRecord
+	* tag AthenaServices-01-05-25
+
+2005-04-17 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Rename replaceDataHeader property to extendProvenanceRecord
+	* tag AthenaServices-01-05-24
+
+2005-04-17 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Add replaceDataHeader property to omit adding the current DataHeader into the DataHeader history
+	* this will cause the input file to be neglected for back navigation (replace mode)
+	* tag AthenaServices-01-05-23
+
+2005-03-23  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* fix algname based lookup in PyAthenaEventLoopMgr
+
+2005-03-21  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* src/MixingEventSelector.cxx: only (pre)loadAddresses for EVENT_STORE
+	* share/OverrideEventNumber.py: no need to add EventMixer to providers
+	* tag AthenaServices-01-05-22
+
+2005-03-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AthenaEventLoopMgr.cxx: setup EventSelector and TimeKeeper in a
+	updateHandler.
+	* OverrideEventNumber.py: new fragment that should allow changing
+	run/evt number in a EventInfo
+	* tag AthenaServices-01-05-21
+
+
+2005-03-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AthenaEventLoopMgr.cxx (nextEvent): return current sc (rather than
+	SUCCESS) when time limit is reached (thanks Hong&Wim)
+	* tag AthenaServices-01-05-19
+
+2005-03-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* fix in python evtloopmgr in case of empty TopAlg
+	* tag AthenaServices-01-05-18
+
+2005-02-14  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * made SIGINT abort, rather than adding it to fatal
+        * tag AthenaServices-01-05-17
+
+2005-02-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added access to SEAL fatal handler to fatalize SIG_INT
+        * tag AthenaServices-01-05-16
+
+2005-01-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added python event loop manager
+        * tag AthenaServices-01-05-15
+
+2004-12-08  Charles Leggett <charles.leggett@cern.ch>
+	* AthenaEventLoopMgr.*: get OutputFile property from HistPersSvc
+	to see if isn't set, then disable histogram writing. Addresses
+	assert (pAddr != 0) problem
+	* tag AthenaServices-01-05-14
+
+2004-11-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/TestEventMixer.sh: moved from TestTools. Updated event count
+	* tag AthenaServices-01-05-13
+
+2004-11-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class MixingEventSelector::Trigger: to detect EOF conditions need to
+	keep INTERNAL cursor. Ignore Iterator parm in next, previous,
+	reference. FIXME.
+	* share/MixingEventSelector_test.py: test EOF condition
+	* tag AthenaServices-01-05-12
+
+2004-11-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AthenaEventLoopMgr.cxx (nextEvent): return FAILURE if time limit
+	is reached (may want to revise that by adding one more state to
+	StatusCode)
+	* test/AthenaServices.sh: moved from TestTools nightlies test directory
+	* tag AthenaServices-01-05-11
+
+2004-10-20 S. Rajagopalan <srinir@bnl.gov>
+	* fix print outs for Rousseau in AthenaEventLoopMgr::executeEvent()
+	* tag AthenaServices-01-05-10
+
+2004-09-27 S. Rajagopalan <srinir@bnl.gov>
+	* change failureMode to int, looks like unsigned int as a
+	  property type is not accepted.
+	* change Warning message of Algorithm failure to debug message
+	* tag AthenaServices-01-05-09
+
+2004-09-09 Peter van Gemmeren <gemmeren@bnl.gov>
+	* use DataHeader::statusFlag instead of isInput
+	* tag AthenaServices-01-05-08
+
+2004-08-30 S. Rajagopalan <srinir@bnl.gov>
+	* AthenaEventLoopManager: Implement property based failure modes.
+	* default remains the same = terminate job if Alg retuns failure
+	* executeEvent() of MinimalEventLoopManager overridden
+	* tag AthenaServices-01-05-07
+
+2004-08-04  David Quarrie  <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Change dependency on Boost and CLHEP to
+	AtlasBoost and AtlasCLHEP to avoid name clashes
+
+2004-06-22 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add new 'glue' algorithm MakeInputDataHeader to get correct provenance when concatinating jobs.
+	* tag AthenaServices-01-05-05
+
+2004-06-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaServices/MixingEventSelector.h: two bug fixes!
+	* src/MixingEventSelector.cxx: same
+	* share/MixingEventSelector_test.py: small improvements
+        tag AthenaServices-01-05-04
+
+2004-06-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * class MixingEventSelector: fix handling of end of input
+	* share/MixingEventSelector_test.{txt,py}: updated frequencies to test
+	end of input. Don't run DUMPMC by default
+        * tag AthenaServices-01-04-30-03 (branch)
+	* merge branch fixes into tag AthenaServices-01-05-02
+
+2004-06-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class MixingEventSelector: trigger list setup now used first and
+	last event to be used rather than "branching ratio". FIXME: when only
+	one trigger is left event loop does not terminate when all
+	required events have been used: it keeps going till end of file.
+        * tag AthenaServices-01-04-30-02 (branch)
+
+2004-06-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* merge branch fixes into tag AthenaServices-01-05-01
+
+2004-06-08  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaServices/MixingEventSelector.h: new method addMergedEventInfo
+	* src/MixingEventSelector.cxx: new method addMergedEventInfo
+	* share/MixingEventSelector_test.txt: test new MergedEventInfo
+	features
+        * tag AthenaServices-01-04-30-01 (branch)
+
+2004-06-02  Charles Leggett <charles.leggett@cern.ch>
+	* moved AlgContextSvc and AlgContextAuditor to GaudiSvc
+	* tag AthenaServices-01-05-00
+
+2004-05-27  Charles Leggett <charles.leggett@cern.ch>
+	* AthenaEventLoopMgr.*: rearanged loops so that histograms
+	properly created even if booked after 1st event.
+        * tag AthenaServices-01-04-32
+
+2004-04-12  Charles Leggett <charles.leggett@cern.ch>
+	* AthenaEventLoopMgr.*: moved histogram writing to separate
+	method, saving output every N events, N defined by jobOption
+	"HistWriteInterval". Made m_nevt a private data member.
+        * tag AthenaServices-01-04-31
+
+2004-04-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/MixingEventSelector.cxx: support skipping of events in each
+	stream
+        * tag AthenaServices-01-04-30
+
+2004-04-07  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * src/AthenaEventLoopMgr.cxx (executeEvent): print a msg at INFO
+        level notifying the user of start/end of run/event
+        * tag AthenaServices-01-04-29
+
+2004-04-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AthenaEventLoopMgr.cxx (executeEvent): always fire begin run
+	for first event
+	* tag AthenaServices-01-04-28
+
+2004-03-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/MixingEventSelector_test.[txt,py]: use 7.8.0 G4 hits from
+	testfile area
+	* tag AthenaServices-01-04-27
+
+2004-03-24 Peter van Gemmeren <gemmeren@bnl.gov>
+	* use insertInputDataHeader() to store InputDataHeader
+	* tag AthenaServices-01-04-26
+
+2004-03-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/MixingEventSelector_test.txt: cant use MCEventSelector
+	(not an AddressProvider)
+	* tag AthenaServices-01-04-24
+
+2004-03-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/MixingEventSelector_test.txt: use new 7.7.0 format files
+	* tag AthenaServices-01-04-23
+
+2004-03-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/MixingEventSelector_test.txt: add StreamStatusFileName property 	* MixingEventSelector: dump selector status to file
+	* tag AthenaServices-01-04-21
+
+2004-03-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AtRndmGenSvc: don't need member m_pIncSvc
+	* MixingEventSelector: keep track of selector state
+	* tag AthenaServices-01-04-20
+
+2004-02-26 Peter van Gemmeren <gemmeren@bnl.gov>
+	* write DataHeader only if AthenaPoolCnvSvc is used
+	* tag AthenaServices-01-04-19
+
+2004-02-25 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add Input DataHeader transient address to current DataHeader
+	* tag AthenaServices-01-04-18
+
+2004-02-23 Peter van Gemmeren <gemmeren@bnl.gov>
+	* remove call to fillRepRefs
+	* use IOpaqueAddress to get clID
+	* tag AthenaServices-01-04-17
+
+2004-02-20 Peter van Gemmeren <gemmeren@bnl.gov>
+	* create new DataHeader for each stream
+	* add DataHeaderElement for each DataObject
+	* tag AthenaServices-01-04-16
+
+2004-02-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/MixingEventSelector_test.[txt,py]: test the MixingEventSelector
+	* tag AthenaServices-01-04-15
+
+2004-02-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AthenaOutputStream.cxx (AthenaOutputStream): always new the
+	Folder with the proxies 2 B written
+	* tag AthenaServices-01-04-14
+
+	* src/AtRndmGenSvc.cxx(initialize): print package version
+	* src/AthenaEventLoopMgr.cxx(initialize): print package version
+	* src/MixingEventSelector.cxx(initialize): print package version
+	* src/SimplePOSIXTimeKeeperSvc.cxx(initialize): print package version
+	* tag AthenaServices-01-04-13
+
+2004-02-11  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* new classes MixingEventSelector/Iterator: allow to randomly switch
+	input from a list of "Triggers" (selectors with associated frequencies)
+	* AthenaOutputStream: added ForceRead boolean Property to allow to
+	write out objects regardless whether they have been read from the input
+	stream.
+	* tag AthenaServices-01-04-12
+w
+2004-01-28  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/AthenaOutputStream.cxx: don't give the same name to stream and top folder!!!
+	don't call setProperties in initialize (already done in sysInitialize
+	* tag AthenaServices-01-04-11
+
+2004-01-26  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/AthenaEventLoopMgr.cxx (executeEvent): fire BeginRun incident
+	* tag AthenaServices-01-04-10
+
+2004-01-23  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/AthenaOutputStream.cxx: get SG:Folder from SGTools
+	* tag AthenaServices-01-04-09
+
+2004-01-22  Paolo Calafiura  <calaf@electra.lbl.gov>
+        * class AthenaOutputStream: refactor stream-folder interactions
+	* tag AthenaServices-01-04-08
+
+2004-01-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class AthenaOutputStream: use SG::Folder to decode item list
+	* tag AthenaServices-01-04-07
+
+2004-01-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cleaned up job opts
+	* waste more time per cycle in test
+	* tag AthenaServices-01-04-05
+
+2004-01-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class SimplePOSIXTimeKeeperSvc: fixed time units and printouts
+	* improved doxygen comments of many classes
+	* tag AthenaServices-01-04-03
+
+2003-12-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AthenaEventLoopMgr.cxx (initialize): use m_evtsel property to
+	get EventSelector!
+	* tag AthenaServices-01-04-02
+
+2003-12-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AthenaEventLoopMgr.cxx (initialize): fix bug in EvtSel and
+	TimeKeeper selection.
+	* new service SimplePOSIXTimeKeeperSvc implementing the time keeper
+	interface. This is used by
+	* class AthenaEventLoopMgr: changes to terminate loop on time limit
+	* tag AthenaServices-01-04-01
+
+2003-12-03  Charles Leggett <charles.leggett@cern.ch>
+	* src/AthenaEventLoopMgr.cxx: fixed record()
+	* tag AthenaServices-01-03-03
+
+2003-12-02  Paolo Calafiura  <calaf@lxplus039.cern.ch>
+	* cmt/requirements: fixed use statements (thanks checkreq!)
+        * tag AthenaServices-01-03-02
+
+2003-11-26  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/AthenaOutputStream.cxx (execute): fail when converters do
+	* test/AthenaOutputStream_test.cxx: unit test (for now limited to
+	the item list functionality)
+	* class AthenaOutputStream: use IClassIDSvc to support class names
+	in ItemLists.
+	* removing a few old files
+        * tag AthenaServices-01-03-01
+
+2003-11-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/AthenaEventLoopMgr.cxx (nextEvent): correct cast of EventInfo
+	to void*
+        * tag AthenaServices-01-02-20
+
+2003-11-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * src/AthenaEventLoopMgr: fire EventIncidents
+        (savannah task #305)
+        * tag AthenaServices-01-02-19
+
+2003-11-12  RD Schaffer  <R.D.Schaffer@cern.ch>
+	* tag AthenaServices-01-02-18
+
+2003-11-05  RD Schaffer  <R.D.Schaffer@cern.ch>
+	* src/AthenaOutputStream.cxx (AthenaOutputStream): added property
+	for store name
+	(initialize): added some debug printout
+	(decodeAcceptAlgs): print out algs found
+
+2003-10-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/AtRndmGenSvc.cxx: demote a couple of messages from INFO to DEBUG
+        (savannah bug #1679)
+	* tag AthenaServices-01-02-17
+
+2003-09-08 S. Rajagopalan <srinir@bnl.gov>
+	* AthenaEventLoopMgr.cxx::finalize():
+	  Call algorithm finalize BEFORE histogram write out to allow
+	  algorithms to insert/update historgrams in their finalize.
+	* Check if EventIterator returns 0 addr. If yes, do not
+	  create proxy NOR retrieve EventInfo. : Eventually, we should
+	  just remove this because the EventInfo proxy must be created
+	  by the corresponding proxy provider.. now stuck in for
+	  backward compatibility.
+	* tag AthenaServices-01-02-16
+
+2003-06-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * class AtRndmGenSvc: new method setOnDefinedSeeds to help set seeds
+	of an engine
+	* test/AtRndmGen_test.cxx (main): test setOnDefinedSeeds
+	* tag AthenaServices-01-02-15
+
+2003-06-11 S. Rajagopalan <srinir@bnl.gov>
+	* Declare AthenaConditionStream in entries file.
+	* Fix return StatusCode in AthenaConditionStream::initialize
+	* tag AthenaServices-01-02-14
+
+2003-04-29  Paolo Calafiura  <calaf@localhost>
+	* cmt/requirements: added -no_auto_imports to use TestTools
+	* share/AtRndmGen_test.ref: updated
+	* tag AthenaServices-01-02-13
+
+2003-04-22 S. Rajagopalan <srinir@bnl.gov>
+	* Create AthenaConditionStream: write out once per job
+	* Modify AthenaOutputStream: Add storename as propery
+	* tag AthenaServices-01-02-12
+
+2003-04-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaServices/*.h: used Charles script to add include guards
+	* tag AthenaServices-01-02-11
+
+2003-04-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: use TestTools
+	* tag AthenaServices-01-02-08
+
+2003-04-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaOutputStream: DataProxy and TransientAddress in
+	namespace SG, package SGTools
+	* tag AthenaServices-01-02-08
+
+2003-04-01 S. Rajagopalan <srinir@bnl.gov>
+	* Fix space problem in requirement file
+	* tag AthenaServices-01-02-07
+
+2003-03-13 S. Rajagopalan <srinir@bnl.gov>
+	* AthenaOutputStream: Check if DataObject in proxy is 0.
+	  If so, do NOT push it into m_dObjects (hence createRep will
+	  not be called for this).
+	* tag AthenaServices-01-02-06
+
+2003-02-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/AthenaEventLoopMgr.cxx (nextEvent): create a valid, dummy
+	EventInfo object when not using a selector
+	* tag AthenaServices-01-02-05
+
+2003-01-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* move ClassIDSvc to StoreGate to solve a cmt dependency bug
+	* tag AthenaServices-01-02-04
+
+2003-01-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/ClassIDSvc.cxx: reduce severity of error messages
+
+2003-01-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* class ClassIDSvc: new service that provides an in-memory map
+	CLID->type name. The map can also be loaded from "db" files.
+	* test/ClassIDSvc_test.cxx ClassIDSvc unit test
+	* tag AthenaServices-01-02-03
+
+2002-01-10 S. Rajagopalan <srinir@bnl.gov>
+	* Remove call to getProxy in EventLoopMgr
+	  this is handled by StoregateSvc::handle
+
+2002-12-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* tag AthenaServices-01-02-01
+
+2002-11-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/initGaudi.[h.cxx]: use ns Athena_test (same as SG)
+
+	* class AtRndmGenSvc: implement IAtRndmGenSvc
+	* test/AtRndmGen_test.cxx: use IAtRndmGenSvc
+
+	* class AlgContextSvc: implement IAlgContextSvc
+	* class AlgContextAuditor: depend on IAlgContextSvc
+
+	* cmt/requirements: added use AthenaKernel
+
+2002-11-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class AtRndmGenSvc: new service to provide access to multiple
+	streams of random numbers a-la-cvs (George.Stavropoulos@cern.ch)
+	* test/initGaudi.[h.cxx]: helper function to init Gaudi
+	* test/AtRndmGen_test.cxx: unit test of AtRndmGenSvc
+	* share/AtRndmGen_test.txt: job opts for the above test
+	* cmt/requirements: make check the new unit test
+	tag AthenaServices-01-02-00
+
+2002-10-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	tag AthenaServices-01-01-01 for release 4.4.0
+
+2002-09-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/AthenaEventLoopMgr.cxx (nextEvent): added getProxies
+
+2002-08-08  Paolo Calafiura  <pcalafiura@lbl.gov>
+	tag AthenaServices-01-01-00
+
+2002-07-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* moved pileup classes/functions to PileUpTools
+	* src/AthenaOutputStream: init SGSvc pointer in initialize (FIXME
+	should it be an activestore ptr?)
+	* src/components/AthenaServices_entries.cxx: remove pileup classes
+
+2002-07-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/components/AthenaServices_entries.cxx: declare more factories
+	* src/AthenaEventLoopMgr.cxx: move factory declaration to _entries
+	* src/AthenaOutputStream.cxx: use ProxyMap.h
+	* cmt/requirements:  comment out private stlfilt
+	tag AthenaServices-01-00-05
+
+2002-07-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements:                use EventInfo package
+	* src/AthenaEventLoopMgr.cxx:      use EventInfo package
+	* src/PileUpEventLoopMgr.cxx:      use EventInfo package
+	* AthenaServices/PileUpMergeSvc.h: use EventInfo package
+	* tag AthenaServices-01-00-04
+
+2002-06-26  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* cmt/requirements: turn it back into a component library
+	* tag AthenaServices-01-00-03
+
+2002-06-23 S. Rajagopalan <srinir@bnl.gov>
+	* Call ConversionSvc::commitOutput from AthenaOutputStream
+	* remove SRT stuff
+	* tag AthenaServices-01-00-02
+
+2002-05-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* AthenaServices/PileUpMergeSvc.h:
+	* src/PileUpMergeSvc.cxx: clean up interface ID
+
+	* src/AthenaOutputStream.cxx: comment out call to flushOutput for
+	0.10.1
+
+	* AthenaServices/AlgContextSvc.h:
+	* src/AlgContextSvc.cxx: new service provides access to the
+	current algorithm
+
+	* AthenaServices/AlgContextAuditor.h:
+	* src/AlgContextAuditor.cxx: new auditor set ptr to the current
+	algorithm
+
+	* cmt/requirements: turn it into a dual_use_library
+	moved _entries _load to src/components
+
+2002-04-04  Paolo Calafiura  <calaf@lxplus045.cern.ch>
+
+	* tag AthenaServices-01-00-01
+
+2002-04-02 S. Rajagopalan <srinir@bnl.gov>
+	* Fix colecting output objects from StorGate in AthenaOutputStream
+	* Follows change in SG interface  in DataStore::pRange
+	* in StoreGate-02-00-21
+
+2002-03-14 S. Rajagopalan <srinir@bnl.gov>
+	* Move to Gaudi 0.9.x.  The main change is interface to createRep
+	* The following routines got modified:
+	* AthenaConversionSvc:
+	    - dummy now, client's can inherit from ConversionSvc.
+	* AthenaOutputStream:
+	    - calls createRep, fillRefRep of CnvSvc for _each_ data object
+	    - introduced flushOutput
+	* AthenaEventLoopMgr:
+	    - createRep for Histogramming
+
+2002-02-08  Paolo Calafiura  <calaf@lxplus045.cern.ch>
+
+	* AthenaServices/PileUpMergeSvc.[h,icc]: help Sun CC
+
+2002-02-06  Paolo Calafiura   <pcalafiura@lbl.gov>
+	* AthenaServices/PileUpMergeSvc.icc (retrieveSubEvtsData):
+	use new DefaultObject_tag for link to default object. TESTED
+
+2002-01-17 Paolo Calafiura  <pcalafiura@lbl.gov>
+	* new UNTESTED PileUpMergeSvc
+
+2002-01-11 Paolo Calafiura  <pcalafiura@lbl.gov> Massimo Marino <Massimo_Marino@lbl.gov>
+	* new PileUpStream class: handles the selector/iterator/store mess
+	* PileUpEvtLoopMgr.[h,cxx]: use PileUpStream, allow using same
+	*  selector for multiple streams
+
+2001-12-16  P. Calafiura <pcalafiura@lbl.gov>
+	* Added multiple xings to PileUpEventLoopMgr
+
+2001-11-14  S. Rajagopalan <srinir@bnl.gov>
+	* Fill IOA in DataProxy after call to createRep in AthenaConversionSvc
+
+2001-11-05  S. Rajagopalan <srinir@bnl.gov>
+	* fix declarations in AthenaEventLoopMgr
+	* tag 00-00-04
+
+2001-10-26  P. Calafiura <pcalafiura@lbl.gov>
+	* Add PileUpEventLoopMgr and CloneService classes
+
+2001-10-02  S. Rajagopalan <srinir@bnl.gov>
+	* Fix requirements: move GaudiSvc symlink generation out of private
+
+2001-10-02  S. Rajagopalan <srinir@bnl.gov>
+	* Remove clearItems() from AthenaOutputStream::finalize()
+	* Tag AthenaServices-00-00-04
+
+2001-10-01  S. Rajagopalan <srinir@bnl.gov>
+	*  Collecting data objects from Listname done prematurely - fixed.
+
+2001-09-28  S. Rajagopalan <srinir@bnl.gov>
+	* apply installed_library pattern ALSO
+
+2001-09-25  S. Rajagopalan <srinir@bnl.gov>
+
+	* Introduced AthenaConversionSvc, AthenaOutputStream, AthenaEvtLoopMgr
+	* cmt files updated
+	* Tagged - AthenaServices-00-00-02
+
+2001-08-21  S. Rajagopalan <srinir@bnl.gov>
+
+        * First commits and setting up directory structure

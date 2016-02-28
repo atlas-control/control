@@ -1,0 +1,474 @@
+2016-02-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As Scott pointed out, the previous implementation in
+	  AthAlgTool.cxx and AthAlgorithm.cxx for declaring update
+	  handlers for the OutputLevel property was not working correctly.
+	  Updated the code to an implementation that seems to produce
+	  the right behaviour with the Gaudi master.
+	* Tagging as AthenaBaseComps-00-07-10
+
+2016-02-21 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Reverted to using outputLevel() instead of msgLevel() in
+	  AthAlgTool.cxx and AthAlgorithm.cxx. While the latter is the
+	  recommended function to use with the latest Gaudi version, and
+	  outputLevel() is now deemed deprecated, this way we can use the
+	  same code in dev(val) and the CMake nightly.
+	* Tagging as AthenaBaseComps-00-07-09
+
+2016-02-15 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Reverted the previous changes, as Gaudi was fixed to allow getting
+	  a non-const PropertyMgr from AlgTool.
+	* After recent changes in AlgTool and Algorithm, updated how AthAlgTool
+	  and AthAlgorithm set up update handlers for the OutputLevel property.
+	* Updated the outputLevel() calls to msgLevel() ones, following the
+	  change in Gaudi. This is unfortunately not backwards compatible
+	  with the Gaudi version used in dev(val).
+	* Removed the executable flag from the files that didn't need it.
+	* Tagging as AthenaBaseComps-00-07-08
+
+2016-01-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made some ugly changes in AthAlgTool.h to make the code build
+	  against the current Gaudi master branch. Will likely have to
+	  change Gaudi itself though...
+	* Tagging as AthenaBaseComps-00-07-07
+
+2015-09-23  scott snyder  <snyder@bnl.gov>
+
+        * Tagging AthenaBaseComps-00-07-06.
+	* src/FilteredAlgorithm.cxx: Fix placement of using declarations.
+
+2015-09-14  charles leggett
+        * tagging AthenaBaseComps-00-07-05
+        * automatic registration of VarHandle data dependencies for hive
+
+M       AthenaBaseComps/AthAlgTool.h
+M       AthenaBaseComps/AthAlgorithm.h
+
+2015-06-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaBaseComps-00-07-04.
+	* src/FilteredAlgorithm.cxx: Remove reference to obsolete gaudi
+	header.
+
+2015-03-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaBaseComps-00-07-03.
+	* AthenaBaseComps/AthMessaging.h, src/AthMessaging.cxx: Add a
+	constructor from an explicit existing stream.
+
+2015-01-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaBaseComps-00-07-02.
+	* src/AthCnvSvc.cxx (finalize): Free all memory used by m_workers
+	here.
+
+2014-12-14  Paolo Calafiura  <calaf@lxplus0038.cern.ch>
+	* tag AthenaBaseComps-00-07-01
+
+2014-12-11 Will Buttinger <will@cern.ch>
+	* removed AthMetadataAlgorithm
+
+2014-12-04  Paolo Calafiura  <calaf@lxplus0038.cern.ch>
+
+	* AthenaBaseComps/AthAlgorithm.h: use renamed VarHandle header files 
+	* AthenaBaseComps/AthAlgTool.h: 
+	* AthenaBaseComps/AthService.h: 
+	* tag AthenaBaseComps-00-07-00
+
+2014-08-08  Karsten Koeneke  <karsten.koeneke@cern.ch>
+	* M 631287 src/AthFilterAlgorithm.cxx: Fix for CutFlow bundle
+	* tag AthenaBaseComps-00-06-15
+
+2014-10-11 Will Buttinger <will@cern.ch>
+      * Added AthMetadataAlgorithm, which has beginInputFile method and retrieveMetadata method
+      * tagged as AthenaBaseComps-00-06-14
+
+2014-09-30 David Quarrie <David.Quarrie@cern.ch>
+	* src/AthCnvSvc.cxx
+		Add support for non-backwards compatible change in Gaudi Factory API introduced in v25r3.
+	* Tagged as AthenaBaseComps-00-06-13
+
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaBaseComps-00-06-12.
+	* Fix converity warning.
+
+2014-08-20  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Extend AthCnvSvc with disconnectOutput function
+	* tag AthenaBaseComps-00-06-11
+
+2014-08-08  Karsten Koeneke  <karsten.koeneke@cern.ch>
+	* Fix AthHistogramming
+	* tag AthenaBaseComps-00-06-10
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Add cmake compatibility (fully backwards compatible on CMT side)
+	* Tagged as AthenaBaseComps-00-06-08
+
+2014-06-05  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* merge AthenaBaseComps-00-06-06-04 to trunk
+	* tag AthenaBaseComps-00-06-07
+
+2014-05-16  Charles Leggett
+	* removed some old cruft re/ ATLAS_GAUDI_V21 macro
+	* tag AthenaBaseComps-00-06-06-04
+
+M       src/AthCnvSvc.cxx
+M       AthenaBaseComps/AthCnvSvc.h
+
+2014-05-15  Charles Leggett
+	* src/AthCnvSvc.cxx (createConverter): fix factories, use HAVE_GAUDI_PLUGINSVC
+	* tag AthenaBaseComps-00-06-06-03
+
+2014-04-24  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src/AthCnvSvc.cxx (createConverter): fix factories
+	* tag AthenaBaseComps-00-06-06-02
+
+2014-01-07  Rolf Seuster
+	* branching for testing gaudi v25
+	* tag AthenaBaseComps-00-06-06-01
+
+M       src/AthCnvSvc.cxx
+
+2013-09-23  Charles Leggett
+	* fix setting of outputLevel in AthService::sysInitialize - need
+	  to cache outputLevel during intialize, since we set the properties
+	  in a different order than in the Service base class, and the
+	  output level gets overriden there.
+	* tag AthenaBaseComps-00-06-06
+
+M       AthenaBaseComps/AthService.h
+M       src/AthService.cxx
+
+2013-09-09  Charles Leggett
+	* fix setting of outputLevel in AthService::sysInitialize
+	* tag AthenaBaseComps-00-06-05
+
+M       src/AthService.cxx
+
+2013-04-09  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* AthenaBaseComps/AthFilterAlgorithm.h: Remove EventBookkeeper pointers from CutFlowSvc interface
+	* tagging AthenaBaseComps-00-06-04
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-06-02
+	* adding wscript file
+	* A wscript
+
+2012-07-30  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* tagging AthenaBaseComps-00-06-01
+	* Add userStore() method to AthAlgorithm and AthAlgTool
+	* Create base classes for easy histogram/TTree/TGraph handling
+	* M cmt/requirements
+	* M src/AthAlgTool.cxx
+	* A src/AthHistogramAlgorithm.cxx
+	* M src/AthAlgorithm.cxx
+	* A src/AthHistogramming.cxx
+	* A src/AthHistogramFilterAlgorithm.cxx
+	* A src/AthHistogramTool.cxx
+	* M AthenaBaseComps/AthAlgTool.h
+	* A AthenaBaseComps/AthHistogramAlgorithm.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* A AthenaBaseComps/AthHistogramming.h
+	* A AthenaBaseComps/AthHistogramFilterAlgorithm.h
+	* A AthenaBaseComps/AthHistogramTool.h
+
+2012-03-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-06-00
+	* add property support for varhandles
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M AthenaBaseComps/AthService.h
+
+2011-07-04  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-05-06
+	* adding Scott's error checking macros (but renamed as ATH_xyz)
+	* A AthenaBaseComps/AthCheckMacros.h
+
+2011-06-16  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-05-05
+	* use __builtin_expect in ATH_MSG_xxx macros to help branch prediction
+	* M AthenaBaseComps/AthMsgStreamMacros.h
+
+2011-03-07  Charles Leggett
+	* tag AthenaBaseComps-00-05-04
+	* make msgLvl a bit more sensible
+	* M AthenaBaseComps/AthMessaging.h
+
+2010-12-15  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaBaseComps-00-05-03
+	* properly fwd PACKAGE_VERSION for AthAlgorithm
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M src/AthAlgorithm.cxx
+
+2010-09-24 David Cote <david.cote@cern.ch>
+	* Added post-python default value of property FilterDescription sent to ICutFlowSvc 
+	  only if not explicitely specifed before, by using declareUpdateHandler()
+	* tagging AthenaBaseComps-00-05-02 (requires AthenaKernel-00-46-04-02 or AthenaKernel-00-46-11)
+
+2010-09-23  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-05-01
+	* extend AthFilterAlgorithm API
+	* M AthenaBaseComps/AthFilterAlgorithm.h
+	* M src/AthFilterAlgorithm.cxx
+
+2010-09-21  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-05-00
+	* new base class for filtering algorithms - making use of icutflowsvc
+	* A src/AthFilterAlgorithm.cxx
+	* A AthenaBaseComps/AthFilterAlgorithm.h
+
+2010-07-05  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-04-03
+	* tentative fix for gaudi-v21 service ordering deletion pbm (bug #69432)
+	* M AthenaBaseComps/AthCnvSvc.h
+	* M src/AthCnvSvc/cxx
+
+2010-06-14  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-04-02
+	* more fwd compat w/ gaudi-v21
+	* M src/AthCnvSvc.cxx
+	* M AthenaBaseComps/AthCnvSvc.h
+
+2010-06-04  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-04-01
+	* more fwd compat w/ gaudi-v21
+	* M src/AthCnvSvc.cxx
+	* M AthenaBaseComps/AthCnvSvc.h
+
+2010-06-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaBaseComps-00-04-00
+	* fwd compat w/ gaudi-v21
+	* M src/AthCnvSvc.cxx
+	* M AthenaBaseComps/AthService.h
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthCnvSvc.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M AthenaBaseComps/AthMsgStreamMacros.h
+
+2009-09-16 Balint Radics <radbal@cern.ch>
+	* tagging AthenaBaseComps-00-03-04
+	* change FilteredAlgorithm registers itself
+	by default to DecisionSvc
+
+2009-08-19  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaBaseComps-00-03-03
+	* cosmetics to allow ATH_MSG(INFO) << 'foo' << endreq
+	* M AthenaBaseComps/AthMsgStreamMacros.h
+
+2009-08-14  Balint Radics  <radbal@cern.ch>
+
+	* tagging AthenaBaseComps-00-03-02
+	* cleaned up FilteredAlgorithm
+	all is propagated to DecisionSvc
+	* M AthenaBaseComps/FilteredAlgorithm.cxx
+	* M AthenaBaseComps/FilteredAlgorithm.h
+
+2009-08-14  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* tagging AthenaBaseComps-00-03-01
+	* cmt/requirements: add missing use statement
+
+2009-08-13  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaBaseComps-00-03-00
+	* removing segmemsvc data member
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M src/AthAlgTool.cxx
+	* M src/AthAlgorithm.cxx
+
+2009-08-12 Balint Radics <radbal@cern.ch>
+	* tagging AthenaBaseComps-00-02-01
+	* FilteredAlgorithm: now it is a wrapper around DecisionSvc
+
+2009-06-09  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaBaseComps-00-02-00
+	* adding ServiceHandle<SegMemSvc> data member to AthAlg{Tool,orithm}
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M src/AthAlgTool.cxx
+	* M src/AthAlgorithm.cxx
+
+2009-06-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaBaseComps-00-01-19
+	* adding macros to help dealing w/ SegMemSvc and new-with-placement
+	* A AthenaBaseComps/AthMemMacros.h
+
+2009-01-26  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaBaseComps-00-01-18
+	* making FilteredAlgorithm::isEventAccepted part of public API
+	* M AthenaBaseComps/FilteredAlgorithm.h
+
+2009-01-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaBaseComps-00-01-17
+	* adding AthMessaging mixin class
+	* adding temporary hack for the msg-level-crisis
+	* checkreq fix
+	* A AthenaBaseComps/AthMessaging.h
+	* A src/AthMessaging.cxx
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M AthenaBaseComps/AthService.h
+	* M cmt/requirements
+	* M src/AthAlgTool.cxx
+	* M src/AthAlgorithm.cxx
+	* M src/AthService.cxx
+
+2008-12-11  Sebastien Binet  <binet@lxplus245.cern.ch>
+
+	* tagging AthenaBaseComps-00-01-16
+	* adding detStore() and evtStore() to AthAlgTool
+	  (retro-fitting changes to AthAlgorithm too)
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M src/AthAlgTool.cxx
+	* M src/AthAlgorithm.cxx
+
+	* tagging AthenaBaseComps-00-01-15
+	* fixes for new gccxml/reflex: declare but do not
+	  define the dflt and copy c-tors + assign. op.
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M AthenaBaseComps/AthCnvSvc.h
+	* M AthenaBaseComps/AthService.h
+	* M AthenaBaseComps/FilteredAlgorithm.h
+
+2008-12-09  Sebastien Binet  <binet@lxplus244.cern.ch>
+
+	* tagging AthenaBaseComps-00-01-14
+	* adding detSvc() method (and underlying datamember)
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M src/AthAlgorithm.cxx
+
+2008-11-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaBaseComps-00-01-13
+	* fix for gaudi-v20 FSM
+	* M src/AthService.cxx
+
+2008-11-05  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaBaseComps-00-01-12
+	* removed const_casts of MsgStreams
+	* removed test on outputlevel for INFO,WARNING,ERROR,FATAL,ALWAYS
+	  msgstream helper macros
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M AthenaBaseComps/AthMsgStreamMacros.h
+	* M AthenaBaseComps/AthService.h
+
+2008-10-07  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaBaseComps-00-01-11
+	* fixing the fix (dyn-cast in FilteredAlgorithm)
+	* M src/FilteredAlgorithm.cxx
+
+2008-10-06  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaBaseComps-00-01-10
+	* fixing dyn-cast
+	* M src/FilteredAlgorithm.cxx
+
+2008-10-01  Sebastien Binet  <binet@lxplus213.cern.ch>
+
+	* tagging AthenaBaseComps-00-01-09
+	* fixing update handler for svc::output-lvl
+	* M src/AthService.cxx
+	
+2008-09-25  Paolo Calafiura  
+
+	* tagging AthenaBaseComps-00-01-08
+	* src/AthService.cxx: hack to support v19/v20 FSM APIs
+
+2008-09-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaBaseComps-00-01-06
+	* gcc4 fixes
+	* M src/FilteredAlgorithm.cxx
+
+	* tagging AthenaBaseComps-00-01-05
+	* allow to use setStoreGateSvc at ctor-time w/o retrieving the svc
+	  (so we are genconf friendly)
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M src/AthAlgorithm.cxx
+
+	* tagging AthenaBaseComps-00-01-04
+	* migrating FilteredAlgorithm from AthenaKernel
+	* A AthenaBaseComps/FilteredAlgorithm.h
+	* A src/FilteredAlgorithm.cxx
+
+2008-09-22  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaBaseComps-00-01-03
+	* adding an athena-oriented base class for IConversionSvc
+	* A AthenaBaseComps/AthCnvSvc.h
+	* A src/AthCnvSvc.cxx
+	* M cmt/requirements
+
+2008-09-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaBaseComps-00-01-02
+	* correctly handle re-direction of Service methods and internal state
+	* M AthenaBaseComps/AthService.h
+	* M src/AthService.cxx
+
+2008-09-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaBaseComps-00-01-01
+	* added convenience macros for MsgStream (ATH_MSG_xyz).
+	  note that these macros will only work _within_ an AthXyz component
+	* A AthenaBaseComps/AthMsgStreamMacros.h
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M AthenaBaseComps/AthService.h
+	* M src/AthAlgTool.cxx
+	* M src/AthAlgorithm.cxx
+	* M src/AthService.cxx
+
+2008-09-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaBaseComps-00-01-00
+	* new strategy: inherit from GaudiKernel base classes and add our stuff
+	  that's less elegant (as we inherit some cruft) but it works _now_
+	* M AthenaBaseComps/AthAlgTool.h
+	* M AthenaBaseComps/AthAlgorithm.h
+	* M AthenaBaseComps/AthService.h
+	* M src/AthAlgTool.cxx
+	* M src/AthAlgorithm.cxx
+	* M src/AthService.cxx
+
+2008-04-23  Paolo Calafiura 
+
+	* tagging AthenaBaseComps-00-00-02
+	* src/AthAlgorithm.cxx: update for v19r9: don't check auditor SCs 
+
+2007-06-26  Sebastien Binet  <binet@lxplus209.cern.ch>
+
+	* tagging AthenaBaseComps-00-00-01
+	* update for Gaudi v19r4
+
+2007-05-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaBaseComps-00-00-00
+	* first import
+	* AthAlgorithm needs patch #1073
+

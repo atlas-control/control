@@ -1,0 +1,91 @@
+2016-02-09  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx: remove ROOT init as TApplication is not needed
+	any more for autoloading in ROOT 6.4+ 
+	* Tagged as DataModelRoot-00-00-22
+
+2015-02-16 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Change -no_auto_import to -no_auto_imports on the "use AtlasReflex" statement since the 
+		former is incorrect and causes the cmt2cmake.py script to silently ignore this statement
+	* Tagged as DataModelRoot-00-00-21
+
+2014-12-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* src/RootType.cxx: Have HasProperty() call HasKey() to avoid potential error message.
+	* Tagged as DataModelRoot-00-00-20
+
+2014-11-26  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx: disabled debug printouts
+	* Tagged as DataModelRoot-00-00-19
+
+2014-11-18  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx (Name):  return scoped name by default
+	* Tagged as DataModelRoot-00-00-18
+
+2014-11-05  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx: merged RootType:ByName() with the Xtor. 
+	* src\RootType.cxx: use gRoot->GetType() to detect fundamental types
+	* Tagged as DataModelRoot-00-00-17
+
+2014-11-04  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx: Disable abort in case Type does not find a TClass
+	* Tagged as DataModelRoot-00-00-16
+
+2014-10-16  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* DataModelRoot\RootType.h: add RootPropertyList typedef
+	* Tagged as DataModelRoot-00-00-15
+
+2014-10-10  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx (Bool_t): rewriting this method to avoid premature header parsing
+	* src\RootType.cxx (TScopeAdapter::ByName): remove the call to
+	GetListOfAllPublicMethods() 
+	* Tagged as DataModelRoot-00-00-14
+
+2014-10-08  Peter van Gemmeren  <gemmeren@anl.gov>
+	* src/RootType.cxx: Allow creation of fundamental type with typeid.
+	Needed for writing TAG attributes via APR StorageSvc.
+	* Tagged as DataModelRoot-00-00-13
+
+2014-09-26  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx (TemplateArgumentAt): fix wrong loop nesting (duh!)
+	(TScopeAdapter): don't abort on anonymous "types" 
+	* Tagged as DataModelRoot-00-00-12
+
+2014-09-25  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx (Properties):  fix crash in getting properties for
+	fundamental types
+	* Tagged as DataModelRoot-00-00-11
+
+2014-09-18  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* DataModelRoot\RootType.h: fixing MemberAdapter::TypeOf() and
+	adding support for fundamental types
+	* Tagged as DataModelRoot-00-00-10
+
+2014-08-19  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx (IsEnum): add a few IsSomething methods
+	* Tagged as DataModelRoot-00-00-09
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Add cmake compatibility (fully backwards compatible on CMT side)
+	* Tagged as DataModelRoot-00-00-08
+
+2014-07-22  Peter van Gemmeren <gemmeren@anl.gov>
+	* src\RootType.cxx: Handle Type/Scope for data members stored as TMemberAdapter
+	* tag DataModelRoot-00-00-07
+
+2014-06-24  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* cmt\requirements: Add dictionary creation for RootType (for python)
+	* tag DataModelRoot-00-00-05
+
+2014-06-19  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* Added RootObject "shell" class
+	* tag DataModelRoot-00-00-04
+
+2014-06-17  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* DataModelRoot\RootType.h: fix constructors for ROOT5 RootType
+	* tag DataModelRoot-00-00-02
+
+2014-06-13  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\RootType.cxx: ROOT::Reflex -> Reflex
+	* tag DataModelRoot-00-00-02
+

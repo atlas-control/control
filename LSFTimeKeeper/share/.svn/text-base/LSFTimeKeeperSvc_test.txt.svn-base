@@ -1,0 +1,10 @@
+// job opts for SimplePOSIXTimeKeeperSvc unit test
+
+// $Id: LSFTimeKeeperSvc_test.txt,v 1.1.1.1 2004-01-08 02:51:31 calaf Exp $
+
+#include "LSFTimeKeeper/LSFTimeKeeperOptions.txt"
+
+MessageSvc.OutputLevel = 2;
+
+LSFTimeKeeperSvc.OutputLevel = 1;
+

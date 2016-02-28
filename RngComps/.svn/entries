@@ -1,0 +1,77 @@
+10
+
+dir
+726715
+svn+ssh://svn.cern.ch/reps/atlasoff/Control/RngComps/trunk
+svn+ssh://svn.cern.ch/reps/atlasoff
+
+
+
+2015-03-10T19:12:11.805350Z
+653142
+ssnyder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4525493e-7705-40b1-a816-d608a930855b
+
+test
+dir
+
+python
+dir
+
+share
+dir
+
+cmt
+dir
+
+src
+dir
+
+ChangeLog
+file
+
+
+
+
+2016-02-28T22:27:31.000000Z
+51258c633d070e2006a3f804d022c96a
+2015-03-10T19:12:11.805350Z
+653142
+ssnyder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2324
+

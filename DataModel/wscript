@@ -1,0 +1,432 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'Control/DataModel',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+
+    ctx.use_pkg('Control/SGTools')
+    ctx.use_pkg('Control/CxxUtils')
+    ctx.use_pkg('Control/AthenaKernel')
+    ctx.use_pkg('GaudiKernel')
+
+    ctx.use_pkg('External/AtlasROOT') # reflex
+    ctx.use_pkg('External/AtlasBoost')
+    ctx.use_pkg('External/AtlasUUID')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_linklib(
+        name     = 'DataModel',
+        source   = '*.cxx',
+        use      = ['SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    #'TestTools',
+                    'GaudiKernel',
+                    'Reflex',
+                    #'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    #'uuid',
+                    ],
+        )
+
+
+    ctx.build_reflex_dict(
+        name     = 'DataModel',
+        source   = 'DataModel/DataModelDict.h',
+        selection_file = 'DataModel/selection.xml',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    #'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    #'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    #'uuid',
+                    ],
+        )
+
+
+    ctx.install_headers()
+
+    ## --- tests ---
+    ctx.build_app(
+        name     = 'DataList_test',
+        source   = 'test/DataList_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools', 'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaHeader_test',
+        source   = 'test/ArenaHeader_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+    )
+
+    ctx.build_app(
+        name     = 'ElementHolder_test',
+        source   = 'test/ElementHolder_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaAllocatorBase_test',
+        source   = 'test/ArenaAllocatorBase_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaPoolAllocator_test',
+        source   = 'test/ArenaPoolAllocator_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DataLink_test',
+        source   = 'test/DataLink_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaAllocatorCreator_test',
+        source   = 'test/ArenaAllocatorCreator_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DVLInfo_test',
+        source   = 'test/DVLInfo_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+    )
+
+    ctx.build_app(
+        name     = 'AssociationMap_test',
+        source   = 'test/AssociationMap_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaHandleBaseT_test',
+        source   = 'test/ArenaHandleBaseT_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ClassName_test',
+        source   = 'test/ClassName_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+    )
+
+    ctx.build_app(
+        name     = 'removeDuplicates_test',
+        source   = 'test/removeDuplicates_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaPoolSTLAllocator_test',
+        source   = 'test/ArenaPoolSTLAllocator_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaBlockAllocatorBase_test',
+        source   = 'test/ArenaBlockAllocatorBase_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DataProxyStorageData_test',
+        source   = 'test/DataProxyStorageData_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaHeapAllocator_test',
+        source   = 'test/ArenaHeapAllocator_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DataProxyStorage_test',
+        source   = 'test/DataProxyStorage_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaHandleBaseAllocT_test',
+        source   = 'test/ArenaHandleBaseAllocT_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DVLCast_test',
+        source   = 'test/DVLCast_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaAllocatorRegistry_test',
+        source   = 'test/ArenaAllocatorRegistry_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DataPool_test',
+        source   = 'test/DataPool_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DVLIterator_test',
+        source   = 'test/DVLIterator_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaBase_test',
+        source   = 'test/ArenaBase_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaBlock_test',
+        source   = 'test/ArenaBlock_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ElementProxy_test',
+        source   = 'test/ElementProxy_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DVL_iter_swap_test',
+        source   = 'test/DVL_iter_swap_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaHandleBase_test',
+        source   = 'test/ArenaHandleBase_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'Arena_test',
+        source   = 'test/Arena_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaHeaderGaudiClear_test',
+        source   = 'test/ArenaHeaderGaudiClear_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DataVector_test',
+        source   = 'test/DataVector_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DataPtr_test',
+        source   = 'test/DataPtr_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaCachingHandle_test',
+        source   = 'test/ArenaCachingHandle_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DVLDataBucket_test',
+        source   = 'test/DVLDataBucket_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'ArenaHandle_test',
+        source   = 'test/ArenaHandle_test.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                   'TestTools', 'GaudiKernel', 'Reflex',
+                   'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                   'uuid',
+                   ],
+        do_test  = True,
+        )
+

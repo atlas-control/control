@@ -1,0 +1,409 @@
+2016-02-09  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tag AthenaMPTools-00-04-06
+	* For shared reader mode, use configured evt max rather than reading
+	count from shared memory queue.
+
+2016-01-12  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing reproducibility mechanism for the shared queue
+
+2015-12-10  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Print information about workers event loop walltimes in the master log (Shared Queue strategy)
+
+2015-12-09  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Adding random components to some IPC object names
+
+2015-10-29  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing new configuration flag: TokenExtractorChannel
+
+2015-10-27  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Moving debugger hooks to the AthenaMPToolBase
+	* Enabling debugger hook in FileSchedulingTool
+	* Finally dropping Token Scatterer/Processor
+	* Migrating base class and File Scheduling to ATH_MSG macros 
+
+2015-10-12  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Replacing Token Scatterer/Processor with EvtRange Scatterer/processor
+
+2015-10-02  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixing a bug in the new event counting
+	* Bonus fix: switching Shared Event Queue provider to ATH_MSG macros
+
+2015-10-01  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tag AthenaMPTools-00-03-05
+	* For shared reader mode,m do not seek beyond last event.
+
+2015-09-29  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Merging AthenaMPTools-00-02-37-branch to the trunk (Introducing killChildren() ) 
+
+2015-08-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tag AthenaMPTools-00-03-03
+	* Fix shared memory race condition in SharedReaderTool.
+
+2015-06-15  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Dropping dependency on ByteStreamData and EventInfo
+
+2015-05-27  Charles Leggett
+	* argh....
+	* tag AthenaMPTools-00-03-01
+A       src/SharedHiveEvtQueueConsumer.cxx
+A       src/SharedHiveEvtQueueConsumer.h
+
+2015-05-27  Charles Leggett
+	* merge from mig1 branch for hybrid MP/MT enabled with --threads=N
+	*   add SharedHiveEvtQueueConsumer tool
+	* facilitate debugging of workers by pausing until SIGUSR1 signal received
+	*   enabled with --debugWorker command line opt
+	* tag AthenaMPTools-00-03-00
+
+M       src/TokenProcessor.cxx
+M       src/components/AthenaMPTools_entries.cxx
+M       src/SharedEvtQueueConsumer.h
+M       src/TokenProcessor.h
+M       src/SharedEvtQueueConsumer.cxx
+
+2015-05-15  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Reintroducing the Round Robin strategy
+
+2015-04-23  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Switch to unique_ptr in return value of IMessageDecoder::operator()
+
+2015-04-16  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Merging changes from AthenaMPTools-00-02-31-branch to the trunk
+
+2015-03-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* SharedReaderTool fix: pass m_nprocs to the call to makeServer() (OBO Peter)
+
+2015-03-05  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Registering SharedEvtQueueProvider as listener to BeginInputFile in the bootstrap() instead of exec()
+	in order to catch the incident thrown in RAW reconstruction job, which is fired at io_reinit
+
+2015-03-03  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Using the handler of the BeginInputFile incident for counting events in the first input file
+
+2015-02-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* For the Event Service: send PID of the failed processor to the Scatterer via Shared Queue
+
+2015-02-09  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fire PostFork incident in the SharedEvtQueueConsumer
+
+2014-12-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing event chunks in the Shared Event Queue
+
+2014-11-01  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fire UpdateAfterFork incidnt in SharedEvtQueueconsumer
+
+2014-10-30  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Serialize finalization of processes in TokenProcessor
+
+2014-10-29  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing DoCaching flag in the TokenScatterer
+
+2014-09-26  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix race condition in SharedEventQueue strategy
+
+2014-08-26  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* In EventService: Change the way output names are reported back to Pilot (after firing NextEventRange and at the end)
+
+2014-08-15  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Support forking after 1st event in PileUp digitization jobs
+	* Fix setting skipEvents=0 on the bytestream event selector
+
+2014-08-13  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixes in the Token Scatterer and Processor, following recent updates in the Token Extractor code
+
+2014-06-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Use random numbers instead of pid in the names of Shared Queue and Shared Memory
+	* Tools affected: SharedEvtQueueProvider, SharedEvtQueueConsumer and SharedReaderTool
+
+2014-05-16  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix bug in the TokenScatterer, last output files of the workers were not reported back to Pilot
+
+2014-05-10  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* In EventService: Send CPU and Wall time in seconds
+	* In EventService: Support another format of event ranges (with double quutes)
+
+2014-05-03  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* In EventService: extend the message to Pilot with event range processing Cpu and Wall times
+
+2014-04-30  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* In EventService: send EventRangeID together with corresponding output file name to Pilot
+
+2014-04-04  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixes for SharedEvtQueueProvider in order to properly handle SkipEvents
+
+2014-03-27  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Work around icc compilation problems related to boost::filesystem::copy_file (OBO Paolo)
+
+2014-03-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixes for AthenaMP-Pilot communication messages in the Event Service
+
+2014-03-14  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Change the way AthenaMP tools hande the saved PFC
+
+2014-03-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Communication channel between AthenaMP and Pilot in the Event Service
+
+2014-03-05  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix memory leaks
+
+2014-02-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Replace the old stdout and stderr logfiles with one AthenaMP.log
+
+2014-02-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Serialize worker finalizations (SharedEvtQueueConsumer only)
+
+2014-02-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix Coverity Defect 72405
+
+2014-02-08  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* FdsRegistry and a new method for reopening file descriptors
+
+2014-02-05  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Add EventRangeID to the messages between TokenScatterer and TokenProcessor
+	* Fire NextEventRange incident in the TokenProcessor
+
+2014-01-30  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Drop shared queue from the TokenScatterer strategy
+	* New TokenProcessor tool
+
+2014-01-17  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Restart failed workers in the TokenScatterer strategy
+
+2014-01-10  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Support forking after N events in SharedEvtQueueConsumer and SharedEvtQueueProvider
+
+2013-12-17  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* SharedEvtQueueConsumer fix: report number of processed events
+
+2013-12-13  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Process polling instead of the blocking wait
+
+2013-12-13  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Reverting to AthenaMPTools-00-00-36
+
+2013-12-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Reintroducing TokenScatterer. FileShcduling still pending
+
+2013-12-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Major overhaul: getting rid of one-process groups. Entire strategy is now encapsulated by single tool
+	* TokenScatterer and FileScheduling strategies temporarily taken out
+
+2013-11-21  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* New TokenScatterer tool introduced
+	* SingleBSReader tool replaced with SharedReader (now working for both BS and POOL)
+
+2013-09-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Set SkipEvents=0 only on ByteStream event selector
+
+2013-07-10  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix SingleBSReaderTool for running together with the event counter process
+
+2013-07-03  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing SharedEvtQueueProducer/Consumer pair. The old SharedEvtQueueTool dropped
+
+2013-06-15  Paolo Calafiura  <calaf@lxplus0178.cern.ch>
+
+	* src/SharedEvtQueueTool.cxx (nEventsInFile): use more efficient
+	implementation of StoreGateSvc::keys
+
+2013-06-01  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* lseek fix in AthenaMPToolBase
+
+2013-05-03  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Move I/O reinitialization from the AthenaMPToolBase to the derived classes
+
+2013-05-01  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing AthenaMPToolBase: base class for all AthenaMP tools
+
+2013-04-15  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Take SharedMemory directly from Yampl
+
+2013-04-05  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Support event selectors which don't have SkipEvents property
+
+2013-04-02  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Provide clients with a list of worker log file names
+
+2013-03-29  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Always seek to evtNumber+skipEvents 
+	* Set SkipEvents=0 on the event selector, otherwise BS event selector gives unpredictable results 
+
+2013-03-29  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Rename InpFilePerWorker strategy with FileScheduling
+
+2013-03-18  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixes for running pileup digitization:
+	* 1. Restart background event selectors after forking
+	* 2. Call seek() on the pileup event loop manager
+	* Copy simulation metadata files over to workers' run directories
+	* Remove duplicate entries from the output file report
+
+2013-02-21  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Input file scheduling updates:
+	* 1. Modigy properties of event selectors instead of firing incidents
+	* 2. Schedule worker finalization as it is done for other strategies
+
+2013-02-16  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Cosmetic changes to error reporting
+
+2013-01-22  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* First version of the one-input-file-per-worker event scheduling strategy
+
+2013-01-14  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Enable nprocs=-1. Coverity fixes
+
+2013-01-03  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Schedule worker finalization in order to fight memory spikes (by analogy with AthenaMP-1)
+
+2012-12-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix coverity warnings
+
+2012-12-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Gracefully exit subprocess if the event loop returns there StatusCode::FAILURE
+
+2012-12-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Error handling in mapped functions
+
+2012-12-13  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Error handling in fuctions executed in the master process
+
+2012-12-12  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Coverity 
+
+2012-12-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Switch to SharedMemory from yampl, for the time being it has been added to AthenaInterprocess
+
+2012-12-10  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Use shared queue instead of shared memory for distributing rank ids between workers
+
+2012-12-07  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Use absolute path to workers' top directory in the call to IoComponentMgr::io_update_all
+
+2012-11-15  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Drop separate decoders
+
+2012-11-09  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Stop making symlinks to the first POOL input file from workers' run directories
+	* Add some informatie input to Tools
+
+2012-11-08  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Several fixes for event counting and also for communication mechanism betweeh Shared Event Queue and Single BS Reader tools
+	* New property for the Shared Event Queue tool: PreCounted events
+
+2012-10-26  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* First implementation of the SingleBSReaderTool, intermediate solution
+	* Creation of the top running directory moved away from tools to the event loop manager
+
+2012-10-18  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix event counting: start counting events in input files 2,3... only after workers have started event processing
+
+2012-10-06  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Make worker run directory name configurable via job options
+	* Split output report making process in two: the responsibility of generating XML is transferred to evt loop manager
+
+2012-10-03  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Some protections added to the XML summary file generation
+
+2012-09-26  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Write summary file in XML
+
+2012-09-19  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Create a summary file at the end of AthenaMP job listing all outputs made by workers
+
+2012-09-15  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Call seek() on event selector instead of the wrapped event loop manager
+	* Use new method FileMgr::getFiles, which returns vector of FileAttr
+
+2012-09-13  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* New way of protecting against duplicate entries in vector returned by FileMgr::getFiles(). Turn it into std::set
+
+2012-09-11  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* First revision
+

@@ -1,0 +1,11 @@
+// This file's extension implies that it's C, but it's really -*- C++ -*-.
+// $Id$
+// Moved to AthContainers.
+
+
+#ifndef DATAMODEL_CONSTDATAVECTOR_H
+#define DATAMODEL_CONSTDATAVECTOR_H
+
+#include "AthContainers/ConstDataVector.h"
+
+#endif // not DATAMODEL_CONSTDATAVECTOR_H

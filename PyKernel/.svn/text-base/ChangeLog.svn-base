@@ -1,0 +1,242 @@
+2015-03-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PyKernel-00-00-42.
+	* share/InitPyKernel.py: PyCintex -> cppyy.
+
+2015-03-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PyKernel-00-00-41.
+	* python/PyKernel.py: Fix typo in last change.
+
+2015-03-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PyKernel-00-00-40.
+	* python/PyKernel.py: PyCintex -> cppyy.
+	* PyKernel/PyReverseProxy.h: Fix compilation warnings.
+
+2014-07-03  Marcin Nowak  <Marcin.Nowak@cern.ch>
+
+	* Tagging PyKernel-00-00-39.
+	* cmt/requirements: fix "use AtlasReflex"
+
+2009-11-16  Sebastien Binet  <binet@farnsworth.localdomain>
+
+	* tagging PyKernel-00-00-38
+	* temporary hack to fix #58078
+	* M share/InitPyKernel.py
+
+2009-08-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PyKernel-00-00-37.
+	* python/PyKernel.py: Don't crash if theApp is missing _curEvt.
+
+2008-03-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PyKernel-00-00-36.
+	* python/PyKernel.py: Fix use of deprecated SG interfaces.
+
+2007-12-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PyKernel-00-00-35.
+	* share/InitPyKernel.py: Fix for new job configuration.
+
+2007-10-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PyKernel-00-00-34.
+
+	* python/PyKernel.py: Defer retrieving storeGate and detStore
+	until after job initialization.
+	* share/InitPyKernel.py: Fix library name given to PyCintex.
+
+2007-07-24 Nir Amram <Nir.Amram@cern.ch>
+ 	* Changed used package AtlasSEAL to AtlasReflex
+ 	* Tagged as PyKernel-00-00-33
+
+2007-07-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PyKernel-00-00-32.
+	* python/PyKernel.py: Remove old references to workaround.py.
+
+2007-06-15 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-31
+	* more doc
+
+2007-06-12 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-30
+	* removed workaround.py
+	* 00-00-29
+	* doxygen
+
+2007-03-09 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-28
+	* added workaround.py temporarily to patch PyROOT
+
+2007-03-07 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-27
+	* fixed for Configurable
+
+2006-08-17 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-26
+	* new Reverse Proxy
+
+2006-08-16 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-25
+	* DataHeader moved to DBDataModel
+	* 00-00-24
+	* migrated to new StoreGate binding
+
+2006-04-21 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-23
+	* migrated to ROOT5
+
+2006-01-04 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-22
+	* fixed for 2D/profile hist
+
+2005-12-20 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-21
+	* fixed for AANT
+
+2005-07-26 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-20
+	* clean-up API
+
+2005-07-21 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-19
+	* implemented pre-processing plot
+
+2005-06-25 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-18
+	* followed changes in SGTools
+
+2005-06-01 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-17
+	* fixed typo
+
+2005-05-30 Tadashi Maeno <tmaeno@bnl.gov>
+
+	* 00-00-16
+	* added PyReverseProxy
+
+2005-05-04 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-15
+	* added _atMethod_dv to avoid instantiating iterators by Scott
+
+2005-04-14 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-14
+	* improved fill,fill2,fillProf to fill histos with user variables
+
+2005-04-07 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-13
+	* introduced _PyKMethod to propagate AIDA changes to ROOT
+
+2005-04-06 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-12
+	* fixed book for rfio
+	* added PyKHist.Add to avoid PyROOT crash
+
+2005-04-05 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-11
+	* fixed PyKHist to avoid the input collection constraint
+
+2005-03-22 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-10
+	* introduced PyKHist
+	* added retrieveHist
+
+2005-03-13 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-09
+	* improved to patch iterators
+
+2005-03-02 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-08
+	* fixed some docstrings
+	* 00-00-07
+	* moved to reST documentation
+
+2005-03-01 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-06
+	* added docstrings for pydoc
+
+2005-02-28 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-05
+	* implemented book,bookProf,fill,fill2,fillProf,dumpHist,unregister
+
+2005-02-10 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-04
+	* added dumpSG
+
+2004-12-16 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-03
+	* fixed to import SystemOfUnits
+	* added access to DetectorStore
+
+2004-12-13 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-02
+	* fixed PyDataHeader
+	* fixed plot
+	* added installation of the sequence protocol for AthenaHitsVector
+
+2004-11-03 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* PyKernel-00-00-01
+	* renamed to PyKernel
+
+2004-10-30 S. Rajagopalan <srinir@bnl.gov>
+	* updated PyAnalysisCore.py from T. Maeno
+	* tag PyAnalysisCore-00-00-05
+	
+2004-10-26 S. Rajagopalan <srinir@bnl.gov>
+	* Package moved under Control
+	
+2004-10-25 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-04
+	* changed the default value of plot 
+
+2004-10-23 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-03
+	* improved PyDataHeader
+
+2004-10-22 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-02
+	* implemented plot and plot2
+
+2004-10-16 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-01
+	* removed PyDataVector
+	* added wrappers for DataHeader and ClassIDSvc
+	
+2004-10-05 Tadashi Maeno <Tadashi.Maeno@cen.ch>
+
+	* 00-00-00
+	* first import

@@ -1,0 +1,654 @@
+2015-12-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-01-06.
+	* src/ScanForAbstract.cxx: Root 6.06 compatibility.
+
+2015-11-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-01-05.
+	* RootUtils/TBranchElementClang.h: Fix to work across clang
+	versions.
+
+2015-11-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-01-04.
+	* Fix previous commit.
+
+2015-11-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-01-03.
+	* RootUtils/TBranchElementClang.h: (new)
+	* src/pyroot/PyROOTTTreePatch.cxx: Use it.
+
+2015-11-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-01-02.
+	* src/pyroot/PyROOTInspector.cxx (recurse_pyinspect): Work around
+	pyroot/cling bugs: Count elements during loop over an iterator
+	to prevent overruns if the iterator comparison doesn't work.
+
+2015-11-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-01-01.
+	* python/PyROOTFixes.py: Try to avoid needless autoparsing.
+	(Avoid TCling bug.)
+
+2015-10-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-01-00.
+	* src/pyroot/PyROOTInspector.cxx: Fix for root 6.04.
+
+2015-10-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-99.
+	* src/pyroot/PyROOTTTreePatch.cxx: Propagate Notify chain.
+
+2015-08-11  sss  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-98.
+	* src/pyroot/Converters.cxx: Fix coverity warnings.
+	* Tagging RootUtils-00-00-97.
+	* src/pyroot/PyROOTTTreePatch.cxx: Use TClass::GetActualClass to
+	do downcasting when binding TLeaf/TBranch objects.
+
+2015-07-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-96.
+	* Rework PyROOTTTreePatch to avoid most dependencies on pyroot
+	internals.
+	* Fix compilation with root 6.05.
+
+2015-07-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-95.
+	* Add a unit test for PyROOTTTreePatch.
+
+2015-06-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-94.
+	* src/pyroot/PyROOTTFilePythonize.cxx: Remove #define private
+	public.
+
+2015-05-28  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\pyroot\PyROOTInspector.cxx: fix index not incrementing in
+	pythonization of collections
+	* Tagging RootUtils-00-00-93
+
+2015-05-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-92.
+	* src/pyroot/PyROOTInspector.cxx: Add workaround for TileCellVec.
+
+2015-05-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-91.
+	* src/pyroot/PyROOTInspector.cxx: Work around bug in
+	xAOD::MissingETContainer.
+
+	* Tagging RootUtils-00-00-90.
+	* src/pyroot/PyROOTInspector.cxx: Add option to allow skipping
+	transient members.
+
+2015-02-13  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* Tagging RootUtils-00-00-89.
+	* src/Type.cxx (checkAssign): Fix set m_assignInitialized true.
+
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-88.
+	* src/Type.cxx (checkAssign): Fix use of ::Warning.
+
+2015-01-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-87.
+	* RootUtils/Type.h, src/Type.cxx: Initialize m_assign lazily, to
+	prevent needless parses with root6.
+
+2015-01-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-86.
+	* src/pyroot/PyROOTTTreePatch.cxx (leafToValue): Fix for object
+	types; needed for root6.
+
+2014-12-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-85.
+	* test/Type_test.cxx (test2): Change TClass -> TH1F in test to
+	avoid root6 warning.
+
+2014-12-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-84.
+	* RootUtils/Type.h, src/Type.cxx: Add copy ctor and assignment.
+	* test/Type_test.cxx: Test the changes.
+
+	* Tagging RootUtils-00-00-83.
+	* python/PyROOTFixes.py: PyCintex -> cppyy.
+
+2014-10-31  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-82.
+	* Update for root 5.34.22.
+
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-81.
+	* Fix coverity warnings.
+
+2014-09-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-80.
+	* src/StdHackGenerator.cxx: Compile with root 6.01/02.
+
+2014-08-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-79.
+	* Compile with root 6.01.
+
+2014-08-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-78.
+	* src/pyroot/PyROOTInspector.cxx: Update for xAOD files.
+
+2014-07-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-77.
+	* Fixes for compiling with root 6.
+
+	* Tagging RootUtils-00-00-76.
+	* src/ScanForAbstract.cxx: Fix init behavior chaining for gcc
+	4.9.
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* Tagging RootUtils-00-00-75
+	* cmt/requirements
+		Add cmake compatibility (fully backwards compatible on CMT side)
+
+2014-07-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-74.
+	* src/Types.def, src/Type.cxx: Fix fromString() for char types.
+
+2014-06-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-73.
+	* test/Type_test.cxx: Fix test.
+	* Tagging RootUtils-00-00-72.
+	* RootUtils/Type.icc: Really fix this...
+	* Tagging RootUtils-00-00-71.
+	* RootUtils/Type.icc: Forgot to commit this.
+
+2014-06-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-70.
+	* RootUtils/Type.h, src/Type.cxx: Add getTypeName(), fromString(),
+	Deleter, and unique_ptr.
+	* test/Type_test.cxx: Updated.
+
+2014-06-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-69.
+	* RootUtils/Type.h, src/Type.cxx: Add init() taking a string.
+
+	* Tagging RootUtils-00-00-68.
+	* src/Type.cxx (Type): Recognize some common typedefs.
+	* test/Type_test.cxx: Updated.
+
+2014-06-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-67.
+	* Add Type::getTypeInfo().
+
+	* Tagging RootUtils-00-00-66.
+	* RootUtils/Type.h, src/Type.cxx: (new)
+	* test/Type_test.cxx, share/Type_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2013-08-07  Sebastien Binet  <binet@farnsworth>
+
+	* Tagging RootUtils-00-00-65
+	* fix package name
+	* M wscript
+
+2013-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-64.
+	* src/pyroot/PyROOTInspector.cxx: Fix clang warning.
+	* Tagging RootUtils-00-00-63.
+	* src/ScatterH2.cxx: Coverity warning fix.
+
+2013-02-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-62.
+	* src/ScanForAbstract.cxx (initialize): Avoid clang warnings.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging RootUtils-00-00-61
+	* adding wscript file
+	* A wscript
+
+2012-11-07  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-60.
+	* RootUtils/ScatterH2.h, src/ScatterH2.cxx: Add rescale() method.
+
+2012-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-59.
+	* Fix coverity warning: allocated buffer was too large.
+
+2012-03-09  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging RootUtils-00-00-58
+	* fixing bug #89025: Py_XDECREF instead of Py_DECREF
+	* M src/pyroot/PyROOTInspector.cxx
+
+2011-08-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-57.
+	* Coverity/checkreq warning fixes.  Remove some pyroot patching no
+	longer needed.
+
+2011-02-28  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging RootUtils-00-00-56
+	* fixing coverity reports 13909, 13908
+	* M src/pyroot/PyROOTInspector.cxx
+
+2011-02-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-55.
+	* RootUtils/PyROOTIteratorFuncs.h, python/PyROOTFixes.py: More
+	fixes for root 5.28.
+
+2011-01-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-54.
+	* src/ScatterH2.cxx, src/StdHackGenerator.cxx: Adapt to root
+	interface change in 5.28.
+
+2010-12-20  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging RootUtils-00-00-53
+	* add a flattening pyroot_inspect function
+	* M RootUtils/PyROOTInspector.h
+	* M src/pyroot/PyROOTInspector.cxx
+
+2010-12-07  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging RootUtils-00-00-52
+	* fix bug #76109
+	* do not crash and burn when receiving null TFile pointers
+	* M src/pyroot/PyROOTTFilePythonize.cxx
+
+2010-08-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-51.
+	* cmt/requirements: Checkreq fix.
+
+2010-08-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-50.
+	* RootUtils/PyROOTIteratorFuncs.h: (new)
+	* src/pyroot/PyROOTTypePatch.cxx: Set up to call hook function
+	when a new pyroot class is created.
+	* python/PyROOTFixes.py: Add hook function to fix up iterator
+	comparison functions.
+
+2010-07-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-49.
+	* PyROOTConstFix no longer needed.  Remove it throughout.
+
+2010-07-23  Sebastien Binet  <binet@pb-d-128-141-38-254.cern.ch>
+
+	* tagging RootUtils-00-00-48
+	* adding a pyroot utility function to deep-pythonize c++ classes
+	* A src/pyroot/PyROOTInspector.cxx
+	* A RootUtils/PyROOTInspector.h
+	* M RootUtils/selection_PyROOT.xml
+	* M RootUtils/RootUtilsPyROOTDict.h
+
+	* fix compilation warning
+	* M RootUtils/StdHackGenerator.h
+
+2010-07-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-47.
+	* Really remove TTreeIndexRemap.
+
+	* Tagging RootUtils-00-00-46.
+	* RootUtils/TTreeIndexRemap.h, src/pyroot/TTreeIndexRemap.cxx:
+	(Deleted) This was never used --- remove it.
+	* RootUtils/selection_PyROOT.xml: Remove it.
+	* RootUtils/RootUtilsPyROOTDict.h: Remove it.
+
+2010-07-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-45.
+	* Fixes for root 5.26.
+
+2010-04-14  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-44.
+	* RootUtils/StdHackGenerator.h, src/StdHackGenerator.cxx: Work
+	around problem with rootcint dictionaries overwriting reflex
+	dictionaries.
+
+2009-11-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging RootUtils-00-00-43
+	* add Pythonizations for TFile
+	* A RootUtils/PyROOTTFilePythonize.h
+	* A src/pyroot/PyROOTTFilePythonize.cxx
+	* M RootUtils/selection_PyROOT.xml
+	* M RootUtils/RootUtilsPyROOTDict.h
+
+2009-08-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-42.
+	* python/PyROOTFixes.py: Make sure PyCintex has been loaded.
+
+2009-02-24  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging RootUtils-00-00-41
+	* cmt/requirements: Tweak shlibflags to fix MacOSX problems
+
+2009-02-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-40.
+	* src/pyroot/PyROOTTTreePatch.cxx: Fix for root 5.22.
+
+2009-01-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-39.
+	* cmt/requirements: Adjust for change of location of Cint API
+	headers in root-5.22.00-patches.
+
+2008-10-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-38.
+	* src/pyroot/PyROOTTypePatch.cxx: __iter__ fix for the case of
+	containers that derive from one another.
+
+2008-05-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-37.
+	* src/ScanForAbstract.cxx (initialize): Need to force creation of
+	TClass for TTreeCache too.
+
+2008-05-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-36.
+	* src/ScanForAbstract.cxx: Allow chaining to a previous root class
+	creation hook.
+
+2008-05-08  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging RootUtils-00-00-35.
+	* cmt/requirements: Yet another attempt at solving parallel build problems
+
+2008-04-23  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-34.
+
+	* New from Wim: allow saving ROOT objects in a python pickle.
+	* src/pyroot/PyROOTPickle.cxx: (new)
+	* RootUtils/PyROOTPickle.h: (new)
+	* RootUtils/RootUtilsPyROOTDict.h: Add it.
+	* RootUtils/selection_PyROOT.xml: Add it.
+	* python/PyROOTFixes.py: Add enable_pickling().
+
+2008-03-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-33.
+	* src/pyroot/PyROOTTypePatch.cxx (alloc_hack): 64-bit fix.
+
+2008-03-21  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-32.
+
+	* RootUtils/TTreeIndexRemap.h: (new)
+	* src/pyroot/TTreeIndexRemap.cxx: (new)
+	* cmt/requirements: Fix library dependencies.
+	* RootUtils/selection_PyROOT.xml: Generate dict for it.
+	* RootUtils/RootUtilsPyROOTDict.h: Generate dict for it.
+
+2008-03-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-31.
+
+	* src/StdHackGenerator.cxx: Also work around an inconsistency in
+	spacing between the root dict and the autoload dict.
+	* RootUtils/StdHackGenerator.h: Document.
+
+	* src/pyroot/PyROOTTypePatch.cxx: Fixes for root 5.18.
+
+2008-01-28  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-30.
+	* python/root_pickle.py: (new) Copied here from PyAnalysisUtils.
+
+2008-01-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-29.
+
+	* src/ScatterH2.cxx: Need ShowMembers for persistency to work
+	properly with new root.
+	* RootUtils/ScatterH2.h: Likewise.
+
+	* src/ScatterH2.cxx: Fix inclusions for new root.  Speed up and
+	break explicit dependence on graphics libs.
+	* RootUtils/ScatterH2.h: Updated.
+	* cmt/requirements: Remove root graphics libs.
+
+2008-01-16  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-28.
+	* RootUtils/ScatterH2.h: Fix compilation error.
+	* cmt/requirements: Add root graphics libs.
+
+2008-01-15  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-27.
+	* RootUtils/ScatterH2.h: Use a local class to hold the point data,
+	rather than std::pair, to remove the chance of duplicating
+	dictionaries for the vector.
+	* src/ScatterH2.cxx: Likewise.
+	* RootUtils/selection.xml: Likewise.
+
+2008-01-14  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-26.
+	* RootUtils/ScatterH2.h: (new)
+	* src/ScatterH2.cxx: (new)
+	* RootUtils/RootUtilsDict.h: Add it.
+	* RootUtils/selection.xml: Add it.
+
+2007-12-18  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging RootUtils-00-00-25.
+	* cmt/requirements: Attempt at solving parallel build problems
+
+2007-12-18  David Quarrie <David.Quarrie@cern.ch>
+
+	* Tagging RootUtils-00-00-24.
+	* src/pyroot/PyROOTTypePatch.cxx: Add several includes for LCG_54 compatibility
+
+2007-12-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-23.
+	* DataVectorConvert moved to DataModelAthenaPool.
+	* RootUtils/DataVectorConvert.h: (deleted)
+	* src/DataVectorConvert.cxx: (deleted)
+	* RootUtils/RootUtilsDict.h: Remove it.
+	* RootUtils/selection.xml: Remove it.
+
+2007-12-15  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-21.
+	* RootUtils/selection.xml: Add ILogger.
+	* RootUtils/RootUtilsDict.h: Add ILogger.
+
+2007-12-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-20.
+	* RootUtils/ILogger.h: (new)
+	* RootUtils/PyLogger.h: (new)
+	* src/pyroot/PyLogger.cxx: (new)
+	* RootUtils/selection_PyROOT.xml: Add it.
+	* RootUtils/RootUtilsPyROOTDict.h: Add it.
+
+2007-12-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-18.
+	* cmt/requirements: Dependency fix.
+
+	* Tagging RootUtils-00-00-17.
+	* python/PyROOTFixes.py (fix_dv_container): Retain as a stub.
+
+	* Tagging RootUtils-00-00-16.
+
+	* Rework DV-fixups to defer applying them until the class is
+	actually loaded.  This avoids having to load everything during job
+	configuration.
+	* RootUtils/PyROOTTypePatch.h: (new)
+	* src/pyroot/PyROOTTypePatch.cxx: (new)
+	* RootUtils/selection_PyROOT.xml: Add it.
+	* RootUtils/RootUtilsPyROOTDict.h: Add it.
+	* python/PyROOTFixes.py: Update.
+
+2007-12-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-15.
+
+	* src/pyroot/PyROOTTTreePatch.cxx: Fix for root 5.17.
+	* cmt/requirements: Re-enable building second dictionary.
+
+2007-12-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-14.
+
+	* cmt/requirements: Temporarily disable building the
+	RootUtilsPyROOT dictionary until the new AtlasReflex is available.
+
+	* Didn't get PyROOTTTreePatch.cxx moved properly in CVS.
+
+2007-12-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-13.
+	* RootUtils/DataVectorConvert.h (class logfn_t): Avoid compilation
+	warning.
+	* src/DataVectorConvert.cxx: Compatibility fix for new root
+	versions.
+
+	* Tagging RootUtils-00-00-12.
+	* Move PyROOTTTreePatch into a separate library to prevent
+	dependency problems (people linking with -lRootUtils shouldn't
+	have to depend on PyROOT).
+	* RootUtils/RootUtilsDict.h: Remove PyROOTTreePatch.
+	* RootUtils/selection.xml: Remove PyROOTTreePatch.
+	* RootUtils/RootUtilsPyROOTDict.h: (new)
+	* RootUtils/selection_PyROOT.xml: (new)
+	* cmt/requirements: Split library/dictionary into two.
+
+2007-11-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-11.
+	* src/PyROOTTTreePatch.cxx: Use a weakref in TreeNotifier to hold
+	onto the tree object.
+	* python/PyROOTFixes.py (enable_tree_speedups): (new)
+
+2007-11-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-10.
+	* src/PyROOTTTreePatch.cxx: Invalidate read entry of a branch
+	after enabling it.  Check that a branch is enabled each time we
+	use it, not just the first time.
+
+	* Tagging RootUtils-00-00-09.
+
+	* RootUtils/PyROOTTTreePatch.h: (new)
+	* src/PyROOTTTreePatch.cxx: (new)
+	* RootUtils/RootUtilsDict.h: Add it.
+	* RootUtils/selection.xml: Add it.
+	* doc/MainPage.h: Likewise.
+	* cmt/requirements: Add Python dependency.
+
+2007-10-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-08.
+
+	* Doxygen fixes.
+
+	* ispellwords: (new) --- Spell check.
+
+	* doc/MainPage.h: Fill in.
+
+2007-10-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-07.
+
+	* RootUtils/ClearCINTMessageCallback.h: (new)
+	* src/ClearCINTMessageCallback.cxx: (new)
+	* RootUtils/RootUtilsDict.h: Add it.
+	* RootUtils/selection.xml: Add it.
+
+	* Tagging RootUtils-00-00-06.
+	* RootUtils/ScanForAbstract.h: Fix typo in comments.
+
+2007-10-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-05.
+
+	* RootUtils/DataVectorConvert.h: (new)
+	* src/DataVectorConvert.cxx: (new)
+	* RootUtils/RootUtilsDict.h: Add it.
+	* RootUtils/selection.xml: Add it.
+
+2007-10-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-04.
+
+	* python/PyROOTFixes.py: (new)
+	* cmt/requirements: Install python files.
+
+2007-10-10  scott snyder  <snyder@bnl.gov>
+
+	* RootUtils/PyROOTConstFix.h: (new)
+	* src/PyROOTConstFix.cxx: (new)
+	* RootUtils/selection.xml: Add it.
+	* RootUtils/RootUtilsDict.h: Add it.
+
+2007-10-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging RootUtils-00-00-03.
+
+	* RootUtils/InitHist.h: Change names to be more atlas-like.
+	* src/InitHist.cxx: Likewise.
+	* RootUtils/StdHackGenerator.h: Likewise.
+	* src/StdHackGenerator.cxx: Likewise.
+
+2007-10-08  scott snyder  <snyder@bnl.gov>
+
+	* RootUtils/ScanForAbstract.h: (new)
+	* src/ScanForAbstract.cxx: (new)
+	* RootUtils/selection.xml: Add it.
+	* RootUtils/RootUtilsDict.h: Add it.
+
+	* Tagging RootUtils-00-00-02.
+
+2007-10-07  scott snyder  <snyder@bnl.gov>
+
+	* src/StdHackGenerator.cxx: (new)
+	* RootUtils/StdHackGenerator.h: (new)
+	* RootUtils/selection.xml: Add it.
+	* RootUtils/RootUtilsDict.h: Add it.
+
+	* Tagging RootUtils-00-00-01.
+
+	* Initial check-in, with InitHist.
+	
+

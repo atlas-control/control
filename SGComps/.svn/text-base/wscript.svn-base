@@ -1,0 +1,42 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'SGComps',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+
+    ctx.use_pkg('GaudiKernel')
+    ctx.use_pkg('Control/AthenaKernel')
+    ctx.use_pkg('Control/AthenaBaseComps')
+    ctx.use_pkg('Control/SGTools')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+    ctx.build_complib(
+        name     = 'SGComps',
+        source   = '*.cxx components/*.cxx',
+        use      = ['AthenaKernel', 'AthenaBaseComps', 'StoreGate',
+                    #'ToyConversionLib',
+                    'SGTools', 'SGAudCore',
+                    #'TestTools',
+                    'GaudiKernel',
+                    ],
+    )
+
+    ctx.install_joboptions(source=[
+        'share/*.py',
+        ])
+    return
+
+## EOF ##
+

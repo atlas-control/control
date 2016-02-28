@@ -1,0 +1,1004 @@
+2015-11-15  scott snyder  <snyder@bnl.gov>
+
+        * Tagging AthenaPython-00-06-45.
+	* python/Bindings.py (_py_init_ClassIDSvc): Make sure dictionaries
+	get loaded with root6.
+
+2015-10-04  scott snyder  <snyder@bnl.gov>
+
+        * Tagging AthenaPython-00-06-44.
+	* Comply with ATLAS naming conventions.
+
+2015-05-19  scott snyder  <snyder@bnl.gov>
+
+        * Tagging AthenaPython-00-06-43.
+	* python/FilePeekerLib.py: Fix for compatibility with gcc5 ABI.
+
+2015-04-22  Alexandre Vaniachine  <vaniachine@anl.gov>
+
+        * Tagging AthenaPython-00-06-42
+        * python/FilePeekerLib.py: fix ATEAM-142: no AtlasRelease overwrite
+
+2015-03-03  Alexandre Vaniachine  <vaniachine@anl.gov>
+
+        * Tagging AthenaPython-00-06-41
+        * python/FilePeekerLib.py: Peeking for eventless MC DAOD files
+
+2015-02-22  scott snyder  <snyder@bnl.gov>
+
+        * Tagging AthenaPython-00-06-40.
+	* Add a couple dictionary entries to prevent warnings with root6.
+
+2015-01-07  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* python/Bindings.py: Protect IThinningSvc.RemovedIdx assignment
+	(needed by ROOT 6).
+        * Tag AthenaPython-00-06-39
+
+2014-11-26  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* python/PyAthenaComps.py: Move to new ICutFlowSvc.
+        * Tag AthenaPython-00-06-38
+
+2014-11-13 Will Buttinger <will@cern.ch>
+        * src/PyAthenaAlg.cxx and PyAthenaComps.py : added resetExecuted method callthrough to python so this can be implemented in python
+        * added setExecuted and isExecuted accessors to underlying cpp handle as well
+        * Tag AthenaPython-00-06-37
+
+2014-11-10  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* python\FilePeekerLib.py(process_metadata): enabled
+	coral::Attribute::data<bool> reading for ROOT6 after fix: https://sft.its.cern.ch/jira/browse/ROOT-6067
+        * Tag AthenaPython-00-06-36
+
+2014-11-03  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* python\FilePeekerLib.py (process_metadata): added workaround for
+	reading coral::Attribute::data<string> for ROOT6
+	* disabled reding of coral::Attribute::data<bool> for ROOT6 (does
+	not work)
+        * Tag AthenaPython-00-06-35
+
+2014-10-31  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* python\FilePeekerLib.py: added import coral for ROOT6 
+        * Tag AthenaPython-00-06-34
+
+2014-10-22  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* share\athfile_peeker.py: do import of constants earlier
+        * Tag AthenaPython-00-06-33
+	
+2014-10-20 Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* PyCintex -> cppyy
+	* add dummy class to allow ROOT6 to see functions in a namespace
+
+2014-09-09 Graeme Stewart <graeme.andrew.stewart@cern.ch>
+    * FilePeekerLib.py
+	- Change logic for file peeker _get_guid() to detect the correct
+	  ROOT filename and get the GUID for new xAOD outputs (patch for
+	  Peter van Gemmeren)
+    * Tag AthenaPython-00-06-32
+
+2014-06-19  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\PyAthenaUtils.cxx (queryInterface): adapt to
+	DataModelRoot/RootType (ROOT6)
+	* tag AthenaPython-00-06-31
+
+2014-05-26 Walter Lampl <walter.lampl@ cern.ch>
+	* adapt to change of PersistentDataModel/DataHeader.h (fix for bug ATEAM-28)
+	* tag AthenaPython-00-06-30
+
+2013-11-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaPython-00-06-29.
+	* python/Bindings.py (_gen_element_link): Update for ElementLink
+	dictionary changes.
+
+2013-09-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaPython-00-06-28.
+	* src/PyComponentMgr.h: unordered_map.h moved to CxxUtils.
+
+2013-04-09  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* python/PyAthenaComps.py: Remove EventBookkeeper pointers from CutFlowSvc interface
+	* tagging AthenaPython-00-06-27
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaPython-00-06-26
+	* adding wscript file
+	* A wscript
+
+2012-11-19  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaPython-00-06-25
+        * hack for bug #98568: in face of event-less file and if there is
+          a ByteStreamMetadataContainer, get some infos out of it.
+	* merge in AthenaPython-00-06-24-01 (dict for IEvtIdModifierSvc)
+        * M python/FilePeekerLib.py
+	* M AthenaPython/AthenaPythonDict.h
+	* M AthenaPython/selection.xml
+
+2012-07-26 Walter Lampl <walter.lampl@ cern.ch>
+	* python/FilePeekerLib.py: Merge /TagInfo if multiple objects exist
+	* tagging AthenaPython-00-06-24
+
+2012-06-18  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* tagging AthenaPython-00-06-23
+	* add detStore and evtStore handles to PyAthena.Alg and Tool
+	* M python/PyAthenaComps.py
+
+2012-06-08  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaPython-00-06-22
+	* provide meaningful default for all other (missing) keys in
+ 	  peeked_data but dont override AthFile defaults
+	* M python/FilePeekerLib.py
+
+2012-06-07  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaPython-00-06-21
+	* provide meaningful default for all other (missing) keys in peeked_data
+	* M python/FilePeekerLib.py
+
+2012-02-08  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaPython-00-06-20
+	* use the correct EventInfo key when multiple EventInfos are there.
+	* M python/FilePeekerLib.py
+
+2011-11-09  David Rousseau  <droussea@voatlas107.cern.ch>
+
+	* python/FilePeekerLib.py : fix stupid typo
+	* tagging AthenaPython-00-06-18
+	
+2011-11-08  David Rousseau  <droussea@voatlas107.cern.ch>
+
+	* python/FilePeekerLib.py : TTree pool change (obo peter van G)
+	* tagging AthenaPython-00-06-17
+	
+2011-09-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-06-16
+	* remove old AthenaInternal::to_ievent_seek hack
+	* M AthenaPython/AthenaPythonDict.h
+	* M AthenaPython/selection.xml
+
+2011-08-19  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-06-15
+	* do not crash and burn when first entry in ##Params does not
+	  match what we expected (AthenaMP-merge fix)
+	* M python/FilePeekerLib.py
+
+2011-07-01  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-06-14
+	* implement new toStream() in Property.h
+	* M AthenaPython/PyProperty.h
+	* M src/PyProperty.cxx
+
+2011-06-08  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaPython-00-06-13
+	* AthenaPython/AthenaPythonDict.h: IIoComponent headers moved to GaudiKernel
+
+2011-04-08  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-06-12
+	* msgsvc cleanup
+	* M src/PyComponentMgr.cxx
+	* M src/PyAthenaSvc.cxx
+	* M src/PyAthenaAlg.cxx
+	* M src/PyAthenaAud.cxx
+	* M src/PyAthenaTool.cxx
+
+
+2011-03-05  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaPython-00-06-11
+	* support for drop-reload
+	* M python/PyAthenaComps.py
+
+2011-02-16  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaPython-00-06-10
+	* make the setFilterDescription documentation available to python
+	* M python/PyAthenaComps.py
+
+2011-02-16 David Cote <david.cote@cern.ch>
+	* Added setFilterDescription() method to AthFilterAlgorithm
+	* tagging AthenaPython-00-06-09
+
+2011-02-10  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-06-08
+	* HACK for bug #77976: use DataHeader::at if present
+	  to iterate over that collection (and not require comp. itr)
+	* M python/FilePeekerLib.py
+
+	* tagging AthenaPython-00-06-07
+	* HACK for bug #77976: use CondAttrListCollection::at if present
+	  to iterate over that collection (and not require comp. itr)
+	* M python/FilePeekerLib.py
+
+2010-12-17  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaPython-00-06-06
+	* handle better event-less files
+	* M python/FilePeekerLib.py
+
+2010-12-16  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaPython-00-06-05
+	* handle merging of multiple versions of EventStreamInfo - for nentries
+	  TODO: check other containers.
+	* M python/FilePeekerLib.py
+
+2010-09-24 David Cote <david.cote@cern.ch>
+	* tagging AthenaPython-00-06-04
+	* Changed default values of AthFilter registration to CutFlowSvc  for coherence with DecisionSvc and c++ AthFitleralgorithm
+
+2010-09-24  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-06-03
+	* fixed late pseudo-all binding for AthFilterAlgorithm
+	* declare_property typo + missing import
+	* M python/PyAthena.py
+	* M python/PyAthenaComps.py
+
+2010-09-22  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-06-01
+	* fixing typo
+	* M python/PyAthenaComps.py
+
+2010-09-21  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-06-00
+	* new base class for filtering algorithms - making use of icutflowsvc
+	* M python/PyAthenaComps.py
+
+2010-09-20  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-05-01
+	* filter out the DataHeader keys to support for additional
+ 	  DataHeader keys from backnavigation
+	* check that DataHeader is the primary one
+	* M python/FilePeekerLib.py
+
+2010-08-20  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-04-32
+	* clear PyErr we do not want to process
+	* M src/PyAthenaAlg.cxx
+	* M src/PyAthenaAud.cxx
+	* M src/PyAthenaTool.cxx
+	* M src/PyAthenaSvc.cxx
+	* M src/PyComponentMgr.cxx
+
+2010-08-02  Paolo & Wim
+
+	* tagging AthenaPython-00-04-31
+	* src/PyAthenaSvc.cxx (setPyAttr): clear PyErr we do not want to process
+
+2010-07-13  Sebastien Binet  <binet@pb-d-128-141-71-201.cern.ch>
+
+	* tagging AthenaPython-00-04-30
+	* hacks for py26+root-5.26
+	* M python/FilePeekerLib.py
+
+2010-05-18  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-04-29
+	* better consistency w/ C++ for py-comps retrieved from PyAthena.py_xyz
+	* M python/Bindings.py
+	* M python/Configurables.py
+
+2010-04-26  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaPython-00-04-28
+	* fixing ref-count on python objects returned by IPyComponentMgr
+	* AthenaPython/IPyComponentMgr.h
+	* src/PyComponentMgr.h
+	* src/PyComponentMgr.cxx
+
+2010-04-19  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaPython-00-04-27
+	* correctly trigger the recexcommon cfg for copy-files
+	* M share/copy_file.py
+	* M share/icopy_file.py
+
+2010-03-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-26
+	* fixing wrong assert syntax (py26 warnings)
+	* M python/Bindings.py
+
+2010-03-17  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-25
+	* correctly pass cfg-list around (to rec.AutoConfiguration)
+	* M python/ConfigLib.py
+
+2010-03-16  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-24
+	* prepare for (py)FilePeekerSvc
+	* optimization: do not cycle thru all files by default (ConfigLib)
+	* A python/FilePeekerLib.py
+	* M python/PyAthenaComps.py
+	* M python/ConfigLib.py
+	* M share/athfile_peeker.py
+	* M src/PyAthenaSvc.cxx
+	
+2010-02-17  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-23
+	* allow to specify the number of events to process w/ athfile
+	* M python/PyAthenaComps.py
+
+2010-02-16  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-22
+	* implementing new stream-naming conventions
+	* M python/ConfigLib.py
+
+	* tagging AthenaPython-00-04-21
+	* removing workaround for bug #56185
+	* M share/copy_file.py
+	* M share/icopy_file.py
+	* M share/read_file.py
+
+	* tagging AthenaPython-00-04-20
+	* preliminary support for configlib and read/write-bs
+	* M python/ConfigLib.py
+
+2010-02-04  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-19
+	* address bug #62018: return None instead of N/A for nentries
+	* M python/PyAthenaComps.py
+
+2010-02-01  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-18
+	* better support for merging non standard files
+	* M python/ConfigLib.py
+
+2010-02-01  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging AthenaPython-00-04-17
+	* python/PyAthena.py: Override dynamic library extension for MacOSX to be .so instead of .dylib
+
+2010-01-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-16
+	* preliminary support for DESD and DAOD
+	* M python/ConfigLib.py
+
+2010-01-19  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-15
+	* improve read/copy-file code to support StreamEvGen
+	* M python/ConfigLib.py
+	* M share/copy_file.py
+	* M share/read_file.py
+	* M share/icopy_file.py
+
+2010-01-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-14
+	* removing Logger data member from PyXyz components
+	* adding a thin library layer for auto-cfg
+	* adding convenience jobos (read/copy_file)
+	* A python/ConfigLib.py
+	* A share/copy_file.py
+	* A share/icopy_file.py
+	* A share/iread_file.py
+	* M share/read_file.py
+	* M python/PyAthenaComps.py
+	* M python/Configurables.py
+
+2010-01-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-13
+	* fixing bug #46668: pycomps are now behaving like XyzHandles
+	* M python/Configurables.py
+	* M src/PyComponentMgr.cxx
+
+2009-12-07  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-12
+	* pick-up beam_energy/type for empty POOL files
+	* M python/PyAthenaComps.py
+
+2009-11-23  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-11
+	* adding jobo to help interactive (any) file inspection
+	* adding PyAthena.navtoken helper
+	* A share/read_file.py
+	* M python/Bindings.py
+
+2009-11-13  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-10
+	* adding prelim. support for beam-ene/type extraction from POOL files
+	* M python/PyAthenaComps.py
+
+	* tagging AthenaPython-00-04-09
+	* better fix for bug #58567: also handle empty iov-ranges
+	* M python/PyAthenaComps.py
+
+2009-11-10  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-08
+	* fixing bug #58567: handling of multiple iov-ranges
+	* M python/PyAthenaComps.py
+
+2009-11-09  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-07
+	* migrating to sqlite-shelve
+	* M python/PyAthenaComps.py
+
+2009-10-30  Sebastien Binet  <binet@lxplus309.cern.ch>
+
+	* tagging AthenaPython-00-04-06
+	* address bug #55954: inspect at beginRun instead of initialize
+	  to support eventless DPDs
+	* M python/PyAthenaComps.py
+
+2009-10-09  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-05
+	* fixed missing import of ctypes
+	* M python/PyAthena.py
+
+2009-10-07  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-04
+	* fixing bug #55954: increase amount of infos for empty POOL files
+	* restore bwd compat with old HITS files
+	* M python/PyAthenaComps.py
+
+	* tagging AthenaPython-00-04-03
+	* fixing bug #55954: increase amount of infos for empty POOL files
+	* print out cosmetics
+	* M python/PyAthenaComps.py
+
+	* tagging AthenaPython-00-04-02
+	* fixing bug #55954: increase amount of infos for empty POOL files
+	* M python/PyAthenaComps.py
+
+2009-09-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-01
+	* adding a helper function to get the fullpath to a library from its
+	  natural name
+	* M python/PyAthena.py
+
+2009-08-28  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-04-00
+	* importing long awaited python-joboptionssvc
+	* A AthenaPython/PyProperty.h
+	* A src/PyProperty.cxx
+	* A src/PyJobOptionsCatalogue.h
+	* A src/PyJobOptionsCatalogue.cxx
+	* A src/PyJobOptionsSvc.h
+	* A src/PyJobOptionsSvc.cxx
+	* M src/components/AthenaPython_entries.cxx
+
+2009-08-21  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-28
+	* don't make import of RootUtils.PyROOTFixes mandatory
+	* M src/PyComponentMgr.cxx
+
+2009-08-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-27
+	* improve PyAthena.py_xyz to return pycomponents if available
+	* M python/Bindings.py
+
+2009-08-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-26
+	* improved std::map pythonization
+	* M python/Bindings.py
+
+2009-07-31  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-25
+	* fixing bug 53788
+	* return the bare clid if no typename could be found
+	* M python/PyAthenaComps.py
+
+2009-05-29  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-24
+	* add a simple jobo to interactively perform the athfile inspection
+	* A share/athfile_peeker.py
+
+2009-05-26  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-23
+	* python/PyAthenaComps.py (FilePeeker.execute): extract file guid
+
+2009-05-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-22
+	* fix peeking of geometry+conditions-tag
+	* M python/PyAthenaComps.py
+
+2009-05-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-21
+	* filepeeker: handle old EVGEN files
+	* M python/PyAthenaComps.py
+
+	* tagging AthenaPython-00-03-20
+	* adding a simple PyAthena-based file-peeking algorithm
+	* forced loading classes through PyCintex
+	* added loading of pythonizations for EventType+EventStreamInfo
+	* fixed pickling of configurables
+	* dict for IIoComponent
+	* M AthenaPython/AthenaPythonDict.h
+	* M AthenaPython/selection.xml
+	* M python/Bindings.py
+	* M python/Configurables.py
+	* M python/PyAthenaComps.py
+
+2009-03-04  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-19
+	* gcc43 fixes + cfg-cleansing + reflex-dict fixups
+	* M src/PyAthenaUtils.cxx
+	* M python/Bindings.py
+	* M python/PyAthena.py
+
+2009-02-04  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-18
+	* checkreq fixes + reflex workarounds
+	* M cmt/requirements
+	* M python/Bindings.py
+
+2009-01-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaPython-00-03-17
+	* removed hack wrt vector<unsignedint>
+	* M python/Bindings.py
+
+2008-12-10  Sebastien Binet  <binet@lxplus240.cern.ch>
+
+	* tagging AthenaPython-00-03-16
+	* ironing-out py_reload to work with Configurables
+	* M python/Configurables.py
+	* M python/PyAthena.py (py_reload)
+
+2008-12-10  Sebastien Binet  <binet@lxplus237.cern.ch>
+
+	* tagging AthenaPython-00-03-15
+	* adding a new helper method 'py_reload' to ease the
+	  interactive analysis modus operandi
+	* M python/PyAthena.py (py_reload) 
+
+2008-12-08  Sebastien Binet  <binet@lxplus217.cern.ch>
+
+	* tagging AthenaPython-00-03-14
+	* missing enum cases for new gaudi-v20 FSM
+	* M src/PyAthenaAud.cxx
+
+2008-11-28  Sebastien Binet  <binet@lxplus254.cern.ch>
+
+	* tagging AthenaPython-00-03-13
+	* python/Bindings.py (py_alg): fixing typo
+
+2008-10-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-12
+	* cosmetics + dict for IIoComponentMgr (AthenaMP)
+	* M AthenaPython/AthenaPythonDict.h
+	* M AthenaPython/PyAthenaAlg.h
+	* M AthenaPython/selection.xml
+	* M cmt/requirements
+	* M src/PyAthenaAud.cxx
+	* M src/PyAthenaSvc.cxx
+
+2008-10-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-11
+	* publish PyAthena::repr convenience function + more rflx dict
+	* M AthenaPython/AthenaPythonDict.h
+	* M AthenaPython/PyAthenaUtils.h
+	* M AthenaPython/selection.xml
+	* M cmt/requirements
+	* M src/PyAthenaUtils.cxx
+	* M src/components/AthenaPython_entries.cxx
+
+2008-09-12  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-10
+	* improved PyAthena look-up code (don't load ROOT unadvertantly)
+	* added a reload_module method for interactive prompt
+	* added a py_alg method to retrieve algorithms from IAlgManager
+	* M python/PyAthena.py
+	* M python/Bindings.py
+
+2008-09-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-09
+	* checkreq warning
+	* M cmt/requirements
+
+	* tagging AthenaPython-00-03-08
+	* dicts for new IThinningSvc iface classes + AthenaBaseComps
+	* M AthenaPython/AthenaPythonDict.h
+	* M AthenaPython/PyAthenaAlg.h
+	* M AthenaPython/PyAthenaSvc.h
+	* M AthenaPython/PyAthenaTool.h
+	* M AthenaPython/selection.xml
+	* M cmt/requirements
+	* M src/PyAthenaAlg.cxx
+	* M src/PyAthenaSvc.cxx
+	* M src/PyAthenaTool.cxx
+	* M src/PyComponentMgr.cxx
+	* M src/PyComponentMgr.h
+
+2008-08-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-07
+	* alternative implementation of load_library not involving loading 
+	  the whole TWorld
+	* M python/PyAthena.py
+
+	* tagging AthenaPython-00-03-06
+	* add ability to load libraries in a portable fashion from the athena
+	  prompt without tickling the application manager
+	* M python/PyAthena.py
+
+2008-08-27  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-05
+	* restore ability to retrieve TrackCollections from storegate
+	* TODO: find a more robust way to deal with typedefs,clids and cie.
+	* M python/Bindings.py
+
+2008-08-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-04
+	* address naming of private tools
+	* made ::setPyAtth() more flexible with fallback on PyAthena::Xyz
+	* added support for (py)IIncidentSvc.removeListener + __doc__
+	* M python/Bindings.py
+	* M python/Configurables.py
+	* M python/PyAthenaComps.py
+	* M src/PyAthenaAlg.cxx
+	* M src/PyAthenaAud.cxx
+	* M src/PyAthenaSvc.cxx
+	* M src/PyAthenaTool.cxx
+
+	* tagging AthenaPython-00-03-03
+	* smoother integration of PyAthena.Svc with IIncidentSvc
+	* M python/Bindings.py
+
+	* tagging AthenaPython-00-03-02
+	* allow PyAthena.Svc to be callbacked by IncidentSvc
+	* M src/PyAthenaSvc.h
+	* M src/PyAthenaSvc.cxx
+
+2008-08-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-01
+	* prepare for athena-mp + introducing a python declare_property
+	* M AthenaPython/AthenaPythonDict.h
+	* M AthenaPython/selection.xml
+	* M python/Configurables.py
+	* M src/PyComponentMgr.cxx
+
+2008-07-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-03-00
+	* first stab at a completely self-contained package
+	* A AthenaPython/IPyComponent.h
+	* A AthenaPython/IPyComponentMgr.h
+	* A src/IPyComponent.cxx
+	* A src/IPyComponentMgr.cxx
+	* M AthenaPython/PyAthenaAlg.h
+	* M AthenaPython/PyAthenaAud.h
+	* M AthenaPython/PyAthenaSvc.h
+	* M AthenaPython/PyAthenaTool.h
+	* M AthenaPython/PyAthenaUtils.h
+	* M cmt/requirements
+	* M python/Bindings.py
+	* M python/PyAthenaComps.py
+	* M python/tests/PyTestsLib.py
+	* M src/PyAthenaAlg.cxx
+	* M src/PyAthenaAud.cxx
+	* M src/PyAthenaSvc.cxx
+	* M src/PyAthenaTool.cxx
+	* M src/PyAthenaUtils.cxx
+	* M src/PyComponentMgr.cxx
+	* M src/PyComponentMgr.h
+
+2008-07-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-02-01
+	* adding clid for PyObject
+	* M src/PyComponentMgr.cxx
+
+2008-07-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-02-00
+	* splitted component and installed libraries
+	* A AthenaPython/AthenaPythonDict.h
+	* A AthenaPython/PyAthenaAlg.h
+	* A AthenaPython/PyAthenaAud.h
+	* A AthenaPython/PyAthenaSvc.h
+	* A AthenaPython/PyAthenaTool.h
+	* A AthenaPython/PyAthenaUtils.h
+	* M cmt/requirements
+	* R src/AthenaPythonDict.h
+	* M src/PyAthenaAlg.cxx
+	* R src/PyAthenaAlg.h
+	* M src/PyAthenaAud.cxx
+	* R src/PyAthenaAud.h
+	* M src/PyAthenaSvc.cxx
+	* R src/PyAthenaSvc.h
+	* M src/PyAthenaTool.cxx
+	* R src/PyAthenaTool.h
+	* M src/PyAthenaUtils.cxx
+	* R src/PyAthenaUtils.h
+	* M src/PyComponentMgr.h
+	* M src/components/AthenaPython_entries.cxx
+	* M src/components/AthenaPython_load.cxx
+
+2008-06-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-21
+	* more compliant with big configurables cleansing
+	* M python/Configurables.py
+	* M python/PyAthenaComps.py
+
+2008-06-21  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-20
+	* use fixed method of THistSvc::getTrees
+	* M python/Bindings.py
+	* M python/tests/PyTHistTestsLib.py
+
+2008-06-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-19
+	* generate bindings for IUserDataSvc
+	* M AthenaPython/selection.xml
+	* M src/AthenaPythonDict.h
+
+	* tagging AthenaPython-00-01-18
+	* added pythonizations for DataLink, ElementLink and ElementLinkVector
+	* M python/Bindings.py
+
+2008-05-20  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-17
+	* another round at providing the right output-level mapping
+	* M python/PyAthena.py
+	* M python/Bindings.py
+
+2008-05-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-16
+	* better support of theApp.reinitialize()
+	* correctly setup the msg output level
+	* M python/Configurables.py
+	* M python/PyAthenaComps.py
+
+2008-05-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-15
+	* better error reporting (wider stacktrace)
+	* M python/PyAthenaComps.py
+	* M python/Bindings.py
+	* M python/tests/PyTHistTestsLib.py
+	* M share/tests/test_pyhistsvc_read.py
+
+	* tagging AthenaPython-00-01-14
+	* polishing + jobo tests for py-histsvc
+	* M python/Bindings.py
+	* M python/tests/PyTHistTestsLib.py
+	* A share/tests/test_pyhistsvc_read.py
+	* A share/tests/test_pyhistsvc_write.py
+
+	* tagging AthenaPython-00-01-13
+	* fixing ITHistSvc.get method
+	* adding dummy examples/utests for py-thistsvc
+	* M python/Bindings.py
+	* A python/tests/PyTHistTestsLib.py
+
+2008-05-07  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-12
+	* adding pythonizations for ITHistSvc
+	* M python/Bindings.py
+
+2008-04-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-11
+	* fixing (wrong) assumption on implicit ordering of python bindings
+	* M python/Bindings.py
+
+2008-04-23  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-10
+	* forward compatibility with pickling of PyRoot objects
+	* M python/Bindings.py
+
+2008-04-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-09
+	* another typedef (ParticleBaseContainer)
+	* M python/Bindings.py
+
+2008-04-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-08
+	* fixing invalid PyAuditor constructor
+	* M python/PyAthenaComps.py
+
+2008-04-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-07
+	* another round at installing PyRoot fixes at the right time
+	* M python/Bindings.py
+
+2008-04-07  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-06
+	* added PyAthena.py_tool to ease the burden of retrieving public tools
+	* M python/Bindings.py
+	* M python/PyAthena.py
+	* M src/PyAthenaAlg.cxx
+	* M src/PyAthenaAud.cxx
+	* M src/PyAthenaSvc.cxx
+	* M src/PyAthenaTool.cxx
+
+2008-04-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-05
+	* better heuristics to infer a default name for Py-components
+	* more CLID-typename aliases
+	* M python/Bindings.py
+	* M python/PyAthenaComps.py
+	* TODO: better handling of std.xyz dictionaries from PyAthena facade
+
+2008-04-03  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-04
+	* addressing the CLID/typename/typedef problem
+	* M python/Bindings.py
+
+	* tagging AthenaPython-00-01-03
+	* made the py_svc(createIf=True)
+	* smarter loading of the RootUtils.PyROOTFixes module
+	* M python/Bindings.py
+	* M src/PyComponentMgr.cxx
+
+2008-04-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-02
+	* just in time import of RootUtils.PyROOTFixes
+	* M python/Bindings.py
+
+2008-03-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-01
+	* adding dict. generation for IValgrindSvc
+	* making py_svc function cleverer
+	* M AthenaPython/selection.xml
+	* M src/AthenaPythonDict.h
+	* M python/Bindings.py
+
+2008-03-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-01-00
+	* improved PyAthena support
+	* M AthenaPython/selection.xml
+	* M cmt/requirements
+	* M python/Bindings.py
+	* M python/Configurables.py
+	* M python/PyAthena.py
+	* A python/PyAthenaComps.py
+	* M python/tests/PyTestsLib.py
+	* M share/tests/test_pyathena.py
+	* M src/AthenaPythonDict.h
+	* M src/PyAthenaAlg.cxx
+	* M src/PyAthenaAlg.h
+	* M src/PyAthenaAud.cxx
+	* M src/PyAthenaAud.h
+	* M src/PyAthenaSvc.cxx
+	* M src/PyAthenaSvc.h
+	* M src/PyAthenaTool.cxx
+	* M src/PyAthenaTool.h
+	* M src/PyAthenaUtils.cxx
+	* M src/PyComponentMgr.cxx
+	* M src/PyComponentMgr.h
+
+2008-03-03  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-00-04
+	* added pythonization for ThinningSvc
+	* A python/Bindings.py
+	* M python/PyAthena.py
+
+2007-12-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-00-03
+	* almost working PyAthena
+	* added tests
+	* TODO: fix AlgTools' bloodline (private/public tools, again!)
+	* M cmt/requirements
+	* M python/Configurables.py
+	* M python/PyAthena.py
+	* M src/PyComponentMgr.cxx
+	* M src/PyComponentMgr.h
+	* A python/tests/PyTestsLib.py
+	* A python/tests/__init__.py
+	* A share/tests/test_pyathena.py
+
+2007-12-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaPython-00-00-02
+	* re-organisation of source files to prevent people from linking 
+	  against the AthenaPython component library.
+	* first steps towards a python COM which fits nicely into Gaudi's one
+	* R AthenaPython/AthenaPythonDict.h
+	* R AthenaPython/PyAthenaAlg.h
+	* R AthenaPython/PyAthenaAud.h
+	* R AthenaPython/PyAthenaSvc.h
+	* R AthenaPython/PyAthenaTool.h
+	* M AthenaPython/selection.xml
+	* M cmt/requirements
+	* M python/Configurables.py
+	* A src/AthenaPythonDict.h
+	* M src/PyAthenaAlg.cxx
+	* A src/PyAthenaAlg.h
+	* M src/PyAthenaAud.cxx
+	* A src/PyAthenaAud.h
+	* M src/PyAthenaSvc.cxx
+	* A src/PyAthenaSvc.h
+	* M src/PyAthenaTool.cxx
+	* A src/PyAthenaTool.h
+	* M src/PyAthenaUtils.cxx
+	* M src/PyAthenaUtils.h
+	* M src/components/AthenaPython_entries.cxx
+
+2007-11-20  Sebastien Binet  <binet@lblbox>
+
+	* fake ObjectProxy 'implementation'
+	* M src/PyAthenaUtils.cxx
+	* M src/PyAthenaUtils.h
+
+2007-11-12  Sebastien Binet  <binet@lblbox>
+
+	* some fixes
+	* first (failing) attempt at providing a general py_queryInterface
+	* M cmt/requirements
+	* M python/PyAthena.py
+	* M src/PyAthenaAlg.cxx
+	* M src/PyAthenaSvc.cxx
+	* M src/PyAthenaUtils.cxx
+	* M src/PyAthenaUtils.h
+
+	* small fixes to get the package provenance right
+	* headers guard
+	* M AthenaPython/AthenaPythonDict.h
+	* M python/Configurables.py
+	* M python/PyAthena.py
+
+	* tagging AthenaPython-00-00-00
+	* first import of a set of gaudi components for use in PyAthena
+	
+

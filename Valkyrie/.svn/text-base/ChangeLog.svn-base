@@ -1,0 +1,82 @@
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging Valkyrie-00-03-01
+	* Fix coverity warning.
+
+2009-10-14  Frank Winklmeier  <fwinkl@cern>
+
+	* tagging Valkyrie-00-03-00
+	* Migrate to new Gaudi auditor hooks
+	* Allow incident-based interval profiling
+
+2009-09-10  Sebastien Binet  <binet@farnsworth>
+
+	* tagging Valkyrie-00-02-01
+	* macosx fix
+	* M cmt/requirements
+
+2008-10-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging Valkyrie-00-02-00
+	* migration to AthenaBaseComps
+	* M cmt/requirements
+	* M src/ValgrindSvc.cxx
+	* M src/ValgrindSvc.h
+	* TODO: migrate the ValgrindAuditor to the new IAuditor iface
+
+2008-10-14  Frank Winklmeier  <fwinkl@cern>
+	* Valkyrie-00-01-02	    
+	* ValgrindSvc: Fix message level initialization
+	* ValgrindAuditor: Allow regular expressions in alg name, fix event counter
+
+2008-03-31 Frank Winklmeier <fwinkl@cern>
+	* tagging Valkyrie-00-01-01
+	* Add option to profile arbitrary intervals
+	
+2008-03-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging Valkyrie-00-01-00
+	* update for new IValgrindSvc interface
+	* M src/ValgrindSvc.cxx
+	* M src/ValgrindSvc.h
+
+2008-02-28 Frank Winklmeier <fwinkl@cern>
+	* Valkyrie-00-00-09
+	* Add callgrind.py script
+
+2008-01-22 Frank Winklmeier <fwinkl@cern>
+	* Valkyrie-00-00-08
+	* Add JobOptCfg configurable
+	* Add doxygen mainpage.h
+
+2008-01-18 Frank Winklmeier <fwinkl@cern>
+	* Valkyrie-00-00-07
+	* Add option to dump profile on user-defined incidents
+
+2007-12-20 Frank Winklmeier <fwinkl@cern>
+	* Valkyrie-00-00-06
+	* ValgrindSvc: Add option to dump profile after each event
+
+2007-08-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging Valkyrie-00-00-05
+	* src/ValgrindAuditor.cxx: slc3 compilation fix
+
+2007-08-08  Frank Winklmeier <fwinkl@cern>
+	* tagging Valkyrie-00-00-04
+	* Added ValgrindAuditor (created by ValgrindSvc)
+
+2007-07-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging Valkyrie-00-00-03
+	* share/valkyrie.py: cosmetics
+
+2007-05-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging Valkyrie-00-00-02
+	* update ValgrindSvc interface
+
+	* tagging Valkyrie-00-00-01
+	* first import
+	
+

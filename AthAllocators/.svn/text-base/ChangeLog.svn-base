@@ -1,0 +1,90 @@
+2015-09-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-13.
+	* src/ArenaHeader.cxx: Fix invalid delete.
+
+2015-04-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-12.
+	* test/ArenaHandleBaseT_test.cxx (test1): Fix ubsan error.
+
+2015-04-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-11.
+	* Remove ATHENAHIVE #ifdefs; always use thread-safe forms.
+
+2015-04-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-10.
+
+	* AthAllocators/ArenaHandleBase.h,
+	AthAllocators/ArenaHandleBase.iccm src/ArenaHandleBase.cxx: Change
+	to doing the allocator lookup when the handle is constructed,
+	rather than on each operation.  This should work better where the
+	current arena is stored in thread-specific storage, for which
+	reads are relatively expensive.  This implies that DataPool
+	instances should no longer be static.
+
+	* AthAllocators/ArenaHandleBaseAllocT.h,
+	AthAllocators/ArenaHandleBaseAllocT.icc: Update documentation.
+	* AthAllocators/ArenaHandle.h: Likewise.
+	* AthAllocators/ArenaCachingHandle.h: Likewise.
+	* AthAllocators/DataPool.h: Likewise.
+	* AthAllocators/Arena.h: Likewise.
+
+2015-03-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-09.
+	* Remove ArenaHeaderGaudiClear.
+
+2015-03-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-08.
+	* AthAllocators/ArenaHeader.h, AthAllocators/ArenaHeader.icc,
+	src/ArenaHeader.cxx: First stab at making thread-safe.  Making the
+	current arena pointer thread-specific is likely to hurt
+	performance; for now, this is done only when compiling for Hive.
+
+2015-03-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-07.
+	* share/DataPool_test.txt: Remove dependency on StoreGate.
+
+2015-01-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-06.
+	* src/ArenaHeader.cxx: Use ArenaHeader for the default, not
+	ArenaHeaderGaudiClear.  Clearing arenas will now be done by
+	StoreGateSvc.
+	* test/*: Remove calls to ArenaHeaderGaudiClear::disable().
+
+2015-01-07  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging AthAllocators-00-01-05.
+	* src/ArenaHeaderGaudiClear.cxx: disable by default for ATHENAHIVE
+	* test/ArenaHeaderGaudiClear_test.cxx (main): likewise
+
+
+2015-01-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-04.
+	* AthAllocators/ArenaPoolSTLAllocator.icc: Cling parsing fixes.
+
+2013-08-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthAllocators-00-01-03.
+	* test/AthAllocators.xml: (new)
+
+	* Tagging AthAllocators-00-01-02.
+	* AthAllocators/DataPool.h, AthAllocators/DataPool.icc: : Moved
+	from DataModel.
+	* test/DataPool_test.cxx, share/DataPool_test.ref,
+	share/DataPool_test.txt: : Likewise.
+	* cmt/requirements: Add it.
+
+	* Tagging AthAllocators-00-01-01.
+	* Missed a few commits.
+	* Tagging AthAllocators-00-01-00.
+	* Moved allocator code here from DataModel.
+
+

@@ -1,0 +1,351 @@
+2015-06-02  scott snyder  <snyder@bnl.gov>
+
+        * Tagging Hephaestus-00-06-23.
+	* src/HephProf/HephProf.cxx: Avoid redundant divisions.
+
+2015-05-06  scott snyder  <snyder@bnl.gov>
+
+        * Tagging Hephaestus-00-06-22.
+	* cmt/requirements: Fix missing dependency.
+
+2015-05-03  scott snyder  <snyder@bnl.gov>
+
+        * Tagging Hephaestus-00-06-21.
+	* Add a unit test for stackstash.
+
+        * Tagging Hephaestus-00-06-20.
+	* cmt/requirements: Break out some useful stuff into a
+	libHephaestus library.
+
+2015-05-02  scott snyder  <snyder@bnl.gov>
+
+        * Tagging Hephaestus-00-06-19.
+	* Add StackCursor.
+
+        * Tagging Hephaestus-00-06-18.
+	* Move addr_to_line to Utils.
+
+2015-03-17  scott snyder  <snyder@bnl.gov>
+
+        * Tagging Hephaestus-00-06-17.
+	* src/MemoryTrace.c (addr_to_line): Fix error test.
+
+        * Tagging Hephaestus-00-06-16.
+	* Hephaestus/stackstash.h, src/stackstash.c: New memory-efficient
+	structure for storing stack traces.
+	* Hephaestus/MemoryTrace.h, src/MemoryTrace.c: Use it for storing
+	stack traces.  Also print line numbers in stack traces.
+	* src/MemoryTracker.c, src/DoubleDeleteChecker.c: Adjust use of
+	MemoryTrace.
+	* python/__init__.py (setup): More suppressions for root6.
+
+2015-03-11  scott snyder  <snyder@bnl.gov>
+
+        * Tagging Hephaestus-00-06-15.
+	* src/HephProf/HephProf.cxx (ReadSymbols): Fix coverity warning.
+
+2015-02-27  antonio limosani <antonio.limosani@sydney.edu.au>
+        * Tagging Hephaestus-00-06-14.
+	* cmt/requirements: fix libunwind linkopts
+
+2015-02-07  scott snyder  <snyder@bnl.gov>
+        * Tagging Hephaestus-00-06-13.
+	* src/HashTable.c, src/MemoryTracker.c: Fix clang warnings.
+
+2014-10-14  scott snyder  <snyder@bnl.gov>
+
+        * Tagging Hephaestus-00-06-12.
+	* cmt/requirements: Add dependency on boost.
+
+2014-10-09  scott snyder  <snyder@bnl.gov>
+
+        * Tagging Hephaestus-00-06-11.
+	* Fix coverity warnings: potential buffer overflows.
+
+2013-08-06  Rolf Seuster
+        * try linking against libunwind
+        * tagging Hephaestus-00-06-10
+
+2013-02-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * make clang happy and (temporarily?) disable UnwindBacktrace.c
+        * tagging Hephaestus-00-06-09
+
+2012-11-01  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * make gcc4.6 happy; by it's very nature, this'll be temporary, though
+
+2011-11-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * extra filters for TString (which is usually leaked as part of a
+          larger object rather than being the origin of a leak)
+        * tagging Hephaestus-00-06-08
+
+2011-07-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * allow pickling "snap-shot" during current job (albeit that it won't
+          actually work, but this code won't crash either)
+        * tagging Hephaestus-00-06-07
+
+2011-05-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * few changes following "include-what-you-use" to HepProf.cxx
+
+2011-03-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * check stat() return status (for coverity)
+
+2011-03-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * allow switch between memory and leak checking
+        * tagging Hephaestus-00-06-06
+
+2010-12-15  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * make the Auditor work with --drop-configuration
+        * tagging Hephaestus-00-06-05
+
+2010-04-23  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * for Sebastien, initial access to free() statistics
+
+2010-03-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * bugfix after testing with RecExCommon
+        * tagging Hephaestus-00-06-04
+
+2010-03-29  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * allow changing at runtime the total size of traces kept
+        * tagging Hephaestus-00-06-03
+
+2010-02-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added an unwind-based stack tracer to play with
+
+2010-02-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improve double delete checker interface
+
+2010-02-04  Charles Leggett
+        * undo installd in cmt/fragmens/python_extension
+        * tag Hephaestus-00-06-02
+
+2010-02-04  Charles Leggett
+        * fix installd in cmt/fragmens/python_extension
+        * tag Hephaestus-00-06-01
+
+2010-01-28  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * add thread safety
+        * tagging with Hephaestus-00-06-00
+
+2009-12-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix file handling (UI)
+        * tagging with Hephaestus-00-05-05
+
+2009-12-07  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improve on out-of-memory handling
+        * tagging with Hephaestus-00-05-04
+
+2009-12-01  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * make profiling event-based
+        * tagging with Hephaestus-00-05-03
+
+2009-11-23  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * further workaround for alternative memory hooks in use
+
+2009-09-29  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * initial workaround for alternative memory hooks in use
+        * calculate the system offset at runtime (in case there are more hooks)
+        * tagging with Hephaestus-00-05-02
+
+2009-09-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix profiling to allow unfiltered traces
+
+2009-09-22  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * make hhh_Hooks_start() and hhh_Hooks_stop() have external linkage
+
+2009-09-14  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+        * python/__init__.py (setup): use DLFCN instead of deprecated dl
+
+2009-07-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added the post-processing tool for profiling
+        * added an explicit DeleteChecker module
+
+2009-07-29  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added double delete checker prototype
+
+2009-07-22  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added an HephaestusAuditor to speed up running
+        * gzip profile output
+        * load MemoryTracker symbols globally
+        * allow access to traces
+        * tagging with Hephaestus-00-05-00
+
+2009-06-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * write out stack traces and symbols for profiling if PROFILE set
+        * tagging with Hephaestus-00-04-10
+
+2009-01-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * filter <unknown>s, as these are all within dld.so (which is offloaded
+            after the memory tracker and can thus not be traced)
+        * minor improvements in use of types
+        * tagging with Hephaestus-00-04-00
+
+2008-10-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * tagging with Hephaestus-00-03-01
+
+2008-10-07  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * sort leak in ascending order of # of occurences
+
+2008-04-25  Wim Lavrijsen <WLarijsen@lbl.gov>
+        * ignore in report ROOT I/O objects that have job lifetime
+             T[Gen]CollectionProxy*, TStorage, TStreamerInfo*, as well as all of
+             the G__* dictionary setup stuff
+        * allow multiple trace targets (setting trace("") resets)
+        * tagging with Hephaestus-00-03-00
+
+2008-04-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixed hhh_stop(), which didn't really stop ...
+        * ignore all allocations in std::, as they tend to be parts of another leak
+            also ignore __gnu_cxx, same reason
+        * choose 23 as the large trace deph
+        * fixes in ignoring of names (e.g. fortran function signatures have no args)
+        * added method 'depth' that takes an integer and allows control of the
+            depth used for filtering
+        * make filtering for STL switchable
+
+2008-04-07  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * temporarily set the depth for the filter equal to the trace depth to
+            restore old behavior
+        * tagging Hephaestus-00-02-04
+
+2008-03-27  Sebastien Binet  <binet@lblbox>
+
+	* tagging Hephaestus-00-02-03
+	* fixing malloc hooks installation
+	* M src/MemoryTracker.c
+
+2008-02-15  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * restoration after the push_back diversion
+        * tagging with Hephaestus-00-02-02 (for improved filter, see below)
+
+2007-12-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improved filter by taking a longer stack (60-3) to filter on (the
+          maximum depth kept for reporting is still the same)
+
+2007-11-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * From Sebastien: python interface on checkpoint functionality
+        * tagging with Hephaestus-00-02-01
+
+2007-11-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * allow setting of stream for report through MemoryTracker.outstream()
+            note that the stream gets dup'ed and closed by Hephaestus, since it
+            would otherwise be closed to early on python shutdown
+
+2007-07-31  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added pool for hhh_MemoryTrace objects
+        * filter std::string::_Rep::_S_create "at the source"
+
+2007-07-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added pool for hhh_Cell objects use in hash table
+        * improved profiling info
+        * removed lookup of ctor (not worth it on typical reco job)
+
+2007-07-27  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * made bfd usage conditional
+        * switch off tracking during setting of checkpoints
+
+2007-07-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * initial checkpoint support for HephaestusTool
+
+2007-06-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * minor memory usage improvements
+        * prototype functionality for picking up debug info
+
+2007-06-05  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix from David Quarrie <DRQuarrie@lbl.gov> to force order of
+           headers install before compilation
+        * tagging with Hephaestus-00-01-02
+
+2007-04-27  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * From Frank Winklmeier <frank.winklmeier@cern.ch>:
+           - Add summary with total leak size
+           - Fix bug(?) in ignore filter (add terminating null byte)
+           - Add option to hide mem address (HIDEMEMADDR)
+           - Multiplicities for unique leaks
+
+           The last two changes are especially useful if you want to compare
+           the difference between two jobs than ran over N and N+1 events.
+        * tagging with Hephaestus-00-01-01
+
+2007-04-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixups for lxplus (IA64, both 32/64 modes)
+        * changed to platform dependent install of python module
+        * tagging with Hephaestus-00-01-00
+
+2007-04-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added GenericBacktrace.c (from glibc) for speed
+        * general beautification
+
+2007-04-23  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * several coding fixes
+        * optimized HashTable find
+        * added -O3 to compiler flags (none previously)
+
+2007-04-05  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * removed MallocAlloc.h
+        * move MemoryTracker.cxx -> MemoryTracker.c
+        * all C++ usage now removed
+
+2007-04-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixed logic bug reported by Frank Winklmeier
+        * moved Utils.cxx to Utils.c
+        * further changes for move C++ -> C
+        * prefer trace with ctor in sorter/uniquer
+
+2007-01-31  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improved object type guessing
+        * tagged with Hephaestus-00-00-05
+
+2007-01-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * initial steps to remove C++ dependency
+
+2006-08-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * increased demangle buffer size (needed for RecExCommon)
+
+2006-06-22  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * initial prototype for profiling (on by default)
+        * tagged with Hephaestus-00-00-04
+
+2006-06-19  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * first prototype that prevents static false positives (except
+          for stdc++ library ones)
+
+2006-06-19  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * minor changes for gcc 3.4.4
+        * caches for contructor lookup
+
+2006-06-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * bug fix from Mattias Ellert
+
+2006-05-29  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added prototype code to detect type of object leaked
+
+2006-05-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * reorganized structure
+        * throw bad_alloc when running out of memory
+        * tagged with Hephaestus-00-00-03
+
+2006-05-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added filters to enable ignores in the final report
+        * tagged with Hephaestus-00-00-02
+
+2006-05-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * used unique-ness test on full traceback before printout
+        * improved python side API
+        * add memory leaks sizes
+
+2006-05-02  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added (initial) traceback in printout
+        * start/stop from python
+        * further memory optimizations
+
+2006-05-01  Wim Lavrijsen <Wlavrijsen@lbl.gov>
+        * added speed optimizations
+        * report leaks only once
+
+2006-04-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * tagged with Hephaestus-00-00-01 to make CMT happy
+        * prettified leak report
+
+2006-04-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * Hephaestus (debugging aids for Athena) created
+        * contains proof-of-concept memory tracker 

@@ -1,0 +1,3071 @@
+2016-02-16  Charles Leggett
+	* create ConditionStore for threaded jobs
+	* tag AthenaCommon-03-03-10
+
+M       python/AtlasThreadedJob.py
+
+2016-02-09  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing new command-line option for athena.py: --profile-python (OBO Wim)
+	* tag AthenaCommon-03-03-09
+
+2016-01-26  Charles Leggett
+	* tag AthenaCommon-03-03-08
+	* rename Algorithm property ErrorCount to ErrorCounter to match
+	  Gaudi
+
+M       python/Configurable.py
+
+2015-12-02 Will Buttinger <will@cern.ch>
+	* test/AthenaCommon.xml: disable failing test in analysis releases, because HelloWorld package is not included
+	* tagging as AthenaCommon-03-03-07
+
+2015-11-17  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Tagging AthenaCommon-03-03-06
+	* Fixing ATEAM-241: unconditionally set LIBC_FATAL_STDERR_ environment for redirecting glibc stacktrace to a file
+
+2015-09-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaCommon-03-03-05.
+	* From John Baines:
+	* Add FTK to DetFlags.
+
+2015-09-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaCommon-03-03-04.
+	* python/AppMgr.py (AthAppMgr.setup): Fix set of setupok.  Update
+	message for adding an algorithm with properties not set from debug
+	to error.
+
+2015-08-05  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Tagging AthenaCommon-03-03-03
+	* Adding an overlay task to the DetFlags
+
+2015-06-04  Charles Leggett
+	* tag AthenaCommon-03-03-02
+	* add common concurrency opts (nProc, nThread) to ConcurrencyFlags
+	  jobProps
+	* added CONFIGURATION_ERROR to ExitCodes (0x09)
+
+A       python/ConcurrencyFlags.py
+M       python/ExitCodes.py
+M       python/AtlasThreadedJob.py
+M       python/AthOptionsParser.py
+M       share/Execution.py
+M       share/Preparation.py
+
+2015-06-01  Charles Leggett
+	* tag AthenaCommon-03-03-01
+	* on behalf of John Chapman
+	* enable new DetFlag for DBM
+
+M       python/DetFlags.py
+
+2015-05-27  Charles Leggett
+	* tag AthenaCommon-03-03-00
+	* enable running with multiple threads if GaudiHive is in release
+	    set with --threads=N on command line
+	* enable debugging of AthenaMP workers with --debugWorker command line opt
+
+A       python/AtlasThreadedJob.py
+M       python/AthOptionsParser.py
+M       share/Execution.py
+M       share/Preparation.py
+
+2015-05-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaCommon-03-02-05.
+	* python/ConfigurableDb.py (loadConfigurableDb): Dump stack on a
+	load failure.
+	* python/ConfiguredFactory.py (ConfiguredFactory.read): If there
+	are no InstallArea/python elements on sys.path, then examine
+	everything in sys.path.  (Compatibility with alternate build
+	layouts.)
+
+2015-04-23  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Adding ROOT.py to excludeTracePattern in Include.py
+
+2015-03-27  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Changes in GlobalFlags: updating stored values of geometry and conditions tags to MC15 configuration
+
+2015-01-21  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Merging changes from AthenaCommon-03-00-00-03 to the trunk
+	* Tagging AthenaCommon-03-02-02
+
+2014-12-12 will butinger <will@cern.ch>
+	* python/AlgSequence.py: removed surplus yield statement
+
+2014-10-31  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* share\Preparation.py: movel ROOT6 setup to PyTools/Helpers.py
+        * tag AthenaCommon-03-02-01
+
+2014-10-28  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* python: merged with AthenaCommon-03-00-00-02 to get Gaudi v25.3 configurables
+        * tag AthenaCommon-03-02-00
+
+2014-10-24  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* share\Preparation.py (install_pycintex_filter): added import
+	hook to signal PyCool that PyCintex can't be loaded
+        * tag AthenaCommon-03-01-04
+
+2014-10-23  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* share\Preparation.py (addROOTIncludePaths): add Eigen and Geant4
+	paths
+        * tag AthenaCommon-03-01-03
+
+2014-10-22  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* share\Preparation.py: for ROOT6 cppyy pretends to be PyCintex.
+	* share\Preparation.py: use addROOTIncludePaths()
+        * tag AthenaCommon-03-01-02
+
+2014-10-20 Will Buttinger <will@cern.ch>
+      * share/athena.py, share/athena-app.py: suppress warning in AthAnalysisBase ('ManaCore') because no TCMALLOCDIR
+      * tag AthenaCommon-03-00-01
+
+2014-09-26  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* python/AlgSequence.py: Add AthAnalysisSequencer
+	* tag AthenaCommon-03-00-00-01
+
+2014-07-01 Charles Leggett
+	* retag for branch
+	* tag AthenaCommon-03-00-00-00
+
+2014-07-01 Charles Leggett
+	* updated ConfigurableDb.py for Gaudi v25+
+	* tag AthenaCommon-03-00-00
+
+2014-06-04 Walter Lampl <walter.lampl@ cern.ch>
+	* add BField as DetFlag
+	* tag AthenaCommon-02-19-05
+
+2014-06-02  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix #103877 by protecting the loop over exit handlers
+        * tag AthenaCommon-02-19-04
+
+2014-05-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix use of _fIsLocked in the state dictionary for pickle
+        * tag AthenaCommon-02-19-03
+
+2014-05-13 Walter Lampl <walter.lampl@ cern.ch>
+	* add new global flag "DatabaseInstance" (from COMP200/CONDBR2 switch)
+	* tag AthenaCommon-02-19-02
+
+2014-05-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * supply missing ','
+        * tagging AthenaCommon-02-19-01
+
+2014-05-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * catch and fix inappropriate use of private data members
+        * tagging AthenaCommon-02-19-00
+
+2014-04-18  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * PyCintex -> cppyy
+        * cleanup/consistency
+
+2014-01-22 Emil Obreshkov <obreshko@cern.ch>
+	* Tagging AthenaCommon-02-18-29
+	* cmt/requirements: remove AtlasTCMalloc
+
+2013-10-10  Sebastien Binet  <binet@farnsworth>
+
+        * Tagging AthenaCommon-02-18-28
+	* wscript: declare_xxx -> hwaf_declare_xxx
+	* M wscript
+
+2013-09-27  scott snyder  <snyder@bnl.gov>
+
+        * Tagging AthenaCommon-02-18-27.
+	* cmt/requirements: Fix checkreq warning.
+
+2013-08-15  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+        * tagging AthenaCommon-02-18-26
+	* refactor release_metadata info extraction into its own function
+	* M python/AppMgr.py
+
+2013-08-07  Sebastien Binet  <binet@farnsworth>
+
+        * tagging AthenaCommon-02-18-25
+	* fix package name
+	* M wscript
+
+2013-07-30  Andrea Dell'Acqua <dellacqu@mail.cern.ch>
+
+        * tagging AthenaCommon-02-18-24
+	* Add detFlags for AFP and FwdRegion in python/DetFlags.py
+
+2013-06-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-18-23
+	* add pythonization for AthRetrySequencer configurable
+	* M python/AlgSequence.py
+
+2013-02-18  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaCommon-02-18-22
+	* declare aliases (athena.py->athena)
+	* M wscript
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaCommon-02-18-21
+	* adding wscript file
+	* A wscript
+
+2012-11-30  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaCommon-02-18-20
+	* fixup for mana benefit
+	* M python/ConfigurableDb.py
+
+2012-11-13  Andrea Dell'Acqua <dellacqu@mail.cern.ch>
+
+	* python/DetFlags.py: added flags for sTGC and Micromegas
+	* tagging AthenaCommon-02-18-19
+
+2012-10-05  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* python/ConfigurationShelve.py: propagate the EventLoop properties through the josvc at pickling. OBO Wim
+	* tagging AthenaCommon-02-18-18
+
+2012-09-25  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* share/athena.py: get rid of == comparisons (bash only) 
+        * tagging AthenaCommon-02-18-17
+
+2012-09-21  Wim Lavrijsen <Wlavrijsen@lbl.gov>
+        * JobProperty fix to allow containing types within allowedTypes
+        * tagging AthenaCommon-02-18-16
+
+2012-09-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * From Vakho: cleanup of Execution.py
+        * tagging AthenaCommon-02-18-15
+
+2012-08-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * cleanup related to #84086 and #96331
+
+2012-07-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * possible fix for #84086 (note that there's a workaround for #96331 added)
+
+2012-07-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * --dump-configuratio=<file> options, per Thomas K.
+
+2012-06-19  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* remove the deprecated usage of BaseException.message
+	* M test/KeyStoreUnitTests.py
+
+2012-06-06 Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * remove the AthFile early loading as discussed in #93378
+        * allow ConfigurationShelve.saveToAscii to take a stream
+
+2012-03-29  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaCommon-02-18-14
+	* add the ability to pass an environment to ChapPy.AthenaApp
+	* M python/ChapPy.py
+
+2012-02-16 Martin Woudstra <martin.woudstra@cern.ch>
+	* tagging AthenaCommon-02-18-13
+	* python/ConfiguredFactory.py: fix crash in printout if not running at VERBOSE output level
+	
+2012-02-15 Martin Woudstra <martin.woudstra@cern.ch>
+	* tagging AthenaCommon-02-18-12
+	* WARNING: do not use this tag (fails if not run with VERBOSE output level). Use next tag.
+	* Fix for bug #91232
+	* python/Configurable.py: add property _isPrinting for special treatment in GaudiHandlePropertyProxyBase
+	* python/PropertyProxy.py: changes in class GaudiHandlePropertyProxyBase:
+	  - do not auto-retrieve any Handles or HandleArrays when in printing mode.
+	    This changes the configurable ascii printout: it is no longer showing the full config of default instances of private AlgTools,
+	    unless they have already been retrieved by explicit request.
+	  - if object is locked, do not auto-set on __get__, but return locked copy instead
+	  - only auto-set (from inside __get__) in case of default Configurable instance, or default HandleArray
+	* python/ConfiguredFactory.py:
+	  - improved function hasPropertyBeenSet(): now also robust for auto-retrieved Private AlgTools
+	  - do not resolve already assigned Configurables
+	  - improve debug printout
+
+2011-11-16  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * For Rolf, #87230 deal with TCMALLOCDIR not being defined while
+	  wanting to use the stdcmalloc and preloadlib options
+	* tagging AthenaCommon-02-18-11
+M       share/athena.py
+
+2011-11-15  Charles Leggett
+
+        * tagging AthenaCommon-02-18-10
+	* bug #88746: let USETCMALLOC and USETCMALLOC be "true" instead of
+	  just 1, as athena_wrapper.py sets it incorrectly
+M       share/athena.py
+
+2011-11-15  Charles Leggett
+
+        * tagging AthenaCommon-02-18-09
+	* bug #88898: print out release and config info at runtime
+M       python/AppMgr.py
+
+2011-10-12  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+        * tagging AthenaCommon-02-18-08 
+	* python/AthOptionsParser.py: improved -d help message
+
+2011-10-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * From Thomas: --preloadlib option
+        * tagging AthenaCommon-02-18-07
+
+2011-10-03  Rolf Seuster <seuster AT cern.ch>
+	* tagging AthenaCommon-02-18-06
+	* set default of beamFlags.bunchSpacing to 50 ns
+
+2011-09-26  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* tagging AthenaCommon-02-18-05
+	* Protect RecFlags import with try-except 
+
+2011-08-12  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+        * tagging AthenaCommon-02-18-04
+	* share/Execution.py: previous tag was too aggressive: AANTupleStream
+	appears to be still needed somewhere. Protected its setting
+
+2011-08-04  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+        * tagging AthenaCommon-02-18-03
+	* share/Execution.py: remove obsolete AANTupleStream handling
+
+2011-06-16  Sebastien Binet  <sebastien.binet@cern.ch>
+
+        * tagging AthenaCommon-02-18-02
+	* cmt/requirements: install AthenaCommonFlags to module directory
+
+2011-06-10  Paolo Calafiura  <calaf@calaf-laptop>
+
+        * cmt/requirements: install AthenaCommonFlags to module directory
+        * tagging AthenaCommon-02-18-01
+
+
+2011-06-10  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* python/AtlasUnixStandardJob.py (_setupAtlasUnixStandardJob): 
+	make jobs abort on unchecked StatusCodes
+	* tagging AthenaCommon-02-18-00
+
+2011-06-08  Charles Leggett
+	* fully removed monkey_patch from .py instead of just commenting
+	*   it out
+	* tagging AthenaCommon-02-17-01
+M       share/Preparation.py
+
+2011-06-07  Charles Leggett
+	* remove AthTHistSvc "monkey_patch" to work with GaudiMP-00-01-04
+	* tagging AthenaCommon-02-17-00
+	
+2011-05-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* share/AthenaCommonFlags.py : print ERROR on use
+	* tagging AthenaCommon-02-16-66
+
+	* removed share/AthenaCommonFlags.py completely
+	* tagging AthenaCommon-02-16-67
+
+2011-05-16  David Rousseau  <droussea@voatlas107.cern.ch>
+
+	* python/GlobalFlags.py : run time error if trying to set or read
+	GlobalFlags (instead of globalflags)
+        * tagging AthenaCommon-02-16-65
+	
+
+2011-05-16  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+	* make ATHENA_PROC_NUMBER higher priority than --nprocs
+	* tagging AthenaCommon-02-16-64
+
+2011-05-13  Martin Woudstra <martin.woudstra@cern.ch>
+	* python/ConfiguredFactory.py: remove buggy memory optimization
+        * tagging AthenaCommon-02-16-63
+
+2011-05-03 Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * athenaMP cleanup
+        * tagging AthenaCommon-02-16-62
+
+2011-05-02 Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * disable configuration of athenaMP and associated monkey patches in minimal mode
+        * remove athenaMP hack that circumvents the monkey patch hack for drop & reload
+        * tagging AthenaCommon-02-16-61
+
+2011-05-02 Martin Woudstra <martin.woudstra@cern.ch>
+	* python/ConfiguredFactory.py: new module to create configureds on-demand using recipes
+	* python/CfgGetter.py: new module with ConfiguredFactory instance, i.e. the end-user interface
+	* tagging AthenaCommon-02-16-60
+
+2011-05-01  Paolo Calafiura  <calaf@lxplus248.cern.ch>
+
+	* python/AthOptionsParser.py (parse): fixed the fix (thanks Rolf&Wim)
+	* tagging AthenaCommon-02-16-59
+	
+2011-04-27  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* python/AthOptionsParser.py (parse): hack circumventing a hack
+	we can't run athenaMP with drop-and-reload until we get rid of 
+	_monkey_patch_thistsvc
+	* tagging AthenaCommon-02-16-58
+
+2011-04-21  David Rousseau  <droussea@lxbuild084.cern.ch>
+
+	* python/GlobalFlags.py : print ERROR when setting/using
+	GlobalFlags (rather than globalflags) 
+	* tagging with AthenaCommon-02-16-57
+	
+2011-01-26  Rolf Seuster <seuster AT cern.ch>
+	* python/AthOptionsParser.py: add two command line flags for --pmon= for semi-detailed perfmon (o.b.o. Thomas)
+	* tagging with AthenaCommon-02-16-56
+
+2011-03-22  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix in JobProperties.py for http://savannah.cern.ch/bugs/?79518
+           NOTE: JobProperties printing needs some serious overhaul!
+        * tagging AthenaCommon-02-16-55
+
+2011-03-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * initial property history checking and cli option (-t<level>)
+
+2011-03-16  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * lock() private tool handles recursively
+        * tagging AthenaCommon-02-16-54
+
+2011-03-16  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * Updated the lock()ing behavior as per <rousseau@lal.in2p3.fr>:
+            - unlock() always warns
+            - setting properties always raises after lock()
+        * compound properties are returend by value after lock()
+        * tagging AthenaCommon-02-16-53
+
+2011-03-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * Configurable locking prototype
+        * added --delete-check option (requires update of Hephaestus)
+        * tagging AthenaCommon-02-16-52
+
+2011-01-28  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix for AthenaMP's monkey_patch
+        * tagging AthenaCommon-02-16-51
+
+2011-01-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix  for https://savannah.cern.ch/bugs/?77437
+        * tagging AthenaCommon-02-16-50
+
+2011-01-26  Rolf Seuster <seuster AT cern.ch>
+	* GlobalFlags.py: set default for ConditionsTag to "OFLCOND-DR-BS7T-ANom-11"
+	* tagging with AthenaCommon-02-16-49
+	
+2011-01-25  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * fix for https://savannah.cern.ch/bugs/?77380
+        * tagging with AthenaCommon-02-16-48
+
+2011-01-21  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * achieved consistent jocat and services status for --drop-and-reload
+        * tagging with AthenaCommon-02-16-47
+
+2011-01-14  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * allow ServicesPythonize.JobOptionsSvc to dump into a file
+        * cleaner handling of options in AppMgr.py
+        * fixup of early services' properties
+        * tagging AthenaCommon-02-16-46
+
+2011-01-12  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * remove usage of dbsqlite in favor of pickle when dumping josvc content
+        * fix default options bug in --drop-and-reload
+        * don't using CfgMgr in Core, if possible, let if for users only
+        * fixes for handling of MessageSvc properties
+        * general cleanup
+
+2011-01-11  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * added --minimal global option for testing the effect of code removal
+        * removed spurious circular dependency from CfgMgr.py
+        * general cleanup
+
+2010-12-20  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * adding storeConfigurationToDB, loadConfigurationFromDB to
+            python/ConfigurationShelve.py
+        * enable athena.py to run from storeConfigurationToDB() created db
+        * adding --drop-and-reload global option
+        * adding --config-only global option
+        * tagging AthenaCommon-02-16-45
+
+2010-12-15  David Rousseau  <droussea@lxbuild084.cern.ch>
+
+	* tagging AthenaCommon-02-16-44
+	* python/GlobalFlags.py : change DetDescrVersion default value to
+	a supported one ATLAS-GEO-16-00-00 
+
+2010-12-10  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaCommon-02-16-43
+	* cleaner way to get the python executable
+	* M share/athena-app.py
+
+2010-12-08  Charles Leggett
+	
+	* tagging AthenaCommon-02-16-42
+	* don't put EventOutputVeto in AthFilterSeq, but locate output
+	  streams in alg list and insert it just before them. UGLY!
+	* M share/Execution.py
+
+2010-12-08  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaCommon-02-16-41
+	* fixing utest
+	* M python/Configurable.py
+
+2010-12-06  Charles Leggett
+	
+	* tagging AthenaCommon-02-16-40
+	* bugfix in Execution.py: don't assume "job" is defined
+	* M share/Execution.py
+
+2010-12-02  Charles Leggett
+	
+	* tagging AthenaCommon-02-16-39
+	* add output stream write veto for mother process in AthenaMP
+	* M share/Execution.py
+
+2010-12-02  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaCommon-02-16-38
+	* pickling configurable fixes (recoup configurables memory)
+	* M python/Configurable.py
+	* M python/AthApi.py
+
+2010-11-29  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaCommon-02-16-37
+	* python/AppMgr.py (AthAppMgr.replacePFC): obo Mous, fix to handle
+	PoolFileCatalog.xml in athenaMP "chain jobs"
+
+2010-09-17  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaCommon-02-16-36
+	* remove duplicate class definition
+	* M python/GlobalFlags.py
+
+2010-09-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaCommon-02-16-35
+	* fix bug #116271: silence errors
+	* M test/AthAppMgrUnitTests.py
+
+2010-08-18  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * From Scott: defer setting of PYTHONINSPECT to prevent hanging AthFile
+        * tagging AthenaCommon-02-16-34
+
+2010-07-30  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaCommon-02-16-33
+	* python/AthOptionsParser.py: get default value for --nprocs from env
+	variable ATHENA_PROC_NUMBER
+
+2010-07-28  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaCommon-02-16-32
+	* fix default config of StatusCodeSvc for interactive athena and
+	  new ROOT version
+	* M python/AtlasUnixStandardJob.py
+
+2010-07-15  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * locate the code .py through PYTHONPATH if the name build into
+            the .pyc does not correspond to the actual file name (e.g. in
+            case the release has been moved
+
+2010-07-14  Sebastien Binet  <binet@pb-d-128-141-71-201.cern.ch>
+
+	* tagging AthenaCommon-02-16-31
+	* removing the sqlite3 hack
+	* M share/athena.py
+
+2010-07-13  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaCommon-02-16-30
+	* hack for sqlite3
+	* M share/athena.py
+
+2010-07-13  Sebastien Binet  <binet@pb-d-128-141-71-201.cern.ch>
+
+	* tagging AthenaCommon-02-16-29
+	* adding the ICollectionSize iface to AppMgr
+	* M python/AppMgr.py
+
+2010-06-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * for python/ResourceLimits.py turn ERROR into WARNING
+
+2010-06-25  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaCommon-02-16-28
+	* restore correct handling of user-provided options
+	* M python/AthOptionsParser.py
+
+2010-06-25  Grigori Rybkine  <Grigori.Rybkine@cern.ch>
+
+	* tagging AthenaCommon-02-16-27
+	* python/ResourceLimits.py: Workaround https://savannah.cern.ch/bugs/index.php?69043 (Get the setting of max possible soft address space limit by 32 bit Python to
+	work on 64 bit machine when hard limit is finite but beyond 4 GiB)
+	
+2010-06-07  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaCommon-02-16-26
+	* test/JobPropertiesUnitTest.py: make file executable
+	
+2010-06-04  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaCommon-02-16-24
+	* fwd compat w/ python-2.6
+	* M python/Configurable.py
+	* M python/KeyStore.py
+	* M python/AthOptionsParser.py
+	* M python/ConfigurableDb.py
+	* M share/athena.py
+
+2010-06-01  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaCommon-02-16-23 
+	* test/AthenaCommon.xml: typo in JobPropertiesTest name
+	
+2010-05-27  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaCommon-02-16-22
+	* python/JobProperties.py: improved warning messages (bug #68013)
+	* test/JobPropertiesUnitTest.py: very basic test of JobProperties
+	
+2010-05-18  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaCommon-02-16-21
+	* re-fixing bug #46102 : pre-import a few flags
+	  (reverted by mistake by someone who shall remain anonymous)
+	* M share/Preparation.py
+
+2010-05-12  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaCommon-02-16-20
+	* add a convenience function to locate data-files from python
+	* fix regression introduced with --perfmon=
+	  now, the improved --perfmon= is known as --pmon=
+	  the old --perfmon is still available
+	* M python/AthOptionsParser.py
+	* M python/Utils/unixtools.py
+
+2010-04-22  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaCommon-02-16-19
+	* allow --perfmon=dp-mon
+	* M python/AthOptionsParser.py
+
+2010-04-08  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * AthenaCommon-02-16-18
+
+2010-04-06  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * verbose level prints addresses (??) setting to INFO for saveToAscii
+
+2010-04-02  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-17
+	* fixing bug #65227: import AthFile after the exit-handler
+	* M share/athena.py
+
+2010-04-02  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * set log level in ConfigurationShelve.saveToAscii to a lower
+           level so that output is never surpressed
+
+2010-03-31  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * allow PyCintex VMEM bump to be set through --pycintex_minvmem= on CLI
+        * tagging AthenaCommon-02-16-16
+
+2010-03-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-15
+	* fixing py26 warnings
+	* fixing syntax code smells
+	* M python/AlgSequence.py
+	* M python/Configurable.py
+	* M python/KeyStore.py
+
+2010-03-16 Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * From Thomas: fixes for VMEM fluctuations workaround
+        * tagging AthenaCommon-02-16-14
+
+2010-03-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * From Thomas: workaround for PyCintex VMEM fluctuations
+
+2010-03-11  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-13
+	* enhanced athena command-line parser for perfmon
+	* M python/AthOptionsParser.py
+	* M share/Execution.py
+
+	* tagging AthenaCommon-02-16-12
+	* fixing dumpMasterSequence
+	* M python/AlgSequence.py
+
+2010-03-11  Andrea Dell'Acqua <dellacqu@mail.cern.ch>
+
+    * tagging AthenaCommon-02-16-11
+    * adding DetFlags for ALFA 
+
+2010-03-05  David Quarrie <David.Quarrie@cern.ch>
+
+    * tagging AthenaCommon-02-16-10
+    * test/KeyStoreUnitTests.py:     ) Add MacOSX-specific code to deal with the fact that that platform appends
+    * test/ConfigurableUnitTests.py: ) adds a .db suffix to shelve file names.
+    
+2010-02-23  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-09
+	* fixing bug #62926: (fine-tuning) printout which release is being used
+	* fixes for cmpConfigs
+	* M python/ConfigurationShelve.py
+	* M python/AppMgr.py
+
+2010-02-22  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-08
+	* fixing bug #62926: printout which release is being used
+	* M python/AppMgr.py
+
+2010-02-22  David Quarrie <David.Quarrie@cern.ch>
+
+    * tagging AthenaCommon-02-16-07
+    * share/MemTraceInclude.py: Initial MacOSX implementation
+
+2010-01-29  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-06
+	* fixing bug #46102 : pre-import a few flags
+	* dump all cfgs in a format similar to Athena::JobOptionsSvc
+	* M python/CfgMergerLib.py
+	* M share/Preparation.py
+
+2010-01-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-05
+	* improve chappy cmdline arguments handling
+	* athena-mp interactive
+	* M python/ChapPy.py
+	* M share/Execution.py
+
+2010-01-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-04
+	* fixed several plain invalid python coding mistakes
+	* M python/JobProperties.py
+
+2010-01-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-03
+	* fixing logic error in Configurable error message
+	* stream-line use of Athena::JobOptionsSvc
+	* M python/Configurable.py
+	* M share/find_cfg_dups.py
+
+2010-01-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-02
+	* make use of Athena::JobOptionsSvc component to chase duplicates
+	* M share/find_cfg_dups.py
+
+2010-01-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-16-01
+	* adding c++ jobosvc introspection to cfg-dups finder
+	* M python/CfgMergerLib.py
+	* M share/find_cfg_dups.py
+
+2009-12-18  Paolo Calafiura  for Rolf Seuster
+
+	* tagging AthenaCommon-02-16-00
+	* share/athena.py: add support for libtcmalloc_minimal (now default)
+	* python/AthOptionsParser.py: add support for libtcmalloc_minimal (now default)
+
+2009-12-14  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaCommon-02-15-58
+	* share/athena.py: fix command line parsing for tcmalloc
+
+	* tagging AthenaCommon-02-15-57
+	* share/athena.py: remove bash extensions
+
+2009-12-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-56
+	* start AthFile server early on to prevent race-conditions later on
+	* M share/athena.py
+
+2009-12-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-55
+	* shutdown AthFileServer when configuration is done
+	* athena-app improvements
+	* M python/AppMgr.py
+	* M python/AthApi.py
+	* M share/athena-app.py
+
+2009-12-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-54
+	* refactorize command-line options parsing
+	* M python/AthApi.py
+	* M python/AthOptionsParser.py
+	* M share/athena-app.py
+
+2009-12-02  Sebastien Binet  <binet@lxplus313.cern.ch>
+
+	* tagging AthenaCommon-02-15-53
+	* refactorize command-line options parsing
+	* A python/AthOptionsParser.py
+	* M share/athena.py
+	* M share/Execution.py
+	* M share/runbatch.py
+	* M share/athena-app.py
+	* M share/Preparation.py
+
+2009-11-27  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-52
+	* deprecate gbl.AthenaServices.SetFatalHandler
+	* M share/Preparation.py
+	* M share/athena.py
+
+	* migrate to sqlite-shelve
+	* M python/AthApi.py
+
+2009-11-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * rename python process to 'athena.py' for display in top & ps
+        * add additional Auditor options for Hephaestus
+
+2009-11-25  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-50
+	* fixing stdcmalloc parameter for athena-app
+	* M share/athena-app.py
+
+	* tagging AthenaCommon-02-15-49
+	* merging in subprocess cfgpy off-loading
+	* M python/AthApi.py
+	* M cmt/requirements
+
+2009-11-23  David Rousseau  <droussea@lxplus231.cern.ch>
+
+	* python/JobProperties.py : add += for JobProperties (fix by MartinW)
+	* tagging AthenaCommon-02-15-48
+
+
+2009-11-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-47
+	* proper fix for bug #52962: make AlgSequence a real configurable
+	* M python/AppMgr.py
+	* M python/AlgSequence.py
+	* M python/ConfigurationShelve.py
+
+2009-11-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-46
+	* fixing bug #52962: properly transfer the properties of
+	  TopAlg to AthAlgSeq
+	* dont mixup AlgSequence and AthSequencer defaults
+	* M python/AppMgr.py
+	* M python/AlgSequence.py
+
+	* tagging AthenaCommon-02-15-45
+	* fixing bug #52962: properly transfer the properties of
+	  TopAlg to AthAlgSeq
+	* M python/AppMgr.py
+
+
+2009-11-09  Charles Leggett
+	* only trigger AthenaSummarySvc if it's in use, but better
+	* M share/runbatch.py
+	* tag AthenaCommon-02-15-44
+
+2009-11-09  Charles Leggett
+	* only trigger AthenaSummarySvc if it's in use
+	* M share/runbatch.py
+	* tag AthenaCommon-02-15-43
+
+2009-11-09  Charles Leggett
+	* trigger AthenaSummarySvc on abnormal exit
+	* M share/runbatch.py
+	* tag AthenaCommon-02-15-42
+
+2009-11-05  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-41
+	* added a helper function to iterate over (nested) sequences
+	* M python/AlgSequence.py
+
+2009-10-27  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-40
+	* fix bug #57559
+	* delay interface retrieval of ieventseek
+	* M python/AppMgr.py
+
+2009-10-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * more PyAthenaEventLoopMgr cleanup
+        * tagging AthenaCommon-02-15-39
+
+2009-10-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * move AppMgr methods from AthenaServices/PyAthenaEventLoopMgr to AppMgr
+
+2009-10-08  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-38
+	* reverting to AthenaCommon-02-15-36
+	* M share/Preparation.py
+
+2009-10-07  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-37
+	* fix bug #53173: install py-athenaeventloopmgr when needed
+	* M share/Preparation.py
+
+2009-09-30  Wim and Paolo
+
+	* python/AppMgr.py (setup):  
+	fix bug 40554 (really removing Gaudi exit handler) 
+        * Tagged as AthenaCommon-02-15-36	
+
+2009-09-28  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* python/JobProperties.py (JobProperty.print_JobProperty): 
+	fix bug 28579 following Martin suggestion
+        * Tagged as AthenaCommon-02-15-35	
+
+2009-09-22 Max Baak <mbaak@cern.ch>
+	M      python/AthenaCommonFlags.py
+	* missing isOnlineStateless line added to AthenaCommonFlags
+        * Tagged as AthenaCommon-02-15-34	
+
+2009-09-16  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * verify launch of debugger and strace in Debugger.py
+
+2009-09-14  David Rousseau  <droussea@lxplus230.cern.ch>
+
+	* python/BeamFlags.py : fix default energy 
+
+2009-09-07  David Rousseau  <droussea@lxbuild084.cern.ch>
+
+	* python/BeamFlags.py : add jobproperties.Beam.energy to hold beam
+	energy (in MeV). This is set to 7000 by default. 
+
+2009-08-27  David Rousseau  <droussea@lxbuild084.cern.ch>
+
+	* python/JobProperties.py : set_Value now only call
+	self.StoredValue=n_value (Joerg Stelzer / Martin Woudstra) 
+
+
+2009-08-25  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-30
+	* excluding various PyUtils.modules from the -s tracing
+	* M python/Include.py
+
+
+2009-08-13  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-29
+	* some more logging clean-ups
+	* M share/MemTraceInclude.py
+
+	* tagging AthenaCommon-02-15-28
+	* added missing import
+	* M share/MemTraceInclude.py
+
+2009-88-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * remove spuriously declared RunAthena.py from requirements
+
+2009-08-06  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-26
+	* fix exit code when some python error occurs while in batch mode
+	* M share/runbatch.py
+
+2009-08-04  Sebastien Binet  <binet@farnsworth>
+
+	* share/athena-app.py: publish same options than athena.py
+	* share/athena-app.py: handle the bootstrap of LD_PRELOAD
+	* python/AthApi.py: propagate command line options to the
+	                    configuring subprocess
+
+2009-08-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added clone() function to Configurable base class
+
+2009-08-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-25
+	* fixing bug #53173
+	* rely on the extended IEventSeek interface to provide ::curEvent
+	* M python/AppMgr.py
+
+2009-07-30  Charles Leggett
+	* share/athena.py: cleaned up the tcmalloc logic a bit
+        * tagging with AthenaCommon-02-15-24
+
+2009-07-30  Charles Leggett
+	* share/athena.py: add warning if --tcmalloc option used, but
+	library not loaded
+        * tagging with AthenaCommon-02-15-23
+	
+2009-07-29  David Rousseau  <droussea@lxplus224.cern.ch>
+
+	* python/DetFlags.py: add dcs category to DetFlags
+
+2009-07-22  Wim Lavrijsen (WLavrijsen@lbl.gov)
+        * Use Hephaestus as an auditor rather than directly
+        * tagging with AthenaCommon-02-15-21
+
+2009-06-24  Charles Leggett
+	* Atlas.UnixStandardJob.py: add MessageSvc.enableSuppression = True
+	* tag AthenaCommon-02-15-20
+
+2009-05-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-19
+	* clean-up logging in ConfigurableDb
+	* FSM-fixes in AthApi + proper Pycomponents support
+	* M python/AthApi.py
+	* M python/ConfigurableDb.py
+
+2009-04-29  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* do not use separate Include workspace unless cleanup requested
+	* tagging AthenaCommon-02-15-18
+
+2009-04-27  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-17
+	* fixing bug #49644 (sanity check for 'include')
+	* adding AthApi module and wrapper script
+	* M python/Include.py
+	* A python/AthApi.py
+	* A share/athena-app.py
+
+2009-04-14  Max Baak <mbaak@cern.ch>
+	M python/AthenaCommonFlags.py
+	* Addition of isOnlineStateless flag to AthenaCommonFlags
+	* Tagging AthenaCommon-02-15-16
+
+2009-03-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * inital attempt to run inside a private dict, to improve cleanup
+        * improved cleanup code
+
+            Note: this code will block all such codes that do (wrongly):
+
+              from AthenaCommon.AppMgr import AlgSequence
+              from __main__ import ToolSvc
+
+            or otherwise touch __main__. The above two should be:
+
+              from AthenaCommon.AlgSequence import AlgSequence
+              from AthenaCommon.AppMgr import ToolSvc
+
+2009-02-13  Sebastien Binet  <binet@farnsworth>
+
+	* python/CfgMgr.py (ModuleFacade.__getattr__): optimization
+
+2009-02-10  Wim Lavrijsen <WLavrijsen@cern.ch>
+	* python code cleanup
+
+2009-02-09  Sebastien Binet  <binet@lxplus250.cern.ch>
+
+	* tagging AthenaCommon-02-15-13
+	* fixing clustering code
+	* M python/CfgMergerLib.py
+
+2009-02-09  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-12
+	* adding a script to spot configurables/components which could be 
+	  lumped into a single instance (based on their (identical) props.)
+	* A python/CfgMergerLib.py
+	* A share/find_cfg_dups.py
+	* M cmt/requirements
+
+2009-01-12  Wim Lavrijsen (WLavrijsen@lbl.gov)
+        * reduced Configurable output at higher log levels
+        * tagging AthenaCommon-02-15-11
+
+2009-01-07  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-10
+	* share/MemTraceInclude.py: fixing bogus code
+
+2009-01-06  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaCommon-02-15-09
+	* cmt/requirements: adding a simple python script to test cfg-pickling
+	* python/ConfigurationCleanup.py: made cleansing more PyAthena friendly
+	* python/Include.py: added code to test for scope-leaks
+	* share/athena.py: switch to enable or not athena-mp
+
+2008-12-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * force the import of AthenaCommon.Logging in module Include so that early use
+           of Include does not cause problems with logging
+
+2008-12-17  David Rousseau  <droussea@lxbuild084.cern.ch>
+
+	* python/AthenaCommonFlags.py : add FilesInput 
+
+2008-12-10  Paolo Calafiura 
+	* tagging AthenaCommon-02-15-07
+	* share/athena.py: removed test for mac and 64 bit platforms. Rely on External/AtlasTCMalloc to define TCMALLOCDIR
+	as appropriate (for Linux,32)
+
+2008-12-09  Paolo Calafiura  
+	* tagging AthenaCommon-02-15-06 
+	* python/DetFlags.py: added ZDC detector (and Lucid) to Forward detector group
+
+2008-12-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improve AttributeError message for JobProperties
+
+2008-11-24  Wim Lavrijsen
+        * hack in MemTraceInclude.py to deal with "from AthenaCommon.Include import include"
+           in user-side modules
+        * added IndexError protection in Include.py (see: https://savannah.cern.ch/bugs/?44024)
+
+2008-11-20  Paolo Calafiura  
+	* tagging AthenaCommon-02-15-05
+	* python/AppMgr.py (AthAppMgr): check for correct v20 state in exit
+
+2008-10-24  Charles Leggett
+	* tagging AthenaCommon-02-15-04
+	* share/athena.py: test for mac and 64 bit platforms to disable
+	preloading of tcmalloc
+
+2008-11-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-15-03
+	* save a few method calls by unrolling AthFilterSeq
+	* add AthDictLoaderSvc and AthenaSealSvc to default athena config
+	* fix pickling of configurables
+	* support of extraction of items from the metadata tree
+	* M python/AppMgr.py
+	* M python/AtlasUnixStandardJob.py
+	* M python/ConfigurationShelve.py
+	* M python/KeyStore.py
+
+2008-11-13  Paolo Calafiura 
+	* tagging AthenaCommon-02-15-02
+	* share/athena.py: do not crash and burn if TCMALLOCDIR not defined:
+	tcmalloc is not available on MacOS
+
+2008-11-10  Paolo Calafiura  
+	* tagging AthenaCommon-02-15-01
+	* share/athena.py: make --tcmalloc and --leak-check-execute mutually
+	exclusive (bug #43753). Flip again defaults for drop-configuration 
+	(now False) while PyAthena is fixed.
+
+2008-11-07  Paolo Calafiura
+	* tagging AthenaCommon-02-15-00
+	* share/athena.py: flip defaults for drop-configuration (now True) and usetcmalloc (True)
+
+2008-10-24  Charles Leggett
+	* tagging AthenaCommon-02-14-03
+	* cmt/requirements: added External/AtlasTCMalloc dependency
+
+2008-10-24  Charles Leggett
+	* tagging AthenaCommon-02-14-02
+	* share/athena.py: command line option to preload libtcmalloc.so
+	
+2008-10-23  David Rousseau  <droussea@lxbuild084.cern.ch>
+        * tagging AthenaCommon-02-14-01
+	* python/GlobalFlags.py : print WARNING if using deprecated GlobalFlags 
+
+2008-10-22  Paolo Calafiura  
+	* tagging AthenaCommon-02-14-00
+	* python/AppMgr.py:  handle v20 start() and stop() in a backward
+	compatible way. Make sure that start() and stop() are called in
+	a typical interactive session
+
+
+2008-10-14  David Rousseau  <droussea@lxbuild083.cern.ch>
+
+	* python/JobProperties.py : improve printout 
+
+2008-09-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-13-06
+	* modified cmpConfigs to also handle genuine joboptions
+	* python/ConfigurationShelve.py (cmpConfigs)
+
+	* tagging AthenaCommon-02-13-05
+	* adding a method to compare configurations stored in pickle files
+	* TODO: also handle jobproperties ?
+	* python/ConfigurationShelve.py (cmpConfigs)
+
+2008-09-23  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-13-04
+	* adding a 'isDefault' method to JobProperty
+	* M python/JobProperties.py
+
+2008-09-22  Sebastien Binet  <binet@lxplus256.cern.ch>
+
+	* tagging AthenaCommon-02-13-03
+	* fixing JobProperty's rich-compare operator
+	* M python/JobProperties.py
+
+2008-08-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-13-01
+	* for backward compat reasons we (temporarily ?) set the StopOverride
+	  flag of AthAlgSeq sequence to True so algorithms which set their
+	  filterPassed flag to false won't stop the whole sequence
+	* M python/AppMgr.py
+
+2008-08-27  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-13-00
+	* new sequencers and topalg layout
+	* M python/AlgSequence.py
+	* M python/AppMgr.py
+
+2008-08-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-12-16
+	* prepare for athena-MP support
+	* M python/AppMgr.py
+
+2008-08-08  David Rousseau  <droussea@lxbuild084.cern.ch>
+
+	* python/BFieldFlags.py: add
+
+2008-08-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-12-14
+	* adding keystore_diff function to easily diff CfgKeyStores
+	* M python/KeyStore.py
+	* M test/KeyStoreUnitTests.py
+
+2008-07-30  David Rousseau  <droussea@lxbuild084.cern.ch>
+
+	* python/AthenaCommonFlags.py : add isOnline flag 
+
+2008-07-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * switched 'RuntimeStrictness' to On/'none' by default on DR's request
+        * tagging AthenaCommon-02-12-12
+
+2008-07-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added 'RuntimeStrictness' flag to AthenaCommonFlags (note: need to
+        * import that module to have it activated)
+        * tagging AthenaCommon-02-12-11
+
+2008-06-26  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-12-10
+	* adding CoreDumpSvc to the default athena configuration
+	* schedule cleansing for after theApp.setup
+	* tweaked cleansing to preserve py-components
+	* M python/AppMgr.py
+	* M python/AtlasUnixStandardJob.py
+	* M python/ConfigurationCleanup.py
+	* M share/athena.py
+
+2008-06-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improved checking of acceptable arguments to Configurable "contructors"
+        * tagging AthenaCommon-02-12-09
+
+2008-06-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * prettification
+        * tagging AthenaCommon-02-12-08
+
+2008-06-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added python/ConfigurationCleanup.py
+        * added --drop-configuration to share/athena.py, python/AppMgr.py
+
+2008-05-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-12-07
+	* disable/enable TDAQ-ERS signal handlers
+	* M share/athena.py
+
+2008-05-20  David Rousseau  <droussea@lxbuild083.cern.ch>
+
+	* python/GlobalFlags.py: add ConditionsTag
+
+2008-05-19  Sebastien Binet  <binet@lxplus097.cern.ch>
+
+	* tagging AthenaCommon-02-12-05
+	* removing last collisions of users'log or math.log with our
+	  Logging.log object
+	* M share/athena.py 
+
+2008-05-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-12-04
+	* fixing bug #31571: handling of empty private tools
+	* M python/AtlasUnixStandardJob.py
+	* M python/PropertyProxy.py
+
+2008-05-15  Charles Leggett
+	* python/AtlasUnixStandardJob.py: give up. don't check for init loops
+	* tag AthenaCommon-02-12-03
+
+2008-05-14  Charles Leggett
+	* python/AtlasUnixStandardJob.py: ignore StoreGateSvc and AuditorSvc for service loop init checking
+	* tag AthenaCommon-02-12-02
+
+2008-05-02  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * filter */GaudiKernel/* in Include.py; several files used to be
+           in GaudiPython and used to be filtered there
+
+2008-05-02  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-12-01
+	* fixing unit test
+	* M test/KeyStoreUnitTests.py
+
+2008-05-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-12-00
+	* added ability to automatically create a KeyStore from a POOL file
+	  (using DataHeader_pX's content and internals !!)
+	* M python/KeyStore.py
+	* M test/KeyStoreUnitTests.py
+
+2008-04-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-11-03
+	* correctly restores hierarchy of configurables from trigger-db
+	* M python/ConfigurationShelve.py
+
+2008-04-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-11-02
+	* more guts to loadFromTriggerPickle
+	* M python/ConfigurationShelve.py
+
+2008-04-11  David Rousseau  <droussea@lxplus230.cern.ch>
+
+	* 
+
+	* python/JobProperties.py: add lock, unlock, and set_Value_and_Lock 
+
+2008-04-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-11-00
+	* consolidated workaround for bug #34752
+	* factorized debugging code (hookDebugger) into its own module
+	  sanitized imports (removed import from __main__)
+	* removed StoreGateSvc from the CreateSvc list
+	* added preliminary support for loading the configuration from the
+	  trigger db
+	* A python/Debugging.py
+	* M python/AppMgr.py
+	* M python/AtlasUnixStandardJob.py
+	* M python/ConfigurationShelve.py
+	* M share/athena.py
+	* M share/runbatch.py
+
+2008-04-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-10-05
+	* allow pickling of XyzHandles (workaround bug #34752)
+	* M python/ConfigurationShelve.py
+
+	* tagging AthenaCommon-02-10-04
+	* just in time import of RootUtils.PyROOTFixes
+	* M share/athena.py
+
+2008-03-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-10-03
+	* added unit tests for configurables' pickling and ascii-storing
+	* added PyAthena and PyROOTFixes import to interactive athena mode
+	* M share/athena.py
+	* M python/Configurable.py
+	* M python/ConfigurationShelve.py
+	* M test/ConfigurableUnitTests.py
+
+2008-03-26  Paolo Calafiura 
+
+	* tagging AthenaCommon-02-10-02
+	* test/AthenaCommon.xml: run python unit tests in ATN
+	* cmt/requirements: install test scripts
+	
+2008-03-26  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-10-00
+	* removing unconditional creation of DetectorStore
+	* M python/AtlasUnixStandardJob.py
+
+2008-03-03  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-09-07
+	* use a regex to test HLTAutoKey to better describe specifications
+	* M python/KeyStore.py
+	* M test/KeyStoreUnitTests.py
+
+	* tagging AthenaCommon-02-09-06
+	* allow wildcards like so 'Klass#HLTAutoKey*' for trigger's benefit
+	* M python/KeyStore.py
+	* M test/KeyStoreUnitTests.py
+
+2008-02-29  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaCommon-02-09-05
+	* adding is_locked method
+	* python/JobProperties.py (JobPropertyContainer.is_locked)
+
+2008-02-25  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaCommon-02-09-04
+	* python/GlobalFlags.py: adding automatic generation of is_xyz() helpers
+	  for string properties (to encapsulate string comparison)
+	* python/JobProperties.py: adding __eq__ operator
+	* python/KeyStore.py: adding metaData label
+
+2008-02-20  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * update Include.py to take line continuation into account
+        * tagging AthenaCommon-02-09-03
+
+2008-02-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaCommon-02-09-02
+	* python/AtlasUnixStandardJob.py (_setupAtlasUnixStandardJob): adding 
+	back in creation of detstore
+	
+2008-02-14  Paolo Calafiura 
+	* tagging AthenaCommon-02-09-01
+	* python/BeamFlags.py: new beam structure flags (from David Rousseau)
+	* python/Resilience.py: move (copy for now) from RecExConfig 
+	* python/AthenaCommonFlags.py: move (copy for now) from RecExConfig 
+	AllowIgnoreExistingDataObject & AllowIgnoreConfigError
+
+2008-02-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaCommon-02-09-00-01
+	* creating branch AthenaCommon-02-09-00-branch
+	* python/AtlasUnixStandardJob.py (_setupAtlasUnixStandardJob): put
+	back create of detstore
+
+2008-02-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-09-00
+	* delegating DetectorStore and DetDescrCnvSvc initialization to 
+	  downstream packages (AtlasGeoModel) to slim down memory footprint
+	* M python/AtlasUnixStandardJob.py
+	* M share/Atlas.UnixStandardJob.py
+
+	* tagging AthenaCommon-02-08-14
+	* adding 'repeat-evts' command line switch to repeat events from an
+	  input POOL file (or a collection).
+	* M share/athena.py
+
+2008-01-27  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * unknown python exception exit handler case (exit code: 8)
+        * remove spurious printout in AppMgr
+        * clarify "dupe ignored" message in Configurable.py
+
+2008-01-24  Paolo Calafiura
+	* tagging AthenaCommon-02-08-13
+	* python/DetFlags: add Lucid detector
+
+2008-01-21  Sebastien Binet  <binet@lxplus235.cern.ch>
+
+	* tagging AthenaCommon-02-08-11
+	* share/athena.py: fixing bug #32845
+
+2008-01-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-08-10
+	* share/athena.py: added command-line option to enable perfmon. Just do:
+	  athena.py --perfmon
+
+2008-01-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-08-09
+	* python/Configurable.py: fix for AthenaPython's benefit
+	* python/ConfigurableDb.py: typo in doc
+
+2008-01-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-08-08
+	* added a helper method to ease extraction of item lists for a given
+	  C++ container type
+	* M python/KeyStore.py
+	* M test/KeyStoreUnitTests.py
+
+2008-01-11  scott s snyder  <snyder@bnl.gov>
+
+	* tagging AthenaCommon-02-08-07.
+	* python/AppMgr.py (AthServiceManager.__iadd__): Fix error message.
+
+2008-01-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-08-06
+	* python/KeyStore.py: CfgKeyStore.add :don't modify input dict 
+	* test/KeyStoreUnitTests.py: CfgKeyStore.add :don't modify input dict
+
+2007-12-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix https://hypernews.cern.ch/HyperNews/Atlas/get/Prelimbugs/954.html
+        * tagging AthenaCommon-02-08-05
+
+2007-12-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixup for test/JobOptionsUnitTests.py
+        * fix https://savannah.cern.ch/bugs/?32082
+        * tagging AthenaCommon-02-08-04
+
+2007-12-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-08-03
+	* added ConfigurableJar.__str__
+	* M python/ConfigurationShelve.py
+
+	* tagging AthenaCommon-02-08-02
+	* removed debug printout
+	* M python/JobProperties.py
+
+	* tagging AthenaCommon-02-08-01
+	* more fixups for having both v19r6 and v19r5px working
+	* helper function to dump a configuration into an ASCII file
+	* M python/AppMgr.py
+	* M python/Configurable.py
+	* M python/PropertyProxy.py
+	* M python/ConfigurationShelve.py
+	* M share/athena.py
+
+2007-11-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * initial fixup for Gaudi v19r6 to make HelloWorld run
+        * tagging AthenaCommon-02-07-07
+            ... or so I thought ... that tag has been used as a
+            cross tag WITHOUT mentioning it in ChangeLog ...
+          tagging AthenaCommon-02-08-00 instead
+
+2007-11-19  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added type check on StoredValue in class JobProperty
+
+2007-11-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-07-06
+	* proper import of PyCintex
+	* M share/athena.py
+
+2007-11-07  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix for https://savannah.cern.ch/bugs/?26721
+        * tagging AthenaCommon-02-07-05
+
+2007-11-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-07-04
+	* fixing bug #31034
+	* M python/AppMgr.py
+	* A test/AthAppMgrUnitTests.py
+
+2007-11-02  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * clean exit: only finalize if initialized
+
+2007-11-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-07-03
+	* python/AppMgr.py: synchronize values b/w proxy and C++ AppMgr
+	* share/athena.py: improvements for interactive athena
+
+2007-10-31  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-07-02
+	* more devs for a pure-python-based theApp
+	* M python/AppMgr.py
+	* M share/athena.py
+
+2007-10-31  Paolo Calafiura for Grant Gorfine
+        * python/DetFlags.py: added new BCM detector
+        * tagging AthenaCommon-02-07-01
+
+2007-10-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added a setFormat() method to AthenaLogger and made logging.root an
+            instance of AthenaLogger
+        * updated test to deal with of python-only AppMgr
+        * M python/Logging.py
+        * M test/JobOptionsUnitTests.py
+
+2007-10-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-07-00
+	* migration to a pure-python-based theApp
+	* TODO: fix StatusCodeSvc ordering problem !!
+	* M python/AppMgr.py
+	* M python/AtlasUnixGeneratorJob.py
+	* M python/AtlasUnixStandardJob.py
+	* M share/athena.py
+
+	* tagging AthenaCommon-02-06-13
+	* preparing for pure-python theApp
+	* adding a module facade toward the ConfigurableDb
+	* A python/CfgMgr.py
+
+2007-10-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added python/ConfigurationShelve.py
+        * several updates to remove C++ loading as well as enabling pickling
+
+2007-10-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-06-12
+	* python/JobProperties.py: integrated the modifications 
+	  from AthenaCommon-02-05-34-branch 
+
+	* tagging AthenaCommon-02-06-11
+	* fixing pitfall in jobproperty testing (thx Scott)
+	* M python/JobProperties.py
+
+2007-10-15  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added synchronization between AuditorSvc children and its Auditors property
+        * tagging AthenaCommon-02-06-10
+
+2007-10-12  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-06-09
+	* added persistency support for CfgKeyStore (+ according utests)
+	* M python/KeyStore.py
+	* M test/KeyStoreUnitTests.py
+
+2007-10-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-06-08
+	* python/Configurable.py: added ConfigurablePyAlgorithm in __all__
+	* python/KeyStore.py: improve feature-list
+	* A test/KeyStoreUnitTests.py
+
+2007-10-10  Paolo Calafiura 
+
+	* python/AtlasUnixStandardJob.py: make ClassIDSvc load Gaudi_clid.db 
+        * tagging AthenaCommon-02-06-07
+
+2007-11-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * tagging AthenaCommon-02-06-05
+        * use newly incantated AthenaServices.PyAthenaEventLoopMgr
+             requires: AthenaServices-01-18-08
+        * tagging AthenaCommon-02-06-06
+
+2007-10-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixup AuditorSvc handling
+        * protect keyword args on constructor
+        * tagging AthenaCommon-02-06-04
+
+        * added ConfigurablePyAlgorithm to Configurable.py
+        * added insert method to AlgSequence and AthSequencer
+
+2007-10-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-06-03
+	* added AuditorSvc to ServiceMgr
+	* reverting to usage of AlgSequence rather than AthSequencer
+	* M python/AlgSequence.py
+	* M python/AppMgr.py
+	* TODO: figure out why GaudiSequencer is not 'execute()ing' algs with
+	  '::' in their name. See bug #29258
+
+2007-10-05  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixup for AuditorSvc: no special case, but use configurable directly
+
+2007-10-03  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Remove obsolete reference to ConfigurationTest_jobOptions.py
+        * tagging : AthenaCommon-02-06-02
+
+2007-10-01  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * make AthAppMgr ctor pickup theApp.JobOptionsPath
+        * added INFO level message for content of -c command, if any
+
+2007-10-01  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * make AthAppMgr ctor pickup theApp.JobOptionsPath
+        * added INFO level message for content of -c command, if any
+
+2007-09-27  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+	* python/OldStyleConfig.py (_compatLookup): allow component names of
+	the form 'MyComp' (taken to mean 'MyComp/MyComp')
+        * tagging : AthenaCommon-02-06-01
+
+2007-09-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * Added AthAuditorSvc, parallel to ServiceMgr and ToolSvc
+        * delayed CreateSvc
+        * added non-controversial fix-ups from Pere
+        * removed ConfigurableAppMgr
+        * tagging : AthenaCommon-02-06-00
+
+2007-09-18  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * use weak reference based dicts for proxies and debug aids
+
+2007-09-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * set of backwards compat removals
+        * need AthenaServices fix-up in conjunction
+        * need StoreGate fix-up in conjunction
+        * disallow passing doubles through int property
+
+2007-09-11  Paolo Calafiura  
+	* tagging AthenaCommon-02-05-40
+	* python/PoolInputFileListBase.py: new base class for input file list
+	properties. It handles registration to the PoolFileCatalog
+
+2007-08-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-39
+	* nicer fix for the AlgSequence->AthSequencer replacement
+	* M python/AlgSequence.py
+	* M python/AppMgr.py
+
+2007-08-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-38
+	* replacing the AlgSequence (sequence of configurables) with the 
+	  AthSequencer (a configurable of a list of algorithms)
+	* M python/AlgSequence.py
+
+2007-08-03  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-37
+	* adding a dummy Configurable for the ApplicationMgr
+	* A python/Configurable.py
+
+2007-07-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-36
+	* introduction of CfgItemList (and not yet working KeyStore)
+	* A python/KeyStore.py
+	* M python/Configurable.py: don't rely on pre-existence of theApp in 
+	  the __main__ namespace
+
+2007-07-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-35
+	* python/ChapPy.py: prevent chappy jobs from being run with athena.py
+
+2007-06-13  David Rousseau  <droussea@lxbuild084.cern.ch>
+
+	* python/GlobalFlags.py : improve documentation 
+
+
+2007-06-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix-up python ResouceLimits.py (resource can throw ValueError as
+           well as resource.error)
+        * cross-tag with AthenaCommon-02-03-08-06 (from AthenaCommon-02-03-08-05)
+
+2007-06-05  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Remove references to PDGTABLE and PDGTABLE.MeV
+	* share/PDGTABLE: Obsolete - removed
+	* share/PDGTABLE.MeV: Obsolete - removed
+
+2007-05-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-31
+	* python/AlgSequence.py: added a wrapper around GaudiSequencer to ease
+	  migration to Configurables
+
+2007-05-18  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* improved error message in python/PropertyProxy.py:_isCompatible
+
+2007-05-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-30
+	* python/ConfigurableDb.py: added a method to unload the ConfigurableDb
+	  Should be leverage some day by the AppMgr when entering in batch...
+
+2007-05-10  Charles Leggett
+      * set ApplicationMgr.StatusCodeCheck = True in athena.py
+        can be overridden using "-p"
+      * tag AthenaCommon-02-05-29
+
+2007-05-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * human readable printout of exit code status at end of job
+        * fixes for IncludeError and ImportError exit codes
+
+2007-04-27  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* Changed MessageSvc to be actual service, rather than configurable,
+	   as it already exists
+
+2007-04-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/DetFlags.py (DetFlags.any_on): add Truth to definition of
+	any_on and all_on
+
+2007-04-19  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-27
+	* python/Configurable.py: added a placeholder for ConfigurableAuditor
+	  It is sufficient to allow importing a MyPkgConf.py module which
+	  contains such an auditor (but is completely dummy)
+	* backward _compatible_ with 13.0.10 (if someone asks)
+
+2007-04-13  Paolo Calafiura  <calaf@localhost.localdomain>
+	* python/AppMgr.py (AthAppMgr.serviceMgr): o need to get Gaudi C++ 
+	ServiceManager when getting the python one
+	* tagging AthenaCommon-02-05-26
+	
+2007-03-28 Martin Woudstra <martin.woudstra@cern.ch>
+	* python/Configurable.py: some code cleanup
+	  - add and use new helper functions: _printHeader, _printFooter, getAllChildren
+	  - change in printout: print all member configurables at the end
+	                        (and not in between the properties)
+	* python/PropertyProxy.py:
+	  - minor cleanup and fix for better error messages
+	* python/AppMgr.py:
+	  - conform printout of ToolSvc and ServiceMgr to new configurable printout
+	  - bugfixes in ToolSvc.remove()
+
+2007-03-23 Martin Woudstra <martin.woudstra@cern.ch>
+	* python/ConfigurableDb.py: added function getConfigurable()
+	* python/PropertyProxy.py: use above function getConfigurable()
+	* tagging AthenaCommon-02-05-24
+
+2007-03-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* (hopefully) clarify message on backdoor with extra info about tool handles
+
+2007-03-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* additionally collect in allConfigurables as type/name if type not
+	  part of name; this is a unique name, so should be safe; needed for
+	  backwards compatibility mix-match cases
+	* tagging AthenaCommon-02-05-23
+
+2007-03-16 Martin Woudstra <martin.woudstra@cern.ch>
+	* tagging AthenaCommon-02-05-22
+	* python/PropertyProxy.py: bugfix for parent name of nested GaudiHandleArrays
+	* python/Configurable.py: some extra member functions needed for above fix
+	
+2007-03-14 Martin Woudstra <martin.woudstra@cern.ch>
+	* python/Configurable.py: bugfix for parent name of nested GaudiHandleArrays
+
+2007-03-13 Martin Woudstra <martin.woudstra@cern.ch>
+	* python/Configurable.py: bugfix for GaudiHandleArrays + improved printout
+
+2007-03-09 Martin Woudstra <martin.woudstra@cern.ch>
+	* python/Configurable.py: fix in printout and added __nonzero__
+	* python/PropertyProxy.py: added support for GaudiHandleArray's
+
+2007-03-08  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+	* python/AppMgr.py: do not collect tools and services more than once in
+            the list to be setup in ToolSvc and ServiceMgr, respectively
+
+2007-03-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* tagging AthenaCommon-02-05-18
+	* python/AppMgr.py: make AthServiceManager add services to theApp.ExtSvc
+
+2007-03-06  Sebastien Binet  <binet@lblbox>
+	* tagging AthenaCommon-02-05-17
+	* python/AtlasUnixGeneratorJob.py (_setupAtlasUnixGeneratorJob): 
+	  hack to force the creation of the McEventSelector.
+	* python/AppMgr.py: nice-ify the __repr__ of AthServiceManager
+
+2007-03-06 Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* python/AppMgr.py: restore beginRun() behavior
+	* share/runbatch.py: add 'fini' hook stage for debugger
+	* tagging AthenaCommon-02-05-16
+
+2007-03-06 Martin Woudstra <martin.woudstra@cern.ch>
+	* tagging AthenaCommon-02-05-15
+	* python/Configurable.py: improved configurable printout for nested configurables
+
+2007-03-06 Martin Woudstra <martin.woudstra@cern.ch>
+	* tagging AthenaCommon-02-05-14
+	* python/Configurable.py: improved configurable printout
+
+2007-03-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* tagging AthenaCommon-02-05-13
+	* python/AtlasUnixStandardJob.py (_setupAtlasUnixStandardJob): 
+	add DetDescrCnvSvc to theApp.CreateSvc list
+
+2007-03-05 Martin Woudstra <martin.woudstra@cern.ch>
+	* python/PropertyProxy.py: updated message about missing ToolSvc to configurables style
+
+2007-03-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-12
+	* attempt at fixing bug #24380
+	* share/Atlas.UnixStandardJob.py: backward compat
+	* share/Atlas_Gen.UnixStandardJob.py: backward compat
+
+2007-03-02  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-11
+	* share/Atlas.UnixStandardJob.py (MessageSvc): fix bug #24371
+
+2007-03-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-10
+	* python/ConfigurableDb.py: update and speed-up to take into account 
+	  the merging of _confDb files.
+	  Demoted from debug to verbose some (internal) messages
+	* python/PropertyProxy.py: better explanation (I hope) of warnings
+
+2007-03-01 Martin Woudstra
+	* bugfixes in ToolSvc and ConfigurableDb
+
+2007-03-01  Manuel Gallas   
+        * added beampipe detector flag to the ID group. 
+
+2007-02-22  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-08
+	* python/ConfigurableDb.py: failure to import a module has been demoted
+	  to WARNING
+	* python/AppMgr.py: more fixes for new Reflex::PluginService
+	* improved py-modules configuration
+	* A python/AtlasUnixGeneratorJob.py: as above
+	* A python/AtlasUnixStandardJob.py: likewise
+	* M share/Atlas_Gen.UnixStandardJob.py: likewise
+
+2007-02-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-06
+	* python/AppMgr.py: moved further to Configurables
+	* python/ConfigurableDb.py: improved nice fail-over when the py-module
+	  (~plugin) holding the meta-info on according Configurables could not
+	  be loaded.
+
+2007-02-14  Sebastien Binet  <binet@lxplus096.cern.ch>
+
+	* tagging AthenaCommon-02-05-05
+	* python/GlobalFlags.py (list_jobproperties): fix from Manuel
+	  added DetDescrVersion to the Global jobproperties Container
+
+2007-02-07  Manuel Gallas
+	* tagging AthenaCommon-02-05-04
+	* python/GlobalFlags.py: new version based on JobProperties. Old 
+	version left there for backward compatibility.
+
+2007-02-07  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-03
+	* added printouts when duplicate Configurables are found (needs a 
+	  proper filling of the duplicate Db from genconf.cpp, though)
+	* M python/ConfigurableDb.py
+	* M python/PropertyProxy.py
+
+
+2007-02-06 Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improved tracing with lists of exclude and include fnmatches
+        * more options for hooking the debugger, and letting the function
+           live to be available in interactive mode also
+        * tagging AthenaCommon-02-05-02
+
+2007-02-05 Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix c&p typo in AppMgr.py
+        * tagging AthenaCommon-02-05-01
+
+2007-01-31  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-05-00
+	* python/ConfigurableDb.py: non-backward compatible change for Gaudi-19
+	  (because change in storage of ConfigurableDb (rootmap->python module)
+	* share/AtlasUnixStandard.py re-applied StoreGate stoneage hack from
+	  Paolo, pending genconf.cpp patch #10000 being feedback into Gaudi-19
+
+	* tagging AthenaCommon-02-04-43
+	* backward compat' PropertyProxy for 12.x.0 nightlies' benefit
+	* M python/ConfigurableDb.py
+	* M share/AtlasUnixStandard.py (undone Paolo's hack)
+
+2007-01-30  Sebastien Binet  <binet@lblbox>
+
+	* adding support for Configurables with Gaudi-v19.
+	* A python/ConfigurableDb.py: holds informations on location of
+	  Configurables (module to load, hosting package,...)
+	* M python/PropertyProxy.py: makes use of the ConfigurableDb to locate
+	  Configurables.
+
+2007-01-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * check existence of theApp.ExtSvcCreates property before setting, as
+          to not break compatibility with Gaudi v16
+
+2007-01-30  Charles Leggett
+        * Atlas.UnixStandardJob.py: theApp.ExtSvcCreates = False for Gaudi v19
+
+2007-01-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * even more detailed exit code support; now awaiting further Gaudi fixes
+
+2007-01-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * initial work for exit codes
+
+2007-01-25  Sebastien Binet  <binet@lblbox>
+
+	* added BSRDOInput, BSRDOOutput, PoolTag{In,Out}put and PoolInputQuery
+	  to the AthenaCommonFlags container
+
+2007-01-23  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * mods for passing around log levels
+        * fix for splitting algorithm names in theApp.reinitialize
+            (note: this code needs removing once Gaudi is fixed)
+
+2007-01-11  Paolo Calafiura <pcalafiura@lbl.gov>
+        * share/AtlasUnixStandard.py: don't use StoreGateSvc configurable
+        this allows us to run with v19 (albeit in stone-age mode)
+        * share/athena.py: use PyCintex, remove PropertyRefs (again for v19)
+
+2006-12-19  Sebastien Binet  <binet@lxplus071.cern.ch>
+
+	* tagging AthenaCommon-02-04-40
+	* python/AthenaCommonFlags.py: applied "baselining" changes
+	
+2006-12-19  Sebastien Binet  <binet@lblbox.troy.org>
+
+	* tagging AthenaCommon-02-04-39
+	* python/AthenaCommonFlags.py: converted the old-style file 
+	  share/AthenaCommonFlags.py into a JobProperties-aware python module
+
+2006-12-18  Sebastien Binet  <binet@lblbox.troy.org>
+
+	* tagging AthenaCommon-02-04-38
+	* python/JobProperties.py: update from Manuel
+
+2006-12-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * prepend 'Py:' for all python loggers
+        * make ServiceMgr and ToolSvc available in __main__
+        * method theApp.serviceMgr for ServiceMgr retrieval
+        * added default values for base class configurables to allow
+             type checking (maybe should drop altogether)
+
+2006-12-07  Paolo Calafiura <pcalafiura@lbl.gov>
+        * tagging AthenaCommon-02-04-37
+        * python/GlobalFlags.py: new  _flag_commis (on behalf of Richard)
+
+2006-12-06  Paolo Calafiura <pcalafiura@lbl.gov>
+	* tagging AthenaCommon-02-04-35
+	* python/JobProperties.py : updated version from G4AtlasApps
+
+2006-12-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * cutification for Configurables
+        * (temporary) fixes for reinitialize
+        * tagged with AthenaCommon-02-04-33
+
+2006-12-02  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-04-32
+	* python/JobProperties.py : import from Manuel's playground
+
+2006-12-01  Martin Woudstra <MJWoudstra@lbl.gov>
+	* share/athena.py: fix typo
+	* python/PropertyProxy.py: GaudiHandlePropertyProxy: add support for value=None
+	Tagged as AthenaCommon-02-04-31
+
+2006-11-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-04-30
+	* added share/chappy.py
+
+2006-11-27  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * distinguish bootstrap from user jo-code with different marker
+        * add ServiceManager as collector for ConfigurableServices
+
+2006-11-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix for ill-formed jofiles missing eols
+
+2006-11-20  Paolo Calafiura <pcalafiura@lbl.gov>
+        * tagged with AthenaCommon-02-04-29
+	* python/PropertyProxy.py (_fillConfDict): new separators in rootmap files
+        * added file marker IDs as per:
+            https://hypernews.cern.ch/HyperNews/Atlas/get/Prelimbugs/471.html
+        * cleanup of event loop mgr handling code in athena.py
+
+2006-11-17 Martin Woudstra <MJWoudstra@lbl.gov>
+	* python/Configurable.py: ConfigurableAlgTool.isPublic() now equal to isInToolSvc()
+	* python/PropertyProxy.py: raise RuntimeError exception if someone attempts to
+	   set a ConfigurableAlgtool to a PublicToolHandle before having added it to ToolSvc
+
+2006-11-16 Martin Woudstra <MJWoudstra@lbl.gov>
+	* python/Configurable.py: 
+	  - bugfix in Configurable.__deepcopy__()
+	  - Configurable.__str__(): 
+	    + add property memory address if log level DEBUG
+	    + header: Print full jobOptName instead of just Name
+	    code looks very different now...
+	  - ConfigurableService: added toStringProperty()
+	* python/PropertyProxy.py:
+	  - rename logger from 'Athena' to 'PropertyProxy'
+          - add utility function PropertyProxy.fullPropertyName()
+	  - GaudiHandlePropertyProxy: more refined auto-setting of default configurable
+
+2006-11-13 Martin Woudstra <MJWoudstra@lbl.gov>
+	* python/PropertyProxy.py: handle correctly the use of setDefaults() for GaudiPropertyProxy
+	* python/Configurable.py: added function getDefaultProperty()
+
+2006-11-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * simplified share/athena.py full traceback at log level DEBUG
+
+2006-11-13 Martin Woudstra <MJWoudstra@lbl.gov>
+	* python/PropertyProxy.py: don't add GaudiHandle configurables to list of children
+	     because it gives problems when doing a deepcopy
+	* python/Configurable.py: 
+	  - propagate setParent to all ConfigurableAlgTools properties and children
+	    to get the correct full jobOptsName (including ALL tool parents up to first non-tool)
+	  - make sure setup() is called also for Configurable properties (from the GaudiHandles)
+          - adapt __str__ to print full Configurable Properties (like a child)
+	  - put some code in function copyChildAndSetParent() so it can be re-used in PropertyProxy
+	  - add 'Public' or 'Private' to AlgTool getGaudiType() for nice printout
+	* python/OldStyleConfig.py: AlgTool.setParent() calls ConfigurableAlgTool.setParent()
+	* share/athena.py: print out full stacktrace if we are in loglevel DEBUG
+
+2006-11-09 Martin Woudstra <MJWoudstra@lbl.gov>
+	* python/PropertyProxy.py: bugfixes and move from ToolHandle to generalised GaudiHandles
+	
+2006-11-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improve error msg when user forgets 'name' argument in Configurable
+        * ToolHandle support fixes
+
+2006-11-07  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added __len__ and __iter__ to Configurable to allow looping over
+          children (e.g. the algs of a job)
+
+2006-10-20 Martin Woudstra <MJWoudstra@lbl.gov>
+	* python/PropertyProxy.py: change configurable loading duplicate message to debug (there are many!)
+	
+2006-10-19  Martin Woudstra <MJWoudstra@lbl.gov>
+	* python/Configurable.py:
+	   - move DefaultName into Configurable
+	   - add isPublic() to ConfigurableAlgTool
+	* python/PropertyProxy.py:
+	   - add reading of configurable dictionary from rootmap files
+	   - ToolHandlePropertyProxy:
+	      + use that dict to generate default configurable if needed
+	      + add type checking
+	* tagged as AthenaCommon-02-04-26
+
+2006-10-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaCommon-02-04-25
+	* python/ChapPy.py: a module to script Athena.
+
+2006-10-05 Martin Woudstra <MJWoudstra@lbl.gov>
+	* python/Configurable.py,ConfigurableMeta.py,PropertyProxy.py: 
+	   - added support for ToolHandles
+
+2006-08-25  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * fixed typo in Configurable.py
+        * allow += on default list copy in PropertyProxy
+           -> need to verify whether that's a smart thing or not
+
+2006-08-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/ConfigurableMeta.py (ConfigurableMeta.__new__): let 
+	gaudimodule.PropertyEntry prepare the doc string
+        * tagged with AthenaCommon-02-04-23
+
+2006-08-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/PropertyProxy.py (PropertyProxy.__init__):
+	when available, use property doc string for __doc__
+	* python/ConfigurableMeta.py (ConfigurableMeta.__new__): 
+	when available, use property doc string to build PropertyProxy
+        * tagged with AthenaCommon-02-04-21
+        Added property default value to doc string
+        * tagged with AthenaCommon-02-04-22
+
+2006-08-14  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * from Martin: --level => --loglevel in options processing
+
+2006-08-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * reverted some OutputLevel changes, now works b/c of distinction in
+          defaults from C++ and python
+        * tagged with AthenaCommon-02-04-19
+        * added more detailed message for every compat error
+        * tagged with AthenaCommon-02-04-20
+
+2006-08-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * forward default log level to configurables
+        * fixes for defaults printing
+        * simplified tracebacks from user script python exceptions
+
+2006-07-27  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * workaround for a not-understood pb in CINT's error reporting mechanism
+        * added prose to catch case mismatches (not always a pb)
+        * verify property type consistency for old-style (but needs double set)
+        * agged with AthenaCommon-02-04-18
+
+2006-07-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * algorithms don't get parent part of name, conform Gaudi conventions
+        * tagged with AthenaCommon-02-04-17
+
+2006-07-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * removed LD_PRELOAD hack
+        * tagged with AthenaCommon-02-04-16
+
+2006-07-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/Configurable.py: do not require subclasses to implement
+	getServices yet
+        * tagged with AthenaCommon-02-04-15
+
+2006-07-19  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added backdoor detection/resolution for old style config
+        * tagged AthenaCommon-02-04-11 with above as AthenaCommon-02-04-12
+
+        * removed access to backdoors in new style config
+        * make JobOptSvc.dump() print in alphabetic order
+        * added more checks, and allow (for now) all tools to be added as children
+        * made copy rules old-style/new-style consistent
+        * detect and handle dupe children as gracefully as possible
+        * tagged with AthenaCommon-02-04-13
+
+2006-07-18  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixes in copying rules for property history
+        * prettyfied configurable print outs
+        * better conformation to coding conventions
+        * use setDefaults rather than setUserDefaults
+        * enforce classmethod for getType and setDefaults
+
+2006-07-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * more backwards compatibility fixes for subalgorithms
+        * changed copying semantics: only private tools deep copy
+        * tagged with AthenaCommon-02-04-10
+
+        * tested against RecExCommon; added further fixes for compat,
+           added more error messages to encourages moving on
+        * tagged with AthenaCommon-02-04-11
+
+2006-07-14  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * restored backwards compatibility
+        * tagged with AthenaCommon-02-04-08
+
+2006-07-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * make use of new StoreGate bindings
+        * tagged with AthenaCommon-02-04-07
+
+        * updates to miminize genConf generated files
+        * fixes for Tool use; removed specialized code in favor of generic code
+        * fixes to copying, and parenting for Tools
+
+2006-07-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * comment fixes in athena.py
+        * make use of new StoreGate::retrieve
+
+2006-07-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/OldStyleConfig.py (Service): HACK to fix handling of
+	Service("a/b")
+
+2006-07-06  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * dict lookup protection in PropertyProxy, just in case
+        * tagged with AthenaCommon-02-04-05
+        * allow userOpts (everything after '-' on the CLI) in athena.py
+        * check for 'dangling' Algorithms and issue a warning, if encountered
+        * fixup for TopAlg and OutStream to allow removals
+        * tagged with AthenaCommon-02-04-06
+
+2006-07-05  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix for OutStreams
+        * added 'remove' method in Configurable
+        * added basic property type checking (needs further support in genconf)
+        * tagged with AthenaCommon-02-04-04
+
+2006-07-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fix in allConfigurables lookup
+        * added prose to try to depricate theApp.setup() for non-Configurable use
+        * mad mods for Scott's pickle support
+        * removed obsolete data member _handle
+        * changed warnings for old-style into errors
+        * tagged with AthenaCommon-02-04-03
+
+2006-06-30  Charles Leggett <charles.leggett@cern.ch>
+	* added Filter to remove ROOT:Reflex::NewDelFunctions from StatusCode 
+	  printouts
+	* tag AthenaCommon-02-04-02
+
+2006-06-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added lookup mapping between loose-style algid and strict Gaudi
+        * tagged with AthenaCommon-02-04-01
+
+2006-06-27  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Cleanup obsolete CERNLIB dependencies
+
+2006-05-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * allow mixing of Configurables and old-style jobopts in TopAlg
+
+2006-05-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * support basic memory leak checking through a CLI flag
+        * tagged with AthenaCommon-02-03-07
+
+2006-04-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/AppMgr.py (AthAppMgr): bug fixes (thanks Peter!) 
+        * share/Atlas_Gen.UnixStandard.py: bug fix (thanks Hong!!)
+        * tagged with AthenaCommon-02-03-06
+
+2006-03-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/Configurable.py (Configurable.__init__): get default property
+	values from __slots__ if available
+	* python/AppMgr.py (AthAppMgr): manage output streams 
+	* python/Include.py: no tracing of generated files
+        * tagged with AthenaCommon-02-03-03
+
+2006-03-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/AppMgr.py: NEW AthAppMgr as a module. Get theApp from here!
+	* python/OldStyleConfig.py: NEW generic Algorithm, AlgTool and Service 
+	moved to this module
+	* python/Include.py: provide "include" to modules for backward 
+	compatibility
+	* share/athena.py: changes for modularization 
+	* share/Services.py: changes for modularization 
+	* share/Compat.py: moved most of its contents to AppMgr.py and 
+	OldStyleConfig.py
+        * tagged with AthenaCommon-02-03-01
+	
+2006-03-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/Configurable.py: no need of setDefaults anymore use
+	__slots__ dictionary instead
+	* python/ConfigurableMeta.py: build list of instantiated 
+	ConfigurableServices
+	* share/Compat.py: setup instantiated ConfigurableServices
+	* cmt/requirements: moved do_genconf to GaudiPython
+	* share/genconf: moved to GaudiPython
+        * tagged with AthenaCommon-02-02-11
+
+2006-03-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/genconf: bug fix 
+        * tagged with AthenaCommon-02-02-10
+
+2006-03-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: much improved do_genconf pattern (thanks Christian!)
+        * tagged with AthenaCommon-02-02-09
+
+2006-03-07  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * special case for iService.AlgTool setup (iService != Configurable)
+        * tagged with AthenaCommon-02-02-08
+
+2006-03-06  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * unrolled several hacks
+        * tagged with AthenaCommon-02-02-06
+
+        * added additional error detection
+        * ToolSvc and generic AlgTool to work with new syntax
+        * further beautification of JobOptSvc
+        * minor cleanups in python files
+        * added share/ConfigurationTest_jobOptions.py test sample
+        * tagged with AthenaCommon-02-02-07
+
+2006-03-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * loads of deeply evil hacks to get around the problematic *PoolPoolCnv
+
+2006-03-02  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * special-case the EventPersistencySvc to allow people to work
+           this is deeply evil and needs to be fixed ASAP ... ideas welcome
+        * tagged with AthenaCommon-02-02-05
+
+2006-03-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/genconf: removed duplicated OutputLevel in __slots__. 
+	Still some work to do to remove duplicates 
+	* cmt/requirements: improved do_genconf pattern. No more manual action
+	required
+        * tagged with AthenaCommon-02-02-04
+
+2006-02-28  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * removed dump_txt.py, Atlas_ZebraTDR.UnixStandardJob.py
+        * updated athena.C and added -b (batch) option (interactive is default)
+        * changed Configurable.setup to not get handles but use iProperty
+        * tagged with AthenaCommon-02-02-03
+
+2006-02-06  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * removed use of PyBus
+        * tagged with AthenaCommon-02-02-02
+
+2006-01-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added --no-display option that is forwared to ROOT
+        * tagged with AthenaCommon-02-02-01
+
+2006-01-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * don't del opt if there are none
+
+2006-01-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: improved genconf pattern using actions
+        * tagged with AthenaCommon-02-02-00
+
+2006-01-20  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * fixes for AlgTools and detection of "unconventional" property addressing
+
+2006-01-18  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * simplications in execution order for Configurable instance lookup
+        * streamlined setting/collecting of properties for GenericConfigurables
+        * Configurable type checks (mainly for GenericConfigurables)
+        * fixes for getting the AlgTool names right
+
+2006-01-18  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * fix for GenericConfigurable: collect properties at instance level
+
+2006-01-13  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * multiple updates for GenericConfigurables
+
+2005-12-07  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * reduce pollution from athena.py
+        * first attempt at using GenericConfigurables
+
+2005-12-05  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * made configurable tools work in a backwards compatible way
+
+2005-12-02  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * added "share/Services.py" with Atlas additions for gaudimodule.py
+
+2005-11-25  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * fix for compability
+        * tagged with AthenaCommon-02-01-04
+        * additional compat fix and tagged AthenaCommon-02-01-05
+
+2005-11-24  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * make -b CLI arg explicit for the benefit of PyROOT
+
+2005-11-23  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * hack for pylcgdict -> PyCintex migration
+        * tagged with AthenaCommon-02-01-03
+
+2005-10-14  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * minor tweak to get rid of "/usr/bin/addr2line: 'python': No such file"
+
+2005-10-10  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * further abstractions and cleanup of now obselete codes
+
+2005-10-07  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * First step towards abstracting history and slots manipulation in a
+          metaclass that is out of the user's way. This will reduce the number
+          of "special methods" in Configurable, and hence reduce the number of
+          surprises for developers.
+
+2005-09-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/genconf: fix bug in generated __init__ (base class)
+	* python/Configurable.py: first attempt with private tools. Not yet there...
+
+2005-09-20  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * all same-named configurable (per type) point to same object
+        * fix in Configurable argument checking
+        * drop ZEBRA as we're closing in on 11.0.0
+        * transitional ToolSvc that changes unknowns into Configurables
+
+2005-09-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/genconf: generate __slots__, use right Configurable subclass 
+	* python/AlgSequence.py (AlgSequence.setup): use public name()
+	* python/Configurable.py (Configurable.__setattr__): add props to 
+	local dictionary too (protects from overwrite)
+
+2005-09-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * add --trace=<pattern> option to be use with -s
+        * add printing of default properties and public getDefaults() to Configurable
+
+2005-09-09  Wim Lavrijsen <Wlavrijsen@lbl.gov>
+        * split Configurables to alg, svc, tool for grabbing IProperty intf
+        * put setup into application mgr initialize
+        * allow tracing of XYZConfig.py files with -s
+
+2005-09-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * back to __slots__ (protocode)
+
+2005-09-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: "fixed" genconf_run pattern
+        * tagged with AthenaCommon-02-01-02
+
+2005-09-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: added genconf_run pattern
+	* python/Configurable.py: temporarily back to no __slots__ 
+        * tagged with AthenaCommon-02-01-01
+
+2005-09-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* python/AlgSequence.py (AlgSequence.setup): use name() accessor
+	* python/Configurable: add children to __dict__
+	* share/genconf: __slots__ is a class variable...
+
+2005-09-02  Paolo Calafiura <pcalafiura@lbl.gov>
+	* python/Configurable.py: manage childrens (e.g.algs of sequence)
+        * python/AlgSequence.py: use Configurable childrens
+        * share/genconf: generate __slots__
+
+
+2005-09-01  Wim Lavrijsen <WLavrijsen@lbl.gov<
+        * Add verbose() and all() methods to AthenaLogger class
+        * Cleanup of comments etc. in Configurable classes
+        * Make prototype Configurable use __slots__
+
+2005-08-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * allow Gaudi levels to be used to setLevel loggers
+
+2005-08-24  Paolo Calafiura <pcalafiura@lbl.gov>
+	* python/Configurable.py (Configurable.__init__): fix handle name
+
+2005-08-23  Paolo Calafiura <pcalafiura@lbl.gov>
+	* python/AlgSequence.py (AlgSequence.setup): added flag to suppress 
+	appending to theApp.TopAlg
+	* python/Configurable.py (IPropertyHandle.properties): added accessor
+	* share/genconf: tool to inspect shlibs and generate Configurables 
+	
+2005-08-17  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * added maxing of soft resource limits
+        * tagged with AthenaCommon-02-00-40
+
+2005-07-12  Massimo Marino  <Massimo.Marino@lbl.gov>
+	* share/JobOptTraceInclude.py: Dlls,TopAlgs,ExtSvc output actual 
+         load/creation order. Optional boolean to have...
+        * tagged with AthenaCommon-02-00-39
+
+2005-06-16  David Rousseau  <droussea@lxplus016.cern.ch>
+	* python/DetFlags.py: update DetFlags comment (haveRIO and haveRDO)
+
+2005-06-02  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * cleanup/fixes to StoreGate python side class
+        * tagged this fix and AthenaCommon-02-00-35 with AthenaCommon-02-00-36
+
+2005-05-27  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added AlgSequence and Configurable modules to support new style config
+        * change compat constants TRUE and FALSE to bool type
+
+2005-05-05  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * moved all references of PyLCGDict -> pylcgdict, and upgraded api
+        * tagged with AthenaCommon-02-00-35
+
+2005-04-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/Atlas.UnixStandardJob.py (_StoreGateClass.__init__): move 
+	PyLCGDict.makeClass to __getattr__ so as to delay SG instantiation
+        * tagged with AthenaCommon-02-00-34
+
+2005-03-30  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * tagged with AthenaCommon-02-00-33
+
+2005-03-23  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improve error reporting
+
+2005-03-20  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added share/JobOptTraceInclude.py (see file for details)
+        * tagged with AthenaCommon-02-00-32
+
+2005-03-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * workaround for PyLCGDict loading of C++ true, false
+        * tagged with AthenaCommon-02-00-31
+
+2005-02-22  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * workaround for PyLCGDict dual dict pb
+        * tagged with AthenaCommon-02-00-30
+
+2005-02-14  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * "detect" valgrind before setting LD_PRELOAD for faster startup
+        * tagged with AthenaCommon-02-00-29
+
+2005-02-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * use python sig handling for interactive
+        * set SIG_INT to kill in batch
+        * remove monitoring process
+        * tagged with AthenaCommon-02-00-28
+
+2005-02-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * athena.py customization for gdb, valgrind
+
+2005-01-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * let interactive mode use python event loop mgr
+        * tagged with AthenaCommon-02-00-27
+
+2005-01-20  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improved module DumpProperties
+        * added module PropertiesManip
+        * allow $HOME/.athenarc module in athena.py
+        * workaround for double quoted strings in Compat.py
+        * tagged with AthenaCommon-02-00-26
+
+2005-01-18  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * rewrote athena.py startup as valgrind 2.2.0 is more limited than sh
+        * tagged with AthenaCommon-02-00-25
+
+2005-01-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * mods to python/DetFlags.py from Tadashi and Davide
+
+2005-01-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * mods to python/DetFlags.py from DavidR and Tadashi
+        * tagged with AthenaCommon-02-00-24
+
+2004-12-03  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Simplify because of availability of 
+	MinimalRunTime pacakge for setting up run-time environment
+
+2003-11-30: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * modded athena.py to work both w/ & w/o libHepMC_base.so being available
+          Note: this is deeply ugly code, but should disappear soon ...
+        * tagged with AthenaCommon-02-00-22
+
+2004-11-11: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added AthenaCommonFlags.py
+        * tagged with AthenaCommon-02-00-21
+
+2004-11-03: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * tagged with AthenaCommon-02-00-20
+
+2004-10-21: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixed ObjectBrowser Gaudi object selection
+
+2004-10-15: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * moved SystemOfUnits.py and PhysicalConstants.py from share to python
+
+2004-10-12: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * strip command strings
+        * tagged with AthenaCommon-02-00-19
+
+2004-10-11: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * tagged with AthenaCommon-02-00-18
+
+2004-10-07: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * stop processing in run() upon failed (re)-initialize
+        * add '' and cwd to sys.path, if not already there
+
+2004-10-05: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * included finialize and terminate results in return code
+        * tagged with AthenaCommon-02-00-17
+
+        * update runbatch.py and let athena.py make use of it
+
+2004-10-04: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * return codes from run and (re)initialize
+        * implemented a nextEvent() that works as expected
+        * tagged with AthenaCommon-02-00-16
+
+2004-08-24: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * improvement (still no definite fix) to ^C handling
+        * tagged with AthenaCommon-02-00-15
+
+2004-08-20: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * cosmetic fixes and tagged with AthenaCommon-02-00-14
+
+2004-08-03: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * tagged HEAD with AthenaCommon-02-00-13
+
+2004-07-30: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added GlobalFlags.py from RecExCommon
+        * tagged AthenaCommon-02-00-10 with AthenaCommon-02-00-12
+        * tagged HEAD GlobalFlags.py and ChangeLog with AthenaCommon-02-00-12
+
+2004-07-28: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * tagged AthenaCommon-02-00-09 with AthenaCommon-02-00-10
+        * tagged HEAD MemTraceInclude.py and ChangeLog with AthenaCommon-02-00-10
+
+2004-07-01: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * monitor process now exits on orphanage
+        * load StoreGate bindings
+        * mix StoreGate and iService bindings for StoreGate object
+        * added StoreGate retrieved based on templated lookup
+        * explitize common StoreGate methods
+        * tagged with AthenaCommon-02-00-09
+
+2004-06-29: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixed theApp.EvtMax = -1 feature
+        * tagged with AthenaCommon-02-00-08
+
+2004-06-25: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added MemTraceInclude.py options file which modifies include to
+          print memory info after each file inclusion
+        * tagged with AthenaCommon-02-00-07
+
+2004-06-22: Tadashi Maeno <Tadashi.Maeno@cern.ch>
+        * python/DetFlags.py: new features
+        * tagged with AthenaCommon-02-00-06
+
+2004-06-21: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * no fork if gdb is attached
+        * tagged with AthenaCommon-02-00-04
+        * fix for recursive include tracing
+        * tagged with AthenaCommon-02-00-05
+
+2004-06-19: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * moved DetFlags.py from share to python for use as module
+        * tagged with AthenaCommon-02-00-03
+
+2004-06-18: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * minor fixes to athena.py and Compat.py
+        * cosmetic changes to logging and file listings
+        * tagged with AthenaCommon-02-00-02
+ 
+2004-06-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/DetFlags.py: moved from Digitization 
+
+2004-06-17: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * (cosmetic) restructuring of athena.py
+        * fork eventloop to allow ^C interrupts
+
+2004-06-16: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added athena.C
+        * moved ObjectBrowser.py from share to python
+        * (cosmetic) fixes to athena.py
+
+2004-06-15: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * restructured athena.py and dump_txt.py
+        * new module python/Logging.py
+        * new files share/Bootstrap.py share/Compat.py
+        * allow Bootstrap.py to be located in different packages with '-p'
+
+2004-06-14: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added inital dump_txt.py script; note that it currently out of
+          sync with athena.py
+        * tagged AthenaCommon-02-00-00 with AthenaCommon-02-00-01
+        * tagged dump_txt.py with AthenaCommon-02-00-01
+
+2004-06-08  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * changed startup for working w/ valgrind
+        * added Constants.py module for common definitions
+        * cosmetic changes to athena.py and Include.py
+
+2004-06-07  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added "python" directory
+        * added "python/Include.py" module for handling opt files inclusion
+        * added '-s' option for showing contents of opt files
+        * added setting of POOL output level from command line
+        * made cosmetic changes in athena.py
+
+2004-05-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * move to athena.py as default
+        * tagged w/ AthenaCommon-02-00-00
+
+2005-05-14  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * restructered option handle
+        * no close of stdin for dbg
+        * use logging module (through PyBus) for messages
+        * allow global logging level be set with cli option
+        * some code restructuring in athena.py
+        * removed duplicate code in Atlas.UnixStandardJob.py
+        * tagged w/ AthenaCommon-01-04-38
+
+2004-05-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * removed job options .txt legacy
+        * refactoring and cleanup
+        * hard close after application termination (may not be proper)
+        * tagged w/ AthenaCommon-01-04-37
+
+2004-05-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * removed StoreGate and IOVSvc cross-compatibility
+        * removed gaudimodule appmgr run override
+        * re-arranged application exit
+        * tagged w/ AthenaCommon-01-04-36
+
+2004-05-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * re-route ApplicationMgr bootstrapping through proxy
+        * tagged w/ AthenaCommon-01-04-35
+
+2004-05-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * exit upon reaching command prompt in batch mode
+        * tagged w/ AthenaCommon-01-04-34
+
+2004-05-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * mods to athena.py for new GaudiPython (comp. for now)
+        * tagged w/ AthenaCommon-01-04-33
+ 
+2004-04-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/athena.py: prelod libHepMC_base
+        * tagged w/ AthenaCommon-01-04-31
+	
+2004-04-01  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added Atlas.UnixStandardJob.py
+        * retired Atlas_Common.StandardJob.py
+        * updated Zebra and Gen .py files
+        * retired Scripting*.txt (they never worked in Atlas)
+        * retired Atlas_TDR.UnixStandardJob.py (.txt already gone)
+        * removed POOL event selector as setup choice in athena.py
+        * allow default jobOptions.py
+        * tagged w/ AthenaCommon-01-04-30
+
+2004-03-29  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * force-feed AthenaSealSvc if POOL is used in athena.py
+
+2004-03-26  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added POOL event selector as setup choice in athena.py
+        * tagged w/ AthenaCommon-01-04-29
+
+2004-03-19  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * StoreGate.py -> StoreGate_jobOptions.py in athena.py
+        * tagged w/ AthenaCommon-01-04-28
+
+2004-01-29  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* requirements: install athena.py as script
+        * tagged with AthenaCommon-01-04-27
+
+2004-01-29  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * small fix to athena.py for detdescrcnvsvc
+        * tagged with AthenaCommon-01-04-25
+
+2004-01-29  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* TEMPORARY FIX: add PDGTABLE files here so that they are correctly
+	installed. They belong in Gaudi/PartPropSvc!
+	* cleaned-up install patterns
+	* fixed the cleaned-up patterns...
+        * tagged with AthenaCommon-01-04-24
+
+2004-01-28  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * run athena.py in batch mode by default
+        * tagged with AthenaCommon-01-04-21
+
+2004-01-23  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added SystemOfUnits.txt, as well as include in Atlas.UnixStandardJob.txt
+        * added runbatch.py script to be used with athena.py
+        * tagged with AthenaCommon-01-04-20
+
+2004-01-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added share/PhysicsConstants.py and share/SystemOfUnits.py
+        * tagged with AthenaCommon-01-04-19
+
+2003-12-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/Atlas_ZebraTDR.UnixStandardJob.py,txt: 
+	* share/Atlas_Gen.UnixStandardJob.py,txt: declare EventSelector 
+	to AppMgr 
+        * tagged with AthenaCommon-01-04-18
+
+2003-12-04  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * force use of IOVSvc in athena.py
+        * tagged with AthenaCommon-01-04-16
+
+        * removed broken checks
+        * tagged with AthenaCommon-01-04-17
+
+2003-12-02  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added HistogramSvc convenience object to athena.py
+        * tagged with AthenaCommon-01-04-15
+
+2003-11-20  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * made no evsel case explicit in athena.py
+        * tagged with AthenaCommon-01-04-14
+
+2003-11-14  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added listing of .py files in athena.py
+        * tagged with AthenaCommon-01-04-13
+
+2003-11-12  David Rousseau  <droussea@lxplus080.cern.ch>
+
+	* share/*.txt: take jobO in InstallArea
+
+2003-10-24  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * update to athena.py to get rid of some warnings
+        * tagged with AthenaCommon-01-04-11
+
+2003-09-15  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * updates to athena.py for compatibility with .txt behaviour
+
+2003-08-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * small change to further contain LD_PRELOAD in athena.py
+
+2003-08-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added LD_PRELOAD=libGaudiKernel.so to athena.py
+        * removed setting of RTLD_GLOBAL flag in athena.py
+        * tagging AthenaCommon-01-04-08
+
+2003-06-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+
+	* removed objy from share/athena.py
+        * added DetDescr to share/athena.py
+        * minor UI updates to share/athena.py
+        * tagging AthenaCommon-01-04-04
+
+2003-06-12  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Update to use new static_use patterns for
+	statically build applications.
+
+2003-05-29  Paolo Calafiura  <calaf@lxplus068.cern.ch>
+
+	* cmt/requirements: add use GaudiPython to get the right PYTHONPATH
+	* tagging AthenaCommon-01-04-03
+
+2003-05-22  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements:  Cleanup and add support for static builds
+
+2003-05-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* cmt/requirements: put back some use stats to set env vars          
+	* tagging AthenaCommon-01-04-01
+
+2003-05-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* cmt/requirements: remove all use -no_auto_imports (use InstallArea)
+	* tagging AthenaCommon-01-04-00
+
+2003-05-14  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaCommon-01-03-20
+
+	* cmt/requirements: added use of IdDictDetDescrCnv to load the
+	cnv.
+
+2003-04-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* share/TDRsetup_links.sh: point to the castor HEEMM_DC1 file 
+	* tagging AthenaCommon-01-03-19
+
+2003-04-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * share/TDRsetuplinks.sh: point to input file in atlasdata area
+	* tagging AthenaCommon-01-03-18
+
+2003-01-19  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaCommon-01-03-17
+
+	* removed Objy joboptions.
+
+	* tagging AthenaCommon-01-03-15
+
+	* cmt/requirements: added use of DetDescrCnvSvc for inclusion of
+	job options
+
+
+2003-01-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * src/AthenaMain.cxx: return 0 when AppMgr.run is successful
+	* tagging AthenaCommon-01-03-14
+	
+2002-11-23  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaCommon-01-03-13
+	
+	* share/Atlas.UnixStandardJob.txt: added include of DDCnvCvs.
+
+2002-08-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* share/TDRsetup_links.sh (atlasdata): use new form of stagein
+	tag AthenaCommon-01-03-12 
+
+2002-06-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* share/Atlas.UnixStandardJob.txt: added
+	AthenaEventLoopMgr.OutStreamType (default in 0.10.1 is wrong)
+	* moved SRT files to attic
+	tag AthenaCommon-01-03-11 
+
+2002-06-19  David Rousseau  <David.Rousseau@cern.ch>
+
+	* share/slug.car: clean-up 
+
+2002-05-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* share/*.py: tagging Wim changes for new python scripting
+	tag AthenaCommon-01-03-09
+
+2002-04-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* share/Atlas_ZebraTDR.UnixStandardJob.txt: remove double include
+	* share/Atlas_Gen.UnixStandardJob.txt: fix major bug (= -> +=)
+
+2002-04-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* tag AthenaCommon-01-03-07
+2002-04-02 Wim Lavrijsen <WLavrijsen@lbl.gov>
+
+        * src/AthenaMain.cxx
+        * share/Atlas_Common.StandardJob.py
+        * share/Atlas_Gen.UnixStandardJob.py
+               modified the defaults to ensure that python scripting service
+               get the proper EventLoopMgr -- this needs a more robust fix
+               with support inside Gaudi
+
+2002-03-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* share/Atlas_Gen.UnixStandardJob.txt:
+	* share/Atlas_ZebraTDR.UnixStandardJob.txt: restructure to take
+	advantage of #include. Atlas_TDR.UnixStandardJob.txt gone to attic
+
+	* share/Atlas.UnixStandardJob.txt: new options to load commonly
+	used services
+
+2002-02-15  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* share/TDRsetup_links.sh (atlasdata): changed Zbbar to Hbbar
+
+2002-02-06  Paolo Calafiura  <calaf@lxplus045.cern.ch>
+
+	* share/Atlas_Gen.UnixStandardJob.txt: also needs ActiveStoreSvc
+
+2002-01-11 Paolo Calafiura  <pcalafiura@lbl.gov> Massimo Marino <Massimo_Marino@lbl.gov>
+	* share/Atlas_ZebraTDR.UnixStandardJob.txt: make same as Atlas_TDR 
+
+2002-01-11 Paolo Calafiura  <pcalafiura@lbl.gov> Massimo Marino <Massimo_Marino@lbl.gov>
+	* share/Atlas_*TDR.UnixStandardJob.txt: declare ActiveStoreSvc
+
+2001-11-19  Paolo Calafiura <pcalafiura@lbl.gov>
+	* share/Atlas*.txt: expand contents of StoreGate_jobOptions.txt in 
+               place to work around a limitation of the job options parser
+
+2001-11-16  Paolo Calafiura <pcalafiura@lbl.gov>
+	* cmt/requirements: Add run time dependency on StoreGate
+	* share/Atlas*.txt: include StoreGate_jobOptions.txt
+
+2001-10-24  Christian Arnault  <carnault@lxplus038.cern.ch>
+
+	* cmt/requirements: Add space to macro_append
+	GaudiInterface_libraries
+
+2001-07-02  Davud Quarrie <David.Quarrie@cern.ch>
+    Add dummy C++ file to AthenaCERNLIB to fix unresolved references for
+    GCC 2.95.2. Fix bug in Athena_env.sh configuration script.
+
+2001-06-15  David Quarrie <David.Quarrie@cern.ch>
+    Add line to slug.car file to allow for reading of the RECB information
+    per request by Monika Wielers.
+
+2001-04-27  David Quarrie <David.Quarrie@cern.ch>
+    Increase the number of triggers in the slug.car file from 1000
+    to 1000000. The actual number is determined by the lesser of
+    this and the ApplicationMgr.EvtMax Property.
+
+    Fix a problem in setting up Python 2.0 and ensuring that
+    the python command is setup in the PATH.
+
+2001-03-26  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* GNUmakefile.in (TARGET_DATA): added data targets for
+	ZebraTDR/ObjyTDR txt files.
+
+	* share/Athena_env.csh: added sourcing of AtlasDB_env.{c}sh
+
+2001-02-12  David Quarrie <David.Quarrie@cern.ch>
+    Update to accept the command line argument as the location of the
+    jobOptions file.
+
+2001-02-05  David Quarrie <David.Quarrie@cern.ch>
+    Update to ATLAS Gaudi Release 0.6.3. Upgrade AthenaMain.cxx to support
+    Python "theApp.Go" command and updated Ctrl-D handling.
+
+2001-01-10  David Quarrie <David.Quarrie@cern.ch>
+    Fix bug in setting up the PYTHONPATH environment variable.
+
+2001-01-09  David Quarrie <David.Quarrie@cern.ch>
+    Update to ATLAS Gaudi Release 0.6.2.
+
+2001-01-03  David Quarrie <David.Quarrie@cern.ch>
+    Cleanup the link options and linksets as a result of improved understanding.
+
+2000-10-26  Paolo Calafiura  <calaf@atlas010.cern.ch>
+
+	* GNUmakefile.in: cleaned up local deps
+
+	* share/TDRsetup_links.sh (atlasdata): fixed bug in setting ATLAS_RELEASE
+
+	* share/setup.sh: setup srt if needed
+                          make default ATLAS_RELEASE=current
+	                  add install bin dirs to PATH
+
+	* share/setup.csh: setup srt if needed
+	                   make default ATLAS_RELEASE=current
+	                   add install bin dirs to PATH
+
+2000-10-11  Paolo Calafiura  <calaf@atlas011.cern.ch>
+
+	* share/Atlas_Gen.UnixStandardJob.txt &
+	  share/Atlas_TDR.UnixStandardJob.txt: 
+	  load event conversion library using ApplicationMgr.DLLs 
+
+	* src/dummySub.f (NEVER___USED): NEW convince SRT to create 
+	AthenaCernlib
+
+	* src/dummyMain.f (NEVER___USED): NEW define MAIN__ for the
+	stupid linker
+
+	* GNUmakefile.in & PACKAGE:
+	new targets are the common "athena" binary
+	and an AthenaCernlib library which exports all the cernlib symbols
+	(and the g2c implementations)
+
+	* changed the example and exampleTDR aliases in the setup scripts
+	to use the new common binary "athena".  
+
+	* the slug-related f77 files were moved to ZebraTDRCnv
+
+2000-09-29  Paolo Calafiura  <calaf@atlas010.cern.ch>
+
+	* share/setup.sh: fixed bug in setting LD_LIBRARY_PATH
+
+	* moved "common" initialization scripts and files from 
+	AthenaExample/share to AthenaCommon/share. Basically now everything
+	you need to run athena is installed under 
+	$(installdir)/share/AthenaCommon. You only have to provide your
+	jobOptions.txt file. 
+
+2000-08-24  Paolo Calafiura
+
+	* AthenaCommon created
+

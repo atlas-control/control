@@ -1,0 +1,18 @@
+K 10
+svn:ignore
+V 17
+version.hwaf
+run
+
+K 13
+svn:mergeinfo
+V 766
+/Control/AthContainersInterfaces/branches/AthContainersInterfaces-00-01-09-branch:563914-564104
+/Control/AthContainersInterfaces/devbranches/AthContainersInterfaces-00-01-19-rootcore:579484-581149
+/Control/AthContainersInterfaces/devbranches/AthContainersInterfaces-00-01-22-ssstest1:593649-597615
+/Control/AthContainersInterfaces/devbranches/AthContainersInterfaces-00-01-24-ssstest1:597615-599874
+/Control/AthContainersInterfaces/devbranches/AthContainersInterfaces-00-01-25-ssstest1:599876-611230
+/Control/AthContainersInterfaces/devbranches/AthContainersInterfaces-00-01-27-ssstest1:620260-625554
+/Control/AthContainersInterfaces/tags/AthContainersInterfaces-00-01-09-02:564106
+/Control/AthContainersInterfaces/tags/AthContainersInterfaces-00-01-19:570884-579483
+END

@@ -1,0 +1,83 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'CLIDComps',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+
+    ctx.use_pkg('Control/AthenaKernel')
+    ctx.use_pkg('Control/CxxUtils')
+    ctx.use_pkg('Control/SGTools')
+    ctx.use_pkg('GaudiKernel')
+
+    ctx.use_pkg('External/AtlasROOT')
+    ctx.use_pkg('External/AtlasPython')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_complib(
+        name     = 'CLIDComps',
+        source   = '*.cxx components/*.cxx',
+        use      = ['SGTools',
+                    #'SGAudCore',
+                    'AthenaKernel', 'CxxUtils',
+                    #'TestTools',
+                    'GaudiKernel',
+                    #'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'Reflex',
+                    #'uuid',
+                    ],
+    )
+
+    ctx.install_headers()
+
+    ctx.build_pymodule(source=['python/*.py'])
+
+    ctx.install_scripts(source=['share/clid', 'test/_clid_unittest.py'])
+    ctx.install_files(
+        '${INSTALL_AREA}/share',
+        'share/Gaudi_clid.db',
+        relative_trick=False
+        )
+    
+    ### --- tests -------------------------------------------------------------
+    ctx.build_app(
+        name     = 'ClassIDSvc_test',
+        source   = 'test/ClassIDSvc_test.cxx',
+        use      = ['SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools',
+                    'GaudiKernel',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'CLIDRegistry_test',
+        source   = 'test/CLIDRegistry_test.cxx',
+        use      = ['SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools',
+                    'GaudiKernel',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+
+    return
+### EOF ###

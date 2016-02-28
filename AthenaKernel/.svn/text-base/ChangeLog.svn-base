@@ -1,0 +1,2156 @@
+2016-02-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-11.
+	* Add hideFunctionNames.  Further tweak function name mangling.
+
+2016-02-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-10.
+	* cmt/requirements: More patterns to ignore.
+
+2016-02-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-09.
+	* AthenaKernel/IProxyDict.h (IStringPool): Update signature of
+	recordObject: Take object via DataObjectSharedPtr, and add
+	returnExisting flag.
+	* Tagging AthenaKernel-00-59-08.
+	* Add DataObjectSharedPtr.
+
+2015-12-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-07.
+	* AthenaKernel/IHiveStore.h: IProxyDictWithPool -> IProxyDict.h.
+
+2015-12-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-06.
+	* AthenaKernel/IStringPool.h: Clean up: make interfaces abstract.
+
+2015-11-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-05.
+	* AthenaKernel/IProxyDict.h: Clean up remnants of the previous
+	version of this interface.
+
+2015-11-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-04.
+	* AthenaKernel/selection.xml, AthenaKernel/AthenaKernelDict.h:
+	Generate dictionary for Athena::PackageInfo.
+
+2015-11-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-03.
+	* AthenaKernel/TPCnvFactory.h: Add an additional `Trigger' type of
+	converter, analogous to ARA.
+	* AthenaKernel/ITPCnvSvc.h: Add optional arguments to the
+	converter retrieval functions to specify which type is wanted.
+
+2015-10-20  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-59-02
+	* AthenaKernel/IAthenaIPCTool.h: Drop functions for metadata sharing.
+
+2015-10-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-59-01.
+	* utils/genCLIDDB.cxx, src/getMessageSvc.cxx: Fix placement of
+	using directives.
+
+2015-10-05  Charles Leggett
+
+	* Tag AthenaKernel-00-59-00
+	* move IClassIDSvc.h to GaudiKernel, AthenaKernel/IClassIDSvc.h
+	  now just includes the GaudiKernel one. Should probably add a
+	  deprecation message, except it's used in 63 places....
+	* this requires GaudiKernel-31-05-08 or later
+
+M       AthenaKernel/IClassIDSvc.h
+
+2015-10-02  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-58-07
+	* AthenaKernel/IAthenaIPCTool.h: Add functions for metadata sharing.
+
+2015-09-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-58-06.
+	* AthenaKernel/Units.h: Add a few more units.
+
+	* Tagging AthenaKernel-00-58-05.
+	* Comply with ATLAS naming conventions.
+
+2015-09-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-58-04.
+	* AthenaKernel/IProxyDict.h: Change IProxyDict::boundProxy to
+	boundHandle.  Add unboundHandle.
+
+2015-09-14  Charles Leggett
+
+	* Tagging AthenaKernel-00-58-03
+	* Hive: DataObjID
+
+M       AthenaKernel/IHiveStoreMgr.h
+
+2015-09-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-58-02.
+	* Add IProxyDict::boundProxy().
+
+2015-09-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-58-01.
+	* AthenaKernel/IResetable.h (IResetable): Temporarily add also
+	parameterless reset() for compatibility with TrigDecisionTool.
+
+2015-09-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-58-00.
+	* AthenaKernel/IResetable.h (IResetable): Add `hard' parameter to
+	reset().
+
+2015-08-19  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-57-04
+	* AthenaKernel/IAthenaSerializeSvc.h: New interface for
+	AthenaSerializeSvc.
+
+2015-07-30  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-57-02
+	* AthenaKernel/IAthenaIPCTool.h: Add number of bytes to getObject().
+
+2015-07-14  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-57-01
+	* AthenaKernel/IDataShare.h: Make some functions const
+
+2015-07-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-57-00.
+	* Working to revamp IProxyDict interface.  This tag is a
+	transitional version, in which methods being added/deleted are in
+	IProxyDict with a default implementation.
+	* AthenaKernel/IProxyDict.h: Derive from IStringPool.  Use
+	DeclareInterfaceID.  Add default implementations for proxy(CLID)
+	and deep_proxy: these methods are going away.  Add recordObject()
+	and updatedObject(), tryELRemap
+	* src/IProxyDict.cxx: (new) For default tryELRemap
+	implementation.
+	* AthenaKernel/IStringPool.h: (new)
+	* AthenaKernel/IThinningSvc.h, src/IThinningSvc.cxx: Use proxy()
+	instead of deep_proxy().
+	* AthenaKernel/selection.xml: Add IStringPool.
+
+2015-07-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-31.
+	* Remove superfluous semicolons.
+
+2015-07-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-30.
+	* AthenaKernel/Units.h: (new) Wrapper to avoid constant divisions
+	when dividing by units.
+	* test/Units_test.cxx, share/Units_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2015-06-02  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-56-29
+	* AthenaKernel/IAthenaIPCTool.h: Adjustments for shared reader
+	* AthenaKernel/IDataShare.h: Adjustments for shared reader
+
+2015-06-01  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-56-28
+	* AthenaKernel/IAthenaIPCTool.h: Adjustments to IAthenaIPCTool
+	interface, but likely still not final.
+
+2015-05-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-27.
+	* test/MsgStreamMember_test.cxx: Avoid redundant division warnings.
+
+2015-05-06  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaKernel-00-56-26
+	* IAthenaIPCTool: Some cleanup.
+
+2015-04-29  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\DsoDb.cxx (build_repository): fix ROOT6 rootmap reading bug that
+	caused fake duplicates
+	* Tagging AthenaKernel-00-56-25
+
+2015-04-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-24.
+	* src/StreamLogger.cxx (StreamLogger): Can't compare stream
+	objects (fix compilation with gcc5).
+
+2015-03-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-23.
+	* src/DsoDb.cxx: Implement for root6.
+
+2015-03-20  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-56-22
+	* AthenaKernel/IAthenaIPCTool.h: Adjustments to IAthenaIPCTool
+	interface, but likely still not final.
+
+2015-03-16  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-56-21
+	* Adding new IDataShare interface class
+
+2015-03-13  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* src\DsoDb.cxx: disable broken reading of rootmaps for ROOT6
+	* Tagging AthenaKernel-00-56-20
+
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-19.
+	* src/errorcheck.cxx (errorcheck): Another rewrite rule for
+	clang.
+	* test/Chrono_test.cxx: Fix clang compilation.
+
+2015-02-03  Paolo Calafiura  <calaf@lxplus0019.cern.ch>
+
+	* Tagging AthenaKernel-00-56-18
+	* AthenaKernel/IResetable.h (IResetable): added finalReset()
+
+2015-02-03  Charles Leggett
+	* Tagging AthenaKernel-00-56-17
+	* AthenaKernel/IHiveStoreMgr.h: added commitNewDataObjects method
+
+2014-11-28  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* Tagging AthenaKernel-00-56-16
+	* AthenaKernel/ICutFlowSvc.h: Move to new run2 cutflowsvc
+
+2014-10-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-15.
+	* AthenaKernel/TPCnvFactory.h: Try to fix coverity warnings.
+
+2014-09-29 David Quarrie <David.Quarrie@cern.ch>
+	* AthenaKernel/ITPCnvBase.h
+		Simplify support for Gaudi v25r3 plugin service (suggestion from Scott)
+	* Tagged as AthenaKernel-00-56-14
+
+2014-09-29 David Quarrie <David.Quarrie@cern.ch>
+	* AthenaKernel/ITPCnvBase.h
+		Add support for Gaudi v25r3 plugin service.
+	* Tagged as AthenaKernel-00-56-13
+
+2014-09-19  Joerg Stelzer <stelzer@cern.ch>
+
+	* Tagging AthenaKernel-00-56-12.
+	* getMessageSvc.h/cxx: add wrapper function for changing the output level
+
+2014-09-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-11.
+	* cmt/requirements: Dependency fix: don't use `Gaudi'.
+
+2014-08-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-10.
+	* cmt/requirements: Update dependencies.
+
+	* Tagging AthenaKernel-00-56-09.
+	* AthenaKernel/ITPCnvBase.h: Add Factory for new Gaudi plugin
+	service.
+	* AthenaKernel/ITPCnvSvc.h: Use new mechanism for Gaudi interface
+	mechanism.  Remove unused methods.
+	* AthenaKernel/TPCnvFactory.h: Rewrite for new Gaudi plugin
+	service and to avoid Reflex.
+
+2014-08-12  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* AthenaKernel\TPCnvFactory.h: re-arrange #ifdefs so ROOT6
+	compilation does not fail
+	* Tagging AthenaKernel-00-56-08
+
+2014-08-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-07.
+	* Exception-safe wrapper for IChronoSvc:
+	* AthenaKernel/Chrono.h: (new)
+	* test/Chrono_test.cxx, share/Chrono_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2014-07-30 Peter van Gemmeren  <gemmeren@anl.gov>
+	* AthenaKernel/TPCnvFactory.h: Add dummy DECLARE_NAMED_TPCNV_FACTORY for ROOT6 and move TPCnvVers.
+	* Tagged as AthenaKernel-00-56-06
+
+2014-07-22 David Quarrie <David.Quarrie@cern.ch>
+	* utils/genCLIDDB.cxx
+		Add cmake compatibility (needs dlopen() during release building)
+	* Tagged as AthenaKernel-00-56-05
+
+2014-07-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-56-04.
+	* AthenaKernel/IThinningSvc.h: Add thinningHook to allow
+	propagating thinning requests from one object to another that
+	depends on it (an aux store, for example).
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Add omitted cmake compatibility (fully backwards compatible on CMT side)
+	* Tagged as AthenaKernel-00-56-03
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Add cmake compatibility (fully backwards compatible on CMT side)
+	* Tagged as AthenaKernel-00-56-02
+
+2014-07-14 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added two new functions to IThinningSvc: typelessFilter.
+	  This new form of the filter<...>(...) function can be used to
+	  set up filtering for non-DataVector containers. The biggest
+	  use case for the moment is to set up the filtering for xAOD
+	  auxiliary containers.
+	* The interface that needs to be implemented by the service
+	  implementing IThinningSvc, didn't change. The
+	  IThinningSvc::typelessFilter functions make use of the same
+	  pure virtual function that the IThinningSvc::filter functions
+	  use.
+	* Removed the executable flag from all of the source files of the
+	  package. Also, set a list of file names to ignore in cmt/ that
+	  are made during the CMT build.
+	* Tagging as AthenaKernel-00-56-01
+
+2014-06-25  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* merging AthenaKernel-00-55-09-02 (AthenaKernel-00-55-09-root6)
+	to trunk
+	* tag AthenaKernel-00-56-00	
+
+2014-06-20  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* AthenaKernel\TPCnvFactory.h: fix typo in ifdef ROOT_VERSION...
+	* tag  AthenaKernel-00-55-09-02	
+
+2014-06-16  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* Using RootType from DataModelRoot in place of Reflex for ROOT6 migration
+	* tag  AthenaKernel-00-55-09-01
+	
+2014-05-13  Paolo Calafiura  <calaf@electra>
+
+	* Tagging AthenaKernel-00-55-08
+	* AthenaKernel/IIOVSvc.h: added replaceProxy (savannah #104311)
+
+2014-04-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-55-07.
+	* AthenaKernel/selection.xml, AthenaKernel/AthenaKernelDict.h:
+	Generate dictionary for ILockable.
+
+2014-04-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-55-06.
+	* AthenaKernel/ILockable.h: (new)
+
+2014-04-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-55-05.
+	* More function name tweaking for icc.
+	* Tagging AthenaKernel-00-55-04.
+	* More function name tweaking for icc.
+	* Tagging AthenaKernel-00-55-03.
+	* src/errorcheck.cxx: Adjust for icc.
+
+2014-02-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-55-02.
+	* AthenaKernel/errorcheck.h: Add CHECK_CODE.
+
+2014-01-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-55-01.
+	* AthenaKernel/getMessageSvc.h, src/getMessageSvc.cxx: Add
+	getMessageSvcQuiet flag to allow suppressing warning about not
+	finding MessageSvc when running unit tests.
+
+2014-01-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-55-00.
+	* AthenaKernel/sgkey_t.h: (new)
+	* AthenaKernel/IProxyDict.h: Add proxy_exact() taking sgkey_t and
+	addToStore().
+
+2014-01-22  Jack Cranshaw <cranshaw@anl.gov>
+	* Tagging AthenaKernel-00-54-08
+	* Adding IItemListSvc interface
+
+2013-11-18  Jack Cranshaw <cranshaw@anl.gov>
+	* Tagging AthenaKernel-00-54-07
+	* Make IDecisionSvc accessors const
+
+2013-08-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-54-06.
+	* Generate IProxyDict dictionary here (rather than DataModel).
+
+2013-08-21  Frank Winklmeier  <fwinkl@cern>
+
+	* Tagging AthenaKernel-00-54-05
+	* AthenaKernel/getMessageSvc.h: Fixing missing <string> include
+
+2013-08-20  Frank Winklmeier  <fwinkl@cern>
+
+	* Tagging AthenaKernel-00-54-04
+	* AthenaKernel/getMessageSvc.h: Add methods to access MessageSvc
+	from DetCommon
+
+2013-08-07  Sebastien Binet  <binet@farnsworth>
+
+	* Tagging AthenaKernel-00-54-03
+	* fix package name
+	* M wscript
+
+2013-07-26  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-54-02
+	* Adding new IAthenaIPCTool interface class (initially from Vakho)
+
+2013-06-07  Paolo Calafiura  <calaf@lxplus0135.cern.ch>
+
+	* tag  AthenaKernel-00-54-01
+	* AthenaKernel/CloneTool.h (CloneTool): help dumb gcc47 parser 
+
+2013-05-23  Charles Leggett
+	* tag  AthenaKernel-00-54-00
+	
+2013-05-07  Charles Legget
+	* renamed IHiveStore.h to IHiveStoreMgr.h
+	* added IHiveStore.h interface to provide IProxyDictWithPool
+	
+2013-05-06  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* AthenaKernel/IHiveStore.h: new interface added 
+
+2013-04-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-53-07.
+	* src/errorcheck.cxx (munge_names): Another clang fix.
+
+2013-04-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-53-06.
+	* src/errorcheck.cxx: More tweaking of function name munging for
+	clang.
+
+2013-04-09  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* AthenaKernel/ICutFlowSvc.h: Remove EventBookkeeper pointers from interface
+	* tag AthenaKernel-00-53-05
+
+2013-03-20  Charles Leggett
+	* add $(Boost_linkopts_regex) to Boost_linkopts for future Gaudi
+	compat again, as it seems to have disappeared.
+        * tag AthenaKernel-00-53-04
+
+M       cmt/requirements
+
+2013-03-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-53-03.
+	* AthenaKernel/IOVSvcDefs.h: Add IOVSVC_CALLBACK_ARGS_K, to use to
+	avoid clang warnings.
+	* AthenaKernel/TPCnvFactory.h: clang fix.
+	* src/errorcheck.cxx: Tweak function name munging for clang.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging AthenaKernel-00-53-01
+	* adding wscript
+	* A wscript
+
+2013-01-16  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tagging AthenaKernel-00-53-00
+	* AthenaKernel/IProxyProviderSvc.h (updateAddress):
+	* AthenaKernel/IAddressProvider.h (updateAddress): add
+	storeID also to updateAddress
+	NB this is not backward compatible and not cacheable.
+	Any bugfix/enhancement branch from AthenaKernel-00-52-14
+
+2012-11-28  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tagging AthenaKernel-00-52-14
+	* src/CloneTool.cxx (CloneTool): fix coverity 68974
+	
+2012-11-13  Paolo Calafiura  <calaf@lxplus424.cern.ch>
+
+	* tagging AthenaKernel-00-52-13
+	* AthenaKernel/CloneTool.h: new function to clone AlgTools (similar to
+	CloneService)
+
+2012-10-26  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* tagging AthenaKernel-00-52-12
+	* fixup for include cleanups (gcc47)
+	* M AthenaKernel/IAthenaBarCode.h
+
+2012-10-03 Jack Cranshaw <cranshaw@anl.gov>
+	* Remove getRef method from IRegistrationStreamTool
+
+2012-10-01  Emil Obreshkov <Emil Obreshkov@cern.ch>
+	* Tagging AthenaKernel-00-52-10
+	* use Scripts to ensure that get_files will be seen by all packages
+
+2012-07-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-52-09.
+	* Coverity warning fixes.
+
+2012-04-03 Walter Lampl <walter.lampl@ cern.ch>
+	* IUserDataSvc: Add back legacy retrieve methods getInMemElementDecoration and getInMemEventDecoration
+	* tag AthenaKernel-00-52-08
+
+2012-03-30 Walter Lampl <walter.lampl@ cern.ch>
+	* IUserDataSvc: Add doxygen-style comments
+	* remove obsolete file UserDataAssociation.h
+	* tag AthenaKernel-00-52-07
+
+2012-03-29 Walter Lampl <walter.lampl@ cern.ch>
+	* Redesign (I)UserDataSvc. StoreGate based implementation.
+	* tag AthenaKernel-00-52-06
+
+2012-03-10  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaKernel-00-52-05
+	* make DsoDb less verbose
+	* M src/DsoDb.cxx
+
+2012-02-21 Walter Lampl
+	* Move IAthenaBarCode from Control/Navigation to Control/AthenaKernel
+	  to avoid circular dependency problem with UserDataStore
+	* Tag AthenaKernel-00-52-04
+
+2011-12-15  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaKernel-00-52-03
+	* fixing bug #89811: extend IThinningSvc api to know if a given
+	  container was thinned. (instead of just per-event)
+	* M AthenaKernel/IThinningSvc.h
+
+	* tagging AthenaKernel-00-52-02
+	* fix bug 89667: c++ impl. for DsoDb
+	* A AthenaKernel/DsoDb.h
+	* A src/DsoDb.cxx
+	* M AthenaKernel/selection.xml
+	* M AthenaKernel/AthenaKernelDict.h
+	* M cmt/requirements
+
+2011-03-08  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaKernel-00-52-01
+	* test/DirSearchPath_test.cxx: use DirSearchPath from GaudiKernel here as well...
+
+2011-12-08  charles leggett
+
+	* use DirSearchPath from GaudiKernel
+	* tag AthenaKernel-00-52-00
+	
+M       AthenaKernel/DirSearchPath.h
+D       src/DirSearchPath.cxx
+
+2011-10-06  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-51-02
+	* Small adjustment to new IEventShare interface class
+
+2011-08-30  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* Tagging AthenaKernel-00-51-00
+	* Adding new IEventShare interface class
+
+2011-05-18  charles leggett
+	* replace IIoComponent and IIoComponentMgr with includes for
+	  GaudiKernel, add deprecation warnings
+	* tag AthenaKernel-00-50-00
+
+M       AthenaKernel/IIoComponent.h
+M       AthenaKernel/IIoComponentMgr.h
+D       src/IIoComponent.cxx
+D       src/IIoComponentMgr.cxx
+
+2011-03-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-49-02
+	* src/errorcheck.cxx, test/errorcheck_test.cxx,
+	share/errorcheck_test.ref: Adjust for gcc 4.6.
+
+2011-03-08  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaKernel-00-49-01
+	* src/CloneService.cxx (CloneService): fix Coverity 13630
+	* test/AthenaPackageInfo_test.cxx: allow svn version like r123456
+
+2011-01-25 Rolf Seuster <seuster AT cern.ch>
+	* added few comments about a new valgrind warning in
+	* AlgorithmTimer ("Syscall param timer_create(evp) points to uninitialised byte(s)")
+	* need new glibc or maybe new valgrind
+	* no further changes (just comments)
+
+2010-12-21  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaKernel-00-49-00
+	* AthenaKernel/IAtRndmGenSvc.h: use uint32_t consistently
+
+2010-12-06  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaKernel-00-48-00
+	* AthenaKernel/IAtRndmGenSvc.h: seed using uint32_t (architecture
+	independent type)
+
+2010-12-03  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaKernel-00-47-01
+	* AthenaKernel/IAtRndmGenSvc.h: new setAllOnDefinedSeeds methods
+
+2010-12-02  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaKernel-00-47-00
+	* AthenaKernel/IAtRndmGenSvc.h: corrected setOnDefinedSeeds type 
+
+2010-11-09  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaKernel-00-46-16
+	* AthenaKernel/ITPCnvBase.h: adding missing include typeinfo
+
+2010-10-22  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging AthenaKernel-00-46-15
+	* test/MsgStreamMember_test.cxx (main): include some timing test,
+	ref count not working with Gaudi v21r9 (bug#74192)
+
+2010-10-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-46-14.
+	* src/errorcheck.cxx: Forgot to remove an #include.
+
+2010-09-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-46-13.
+	* src/errorcheck.cxx (clean_allocator): Fix bugs in previous
+	change.
+	* test/errorcheck_test.cxx: A little more testing.
+	* share/errorcheck_test.ref: Updated.
+
+2010-09-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-46-12.
+	* src/errorcheck.cxx (clean_allocator): Rewrite to not use
+	TClassEdit.
+	* share/errorcheck_test.ref: Updated.
+	* cmt/requirements: Adjust dependencies.
+
+2010-09-24 David Cote <david.cote@cern.ch>
+	* Added setFilterDescription( EventBookkeeper* ebk, const std::string& descr ) in ICutFlowSvc
+	* Tagging AthenaKernel-00-46-11
+
+2010-09-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-46-11.
+	* src/errorcheck.cxx (errorcheck): Rewrite to not use TClassEdit.
+	* cmt/requirements: Adjust dependencies.
+
+	* Tagging AthenaKernel-00-46-10.
+	* src/errorcheck.cxx: Remove `allocator's from STL templates in
+	function names that we output.  This is to get consistency between
+	gcc 4.3 and 4.5.
+	* test/errorcheck_test.cxx, share/errorcheck_test.ref: Test the
+	changes.
+	* cmt/requirements: Update dependencies.
+
+2010-09-15 David Cote  <david.cote@cern.ch>
+	* Added addEvent overloaded function to ICutFlowSvc
+	* tagging AthenaKernel-00-46-09
+
+2010-09-14 David Cote  <david.cote@cern.ch>
+	* Modified and extented ICutFlowSvc.h
+	* tagging AthenaKernel-00-46-08
+
+2010-09-13 Joao Firmino da Costa  <joao.costa@cern.ch>
+        * Changed into the camelCase ATLAS definition of member functions in ICutFlowSvc
+	* In CutFlowSvc, member function Register now called registerFilter
+	* Some arguments in member functions of ICutFlowSvc changed from std::string into const std::string &
+	* tagging AthenaKernel-00-46-07
+
+2010-09-13  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaKernel-00-46-06
+	* changed function LoadCutFlowFromTTree to void in ICutFlowSvc
+	* M AthenaKernel/ICutFlowSvc.h
+
+	* tagging AthenaKernel-00-46-05
+	* support for ARA-specific t/p-cnvs
+	* M AthenaKernel/TPCnvFactory.h
+
+
+2010-09-13 Joao Firmino da Costa  <joao.costa@cern.ch>
+        * Corrected typo in ICutFlowSvc.h and changed function LoadCutFlowFromTTree to void in ICutFlowSvc
+	* tagging AthenaKernel-00-46-04
+
+2010-09-06 David Cote  <david.cote@cern.ch>
+        * Moved ICutFlowSvc developments from AthenaKernel-00-41-00-04 back to the trunk
+	* tagging AthenaKernel-00-46-03
+
+2010-08-26  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaKernel-00-46-02
+	* extended IEvtIdModifierSvc to query run-nbr ranges
+	* M AthenaKernel/IEvtIdModifierSvc.h
+
+2010-08-24  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaKernel-00-46-01
+	* extended IEvtIdModifierSvc interface to allow queries of applied
+	  modifications
+	* M AthenaKernel/IEvtIdModifierSvc.h
+
+2010-08-19  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaKernel-00-46-00
+	* adding new interface for modifying EventIDs
+	* A AthenaKernel/IEvtIdModifierSvc.h
+	* A src/IEvtIdModifierSvc.cxx
+
+2010-08-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-45-02.
+	* src/AlgorithmTimer.cxx, src/MsgStreamMember.cxx,
+	src/StreamLogger.cxx: Coverity warning fixes.
+
+2010-07-23  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaKernel-00-45-01
+	* temporarily adding MsgStream reflex dict.
+	* M AthenaKernel/selection.xml
+	* M AthenaKernel/AthenaKernelDict.h
+
+2010-07-15 Paolo Calafiura
+        
+	* tag AthenaKernel-00-45-00
+
+2010-07-14 Joao Firmino da Costa <joao.costa@cern.ch>
+	* Removed useless function in ICutFlowSvc (addMessage,getMessage)
+
+	
+2010-07-07  David Cote  <david.cote@cern.ch>
+	* Added Reflex dictionary for ICutFlowSvc, so it's usable in python. (not tagged)
+	
+2010-06-30  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaKernel-00-44-00
+	* AthenaKernel/ICollectionSize.h: Make into a Gaudi interface.
+	* AthenaKernel/AthenaKernelDict.h, AthenaKernel/selection.xml: Add
+	IEventSeek to dictionary.
+
+2010-06-30  David Cote  <david.cote@cern.ch>
+	* First skeleton version of ICutFlowSvc from Joao Costa
+	* Tagged AthenaKernel-00-43-01
+
+2010-06-25  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaKernel-00-43-00
+	* adding infrastructure for auto-loading T/P cnvs
+	* M AthenaKernel/selection.xml
+	* M AthenaKernel/AthenaKernelDict.h
+	* A AthenaKernel/AthDsoUtils.h
+	* A AthenaKernel/ITPCnvBase.h
+	* A AthenaKernel/ITPCnvSvc.h
+	* A AthenaKernel/TPCnvFactory.h
+	* A src/ITPCnvBase.cxx
+	* A src/ITPCnvSvc.cxx
+	* A src/AthDsoUtils.cxx
+
+2010-06-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaKernel-00-42-00
+	* fwd compat w/ gaudi-v21
+	* M utils/genCLIDDB.cxx
+	* M AthenaKernel/StreamLogger.h
+	* M src/CloneService.cxx
+	* M src/errorcheck.cxx
+
+2010-03-31  Yushu Yao <yyao@lbl.gov>
+
+	* Tagging AthenaKernel-00-41-00.
+	* M AthenaKernel/IUserDataSvc.h
+	* Added interface functions for containsXXXDecoration
+
+2010-02-19  Scott S Snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-40-10.
+	* AthenaKernel/selection.xml, AthenaKernel/AthenaKernelDict.h:
+	Generate dictionary for errorcheck::ReportMessage.
+
+2010-01-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-40-09.
+	* AthenaKernel/UserDataAssociation.h: Include stdint.h for gcc 4.4
+	compatibility.
+
+2009-12-06  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging AthenaKernel-00-40-08
+	* AthenaKernel/IAthenaOutputStreamTool.h (IAlgTool): add
+	finalizeOutput for file operations after the stream is closed
+
+2009-11-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-40-07.
+	* AthenaKernel/IUserDataSvc.h: Make v* methods public.  Add quiet
+	arg for vgetInMemElementDecoration.
+
+2009-11-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-40-06.
+	* AthenaKernel/errorcheck.h (CHECK_WITH_CONTEXT,
+	CHECK_RECOVERABLE_WITH_CONTEXT, CHECK_FATAL_WITH_CONTEXT): Uglify
+	local variable, to prevent collisions with macro arguments.
+
+2009-11-19  Yushu Yao
+	* tagging AthenaKernel-00-40-05
+        * UserDataSvc Added InMem getDecoration functions
+	* M AthenaKernel/IUserDataSvc.h
+
+2009-11-09  Charles Leggett
+        * added IAthenaSummarySvc reflex dict generation
+	* M AthenaKernel/selection.xml
+	* M AthenaKernel/AthenaKernelDict.h
+	* tag AthenaKernel-00-40-04
+
+2009-11-09  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaKernel-00-40-03
+	* extended interface of IThinningHdlr::isMapping
+	* M AthenaKernel/IThinningHdlr.h
+
+2009-10-30  Charles Leggett
+	* added ILoggedMessageSvc::LoggedMessage struct
+	* tag AthenaKernel-00-40-02
+
+2009-10-21  Charles Leggett
+	* added AthenaSummarySvc::setStatus
+	* tag AthenaKernel-00-40-01
+
+2009-10-16  Charles Leggett
+	* add ILoggedMessageSvc
+	* tag AthenaKernel-00-40-00
+
+2009-10-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-39-00.
+
+	* src/AlgorithmTimer.cxx (AlgorithmTimer): Fully initialize
+	m_sigevent, to get rid of valgrind warning.
+
+	* AthenaKernel/IOVTime.h: Fix -Wconversion warnings.
+
+	* AthenaKernel/errorcheck.h: CHECK needs to choose the severity of
+	the error message to print based on the status code.  Add
+	CHECK_RECOVERABLE and CHECK_FATAL, to allow overriding the status
+	that's returned to the caller.
+	* test/errorcheck_test.cxx: Test the changes.
+	* share/errorcheck_test.ref: Updated.
+
+2009-10-01  Charles Leggett
+	* add IAthenaSummarySvc.cxx
+	* tag AthenaKernel-00-38-01
+
+2009-10-01  Charles Leggett
+	* add IAthenaSummarySvc.h
+	* tag AthenaKernel-00-38-00
+
+2009-09-25 Paolo Calafiura
+        * add forgotten IAtRndmGenSvc.cxx (out-of-line destructor)
+	* tag AthenaKernel-00-37-01
+	
+2009-09-25 Paolo Calafiura
+        * remove direct dependency on CLHEP (bug 40980)
+	* tag AthenaKernel-00-37-00
+	
+2009-09-25 Charles Leggett
+	* and isSet() and key() methods to IResetable
+	* tag AthenaKernel-00-36-00
+	
+2009-09-16 Balint Radics <radbal@cern.ch>
+	* tagging AthenaKernel-00-35-05
+	* AthenaKernel/IDecisionSv.h: new inteface
+	function "addStream(string)"
+
+2009-08-19  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaKernel-00-35-04
+	* AthenaKernel/IIOVDbSvc.h (virtual): update of interface
+
+2009-08-12  Balint Radics  <radball@cern.ch>
+        * tag AthenaKernel-00-35-03
+	* AthenaKernel/IDecisionSvc updated interface
+
+2009-08-06  Yushu Yao  <yyao@nospam.lbl.gov>
+
+	* tagging AthenaKernel-00-35-02
+	* removed unnecessary output
+	* M AthenaKernel/IUserDataSvc.h
+
+
+2009-08-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaKernel-00-35-01
+	* adding src/IEventSeek.cxx
+	* A src/IEventSeek.cxx
+
+	* tagging AthenaKernel-00-35-00
+	* extend the IEventSeek interface to also return the current event nbr
+	* M AthenaKernel/IEventSeek.h
+
+2009-07-31  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaKernel-00-34-00
+	* extended IDictLoaderSvc to load types by CLID
+	* M AthenaKernel/IDictLoaderSvc.h
+
+2009-07-23  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaKernel-00-33-03
+	* AthenaKernel/IEventSeek.h: make full gaudi interface
+
+2009-07-21  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaKernel-00-33-02
+	* cleaning-up IDecisionSvc iface
+	* M AthenaKernel/IDecisionSvc.h
+	* M src/IDecisionSvc.cxx
+
+2009-07-17  Balint Radics  <radball@cern.ch>
+        * tag AthenaKernel-00-33-01
+	* AthenaKernel/IDecisionSvc first version added
+
+2009-06-22  Frank Winklmeier  <fwinkl@cern>
+        * tag AthenaKernel-00-33-00
+	* AlgorithmTimer: Assign callback also in case of thread delivery,
+	  add ScopedTimer class, put classes in Athena namespace
+
+2009-06-09  Yushu Yao <yyao@spamfree.lbl.gov>
+        * tag AthenaKernel-00-32-01
+	* AthenaKernel/IUserDataSvc.h: Remove dependency to Navigation
+
+2009-06-09  Yushu Yao <yyao@spamfree.lbl.gov>
+        * tag AthenaKernel-00-32-00
+	* AthenaKernel/IUserDataSvc.h: Added functions to list event level userdata
+
+2009-05-28  Yushu Yao <yyao@spamfree.lbl.gov>
+        * tag AthenaKernel-00-31-00
+	* AthenaKernel/IUserDataSvc.h: Added support for File/Element Level Decoration
+
+2009-05-11 David Quarrie <David.Quarrie@cern.ch>
+	* AthenaKernel/AlgorithmTimer.h: } Provide dummy code bodies for MacOSX. Still non-functional
+	* src/AlgorithmTimer.h:          }
+	* tagging AthenaKernel-00-30-07
+		
+2009-05-11 David Quarrie <David.Quarrie@cern.ch>
+	* AthenaKernel/AlgorithmTimer.h: } Provide empty code bodies for MaqcOSX for now
+	* src/AlgorithmTimer.h:          }
+	* tagging AthenaKernel-00-30-06
+		
+2009-05-05 Rolf Seuster <seuster AT cern.ch>
+	* adding AlgorithmTimer
+	* retiring CookTimer
+	* tagging AthenaKernel-00-30-05
+	
+2009-03-04 Jack Cranshaw
+	* interface change to IRegistrationStreamTool
+	* tagging AthenaKernel-00-30-04
+
+2009-03-04 Paolo Calafiura
+      * tag AthenaKernel-00-30-03
+      * cmt/requirements: made use AtlasReflex public (used in IDictLoadSvc.h)
+
+2009-04-10  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaKernel-00-30-02
+	* checkreq fixes
+	* M cmt/requirements
+
+2009-04-09  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaKernel-00-30-01.
+	* AthenaKernel/errorcheck.h, src/errorcheck.cxx,
+	test/errorcheck_test.cxx, share/errorcheck_test.ref: Add
+	hideErrorLocus().
+	* test/AthenaKernel.xml: Make sure test differences are marked as
+	errors.
+
+2009-03-16  Charles Leggett
+      * new AthenaKernel/IAthenaEvtLoopPreSelectTool.h:  allow
+             users to attach tools to the AthenaEventLoopMgr 
+             to reject events before entering the loop over 
+             algorithms
+      * tag AthenaKernel-00-30-00
+
+2009-03-04 Paolo Calafiura
+      * tag AthenaKernel-00-29-02
+      * AthenaKernel/IPageAccessControlSvc.h: new iface
+
+2009-02-02  Charles Leggett
+
+      * AthenaKernel/IIOVDbSvc.h: added dropObject() method
+      * tag AthenaKernel-00-29-01
+
+2009-01-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaKernel-00-29-00
+	* new IClassIDSvc interface to allow nice handling of typedefs
+	* M AthenaKernel/IClassIDSvc.h
+	* A src/IClassIDSvc.cxx
+
+2009-01-12  charles leggett
+
+     * AthenaKernel/IIOVDbSvc.h: new accessors for getKeyList and getKeyInfo
+     * tag AthenaKernel-00-28-11
+
+2008-12-12  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaKernel-00-28-10
+	* AthenaKernel/tools/type_tools.h: const fix.
+
+2008-12-11  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaKernel-00-28-09
+	* src/DirSearchPath.cxx: Fix compilation warning.
+	* AthenaKernel/UserDataAssociation.h: Fix compilation warning.
+
+2008-12-11  David Quarrie <David.Quarrie@cern.ch>
+	* tagging AthenaKernel-00-28-08
+	* AthenaKernel/IThinningSvc.h: Compatibility with gcc 4.3
+	
+2008-12-09  Frank Winklmeier  <fwinkl@cern>
+	* tagging AthenaKernel-00-28-07
+	* AthenaKernel/Timeout.h: Small change in TimeoutMaster interface
+	
+2008-12-09  Frank Winklmeier  <fwinkl@cern>
+	* tagging AthenaKernel-00-28-06
+	* AthenaKernel/Timeout.h: Add Timeout singleton
+
+2008-11-17  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaKernel-00-28-05
+	* cmt/requirements: Need libboost_system for boost >= 1.35.
+
+2008-11-07  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaKernel-00-28-04
+	* fixing ISlimminHdlr interface (returning a ref to type_info isn't
+	  something super advisable)
+	* M AthenaKernel/ISlimmingHdlr.h
+
+2008-11-01  Yushu Yao <yyao@lbl.gov>
+        * tag AthenaKernel-00-28-03
+	* cmt/requirements: add dependency to external uuid
+	* this was not discovered before since uuid.h is always included in slc. 
+
+2008-10-31  Charles Leggett
+	* AthenaKernel/IOVRange.h: make end of range non-inclusive, 
+         ie [start, stop[
+      * tag AthenaKernel-00-28-02
+
+2008-10-23  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-28-01
+	* fixing IDC-thinning
+	* M AthenaKernel/IThinningSvc.h
+	* M AthenaKernel/IThinningHdlr.h
+
+2008-09-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-28-00
+	* introducing I/O components interfaces (for athena-mp)
+	* A AthenaKernel/IIoComponent.h
+	* A AthenaKernel/IIoComponentMgr.h
+	* A src/IIoComponent.cxx
+	* A src/IIoComponentMgr.cxx
+
+2008-09-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-27-00
+	* adding new interface to manage reflex dictionaries
+	* A AthenaKernel/IDictLoaderSvc.h
+	* A src/IDictLoaderSvc.cxx
+
+	* tagging AthenaKernel-00-26-00
+	* removing FilteredAlgorithm (migrated to AthenaBaseComps)
+	* R AthenaKernel/FilteredAlgorithm.h
+	* R src/FilteredAlgorithm.cxx
+	* fixing typo in IRegistrationStreamTool define-guard
+	* M AthenaKernel/IRegistrationStreamTool.h
+
+2008-09-22  Paolo Calafiura  <calaf@ibm-0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* tagging AthenaKernel-00-25-01
+	* src/CloneService.cxx (CloneService): handle differences between
+	v19/v20 state machine
+
+2008-09-19  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* tagging AthenaKernel-00-25-00
+	* Change fill() for new IRegistrationStreamTool (provided by Jack C.)
+	* M AthenaKernel/IRegistrationStreamTool.h
+
+2008-09-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-24-04
+	* more ownership issues w/ IdcThinningHdlr
+	* M AthenaKernel/IThinningHdlr.h
+
+2008-09-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-24-03
+	* fixing ownership issue in IdcThinningHdlr
+	* M AthenaKernel/IThinningHdlr.h
+
+2008-09-09  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* tagging AthenaKernel-00-24-02
+	* new interface for RegistrationStreamTools (provided by Jack C.)
+	* A AthenaKernel/IRegistrationStreamTool.h
+
+2008-09-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-24-01
+	* checkreq warnings
+	* M cmt/requirements
+
+	* tagging AthenaKernel-00-24-00
+	* new IThinningSvc interface to support slimming and IDC thinning
+	* A AthenaKernel/ISlimmingHdlr.h
+	* A AthenaKernel/IThinningHdlr.h
+	* A src/ISlimmingHdlr.cxx
+	* A src/IThinningHdlr.cxx
+	* M AthenaKernel/IThinningSvc.h
+
+2008-08-27  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaKernel-00-23-12
+	* FilteredAlgorithm: Adding Jack Cranshaw's new FilteredAlgorithm base class for Output and
+	Registration Stream.
+
+2008-08-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-23-11
+	* doc strings
+	* M AthenaKernel/CookTimer.h
+
+2008-08-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-23-10
+	* prepare for athena-mp + clean-up of dicts + migration of IPyxyz ifaces
+	* M AthenaKernel/AthenaKernelDict.h
+	* M AthenaKernel/selection.xml
+	* R AthenaKernel/IPyComponent.h
+	* R AthenaKernel/IPyComponentMgr.h
+	* R src/IPyComponent.cxx
+	* R src/IPyComponentMgr.cxx
+
+2008-08-12  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * protect CookTimer.cxx to only get an implementation on Linux, for all
+           other systems, now provides a dummy
+        * tagging AthenaKernel-00-23-09
+
+2008-08-04  Paolo Calafiura  
+
+	* tagging AthenaKernel-00-23-08
+	* src/CloneService.cxx (CloneService): do not try to initialize an
+	already initialized child.
+
+2008-07-25  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* test/AthenaPackageInfo_test.cxx (main): allow test to work even
+	with branch tags...
+
+2008-07-23  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * modified requirements private section to link with librt
+        * added CookTimer and ThrowingCookTimer classes which are to help
+            with algorithm time outs
+
+2008-07-21  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-23-07
+	* handle generating removed-indices for MapIndexingPolicy
+	* M AthenaKernel/IThinningSvc.h
+        * M src/IThinningSvc.cxx
+
+	* tagging AthenaKernel-00-23-06
+        * adding proper API to deal with thinning indices
+        * fixes bug #38735
+        * M AthenaKernel/IThinningSvc.h
+        * M src/IThinningSvc.cxx
+
+2008-07-14  Paolo Calafiura
+
+	* tagging AthenaKernel-00-23-05
+	* new class Athena::MsgStreamMember: designed to be used as class
+	data member providing reasonably efficient access.
+
+2008-07-10  Paolo Calafiura
+
+	* AthenaKernel/getMessageSvc.h: new class IMessageSvcHolder manages
+	MessageSvc instantiation (lazy or eager) and releases it on ~
+
+2008-07-06  Yushu Yao <yyao@lbl.gov>
+	* tagging AthenaKernel-00-23-04
+	* adding reflex generation of std::vector<UserDataAssociation>
+	
+2008-06-27  Paolo Calafiura  
+	* tagging AthenaKernel-00-23-03
+	* src/CloneService.cxx (CloneService): call sysInitialize to put
+	the cloned service in the right state.
+
+2008-06-04  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaKernel-00-23-02
+	* AthenaKernel/IAthenaSelectorTool.h: Undo changes from 00-23-01.
+
+2008-06-03  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaKernel-00-23-00
+	* roll back to exactly the same as AthenaKernel-00-21-01
+	* because the UserDataAraReader is moved to PhysicsAnalysis/AraTool
+	* AthenaKernel/UserDataAraReader.h: removed
+	
+2008-06-02  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaKernel-00-22-01
+	* AthenaKernel/UserDataAraReader.h: Fixed Eclipse newline problem
+	
+2008-06-02  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaKernel-00-22-00
+	* UserDataSvc: Added interface to access userdata in ROOT/PyRoot
+	* AthenaKernel/UserDataAraReader.h: new file
+	
+2008-05-28  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaKernel-00-21-01
+	* AthenaKernel/IAthenaSelectorTool.h: Rename preNext/postNext().
+
+2008-05-28  Frank Winklmeier  <fwinkl@cern>
+	* tag AthenaKernel-00-21-00
+	* AthenaKernel/ICoreDumpSvc.h: pass string by-reference 
+
+2008-05-27  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaKernel-00-20-00
+	* Forget to cvs commit before the previous tagging, now committed and tag again
+	
+2008-05-27  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaKernel-00-19-00
+	* IUserDataSvc.h: Added getEventDecoration() and getCollectionDecoration()
+	
+2008-05-27  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaKernel-00-18-01
+	* AthenaKernel/IAthenaSelectorTool.h: adding interface for new EventSelectorTool.
+
+2008-05-27  Frank Winklmeier  <fwinkl@cern>
+	* tag AthenaKernel-00-18-00
+	* AthenaKernel/ICoreDumpSvc.h: added
+
+2008-05-20  Yushu Yao <yyao@lbl.gov>
+	* tag AthenaKernel-00-17-01
+	* UserDataSvc: Storing demangled type in UserData instead of mangled type name.
+	* UserDataSvc: Default value of decoration is set to the object constructed by its default constructor (e.g. int()), instead of the value set in the first call to decorateEvent()
+
+2008-05-19  Yushu Yao <yyao@lbl.gov>
+	* IUserDataSvc.h: Updated to add getDecoration, also changed decorateEvent/Collection to take reference as input, instead of pointer
+	* IUserDataSvc.cxx: removed
+	* tag AthenaKernel-00-17-00
+
+2008-05-14  Charles Leggett
+	* IIOVSvc.h: change name of default store to StoreGateSvc
+	* tag AthenaKernel-00-16-05
+
+2008-05-09  Charles Leggett
+	* IIOVSvc.h: bugfix for f*cking CMT
+	* tag AthenaKernel-00-16-04
+
+2008-05-09  Charles Leggett
+	* IIOVSvc.h: added resetAllProxies() method
+	* tag AthenaKernel-00-16-03
+	
+2008-05-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-16-02
+	* removing spurious std::cerr printout
+	* M AthenaKernel/IThinningSvc.h
+
+2008-05-08  Charles Leggett
+	* IOVRange.cxx: fixed include guard
+	* tag AthenaKernel-00-16-01
+
+2008-05-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-16-00
+	* modified IThinningSvc interface to fix bug #36274
+	* M AthenaKernel/IThinningSvc.h
+
+2008-05-05  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaKernel-00-15-01
+	* AthenaKernel/IIOVSvc.h (IIOVSvc): added interface for preLoadDataTAD
+
+2008-04-14  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* tagging AthenaKernel-00-15-00
+	* AthenaKernel/UserDataAssociation.h: moved here from AthenaServices
+	Now AthenaKernel builds a root dictionary.
+
+2008-04-13  Yushu Yao <yyao@lblbox>
+	* tagging AthenaKernel-00-14-05
+	* Fixed IUserDataSvc to add user defined class decorations
+	* M AthenaKernel/IUserDataSvc.h
+
+2008-04-11  Yushu Yao <yyao@lblbox>
+	* tagging AthenaKernel-00-14-04
+	* Fixed IUserDataSvc to use templated methods
+	* M AthenaKernel/IUserDataSvc.h
+
+2008-04-09  Yushu Yao <yyao@lblbox>
+	* tagging AthenaKernel-00-14-03
+	* Fixed some interface related issues in IUserDataSvc
+	* M AthenaKernel/IUserDataSvc.h
+
+2008-04-06  Paolo Calafiura
+        * tagging AthenaKernel-00-14-02 
+	* AthenaKernel/IIOVSvc.h: fix a compilation error in setRange
+    
+2008-04-04  Yushu Yao <yyao@lblbox>
+	* tagging AthenaKernel-00-14-01
+	* Fixed some const return type problems related with IUserDataSvc
+	* M AthenaKernel/IUserDataSvc.h
+
+2008-04-04  Yushu Yao <yyao@lblbox>
+	* tagging AthenaKernel-00-14-00
+	* Add new interface for service UserDataSvc to provide user data functionality 
+	* AthenaKernel/IUserDataSvc.h: New File
+	* src/IUserDataSvc.cxx: New File
+
+2008-04-03  Charles Leggett
+	* updates to IIOVSvc.h for multiple stores
+        * tagging AthenaKernel-00-13-02
+
+2008-04-01  Paolo Calafiura
+        * tagging AthenaKernel-00-13-01 
+	* test/AthenaKernel.xml: give tests more time to run 
+    
+2008-03-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-13-00
+	* extending IValgrindSvc interface
+	* M AthenaKernel/IValgrindSvc.h
+
+2008-03-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-12-00
+	* really fixing bug #34500: in some cases an inactive ThinningSvc could
+	  become active, unadvertantly thinning not-suppose-to-be-thinned.
+	  So now we make sure that even if the current active thinningsvc is
+	  inactive (ie: ==0) we do reinstall it correctly (ie: override=true)
+	* M AthenaKernel/IThinningSvc.h
+	* M src/IThinningSvc.cxx
+
+	* tagging AthenaKernel-00-11-00
+	* improved IPyComponentMgr interface + new IPyComponent interface
+	* M AthenaKernel/IPyComponentMgr.h
+	* A AthenaKernel/IPyComponent.h
+	* A src/IPyComponent.cxx
+
+2008-03-23  Paolo Calafiura
+        * tagging AthenaKernel-00-10-04 
+	* test/AthenaKernel.xml: fixing two typos (thanks Alex) 
+
+2008-03-18  Paolo Calafiura
+        * tagging AthenaKernel-00-10-03
+	* test/AthenaKernel.xml: ATN steering file was missing!!! 
+
+2008-03-17  Paolo Calafiura
+        * tagging AthenaKernel-00-10-02
+	* test/*_test.cxx: added #undef NDEBUG to let tests run in opt 
+	* share/*ref: updated
+
+2008-03-12  Paolo Calafiura
+        * tagging AthenaKernel-00-10-01
+        * src/AthenaPackageInfo.cxx(PackageInfo): improve diagnostic
+
+2008-02-26  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaKernel-00-10-00
+	* completed multi-stream thinning
+	* M AthenaKernel/IThinningSvc.h
+	* M src/IThinningSvc.cxx
+
+2008-01-23  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaKernel-00-09-04
+	* AthenaKernel/IIOVDbSvc.h: add in new method for sync with iovsvc
+
+2008-01-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-09-03
+	* added more friends to finally get thinning working from python
+	* M AthenaKernel/IThinningSvc.h
+
+2008-01-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-09-02
+	* make AthenaInternal::thinContainer a friend of IThiningSvc to gain
+	  access to filter_impl
+	* M AthenaKernel/IThinningSvc.h
+
+2008-01-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-09-01
+	* another attempt at fixing bug #32504 (removing lock-file)
+	* M utils/genCLIDDB.cxx
+
+2008-01-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-09-00
+	* simpler (and working) multi-stream friendly thinning interface
+	* M AthenaKernel/IThinningSvc.h
+
+2008-01-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-08-05
+	* utils/genCLIDDB.cxx: fixing bug #32504
+
+2008-01-04  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaKernel-00-08-04
+	* AthenaKernel/StoreID.h: adding SIMPLE_STORE StoreID to enum
+
+2007-12-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-08-03
+	* added a lock mechanism to genCLIDDB to prevent corruption of clid.db
+	* M utils/genCLIDDB.cxx
+
+2007-12-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-08-02
+	* AthenaKernel/IThinningSvc.h: 
+	   - added hook for safe-multistream thinning support (::rollback)
+	   - made interface more python friendly
+
+2007-12-11  Yushu Yao <yyao@lbl.gov>
+	* tagging AthenaKernel-00-08-01
+	* Added IJobIDSvc to provide a unique UUID for each job.
+	* AthenaKernel/IJobIDSvc.h: New File
+	* src/IJobIDSvc.cxx: New File
+	
+2007-12-10  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-08-00
+	* extended IProxyDict interface to retrieve the list of all proxies
+	* M AthenaKernel/IProxyDict.h
+
+2007-11-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-07-01
+	* hack to allow thinning of DataVectors filled with elements owned by
+	  DataPools.
+	* M AthenaKernel/IThinningSvc.h
+
+2007-11-12  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-07-00
+	* adding a new service interface to manage python objects
+	* A AthenaKernel/IPyComponentMgr.h
+	* A src/IPyComponentMgr.cxx
+
+2007-11-07  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-06-04
+	* AthenaKernel/IThinningSvc.h: gcc41 fixes
+
+2007-10-17  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-06-03.
+
+	* cmt/requirements: Supress cmt warning.
+	* share/DirSearchPath_test.ref: (new)
+
+2007-10-16  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging AthenaKernel-00-06-02
+	* cmt/requirements: Extend genCLIDDBlinkopts by $(Boost_linkopts_program_options) which is compatible with MacOSX
+
+2007-10-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-06-01
+	* AthenaKernel/IThinningSvc.h: making use of deep_proxy
+
+2007-10-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-06-00
+	* improving IProxyDict interface to allow to 'deep' find a proxy given
+	  a transient pointer.
+	* fixing bug #29753
+	* M AthenaKernel/IProxyDict.h 
+
+2007-10-08  Paolo Calafiura  
+	* tagging AthenaKernel-00-05-12
+	* test/DirSearchPath_test.cxx (main): added unit test
+
+	* AthenaKernel/DirSearchPath.h (Athena): put DirSearchPath in ns Athena,
+	so as to remove a (temporary) clash with GaudiSvc's DirSearchPath
+	(thanks Scott)
+	
+2007-10-05  Paolo Calafiura
+
+	* tagging AthenaKernel-00-05-11
+	* cmt/requirements: DirSearchPath uses boost::filesystem, add to linkopts
+
+2007-10-04  Paolo Calafiura  
+
+	* tagging AthenaKernel-00-05-10
+	* class DirSearchPath: new class, imported from GaudiSvc. Should go in 
+	GaudiKernel
+
+2007-09-21  Paolo Calafiura  
+
+	* tagging AthenaKernel-00-05-09
+	* utils/genCLIDDB.cxx (main): die quietly if it can not load ClassIDSvc
+
+2007-09-19  Paolo Calafiura  
+
+	* tagging AthenaKernel-00-05-08
+	* cmt/requirements: fix genCLIDDB dependencies
+	
+2007-09-18  Paolo Calafiura 
+
+	* tagging AthenaKernel-00-05-07
+	* cmt/requirements: build and install new application genCLIDDB
+
+2007-09-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-05-05
+	* better handling of symlinks: rely on SG::DataProxies to get the right
+	  most-derived-CLID
+	* AthenaKernel/IThinningSvc.h: makes IThinningSvc inherit from 
+	  IProxyDict to be able to retrieve proxies
+
+2007-08-28  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-05-04
+	* better handling of holes (thinned elements) in DataVector: 
+	  compactifies such vectors to present a segfault-free container to
+	  persistency.
+	* M AthenaKernel/IThinningSvc.h
+
+2007-08-10 Ilija Vukotic <ivukotic@cern.ch>
+	* move ISGAudSvc.h to SGAudCore
+	* tagging AthenaKernel-00-05-03 
+
+2007-08-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-05-02
+	* allow usage of AthenaOutputTool + deprecate IThinningSvc::incident
+	* M AthenaKernel/IThinningSvc.h
+	* M src/IThinningSvc.cxx
+
+2007-08-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-05-01
+	* improved documentation
+	* workaround to allow thinning of symlinked containers
+	* TODO: find a better/safer way of thinning symlinked containers
+	* M AthenaKernel/IThinningSvc.h
+
+2007-08-02  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-05-00
+	* new IThinningSvc interface
+
+2007-07-31  Sebastien Binet  <binet@lxplus096.cern.ch>
+
+	* tagging AthenaKernel-00-04-05
+	* expanded IValgrindSvc interface
+
+2007-07-19 Ilija Vukotic <ivukotic@cern.ch>
+	* added ISGAudSvc.h
+	* tagging AthenaKernel-00-04-04
+	
+2007-07-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaKernel-00-04-03
+	* src/IOVRange.cxx: removed 'inline' from compiled method.
+
+2007-07-05  Paolo Calafiura for Sebastien Binet
+	* tagging AthenaKernel-00-04-02
+	* getMessageSvc: disable by default creation-on-demand of MessageSvc, 
+	so that it does not trigger big side effects when (ab)used in
+	constructors called by genconf
+
+2007-06-22  Paolo Calafiura  
+	* tagging AthenaKernel-00-04-00
+	* AthenaKernel/ITriggerTime.h: make it an IAlgTool
+	* AthenaKernel/IProxyProviderSvc.h (addProvider): add method to iFace
+	to be able to use it from PileUpStream
+	* AthenaKernel/IAthenaOutputStreamTool.h (getInputItemList): 
+	use SG::IFolder rather than SG::Folder
+
+2007-06-15  Paolo Calafiura  
+	* tagging AthenaKernel-00-03-43
+	* doc/MainPage.h: beautyfying
+
+2007-06-13  Paolo Calafiura 
+	* tagging AthenaKernel-00-03-42
+	* documentation standdown update
+
+2007-05-04  Charles Leggett
+      * added IMemoryMonitorSvc
+
+2007-04-27  Sebastien Binet  <binet@lxplus215.cern.ch>
+
+	* tagging AthenaKernel-00-03-41
+	* added a dumb interface to the valgrind tool
+
+2007-04-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* tagging AthenaKernel-00-03-40
+	* AthenaKernel/IProxyDict.h: inherit from INamedInterface rather than
+	IService
+
+2007-03-20  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaKernel-00-03-39
+	* AthenaKernel/StoreID.h: adding MetaData StoreID to enum
+
+2007-03-15  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaKernel-00-03-38
+	* AthenaKernel/IIOVDbSvc.h: moved registerTagInfoCallback here
+	from IOVDbSvc pkg
+
+2007-03-14  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tagging AthenaKernel-00-03-37
+	* AthenaKernel/IAthenaOutputTool.h: add new interface for (non-writing) AthenaOutputStream tools.
+
+2007-03-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-03-36.
+
+	* gcc4 fixes:
+	* test/errorcheck_test.cxx: Add missing <cassert> include.
+	* AthenaKernel/IResetable.h: Add a virtual dtor to avoid
+	compilation warnings.
+
+2007-03-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* tagging AthenaKernel-00-03-35
+	* src/CloneService.cxx (CloneService): remove spurios FATAL messages 
+	from plugin mgr when looking for a cloned service
+
+2007-03-04  scott snyder  <snyder@bnl.gov>
+
+	* tagging AthenaKernel-00-03-34
+	* test/errorcheck_test.cxx: Fix for gaudi 19.
+
+2007-02-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* tagging AthenaKernel-00-03-33
+	* AthenaKernel/CloneService.h: moved here from PileUpComps
+
+2007-02-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-03-32
+	* AthenaKernel/IAtRndmGenSvc.h: inherit from IService
+	* AthenaKernel/ITimeKeeper.h: likewise
+
+2007-02-07  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-03-31
+	* AthenaKernel/IProxyProviderSvc.h: made this class inherit from 
+	  IService instead of IInterface for Reflex::PluginService's benefit
+
+2007-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-03-30.
+
+	* cmt/requirements: Fix test comparisons to work with both gaudi
+	16 & 19.
+
+	* share/AthenaPackageInfo_test.ref: (new)
+	* share/getMessageSvc_test.ref: (new)
+
+	* AthenaKernel/errorcheck.h (class ReportMessage): Add msgstream().
+	(REPORT_ERROR_WITH_CONTEXT): Use it.
+	(REPORT_MESSAGE_WITH_CONTEXT): Likewise.
+
+2007-01-19  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-03-29
+	* AthenaKernel/IThinningSvc.h: simplified API
+
+2007-01-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-03-28
+	* AthenaKernel/IThinningSvc.h: migration to GaudiUtils::HashMap
+
+2006-11-20  Charles Leggett <charles.leggett@cern.ch>
+      * added StreamLogger class
+      * tag AthenaKernel-00-03-27
+
+2006-11-14  Charles Leggett <charles.leggett@cern.ch>
+      * IEventDumperSvc.h
+      * tag AthenaKernel-00-03-26
+
+2006-11-07  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-03-25
+	* improved handling of multi-pass thinning
+	* added helper methods
+	* improved encapsulation
+
+2006-11-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-03-24
+	* added a static method for T/P benefit (waiting for a new T/P 
+	  framework) to retrieve an IThinningSvc instance
+	* M AthenaKernel/IThinningSvc.h
+	* M src/IThinningSvc.cxx
+
+2006-11-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-03-23
+	* cmt/requirements: make checkreq happy (added CLHEP use statement)
+
+	* tagging AthenaKernel-00-03-22
+	* AthenaKernel/IThinningSvc.h: added helper methods to punch holes
+
+2006-10-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaKernel-00-03-21
+	* added IThinningSvc: the interface towards the DataVector<T> 
+	  thinning service.
+
+2006-08-29 S. Rajagopalan <srinir@bnl.gov>
+	* addAlias() in IProxyRegistry.
+	* tag AthenaKernel-00-03-20
+	
+2006-08-15  Peter van Gemmeren  <gemmeren@anl.gov>\
+	* AthenaKernel/IAthenaOutputStreamTool.h: Added getInputItemList() method.
+	* tag AthenaKernel-00-03-19
+
+2006-06-28  Paolo Calafiura  <pcalafiura@lbl.gov>\
+	* AthenaKernel/IAtRndmGenSvc.h: added three args version of 
+	setOnDefinedSeeds (bug 17654)
+	* tag AthenaKernel-00-03-18
+
+2006-03-30  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaKernel-00-03-17.
+
+2006-03-23  scott s snyder  <snyder@bnl.gov>
+
+	* AthenaKernel/IProxyRegistry.h: Put back proxy_exact.
+
+	* Tagging AthenaKernel-00-03-16.
+
+	* AthenaKernel/IProxyRegistry.h: Temporarily comment out
+	proxy_exact for the next tag
+
+	* AthenaKernel/errorcheck.h: Collapse IAlgorithm/IService/IAlgTool
+	overloads into a single INamedInterface overload.  Fix include
+	guard typo.
+	* src/errorcheck.cxx: Likewise.
+
+2006-03-18  scott s snyder  <snyder@bnl.gov>
+
+	* AthenaKernel/IProxyRegistry.h: Add proxy_exact.
+
+2006-03-14  scott s snyder  <snyder@bnl.gov>
+
+	* Tag AthenaKernel-00-03-15.
+
+2006-03-13  scott s snyder  <snyder@bnl.gov>
+
+	* AthenaKernel/errorcheck.h: Restructure a bit: REPORT_ERROR now
+	doesn't take a message argument; instead, additional text is added
+	using the output streaming operator.  Added REPORT_MESSAGE which
+	takes a logging level arg instead of a status code.
+	* src/errorcheck.cxx: Likewise.
+	* test/errorcheck_test.cxx: Updated.
+	* share/errorcheck_test.ref: Likewise.
+
+	* Tag AthenaKernel-00-03-14.
+
+	* test/type_tools_test.cxx: (new)
+	* share/type_tools_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* AthenaKernel/errorcheck.h: Remove gscget/set for now.
+	* src/errorcheck.cxx: Likewise.
+	* cmt/requirements: Don't need Boost_linkopts_thread now.
+	* test/errorcheck_test.cxx: Remove gscset/gscret tests.
+	* share/errorcheck_test.ref: Updated.
+
+2006-01-10  scott s snyder  <snyder@bnl.gov>
+
+	* AthenaKernel/errorcheck.h: (new)
+	* src/errorcheck.cxx: (new)
+	* test/errorcheck_test.cxx: (new)
+	* share/errorcheck_test.ref: (new)
+	* cmt/requirements: Link with boost threads library.  Add
+	errorcheck test.
+
+2005-10-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/IOVRange.cxx: removed extra; (Mattias)
+        * tag AthenaKernel-00-03-13
+
+2005-10-05  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+        * tag AthenaKernel-00-03-12
+	* src/IOVTime.cxx: extended isValid to include both run/evt and
+	timestamp being set
+
+	* AthenaKernel/IIOVDbSvc.h: added signalBeginRun
+
+2005-09-29  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+        * tag AthenaKernel-00-03-11
+	* src/IOVTime.cxx: removed -1 from max event
+
+2005-08-26  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+        * tag AthenaKernel-00-03-10
+	* AthenaKernel/IAthenaOutputStreamTool.h: added a bit of doc
+
+2005-08-19  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+        * tag AthenaKernel-00-03-09
+	* AthenaKernel/IAthenaOutputStreamTool.h (virtual): added
+	interface for outstr tool
+
+2005-07-20  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* src/IOVTime.cxx: cleaned up printout
+        * tag AthenaKernel-00-03-08
+
+2005-07-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * AthenaKernel/IAtRndmGenSvc.h: namespaced CLHEP::HepRndmEngine
+        * tag AthenaKernel-00-03-07
+
+2005-07-05  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * AthenaKernel/IAtRndmGenSvc.h: forward -> full include for CLHEP
+        * tag AthenaKernel-00-03-06
+
+2005-06-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaKernel/ITriggerTime.h: new interface
+
+2005-06-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaKernel/INextPassFilter.h: added (for MultipleEventLoopMgr)
+	* tag AthenaKernel-00-03-05
+
+2005-06-07  Charles Leggett <charles.leggett@cern.ch>
+	* src/IOVTime.cxx: make maxtimestamp 63 bits
+	* tag AthenaKernel-00-03-04
+
+2005-06-02  Paolo Calafiura   <pcalafiura@lbl.gov>
+	* src/getMessageSvc.cxx (getMessageSvc): check StatusCode
+	* tag AthenaKernel-00-03-03
+
+2005-05-18  RD Schaffer  <R.D.Schaffer@cern.ch>
+	* removed IIOVCondDbSvc.h
+	* tag AthenaKernel-00-03-02
+
+2005-05-03  scott s snyder  <snyder@bnl.gov>
+       * New interfaces for AthenaPoolSeek.
+       * AthenaKernel/IEventSeek.h: (new)
+       * AthenaKernel/ICollectionSize.h: (new)
+	* tag AthenaKernel-00-03-01
+
+2005-03-18  RD Schaffer  <R.D.Schaffer@cern.ch>
+	* tag AthenaKernel-00-03-00
+	* AthenaKernel/IIOVCondDbSvc.h: added access to db for COOL
+
+2004-08-13: Charles Leggett <charles.leggett@cern.ch>
+	* restored IOVTime to v1.7
+	* tag AthenaKernel-00-02-03
+
+2004-08-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaKernel/IOVTime.h: once again, temporarily revert to v 1.4 
+	* src/IOVTime.cxx: once again, temporarily revert to v 1.4 
+        tag AthenaKernel-00-02-02 (should really be 00-01-31)
+
+2004-08-04  David Quarrie  <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Change dependency on Boost to one on
+	AtlasBoost to avoid a name clash
+
+2004-07-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaKernel/IClassIDSvc.h: new methods to handle PackageInfo
+	* class PackageInfo: added accessors and usual operators
+	tag AthenaKernel-00-02-00
+
+2004-07-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class PackageInfo: decode cmt PACKAGE_VERSION macro content
+        * IOVTime: back to the head version
+
+2004-07-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaKernel/IOVTime.h: temporarily revert to v 1.4 
+	* src/IOVTime.cxx: temporarily revert to v 1.4 
+        tag AthenaKernel-00-01-30
+
+2004-07-10  Paolo Calafiura  <calaf@lxplus054.cern.ch>
+	* AthenaKernel/tools/type_tools.h: new helper Copy that defines a
+	suitable copy type, by value unless T is ptr in which case we use
+	const T*
+
+2004-06-29: Charles Leggett <charles.leggett@cern.ch>
+      * IOVTime: Modified interface, explicitly uses 32,64 bit ints
+
+      * tag AthenaKernel-00-01-28
+
+2004-06-02: Charles Leggett <charles.leggett@cern.ch>
+      * moved IAlgContextSvc.h to GaudiKernel
+
+      * tag AthenaKernel-00-01-27
+
+2004-05-18  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaKernel-00-01-26
+
+	* src/IOVTime.cxx: modified limits and added check
+
+2004-05-11  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaKernel-00-01-25
+
+	* AthenaKernel/IOVTime.h: changed return type of timestamp to be
+	long long
+
+2004-05-04: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvcDefs.h: bugfix for #define
+
+      * tag AthenaKernel-00-01-24
+
+2004-05-04: Charles Leggett <charles.leggett@cern.ch>
+      * IOVTime.*: added consts to define min/max/undef event/run/timestamp
+	
+      * tag AthenaKernel-00-01-23
+
+2004-05-03  Charles Leggett <charles.leggett@cern.ch>
+      * IOVTime.*: removed ambiguous constructor.
+
+      * tag AthenaKernel-00-01-22
+
+2004-04-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/getMessageSvc.cxx: do not fail if MessageSvc not found
+	* tag AthenaKernel-00-01-21
+
+2004-04-19  Charles Leggett <charles.leggett@cern.ch>
+	* fixed include guard for IIOVDbSvc
+
+	* tag AthenaKernel-00-01-20
+
+2004-04-19  Charles Leggett <charles.leggett@cern.ch>
+      * moved IOVTime, IOVRange here from IOVSvc
+
+      * tag AthenaKernel-00-01-19
+
+2004-04-07  Charles Leggett <charles.leggett@cern.ch>
+	* the second step to avoid branching, re-reverting IIOVSvc.h to
+	  AthenaKernel-00-01-16 for 8.1.0
+
+	* tag AthenaKernel-00-01-18
+
+2004-04-07  Charles Leggett <charles.leggett@cern.ch>
+	* in order to avoid branching, and 'cause Paolo screwed up and
+	  included this in 8.0.1 when he shouldn't have, will revert
+	  IIOVSvc.h to AthenaKernel-00-01-14
+
+	* tag AthenaKernel-00-01-17
+
+2004-03-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaKernel/getMessageSvc.h: an open function returning an
+	IMessageSvc*
+	* tag AthenaKernel-00-01-16
+
+2004-03-17  Charles Leggett <charles.leggett@cern.ch>
+	* IIOVSvc.h: added regFcn(toolName) interface, getTriggeredTools()
+
+	* tag AthenaKernel-00-01-15
+
+2004-02-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaKernel-00-01-14
+
+	* AthenaKernel/IAthenaSealSvc.h: added abstract interface for seal
+	service
+
+2004-01-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* allow for different time units in printouts
+	* tag AthenaKernel-00-01-13
+
+2004-01-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* TimeKeeper: moved improved printouts from
+	ITimeKeeper to here
+	* tag AthenaKernel-00-01-12
+
+2003-12-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* new classes ITimeKeeper, TimeKeeper, POSIXTimeKeeper: define and
+	partially implement the new time keeper interface, used by the
+	loop manager to terminate a job on time limit. They will eventually
+	migrate to GaudiKernel. POSIXTimeKeeper functionality should probably 
+	go in System.h
+	* tag AthenaKernel-00-01-11
+
+2003-12-03 S. Rajagopalan <srinir@bnl.gov>
+	* Add DefaultKey.h to provide default key for StoreGate retrieve
+	* tag AthenaKernel-00-01-10
+	
+2003-11-14  Antoine Perus  <perus@lal.in2p3.fr>
+
+	* tag AthenaKernel-00-01-09
+	
+	* AthenaKernel/IIOVCondDbSvc.h: changed interfaces
+	buildDescription and decodeDescription for a more generic use.
+
+2003-11-12: Charles Leggett <charles.leggett@cern.ch>
+	* IIOVSvc.h: changed interface name from "IOVSvc" to "IIOVSvc"
+	* tag AthenaKernel-00-01-08
+	
+2003-11-12  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag AthenaKernel-00-01-07
+
+	* AthenaKernel/IIOVCondDbSvc.h: added split address method
+
+2003-11-10: Charles Leggett <charles.leggett@cern.ch>
+	* added IOVSvcDefs.h
+	* IIOVSvc.h: added untemplated regFcn() methods
+	* tag AthenaKernel-00-01-06
+
+2003-10-07  Antoine Perus  <perus@lal.in2p3.fr>
+
+	* tagging AthenaKernel-00-01-05
+
+	* AthenaKernel/IIOVCondDbSvc.h: augmented builDescription and
+	added decodeDescription.
+
+2003-07-03  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaKernel/IAtRndmGenSvc.h: new method setOnDefinedSeeds
+	* tagging AthenaKernel-00-01-04
+
+2003-06-17  Antoine Perus  <perus@lal.in2p3.fr>
+
+	* tagging AthenaKernel-00-01-03
+	
+	* AthenaKernel/IIOVCondDbSvc.h: bug fix - buildDescription has to be
+        a pure virtual.
+
+2003-06-13  Antoine Perus  <perus@lal.in2p3.fr>
+
+	* tagging AthenaKernel-00-01-01
+	
+	* AthenaKernel/IIOVCondDbSvc.h: split the interface on IOVDbSVc into
+	IIOVDbSvc and IIOVCondDBSvc in order to not force to implement the
+	CondDB objects using IOVDbSvc if not needed.
+
+2003-06-06  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaKernel-00-01-00
+
+	* AthenaKernel/IIOVDbSvc.h: expanded to allow access to the
+	ConditionsDB interface, plus a few other services.
+
+2003-04-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: added use Boost
+	* AthenaKernel/*.h: used Charles script to add include guards
+        * tag AthenaKernel-00-00-13
+
+2003-04-08  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* AthenaKernel/IProxyDict.h: new proxy dictionary interface 
+	(query-only unlike IProxyRegistry)
+        * tag AthenaKernel-00-00-12
+
+2003-04-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * AthenaKernel/IAddressProvider.h: DataProxy and TransientAddress in
+	namespace SG
+	* AthenaKernel/IProxyRegistry.h: DataProxy and TransientAddress in
+	namespace SG
+	* AthenaKernel/IProxyProviderSvc.h: DataProxy and TransientAddress in
+	namespace SG
+        * tag AthenaKernel-00-00-11
+
+2003-03-11  Charles Leggett  <Charles.Leggett@cern.ch>
+	* AthenaKernel/IIOVDbSvc.h: abstract interface to IOVDbSvc to allow
+	  access to IOVRange and tag information
+
+2003-02-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* AthenaKernel/IAddressProvider.h: added dummy impl for 
+        (pre)loadAddresses
+        * tag AthenaKernel-00-00-09
+
+2003-02-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* AthenaKernel/tools/type_tools.h: moved from StoreGate (used by
+	CLIDSvc as well 
+	* AthenaKernel/IClassIDSvc.h: add new methods for name->clid
+	CLIDSvc as well 
+	* AthenaKernel/IClassIDSvc.h: add new methods for name->clid
+2003-02-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* AthenaKernel/tools/type_tools.h: moved from StoreGate (used by
+	CLIDSvc as well 
+	* AthenaKernel/IClassIDSvc.h: add new methods for name->clid
+	mapping
+	* tag AthenaKernel-00-00-08
+	
+
+2003-02-05 S. Rajagopalan <srinir@bnl.gov>
+	* Add StoreID class
+	* IAddressProvider.h: interface change, preLoadAddress & loadAddress 
+	  have storeID as argument.
+	* IProxyRegistry.h: add identity() to return storeID
+	* tag AthenaKernel-00-00-07
+	
+2003-01-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* AthenaKernel/IClassIDSvc.h: access in memory db of CLID->typename 
+        tag AthenaKernel-00-00-06
+
+2003-01-10 S. Rajagopalan <srinir@bnl.gov>
+        * remove TransientID
+	* Fix bug in AthenaProviderSvc
+	* Introduce AthenaProviderSvc.cxx
+        tag AthenaKernel-00-00-05
+
+2003-01-09 S. Rajagopalan <srinir@bnl.gov>
+	* Remove TransientID usage
+	* IProxyRegistry: interface changed
+	   - addToStore and proxy(TransientAddress*)
+	* IProxyProviderSvc: interface changed
+	  - preLoadProxies, loadProxies, retrieveProxy, updateAddres
+	* IAddressProvider: interface changed
+	  - preLoadAddresses, loadAddresses, updateAddress
+	
+2002-12-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* AthenaKernel/IAddressProvider.h: getAddresses now sets a list
+	reference  
+	tag AthenaKernel-00-00-03
+
+2002-12-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* AthenaKernel/IProxyProviderSvc.h: fix addAddress signature
+	*tag AthenaKernel-00-00-02
+
+2002-12-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * struct TransientID: now a full fledged struct with structors,
+	accessors and a unit test
+	* AthenaKernel/IProxyProviderSvc.h: basically rewritten from scratch
+	* AthenaKernel/IProxyRegistry.h: replaces IAddressRegistry (a misnomer)
+	* AthenaKernel/IAddressProvider.h: renamed method, use TransientID struct
+	* AthenaKernel/IAlgContextSvc: added explicit virtual destructor
+	* AthenaKernel/IAtRndmGenSvc: added explicit virtual destructor,
+	use new InterfaceID constructor as elsewhere
+	* cmt/requirements: added TransientID_test
+	*tag AthenaKernel-00-00-01

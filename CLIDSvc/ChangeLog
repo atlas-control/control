@@ -1,0 +1,465 @@
+2013-09-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging CLIDSvc-00-05-02.
+	* cmt/requirements: Fix checkreq warnings.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging CLIDSvc-00-05-01
+	* adding wscript file
+	* A wscript
+
+2007-12-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging CLIDSvc-00-05-00
+	* migration to SGTools and CLIDComps
+	* M CLIDSvc/CLASS_DEF.h
+	* M CLIDSvc/tools/CLIDRegistry.h
+	* M CLIDSvc/tools/ClassID_traits.h
+	* M cmt/requirements
+	* R python/__init__.py
+	* R python/clidGenerator.py
+	* R share/CLIDRegistry_test.ref
+	* R share/Gaudi_clid.db
+	* R share/PYTHONSTARTUP
+	* R share/clid
+	* R share/cvs2cliddb.csh
+	* R src/CLIDRegistry.cxx
+	* R test/CLIDRegistry_test.cxx
+	* R test/CLIDSvc.xml
+	* R test/_clid_unittest.py
+
+2007-12-01  David Quarrie
+	* CLIDSvc/tools/CLIDRegistry.h: Force gccxml to skip parsing the addEntry implementation since the LCG_54 version of gccxml fails
+	* tag CLIDSvc-00-04-03
+
+2007-10-10  Paolo Calafiura  
+	* share/Gaudi_clid.db: clids of some Gaudi DataObjects
+	* python/clidGenerator.py (clidGenerator.readdb): improved clid.db line
+	parsing
+
+	* test/_clid_unittest.py (CLIDTestCase.test1ClidDB): test now uses
+	new db file Gaudi_clid.db
+	* tag CLIDSvc-00-04-02
+
+2007-10-01  Paolo Calafiura
+        * CLIDSvc/CLASS_DEF.h: use PACKAGE_VERSION macro to define PackageInfo
+	* tag CLIDSvc-00-04-01
+
+2007-10-01  Paolo Calafiura
+        * share/clid.db: removed since it gets in the way of the autogen one.
+	* tag CLIDSvc-00-04-00
+
+2007-06-18  Paolo Calafiura
+        * test/_clid_unittest.py: renamed from clid_unittest.py (to allow
+	$ clid<TAB> to complete unambiguously 
+	* cmt/requirements: install _clid_unittest.py as script
+	* test/CLIDSvc.xml: fixed invocation of clid unit test
+	* tag CLIDSvc-00-03-05
+
+2007-06-16  Paolo Calafiura  <calaf@localhost.localdomain>
+        * documentation standdown
+	* test/CLIDSvc.xml: run clid_unittest.py 
+	* tag CLIDSvc-00-03-04
+
+2007-03-05  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* src/components: removed files in there (thanks RD)
+	* tag CLIDSvc-00-03-02
+
+2007-03-02  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* cmt/requirements: added use stat to make checkreq happy
+	* tag CLIDSvc-00-03-01
+
+2007-03-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * ClassIDSvc moved to CLIDComps
+	* cmt/requirements: turned package into an installed_library. 
+	Name should be changed but...
+        * tag CLIDSvc-00-03-00
+
+2006-09-06  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Remove redundant "do_genconf"
+
+2006-08-16  scott s snyder  <snyder@bnl.gov>
+       * CLIDSvc/tools/ClassID_traits.h: Set is_DataObject_tag
+       correctly.
+       * test/ClassIDSvc_test.cxx (main): Avoid compilation warning.
+       * tag CLIDSvc-00-02-11
+
+2006-08-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/CLIDSvcTestCommon.py: typo DLLs->Dlls (bug #18918)
+	* tag CLIDSvc-00-02-10	
+
+2006-07-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/ClassIDSvc_test.cxx: disabled package info checking 
+	* src/ClassIDSvc.cxx: disabled package info checking 
+	(package info not available)
+        * share/cvs2cliddb.csh: lookup files in CMTPATH
+	* share/clid.db: new version generated
+	* tag CLIDSvc-00-02-09
+
+2006-04-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/CLIDSvc.xml: new xml-style tests
+	* cmt/requirements: added apply_pattern to do_genconf
+	* tag CLIDSvc-00-02-08	
+
+2006-03-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: added do_genconf
+	* tag CLIDSvc-00-02-07 
+
+2006-01-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/*_test.cxx: added undef NDEBUG 
+	* tag CLIDSvc-00-02-06
+
+2005-05-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/CLIDRegistry.cxx: hack to solve the undefined MINCLID, MAXCLID
+	* tag CLIDSvc-00-02-05
+
+2005-02-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/clid: fixed bug#6283
+	* tag CLIDSvc-00-02-04
+
+2005-01-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/CLIDSvc.sh: fixed script syntax
+	* tag CLIDSvc-00-02-03
+
+2004-11-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * turned clidGenerator into a module. Fixed bug in _ processing
+	* test/clid_unittest.py: unit tests for clidGenerator.py
+	* test/CLIDSvc.sh: run the unit tests in the nightlies
+	* cmt/requirements: install module files
+	* tag CLIDSvc-00-02-02
+	
+2004-11-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: do not try to install removed clid.py
+	* tag CLIDSvc-00-02-01
+
+2004-11-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/clidGen.py: added debug and error printouts
+	* share/clid: now the python driver (formerly clid.py, removed). 
+	Use optparse to improve option parsing. Renamed --db to --cliddb 
+	(solves ambiguity)
+	* tag CLIDSvc-00-02-00
+	
+
+2004-11-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/clid: don't print out misleading comments
+	* share/clidGen.py (clidGenerator): use DATAPATH to locate clid.db
+	* test/CLIDSvc.sh: moved unit test driver from TestTools
+	* tag CLIDSvc-00-01-06
+	
+2004-09-17 S. Rajagopalan <srinir@bnl.gov>
+	* Remove package checking in CLASS_DEF2 (also, as in CLASS_DEF)
+	* to be fixed later
+	* tag CLIDSvc-00-01-05
+	
+2004-09-05  David Quarrie  <David.Quarrie@cern.ch>
+	* ClassIDSvc: Replace IID by InterfaceID since the former is no longer
+	available.
+
+2004-08-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class ClassIDSvc: listen to ModuleLoadedIncident and load
+	the new registry entries when fired. Needs piolishing and more testing 
+	tag CLIDSvc-00-01-03
+
+2004-08-04  David Quarrie  <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Change dependency on Boost and PYTHON to ones
+	on AtlasBoost and AtlasPython to avoid name clashes
+
+2004-07-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* CLIDSvc/tools/CLIDRegistry.h (addEntry): add PackageInfo
+	* CLIDSvc/tools/ClassID_traits.h: new method packageInfo
+	* class ClassIDSvc: add package info map, accessor and setter
+	* CLIDSvc/CLASS_DEF.h: add packageInfo method to macros
+	tag CLIDSvc-00-01-00
+
+2004-05-12  Paolo Calafiura  <pcalafiura@lbl.gov>=
+	* CLIDSvc/tools/ClassID_traits.h (typeName): 
+	* CLIDSvc/CLASS_DEF.h (CLASS_DEF): typeName returns a
+	string rather than a const string&. Also no more local static vars
+	in INLINED typeName implementation. Should fix erratic crashes first
+	reported by the Barcelona guys.
+	tag CLIDSvc-00-00-14
+
+2004-03-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/clid.db: update based on 7.7.0
+	* src/ClassIDSvc.cxx (initialize): use PathResolver for clid db files
+	* cmt/requirements: use PathResolver. Install clid.db in the data (run)
+	area
+	tag CLIDSvc-00-00-12 
+
+2004-02-19  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* cmt/requirements: fixed installation patters
+	tag CLIDSvc-00-00-10
+
+2004-01-23  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* moved back unit test from ControlTest (pkg dependencies cleaned up) 
+	tag CLIDSvc-00-00-09
+
+2003-11-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * share/clid:  small fix to improve handling of <>
+	* share/cvs2cliddb.csh: added argument to specify top of release tree
+	* share/clid.db: update based on 7.2.0 class defs 
+	tag CLIDSvc-00-00-08
+
+2003-06-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/clid.db: update based on 6.3.0 class defs 
+	tag CLIDSvc-00-00-07
+
+2003-04-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* CLIDSvc/*.h: used Charles script to add include guards
+	tag CLIDSvc-00-00-06
+
+2003-04-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* (can't) use new TestTools: tests moved to ControlTests 
+	tag CLIDSvc-00-00-05
+
+	
+2003-02-19  Craig E. Tull <CETull@lbl.gov>
+* clid.py now returns error if -x detects an invalid pair
+* cvs2cliddb.csh now generates clid.names & clid.ids
+
+cvsstat: /afs/cern.ch/atlas/maxidisk/d64/tull/dev-atlas/offline/Control/CLIDSvc
+
+ 3 file(s) locally modified - commit !
+==============================================================
+   ChangeLog
+   share/clid.py
+   share/cvs2cliddb.csh
+==============================================================
+
+ 4 file(s) unknown to cvs
+
+ 13 file(s) up to date
+
+## DO NOT EDIT BELOW THIS LINE #######################################
+# $Log: not supported by cvs2svn $
+# Revision 1.49  2007/12/01 07:07:21  dquarrie
+# ChangeLog
+# 	Document changes
+#
+# CLIDSvc/tools/CLIDRegistry.h
+# 	CLIDSvc/tools/CLIDRegistry.h: Force gccxml to skip parsing the
+# 	addEntry implementation since the LCG_54 version of gccxml fails
+#
+# David Quarrie
+#
+# Revision 1.48  2007/10/10 20:48:39  calaf
+# fix failing test
+#
+# Revision 1.47  2007/10/06 00:04:19  calaf
+# use PACKAGE_VERSION macro to define PackageInfo
+#
+# Revision 1.46  2007/10/02 00:13:36  calaf
+# removed share/clid.db as it got in the way of the autogen ones
+#
+# Revision 1.45  2007/06/18 18:11:41  calaf
+# fix ATN clid test
+#
+# Revision 1.44  2007/06/16 20:38:32  calaf
+# doc standdown
+#
+# Revision 1.43  2007/06/16 16:17:33  calaf
+# documentation standdown
+#
+# Revision 1.42  2007/03/05 17:41:18  calaf
+# remove components cxx files
+#
+# Revision 1.41  2007/03/02 23:07:03  calaf
+#  added use stat to make checkreq happy
+#
+# Revision 1.40  2007/03/01 23:35:31  calaf
+# moved ClassIDSvc to CLIDComps
+#
+# Revision 1.39  2006/09/06 06:21:11  dquarrie
+# ChangeLog
+#         Document changes
+#
+#  cmt/requirements
+#         Remove redundant do_genconf
+#
+# David Quarrie
+#
+# Revision 1.38  2006/08/24 19:04:12  calaf
+# Scott bug fix
+#
+# Revision 1.37  2006/08/09 17:36:18  calaf
+# typo in job opts (thanks Sebastien)
+#
+# Revision 1.36  2006/07/19 22:52:14  calaf
+# cleanup. See ChangeLog
+#
+# Revision 1.35  2006/04/05 08:06:12  calaf
+# xml test, apply_pattern
+#
+# Revision 1.34  2006/03/28 05:48:24  calaf
+# do_genconf
+#
+# Revision 1.33  2006/01/11 17:53:02  calaf
+# make tests run in opt
+#
+# Revision 1.32  2005/05/10 22:58:44  calaf
+#  hack to solve the undefined MINCLID, MAXCLID
+#
+# Revision 1.31  2005/02/02 16:21:08  calaf
+# fixed bug#6283
+#
+# Revision 1.30  2005/01/22 18:15:11  calaf
+# fix syntax error in test script
+#
+# Revision 1.29  2004/11/23 01:23:06  calaf
+# turn clidGenerator into a module, fixed bug, added unit tests
+#
+# Revision 1.28  2004/11/12 17:18:55  calaf
+# do not try to install removed clid.py
+#
+# Revision 1.27  2004/11/11 02:20:03  calaf
+# overhauled clid script
+#
+# Revision 1.26  2004/11/11 00:51:17  calaf
+# new version of clid script
+#
+# Revision 1.25  2004/11/03 00:30:10  calaf
+# use DATAPATH to locate clid.db
+#
+# Revision 1.24  2004/09/17 20:12:26  srini
+# fix for package checking
+#
+# Revision 1.23  2004/09/05 13:24:54  dquarrie
+# ChangeLog
+# 	Document changes.
+#
+# CLIDSvc/ClassIDSvc.h src/ClassIDSvc.cxx
+# 	Replace IID by InterfaceID since the former is no longer available.
+#
+# David Quarrie
+#
+# Revision 1.22  2004/08/31 19:38:32  calaf
+# listen to ModuleLoadedIncident and load
+# 	the new registry entries when fired. Needs piolishing and more testing
+#
+# Revision 1.21  2004/08/04 09:54:26  dquarrie
+# ChangeLog
+# 	Document changes
+#
+# cmt/requirements
+# 	Change dependencies on Boost and PYTHON to AtlasBoost and AtlasPython
+# 	to avoid name clashes.
+#
+# David Quarrie
+#
+# Revision 1.20  2004/07/15 00:30:37  calaf
+# added package info
+#
+# Revision 1.19  2004/05/12 23:23:35  calaf
+# fix for erratic crashes in ClassID_traits typeName method
+#
+# Revision 1.18  2004/03/10 00:37:58  calaf
+# use PathResolver should be public
+#
+# Revision 1.17  2004/03/09 22:27:52  calaf
+# updated clid.db (to 7.7.0), use PathResolver
+#
+# Revision 1.15  2004/02/20 02:12:16  calaf
+# fix installation patterns
+#
+# Revision 1.14  2004/01/23 23:59:34  calaf
+# moved back unit test from ControlTest
+#
+# Revision 1.13  2003/11/26 02:09:14  calaf
+# updated clid.db. Enhanced scripts
+#
+# Revision 1.12  2003/06/20 21:25:49  calaf
+# update to 6.3.0 clids
+#
+# Revision 1.11  2003/04/16 01:24:35  calaf
+# used Charles script to add include guards
+#
+# Revision 1.10  2003/04/03 00:15:44  calaf
+# tests moved to ControlTests to avoid circ dep
+#
+# Revision 1.9  2003/04/02 23:35:29  calaf
+# use new TestTools, improve doc
+#
+# Revision 1.8  2003/02/20 00:42:38  tull
+#
+# 2003-02-19  Craig E. Tull <CETull@lbl.gov>
+# * clid.py now returns error if -x detects an invalid pair
+# * cvs2cliddb.csh now generates clid.names & clid.ids
+#
+# Revision 1.7  2003/02/19 23:33:24  tull
+#
+# 2003-02-19  Craig E. Tull <CETull@lbl.gov>
+# * add -x option to clid.py for validation
+#
+# Revision 1.6  2003/02/19 21:56:55  tull
+#
+# 2003-02-19  Craig E. Tull <CETull@lbl.gov>
+# * fix --db bug in clidGen.py
+#
+# Revision 1.5  2003/02/13 15:46:21  calaf
+# *** empty log message ***
+#
+# Revision 1.4  2003/02/13 00:19:04  tull
+#
+#2003-02-12  Craig E. Tull <cetull@lbl.gov>
+#* clid.py no longer prints entire path in help messages
+# 2003-02-12  Craig E. Tull <cetull@lbl.gov>
+# * clid.py no longer prints entire path in help messages
+#
+# Revision 1.3  2003/02/12 23:53:53  tull
+#
+# 2003-02-12  Craig E. Tull <cetull@lbl.gov>
+# * clid now attempts to check for and use good Python version
+#
+# Revision 1.6  2003/02/12 21:33:15  tull
+#
+# 12Feb03 - CETull@lbl.gov
+# * clid.py now handles searching for regex
+#
+# 2003-02-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+# 
+# 	* src/ClassIDSvc.cxx (finalize): use space as separator in output
+# 	db file 
+# 	* tag CLIDSvc-00-00-02
+# 	
+# 2003-02-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+# 	* imported ClassIDSvc, CLIDRegistry and ClassID_traits from
+# 	StoreGate
+# 	* put CLASS_DEF macros in CLASS_DEF.h and left the default
+# 	instantiation in tools/ClassID_traits.h	
+# 	* added doxygen MainPage.h	
+# 	* share/clid.db removed duplicates to get things going
+# 	* cmt/requirements defines a dual_use library (CLIDRegistry) and
+# 	installs share/clid (should it also install the db?)
+# 	* tag CLIDSvc-00-00-01
+# 
+# Revision 1.5  2003/02/12 00:28:41  tull
+#
+# 11Feb03 - CETull@lbl.gov
+# * Move duplicate reports to ./doc/
+#
+# Revision 1.4  2003/02/12 00:25:12  tull
+#
+# 11Feb03 - CETull@lbl.gov
+# * Additional duplicate report to determine file and line
+#
+# Revision 1.3  2003/02/06 18:03:50  tull
+#
+# 07Feb03 - CETull@lbl.gov
+# * Added duplicate reports for clid.db.
+#
+# Revision 1.2  2003/02/06 03:18:00  tull
+#
+# 06Feb03 - CETull@lbl.gov
+# * Added report generation of duplicate names and CLIDs to script for
+#   scanning CVS.
+# * Use newly scanned CLIDs for clid.db
+#
+# Revision 1.1.1.1  2003/02/06 02:36:56  tull
+#
+# 06Feb03 - CETull@lbl.gov
+# * Very first checkin of package.
+# * Tools seem to work properly, but have not been extensively tested.
+#
+#

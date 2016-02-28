@@ -1,0 +1,265 @@
+2011-11-25  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-07-08
+	* fix bug #89297: get the read entry of the correct tree for the
+	  case where this is actually a chain
+	* M src/AthenaRootBranchAddress.cxx
+
+2011-11-18  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaRootComps-00-07-07
+	* fixing cov-47412: null-check on leaf after having used that pointer
+	* M src/TTreeEventSelector.cxx
+
+2011-10-11  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaRootComps-00-07-06
+	* revert to -00-07-02 (ie: w/o the I/O improvements)
+	* TODO: implement a proper Notify object for branches and files
+	* M src/AthenaLeafCnv.h
+	* M src/TTreeEventSelector.cxx
+	* M src/AthenaRootBranchAddress.cxx
+	* M src/AthenaLeafCnv.cxx
+	* M src/AthenaNtupleCnvSvc.h
+	* M src/AthenaNtupleCnvSvc.cxx
+	* M src/TTreeEventSelector.h
+	* M src/AthenaRootBranchAddress.h
+
+2011-10-08  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaRootComps-00-07-05
+	* fixing compilation warning
+	* M src/TTreeEventSelector.cxx
+
+2011-10-07  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaRootComps-00-07-04
+	* proper I/O fix: do not use TTree::GetEntry by default
+	  but rely on TBranch::GetEntry being called by AthenaLeafCnv
+	* M src/AthenaLeafCnv.h
+	* M src/TTreeEventSelector.cxx
+	* M src/AthenaRootBranchAddress.cxx
+	* M src/AthenaLeafCnv.cxx
+	* M src/AthenaNtupleCnvSvc.h
+	* M src/AthenaNtupleCnvSvc.cxx
+	* M src/TTreeEventSelector.h
+	* M src/AthenaRootBranchAddress.h
+
+2011-10-02  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaRootComps-00-07-03
+	* I/O fix: do not use TTree::GetEntry by default
+	  but rely on TBranch::GetEntry being called by AthenaLeafCnv
+	* M src/TTreeEventSelector.cxx
+	* M src/TTreeEventSelector.h
+
+	* tagging AthenaRootComps-00-07-02
+	* fix 87294: check we can serve transient addresses and check type
+	* M src/TTreeEventSelector.cxx
+	* M src/TTreeEventSelector.h
+
+2011-09-30  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging AthenaRootComps-00-07-01
+	* fix 87294: check we can serve transient addresses
+	* M src/TTreeEventSelector.cxx
+	* M src/TTreeEventSelector.h
+
+2011-09-20  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-07-00
+	* preliminary support for athena-mp
+	* castor->eos migration
+	* M src/TTreeEventSelector.cxx
+
+2011-06-16  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-06-02
+	* checkreq fix
+	* M cmt/requirements
+
+2011-06-15  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-06-01
+	* make active branches work correctly + fix seeking
+	* M src/TTreeEventSelector.cxx
+	* M src/AthenaRootBranchAddress.cxx
+	* M src/AthenaRootBranchAddress.h
+
+2011-06-07 Charles Leggett
+	* remove AthTHistSvc to work with GaudiMP
+	* tagging AthenaRootComps-00-06-00
+
+M       python/Configurables.py
+M       src/components/AthenaRootComps_entries.cxx
+D       src/AthTHistSvc.h
+D       src/AthTHistSvc.icc
+D       src/AthTHistSvc.cxx
+	
+
+2011-05-27  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-05-05
+	* fixing coverity reports #13675 and #13674
+	* M src/AresEventSelector.cxx
+	* M src/TTreeEventSelector.cxx
+
+2011-05-25  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-05-04
+	* better error messages + better reflex-type loading
+	* M share/tests/test_athena_evtstore_root.py
+	* M src/AthenaLeafCnv.h
+	* M src/AthenaRootBranchAddress.cxx
+	* M src/AthenaLeafCnv.cxx
+	* M src/AthenaRootBranchAddress.h
+
+2011-05-20  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-05-03
+	* implemented a set of services to publish TTrees into the evtstore
+	* TODO: check TChains are also working
+	        maybe also adding a mode to write ntuples ?
+	        optimize the branch access a-la-rootutils ?
+	* A share/tests/test_athena_evtstore_root.py
+	* A src/AthenaLeafCnv.h
+	* A src/AthenaLeafCnv.cxx
+	* A src/AthenaNtupleCnvSvc.h
+	* A src/AthenaNtupleCnvSvc.cxx
+	* A src/AthenaRootBranchAddress.h
+	* A src/AthenaRootBranchAddress.cxx
+	* M share/tests/test_athena_root.py
+	* M cmt/requirements
+	* M python/ReadAthenaRoot.py
+	* M src/components/AthenaRootComps_entries.cxx
+	* M src/TTreeEventSelector.cxx
+	* M src/TTreeEventSelectorHelperSvc.cxx
+	* M src/TTreeEventSelector.h
+
+2011-03-14  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-04-04
+	* fixing coverity report 13674, bug #79341
+	* M src/AresEventSelector.cxx
+
+2011-02-28  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaRootComps-00-04-03
+	* fixing coverity report #13915
+	* M src/AthTHistSvc.cxx
+
+2010-05-28  Charles Leggett
+	* tagging AthenaRootComps-00-04-02
+	* make compatible with Gaudi v20r4p8
+	* M src/AthTHistSvc.cxx
+	* M src/AthTHistSvc.h
+	
+2009-11-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaRootComps-00-04-01 
+	* implements ITHistSvc::exists(name)
+	* M src/AthTHistSvc.icc
+	* M src/AthTHistSvc.cxx
+	* M src/AthTHistSvc.h
+
+2009-08-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaRootComps-00-04-00
+	* implement the extended IEventSeek interface
+	* M src/AresEventSelector.h
+	* M src/AresEventSelector.cxx
+	* M src/TTreeEventSelector.h
+	* M src/TTreeEventSelector.cxx
+
+2009-01-06  Sebastien Binet  <binet@lxplus226.cern.ch>
+
+	* tagging AthenaRootComps-00-03-02
+	* update for gaudi v20 FSM
+	* M src/AthTHistSvc.cxx
+
+2008-10-06  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaRootComps-00-03-01
+	* checkreq fixes
+	* M python/Ares.py
+	* M cmt/requirements
+
+2008-09-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaRootComps-00-03-00
+	* mods for athena-mp and I/O components
+	* M cmt/requirements
+	* M python/Configurables.py
+	* M src/components/AthenaRootComps_entries.cxx
+	* A src/AthTHistSvc.cxx
+	* A src/AthTHistSvc.h
+	* A src/AthTHistSvc.icc
+
+2008-09-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaRootComps-00-02-00
+	* migrating to AthenaBaseComps components
+	* M cmt/requirements
+	* M src/AresEventSelector.cxx
+	* M src/AresEventSelector.h
+	* M src/TTreeEventSelector.cxx
+	* M src/TTreeEventSelector.h
+	* M src/TTreeEventSelectorHelperSvc.cxx
+	* M src/TTreeEventSelectorHelperSvc.h
+
+2008-08-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaRootComps-00-01-02
+	* attempt at making xyzEventSelectors seekable
+	* M python/Ares.py
+	* M src/AresEventSelector.cxx
+	* M src/AresEventSelector.h
+	* M src/TTreeEventSelector.cxx
+	* M src/TTreeEventSelector.h
+
+2008-05-21  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaRootComps-00-01-01
+	* fixing closing of POOL files via symlinks for AresSvc
+	* M python/Ares.py
+
+2008-05-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaRootComps-00-01-00
+	* adding glue-code to run ARA from Athena: Ares
+	* A python/Ares.py
+	* A python/ReadAres.py
+	* A src/AresEventSelector.cxx
+	* A src/AresEventSelector.h
+	* M cmt/requirements
+	* M python/Configurables.py
+	* M src/TTreeEventSelector.cxx
+	* M src/TTreeEventSelector.h
+	* M src/components/AthenaRootComps_entries.cxx
+
+	* tagging AthenaRootComps-00-00-02
+	* fixed too late loading of TChain from input files
+	* A python/Configurables.py
+	* A src/TTreeEventSelectorHelperSvc.cxx
+	* A src/TTreeEventSelectorHelperSvc.h
+	* M python/ReadAthenaRoot.py
+	* M share/tests/test_athena_root.py
+	* M src/TTreeEventSelector.cxx
+	* M src/components/AthenaRootComps_entries.cxx
+
+2008-04-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaRootComps-00-00-01
+	* optimizations: disable all branches by default to speed up I/O
+	* added some naive tests (pure ROOT and AthenaRoot)
+	* M cmt/requirements
+	* A share/tests/test_athena_root.py
+	* A share/tests/test_bare_root.py
+	* M src/TTreeEventSelector.cxx
+	* M src/TTreeEventSelector.h
+
+2008-01-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaRootComps-00-00-00
+	* first import
+

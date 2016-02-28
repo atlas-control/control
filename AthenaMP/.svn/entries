@@ -1,0 +1,77 @@
+10
+
+dir
+726715
+svn+ssh://svn.cern.ch/reps/atlasoff/Control/AthenaMP/trunk
+svn+ssh://svn.cern.ch/reps/atlasoff
+
+
+
+2016-01-18T08:43:12.560349Z
+718221
+limosani
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4525493e-7705-40b1-a816-d608a930855b
+
+test
+dir
+
+python
+dir
+
+share
+dir
+
+cmt
+dir
+
+src
+dir
+
+ChangeLog
+file
+
+
+
+
+2016-02-28T22:24:20.000000Z
+2be67c5abc757333e20fd8c420da05e3
+2016-01-18T08:43:12.560349Z
+718221
+limosani
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+30915
+

@@ -1,0 +1,105 @@
+2015-03-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateTests-00-00-16.
+	* Should no longer have static DataPool instances.
+
+2015-01-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateTests-00-00-15.
+	* AthenaBaseComps migration.
+
+2013-10-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateTests-00-00-14.
+	* cmt/requirements: Fix checkreq warnings.
+
+2009-02-19  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateTests-00-00-13
+	* update for root-5.22
+	* M python/Lib.py
+
+2008-12-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateTests-00-00-12
+	* updating tests to completely use PyAthena
+	* M python/Lib.py
+
+2008-07-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-11
+	* adding persistency-test of STL containers
+	* M share/test_recordStlClids_jobOptions.py
+
+2008-04-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-10
+	* new test for std::vector<T> CLIDs
+	* A share/test_recordStlClids_jobOptions.py
+	* M python/Lib.py
+	* M test/StoreGateTests.xml
+
+2008-03-21  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-09
+	* python/Lib.py: small perf-optimizations
+
+2007-12-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-08
+	* python/Lib.py: fixing crucial typo for performances
+	* share/test_sgProducerConsumer_jobOptions.py: update
+
+	* tagging StoreGateTests-00-00-07
+	* added py-record/retrieve tests
+	* A StoreGateTests/PayLoad.h
+	* A StoreGateTests/StoreGateTestsDict.h
+	* A StoreGateTests/selection.xml
+	* M cmt/requirements
+	* A python/Lib.py
+	* A python/__init__.py
+	* M share/test_sgProducerConsumer_jobOptions.py
+	* M src/PayLoad.cxx
+	* R src/PayLoad.h
+	* M src/SgStressConsumer.cxx
+	* M src/SgStressProducer.cxx
+
+2007-12-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-06
+	* added a test of DataPool performances
+	* M src/PayLoad.h
+	* M src/SgStressConsumer.cxx
+	* M src/SgStressProducer.cxx
+	* M src/SgStressProducer.h
+	* M cmt/requirements
+	* M test/StoreGateTests.xml
+	* A share/tests/atn_test_sgProducerConsumerDataPool_jobOptions.py
+
+2007-08-27  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-05
+	* update for new perfmon.py API
+
+2007-06-12  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-04
+	* more infos about jobOptions
+
+	* tagging StoreGateTests-00-00-03
+	* doc typos
+
+	* tagging StoreGateTests-00-00-02
+	* adding doc/mainpage.h
+
+2007-06-02  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-01
+	* adding ATN test
+
+2007-06-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateTests-00-00-00
+	* first import
+	
+

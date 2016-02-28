@@ -1,0 +1,512 @@
+2008-11-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaSealSvc-00-02-02
+	* better job at backward compatibility
+	* A python/AthenaSealSvcConf.py
+	* A python/__init__.py
+
+	* tagging AthenaSealSvc-00-02-01
+	* better job at backward compatibility
+	* A python/AthenaSealSvcConf.py
+	* A python/__init__.py
+
+2008-11-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaSealSvc-00-02-00
+	* migrating AthenaSealSvc service implementation to AthenaServices
+	* M cmt/requirements
+	* M share/AthenaSealSvcIgnore_joboptions.py
+	* M share/AthenaSealSvc_joboptions.py
+	* R src/AthenaSealSvc.cxx
+	* R src/AthenaSealSvc.h
+	* R src/components/AthenaSealSvc_entries.cxx
+	* R src/components/AthenaSealSvc_load.cxx
+
+2008-11-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-01-01
+	* cmt/requirements: fix for checkreq.
+
+2008-10-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaSealSvc-00-01-00
+	* migration to IDictLoaderSvc (dropping Seal dep. in the process)
+	* M src/AthenaSealSvc.h
+	* M src/AthenaSealSvc.cxx
+	* M cmt/requirements
+	* M share/Load_AthenaSealSvc_joboptions.py
+
+2008-08-20  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-78
+	* src/AthenaSealSvc.cxx (AthenaSealSvc::setDefaultDictNames):
+	adding back in temporarily STLRflx.
+
+2008-08-19  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-77
+	* src/AthenaSealSvc.cxx (AthenaSealSvc::missing_member_types): removing ALL std::.
+
+2008-08-14  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-75
+	* src/AthenaSealSvc.cxx (AthenaSealSvc::setDefaultDictNames):
+	removed explicit set of dict names - relax dicts are now in.
+
+2008-03-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-74
+	* src/AthenaSealSvc.cxx (ignoreName): small speed fix
+
+2008-02-19  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-73
+	* src/AthenaSealSvc.cxx (find_extra_types): tweeking the fix for
+	std:: - cannot do this for other namespaces
+	Do not load dict for template args which are numbers.
+
+2008-02-18  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-72
+	* src/AthenaSealSvc.cxx (missing_member_types): reflex change in
+	ROOT 5.18 - for autoload, must NOT have preceeding 'std::' but for
+	access from reflex one MUST have 'std::'.
+
+2007-10-04  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Add dependency on AtlasROOT for as-needed linker opts.
+	* tagging AthenaSealSvc-00-00-71
+
+2007-08-25  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-70
+	* src/AthenaSealSvc.cxx (member_is_ok): added test for
+	DetailedTrackTruthCollection - DataLink content type fails check
+	(checkClass): print out ntypes loaded.
+
+2007-08-01 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+ 	* Removed AtlasReflex and put back SEAL
+ 	* Tagged as AthenaSealSvc-00-00-68
+
+2007-07-24 Nir Amram <Nir.Amram@cern.ch>
+ 	* Changed used package AtlasSEAL to AtlasReflex
+ 	* Tagged as AthenaSealSvc-00-00-67
+
+2007-06-15  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-66
+	* src/AthenaSealSvc.cxx (queryInterface): move to use method to
+	get interface id
+
+2007-06-13  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-65
+	* doc/mainpage.h: update of doxygen doc. 
+
+2007-05-18  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-64
+	* src/AthenaSealSvc.cxx (isnum): added test for numeric template
+	args
+
+2007-04-13  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-63
+	* src/AthenaSealSvc.cxx (checkClass): reduced the calls to auto
+	load
+
+2007-03-28  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-62
+	* src/AthenaSealSvc.cxx (find_extra_types): fixed type loading for
+	templates and members
+
+2007-03-24  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-61
+	* src/AthenaSealSvc.cxx (find_extra_types): auto load class
+	without '*' for pointers.
+
+2007-03-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* src/AthenaSealSvc.cxx (setDefaultDictNames): added auto load of
+	AtlasSTLAddReflex
+
+2007-03-09  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-60
+	* src/AthenaSealSvc.cxx (AthenaSealSvc): changed default check to
+	true
+
+2007-03-02  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-59
+	* src/AthenaSealSvc.cxx (find_extra_types): added autoloading for
+	template classes
+
+2007-02-27  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaSealSvc-00-00-58
+	* src/AthenaSealSvc.cxx (setDefaultDictNames): removed 'DetDescrDict'
+	  from the list of dictionaries to be loaded by the AthenaSealSvc to
+	  prevent from having a backward dependency (DetDescrDict is in 
+	  AtlasConditions)
+
+2007-02-21  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-57
+	* src/AthenaSealSvc.cxx (checkClass): missing return with check
+	flag is false
+	Added in temporary loading of dict lib via cint.
+	
+2007-02-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaSealSvc-00-00-56
+	* migrated the sensible (python) defaults to the C++ class
+	* M share/AthenaSealSvc_joboptions.py
+	* M src/AthenaSealSvc.cxx
+	* M src/AthenaSealSvc.h
+
+
+2007-02-02  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-55
+	* src/AthenaSealSvc.cxx (incorrect_guid): replaced HasKey -
+	deprecated
+
+ 	* tagging AthenaSealSvc-00-00-54
+	* share/AthenaSealSvc_joboptions.py (AthenaSealSvc): added in
+	STLAddRflx as default dictionary
+
+2006-12-05  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Add explicit dependency against AtlasSEAL
+	* src/AthenaSealSvc.cxx: Remove obsolete include of 
+	GaudiKernel/IAlgFactory.h
+
+2006-08-23  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-51
+	* share/AthenaSealSvcIgnore_joboptions.py (AthenaSealSvc): ignore allocator<
+	* src/AthenaSealSvc.cxx (checkClass): turn back on checks
+	(find_extra_types): added check to ignore template arg types.
+
+2006-04-11  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-50 
+	* src/AthenaSealSvc.cxx (checkClass): temporarily turn off checks
+	because of missing RELAX dicts
+
+2006-03-31  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-49
+	* share/AthenaSealSvc_joboptions.py (AthenaSealSvc): added in
+	loading of id dict since this is not loaded by the converters.
+
+2006-03-21  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-48
+	* src/AthenaSealSvc.cxx (find_extra_types): added warning for
+	missing types of templates
+
+2006-03-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-47
+	* src/AthenaSealSvc.cxx (find_extra_types): converting pointers to
+	underlying type
+
+2006-02-08  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-46
+	* share/AthenaSealSvc_joboptions.py (AthenaSealSvc): changed name
+	of stl dict
+
+2006-01-28  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-44
+	* src/AthenaSealSvc.cxx (checkDictionary): fixes for reflex in
+	root.
+
+2005-10-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+ 	* tagging AthenaSealSvc-00-00-43
+	* src/components/AthenaSealSvc_entries.cxx: remove extra ; (Mattias)
+
+2005-10-11  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* tagging AthenaSealSvc-00-00-42
+	* src/AthenaSealSvc.cxx (incorrect_guid): added check for property
+
+2005-10-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-41
+	* src/AthenaSealSvc.cxx (checkClass): some more fixes
+
+2005-09-23  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-40
+
+	* share/AthenaSealSvc_joboptions.py: added back in addition of svc
+	to ExtSvc.
+
+2005-09-21  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-39
+
+	* share/Load_AthenaSealSvc_joboptions.py (AthenaSealSvc): added
+	explicit initialize - needed to creation on demand
+
+	* src/AthenaSealSvc.cxx (initialize): changed flag for check at
+	init.
+
+2005-08-24  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-38
+	* src/AthenaSealSvc.cxx (missing_field_types): removed check on
+	virtual table for pointer fields
+
+2005-06-03  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-37
+
+	* src/AthenaSealSvc.cxx: switched off the global class
+	checking. And added CheckDictionary flag to switch off the
+	individual class check.
+
+2005-06-01  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-36
+
+	* src/AthenaSealSvc.cxx (initialize): check return status code
+
+2005-01-21  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-35
+
+	* doc/mainpage.h: updated doc
+
+	* src/AthenaSealSvc.cxx (checkClass): added printout of list of
+	classes checked
+
+2004-11-09  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-34
+
+	* share/AthenaSealSvc_joboptions.py (AthenaSealSvc): added include
+	of SealSTLDict
+
+2004-10-12  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-33
+
+	* src/AthenaSealSvc.cxx (loadClasses): added method to load all
+	classes. Allow to ignore some libs.
+
+2004-09-06  David Quarrie  <David.Quarrie@cern.ch>
+
+	* AthenaSealSvc; Replace IID by InterfaceID since the former
+	is no longer available.
+
+2004-08-31  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-31
+
+	* src/AthenaSealSvc.cxx (checkClass): added check for guid
+
+2004-08-27  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-30
+
+	* src/AthenaSealSvc.cxx (incorrect_guid): added check of the case
+	of the guid
+
+2004-08-25  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-28
+
+	* changed all c->name() to fullName.
+	
+	* src/AthenaSealSvc.cxx (field_is_ok): add ignore for fields of
+	DataLinkVector
+
+2004-08-05  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-27
+
+	* src/AthenaSealSvc.cxx (missing_field_types): fixed check for
+	virtual table for namespaced classes
+
+2004-07-30  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-26
+
+	* src/AthenaSealSvc.cxx (find_extra_types): skip types for
+	transient fields
+
+2004-07-29  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-25
+
+	* src/AthenaSealSvc.cxx (ignoreName): changed warning printout to debug
+
+	* tagging AthenaSealSvc-00-00-24
+
+	* share/AthenaSealSvcIgnore_joboptions.py (AthenaSealSvc): ignore IStoragePolicy
+	* src/AthenaSealSvc.cxx (missingTypes): added ignore for base
+	classes
+
+2004-07-28  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-23
+
+	* src/AthenaSealSvc.cxx (find_extra_types): remove const for
+	template types
+
+2004-07-13  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-22
+
+	* src/AthenaSealSvc.cxx (missing_field_types): protected virtual
+	table check for transients
+
+2004-07-07  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-21
+
+	* src/AthenaSealSvc.cxx (missing_field_types): use isTransient
+	(missing_field_types): check for virtual methods on pointers
+
+	* share/AthenaSealSvcIgnore_joboptions.py (AthenaSealSvc): added
+	SG and some "unknown" classes
+
+2004-06-02  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-20
+
+	* share/AthenaSealSvcIgnore_joboptions.py (AthenaSealSvc): added
+	ignore file for classes to be skipped for checks
+
+2004-04-08  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-19
+
+	* src/AthenaSealSvc.cxx (initialize): added call to initialize of
+	base class
+
+2004-03-25  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-18
+
+	* src/AthenaSealSvc.cxx (checkClass): protect against mismatch in
+	type name.
+
+2004-03-22  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-17
+
+	* share/Load_AthenaSealSvc_joboptions.py: added python jos
+
+2004-02-25  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-16
+
+	* src/AthenaSealSvc.cxx (checkClass): improved logic of check
+
+2004-02-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-15
+
+	* AthenaSealSvc/AthenaSealSvc.h (virtual): added implementations
+	for checkClass and loadDictFiller for abstract interface.
+
+2003-11-28  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-14
+
+	* src/AthenaSealSvc.cxx (checkDictionary): changed msg level for
+	missing base class. Print out lib name
+
+2003-11-23  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-12
+
+	* share/Load_AthenaSealSvc_joboptions.txt: renamed dict include 
+
+2003-11-14  Christian Arnault  <arnault@lal.in2p3.fr>
+
+	* share/Load_AthenaSealSvc_joboptions.txt: Adapt to the new include convention
+
+2003-10-07  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-10
+
+	* src/AthenaSealSvc.cxx (field_is_ok): added exceptions for _M_...
+	(checkDictionary): added check of base classes.
+
+	* tagging AthenaSealSvc-00-00-09
+
+	* cmt/requirements: corrected declararation of joboptions.
+
+2003-09-05  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-08
+
+	* src/AthenaSealSvc.cxx (missing_field_types): added a bit more
+	logic
+
+2003-08-26  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-07
+
+	* src/AthenaSealSvc.cxx (missing_field_types): removed exception
+	for transient attributes to print out error. (Should be temporary.)
+
+2003-08-22  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-06
+
+	* src/AthenaSealSvc.cxx (show_field): set default class name
+	length to 20
+
+2003-08-14  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-05
+
+	* src/AthenaSealSvc.cxx (missing_field_types): printout changes
+
+2003-08-13  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-04
+
+	* src/AthenaSealSvc.cxx (missing_field_types): cleaned up
+	printout.
+
+2003-08-11  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-03
+
+	* src/AthenaSealSvc.cxx (initSeal): improving the printout.
+
+2003-07-02  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging AthenaSealSvc-00-00-02
+
+	* src/AthenaSealSvc.cxx (missing_field_types): print out
+	transient.
+
+	* cmt/requirements: added some job options.
+
+2003-06-26  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* AthenaSealSvc/AthenaSealSvc.h (class AthenaSealSvc): added check
+	dictionary
+
+2003-05-27  Christian Arnault  <arnault@lal.in2p3.fr>
+
+	* src/AthenaSealSvc.cxx: Adding DEBUG level output messages. When
+	DEBUG is set, all classes installed in the dictionary are
+	displayed
+
+2003-05-13  Christian Arnault  <arnault@lal.in2p3.fr>
+
+
+        

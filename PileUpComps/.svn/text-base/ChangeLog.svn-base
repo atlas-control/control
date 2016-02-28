@@ -1,0 +1,711 @@
+2016-01-26  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpComps-00-15-02
+	* src/TestPileUpTool.cxx,src/TestPileUpTool.h (processBunchXing):
+	migrate to use new IPileUpTool interface. ATLASSIM-2122
+
+2016-01-14  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpComps-00-15-01
+	* src/PileUpToolsAlg.h - use SubEventIterator typedef in clearXing
+	prototype. ATLASSIM-2122
+
+2016-01-14  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpComps-00-15-00
+	* src/PileUpToolsAlg.cxx (execute): use SubEventIterator typedef
+	for
+	std::vector<xAOD::EventInfo::SubEvent>::const_iterator. ATLASSIM-2122
+	* src/PileUpEventLoopMgr.cxx (nextEvent): tweaks for setting
+	StoreGate pointer for xAOD::EventInfo version of SubEvents. ATLASSIM-2122
+
+2015-10-02  John Chapman  <John.Chapman@cern.ch>
+
+	* src/PileUpEventLoopMgr.cxx - trying to fix addition of SubEvent
+	to xAOD::EventInfo object.
+	* Not tagging yet.
+
+2015-09-29  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpComps-00-14-00
+	* src/PileUpToolsAlg.cxx, src/PileUpToolsAlg.h - migrate to use
+	xAOD::EventInfo rather than PileUpEventInfo. ATLASSIM-2122
+
+2015-08-24  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpComps-00-13-01
+	* src/PileUpEventLoopMgr.h, src/PileUpEventLoopMgr.cxx - further
+	tidying. Switch IIncidentSvc and PileUpMergeSvc pointers to be
+	ServiceHandles. Convert completed PileUpEventInfo object to
+	xAODEventInfo and record to output StoreGate. ATLASSIM-2122
+
+2015-08-21  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpComps-00-13-00
+	* src/PileUpEventLoopMgr.h, src/PileUpEventLoopMgr.cxx - tidy up
+	code by using CHECK macro, switch to using ServiceHandle for
+	StoreGateSvc. Add ToolHandle for xAODMaker::IEventInfoCnvTool in
+	preparation for xAOD::EventInfo migration.
+	* cmt/requirements - add use statements for xAODEventInfo and
+	xAODEventInfoCnv in preparation for xAOD::EventInfo migration.
+
+2015-06-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PileUpComps-00-12-13.
+	* Avoid redundant divisions.
+
+2015-03-25  John Chapman  <John.Chapman@cern.ch>
+
+	* Tagging PileUpComps-00-12-12
+	* src/PileUpEventLoopMgr.h, src/PileUpEventLoopMgr.cxx: add AllowSerialAndMPToDiffer
+	property (default True). When set to False, this will allow the
+	code to reproduce serial output in an AthenaMP job, albeit with a
+	significant performance penalty. ATLASSIM-1900
+
+2015-02-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PileUpComps-00-12-11.
+	* src/PileUpEventLoopMgr.h, src/PileUpEventLoopMgr.cxx: Fix clang
+	warnings.
+
+2014-10-09  Zach Marshall <ZLMarshall@lbl.gov>
+
+	* Tagging PileUpComps-00-12-10
+	* src/PileUpToolsAlg.cxx, src/DigitizationAlg.cxx - adding a
+	 reset for the event abort flags at the start of the event.
+	 ATLASSIM-1620
+
+2014-10-08  Zach Marshall <ZLMarshall@lbl.gov>
+
+	* Tagging PileUpComps-00-12-09
+	* src/PileUpToolsAlg.cxx, src/DigitizationAlg.cxx - Checking for
+	event abort flags, raising to the algorithm abort
+	flag. ATLASSIM-1620.
+
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging PileUpComps-00-12-08.
+	* Migrate AlgTool -> AthAlgTool.
+	* Tagging PileUpComps-00-12-07.
+	* Fix coverity warnings.
+
+2014-07-17  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-12-06
+
+	* src/PileUpToolsAlg.cxx, src/DigitizationAlg.cxx - remove this
+	from ToolHandleArray constructors, to make the ToolHandleArrays
+	public. ATLASSIM-565
+
+2014-06-27  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-12-05
+
+	* src/PileUpToolsAlg.cxx - patch to ensure that the events in the
+	final bunch-crossing are added to the nInputEvents values for each
+	PileUpTool. ATLASSIM-527
+
+	* src/TestPileUpTool.cxx, src/TestPileUpTool.h - added debugging
+	message for prepareEvent method.
+
+2014-06-26  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-12-04
+
+	* src/PileUpToolsAlg.cxx - add code to determine nInputEvents
+	separately for each PileUpTool. ATLASSIM-527
+
+2014-02-04  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-12-03
+
+	* src/PileUpToolsAlg.* - whitespace clean-up and switch some INFO
+	level messages to DEBUG.
+
+	* add src/DigitizationAlg.h, src/DigitizationAlg.cxx - call
+	PileUpTools via the processAllSubEvents interface method used by
+	all sub-detector digitization algorithms. This means that we only
+	need to call the confGetter method for one algorithm directly when
+	setting up non-pile-up digitization. ATLASSIM-64.
+
+	* src/components/PileUpComps_entries.cxx - add entries for
+	DigitizationAlg.
+
+2013-11-28  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-12-02
+
+	* src/PileUpEventLoopMgr.* - add IsEmbedding property to ensure
+	the correct information is passed to the output PileUpEventInfo
+	object in embedding jobs. ATLASSIM-326
+
+2013-09-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* tag PileUpComps-00-12-01
+	* Merge changes from PileUpComps-00-10-19-01 to the trunk
+
+2013-06-19  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-12-00
+
+	* src/BkgStreamsCache.cxx, src/BkgStreamsCache.h,
+	src/BkgStreamsStepCache.cxx, src/BkgStreamsStepCache.h ,
+	src/BkgStreamsConcentricCache.cxx,
+	src/BkgStreamsConcentricCache.h, src/SplitBkgStreamsCache.cxx,
+	src/SplitBkgStreamsCache.h - add nextEvent_passive (need a better
+	name) method, which works in the same way as the existing
+	nextEvent method except that it doesn't actually load anything and
+	just returns a StatusCode. In the case of loadEventProxies being
+	false the addSubEvts method will call nextEvent_passive rather
+	than nextEvent. Update to use AthMsgStreamMacros where necessary.
+
+	* src/PileUpEventLoopMgr.h - add bool m_loadProxies member
+	variable.
+
+	* src/PileUpEventLoopMgr.cxx - m_loadProxies is true by default,
+	but is set to false when PileUpEventLoopMgr::seek is called until
+	the last event in the seek when it is set to true
+	again. m_loadProxies is provided as the loadEventProxies argument
+	in IBkgStreamsCache::addSubEvts method calls.
+
+2013-06-03  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-11-00
+
+	* src/PileUpEventLoopMgr.h - switch to using an
+	AthenaMsgStreamMember rather than a MsgStream member variable.
+
+	* src/PileUpEventLoopMgr.cxx - use macros in
+	AthenaBaseComps/AthMsgStreamMacros.h to tidy up MsgStream usage.
+
+	* src/BkgStreamsCache.h, src/BkgStreamsConcentricCache.h,
+	src/BkgStreamsStepCache.h - switch m_selecName from StringProperty
+	to ServiceHandle<IEvtSelector> to allow for confGetter cascading
+	configuration of EventSelectors when a particular BkgStream
+	instance is requested. Requires Digitization-00-41-00. Switch to
+	using an AthenaMsgStreamMember rather than a MsgStream member
+	variable.
+
+	* src/BkgStreamsCache.cxx, src/BkgStreamsConcentricCache.cxx,
+	src/BkgStreamsStepCache.cxx - switch m_selecName from
+	StringProperty to ServiceHandle<IEvtSelector> to allow for
+	confGetter cascading configuration of EventSelectors when a
+	particular BkgStream instance is requested. Requires
+	Digitization-00-41-00. Use macros in
+	AthenaBaseComps/AthMsgStreamMacros.h to tidy up MsgStream usage.
+
+2013-02-13  Paolo Calafiura  OBO Vakho Tsulaia
+
+	* tag PileUpComps-00-10-19
+
+	* src/PileUpEventLoopMgr.cxx (nextEvent): fire reseeding incidents
+
+2012-12-06  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tag PileUpComps-00-10-18
+
+	* src/PileUpEventLoopMgr.cxx (seek): method added for athenaMP
+	* cmt/requirements: removed checkreq warnings
+
+2012-11-20  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-17
+
+	* src/PileUpEventLoopMgr.cxx - only set EventType::IS_SIMULATION
+	for SimHit level pile-up, not RDO+RDO event overlay.
+
+2012-08-20  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-16
+
+	* src/PileUpEventLoopMgr.* - add mcRunNumber property used to set
+	the mc_channel_number in Overlay jobs.
+
+2012-06-14  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-15
+
+	* src/ArrayBM.cxx - use CLHEP::RandGeneral rather than
+	RandGeneral (CLHEP 2.1.2.3 compatibility fix).
+
+2012-03-27  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-14
+
+	* src/PileUpEventLoopMgr.h, src/PileUpEventLoopMgr.cxx - make the
+	nevt variable a data member of PileUpEventLoopMgr (as in
+	AthenaEventLoopMgr) - required for running digitization within
+	AthenaMP. (obo Vakho Tsulaia)
+
+2012-03-22  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-13
+
+	* src/BkgStreamsConcentricCache.h - add assignment operator to Ring class.
+	Fix for Coverity Defect 55741.
+
+	* src/FixedArrayBM.cxx - check that m_ipLength is at least 1. Fix
+	for Coverity defect 55743.
+
+2012-03-20  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-12
+
+	* src/PileUpEventLoopMgr.cxx - PileUpEventLoopMgr::nextEvent
+	method ensure that all properties of the signal input EventType
+	object are copied to the new object created for the output
+	PileUpEventInfo object. Fix for savannah bug #92649.
+
+2012-02-27  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-11
+
+	* src/ArrayBM.cxx - add missing configurable property to set
+	RandomSvc.
+
+2011-12-02  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-10
+
+	* src/PileUpEventLoopMgr.* - add IsEventOverlayJob property(false
+	by default) to stop BCID being altered for Overlay jobs.
+
+2011-11-24  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-09
+
+	* src/SplitBkgStreamsCache.cxx - prevent possibility of an
+	explicit NULL dereference in the calculateCacheSizes
+	method. Coverity Defect 54514.
+
+2011-10-27  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-08
+
+	* src/SplitBkgStreamsCache.h/.cxx - bug fixes and changes to allow
+	separate refresh-rates for low and high pt minbias caches.
+
+2011-10-13  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-07
+
+	* remove src/components/requirements - as it shouldn't be there.
+
+	* src/PileUpXingFolder.cxx, src/PileUpXingFolder.h,
+	src/PileUpEventLoopMgr.cxx, src/PileUpEventLoopMgr.h,
+	src/BkgStreamsCache.cxx, src/BkgStreamsCache.h,
+	src/components/PileUpComps_load.cxx,
+	src/components/PileUpComps_entries.cxx - removed executable
+	properties.
+
+	* add src/SplitBkgStreamsCache.h/.cxx - experimental code for use
+	with separated low/high pT minbias. Allowing use of a single
+	RandPoisson + a RandFlat, rather than two RandPoissons in separate
+	BkgStreamsCache objects.
+
+2011-08-15  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-06
+	
+2011-08-15  John Chapman  <John.Chapman@cern.ch>
+
+	* src/FixedArrayBM.h/.cxx - add AllowEmptyT0BunchCrossing
+	configurable property. Which allows the fixed T0 to sit in an
+	empty bunch crossing.
+	
+	* src/BkgStreams*Cache.* - add OccupationFraction configurable
+	property. The OccupationFraction is the maximum fraction of
+	bunch-crossings which will be occupied (Set in the Digitization
+	python to be (bunch slot size)/(intra-train bunch spacing).) This
+	should reduce the memory footprint of pile-up jobs with bunch
+	structure.
+
+2011-07-21  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::nextEvent): need to
+	specify that PileUpEventInfo is of type SIMULATION
+
+2011-07-20  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tag PileUpComps-00-10-05
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::nextEvent): 
+	make nextEvent(0) a dummy call, as needed by athenaMP
+
+2011-07-12  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-04
+	* NB requires PileUpTools-01-12-06
+	* add missing src/UtilityFuncs.h used by *ArrayBM.cxx
+	* src/StepArrayBM.h, src/StepArrayBM.cxx, 
+	src/FixedArrayBM.h, src/FixedArrayBM.cxx, 
+	src/FlatBM.h, src/ArrayBM.h, src/ArrayBM.cxx - add
+	largestElementInPattern method and return BeamIntensityPattern
+	values normalised such that the mean value of filled elements is
+	1.0 rather than 1.0 being the maximum.
+	* src/PileUpEventLoopMgr.cxx - properly deal with BCID dependent
+	mu values. Set ActualInteractionsPerCrossing to mu for the central
+	bunch crossing. Protect MessageSvc calls.
+	* src/BkgStreamsStepCache.cxx, src/BkgStreamsStepCache.h,
+	src/BkgStreamsCache.cxx, src/BkgStreamsCache.h - add new methods
+	to properly deal with BCID dependent mu values.
+
+2011-07-11  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tag PileUpComps-00-10-03
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::nextEvent): add
+	McEventInfo and OverlayEvent aliases to the EventInfo object to
+	address #79626
+
+2011-06-02  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-02
+	* src/PileUpEventLoopMgr.h, src/PileUpEventLoopMgr.cxx - add
+	MaxMinBiasCollPerXing property to allow
+	AverageInteractionsPerCrossing and ActualInteractionsPerCrossing
+	properties of EventInfo to be set.
+
+2011-04-28  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-10-01
+	* NB Use PileUpComps-00-09-04-branch until bug #79626 is resolved.
+	* src/ArrayBM.h, src/FixedArrayBM.h, src/FlatBM.h - add
+	getBeamPatternLength mention to implement extended interface.
+	* src/BkgStreamsCache.cxx, src/BkgStreamsCache.h - change code to
+	always use fresh events for the central bunch crossing. Except in
+	the case that the ForceReadForBC0 configurable property of the
+	Cache is set to False. (In a future tag the PileUpStream should
+	know if it has already been used for the central bunch crossing.)
+	+ protect MsgSvc calls.
+	* src/BkgStreamsConcentricCache.cxx,
+	src/BkgStreamsConcentricCache.h - protect MsgSvc calls.
+	* src/components/PileUpComps_entries.cxx - add new classes
+	* src/StepArrayBM.h, src/StepArrayBM.cxx,
+	* src/BkgStreamsStepCache.h, src/BkgStreamsStepCache.cxx - new
+	classes for conveyor belt caching developed by Will Buttinger
+
+2011-03-07  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag PileUpComps-00-10-00
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::nextEvent): clean up
+	long standing EventInfo deep copy hack. Incidentally should also fix
+	Coverity 13689
+
+2011-02-14  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-09-04
+	* src/ArrayBM.cxx - fix for selectT0() method in the case that m_biRandom->shoot() returns integer+episilon. 
+	(Previous version only corrected for integer-episilon.)
+	
+2011-01-24  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-09-03
+	* src/BkgStreamsCache.h, src/BkgStreamsConcentricCache.h - change m_readDownscale from an IntegerProperty
+	to a FloatProperty to allow the recycling rate to be set more finely.
+
+2010-10-14  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tag PileUpComps-00-09-02
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::addSubEvts): handle BCID
+
+2010-10-08  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-09-01
+	* src/BkgStreams*Cache.* - comment out unused arguments until PileUpEventInfo changes are in	
+
+2010-10-05  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-09-00
+	* src/ArrayBM.h, src/ArrayBM.cxx, src/FixedArrayBM.h, src/FixedArrayBM.cxx, src/FlatBM.h - add the new
+	getT0BunchCrossing() method to return a BCID and add some additional sanity checks.
+	* src/PileUpEventLoopMgr.h, src/PileUpEventLoopMgr.cxx - add code to set BCIDs in EventInfo for signal 
+	and background sub-events. Background subevent BCIDs will require further changes to PileUpEventInfo 
+	before they are set. (Will need another PileUpComps tag too.)
+	* src/BkgStreams*Cache.* - add code for specifying a BCID in addSubEvts method (commented out until 
+	PileUpEventInfo changes are in)
+
+2010-09-23  John Chapman  <John.Chapman@cern.ch>
+
+	* tag PileUpComps-00-08-07
+	* src/BkgStreamsConcentricCache.h, src/BkgStreamsConcentricCache.cxx, 
+	src/BkgStreamsCache.cxx, src/BkgStreamsCache.h -  add IgnoreBeamLumi property (default: False) to allow 
+	caches to ignore luminosity overrides from the LumiProfileSvc. (Set True for beam gas and beam halo 
+	for now.)
+	
+2010-09-07  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpComps-00-08-06
+	* src/NoProfileSvc.cxx (NoProfileSvc::scaleFactor): remove unused args
+	from method signature
+
+2010-08-30  Ayana Arce <atarce@phy.duke.edu>
+
+	tag PileUpComps-00-08-05
+	* src/LumiProfileSvc.h: IBeamLuminosity implementation configured with
+	a run/lumi list
+	* src/NoProfileSvc.h: flat IBeamLuminosity implementation 
+	* src/BkgStream*Cache.*: use IBeamLuminosity
+	
+2010-07-07  John Chapman  <John.Chapman@cern.ch>
+
+	tag PileUpComps-00-08-04
+	* src/FixedArray.h - fix index calculation to work when taking modulus of negative numbers
+	* src/ArrayBM.h - fix index calculation to work when taking modulus of negative numbers
+	* src/ArrayBM.cxx - fix minor typo (no functional change - OCD only)
+
+2010-06-09  John Chapman  <John.Chapman@cern.ch>
+
+	tag PileUpComps-00-08-03
+	* src/FixedArrayBM.h: new IBeamIntensity service allows to keep intensity pattern at
+	a fixed time offset wrto T0
+
+2010-06-07  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpComps-00-08-02
+	* src/BkgStreamsCache.h: new property IgnoreBeamInt allows to ignore the global 
+	beam intensity distribution, e.g. for cavern cache
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::normEventsXing): new method to capture
+	setting of scaled number of events/xing
+
+2010-06-04  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpComps-00-08-01
+	* src/ArrayBM.cxx (ArrayBM::selectT0): fixes from John
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setNEvtsXing): fix from
+	John
+
+2010-06-02  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpComps-00-08-00
+	* new services FlatBM, ArrayBM implementing IBeamInterface
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setNEvtsXing): use normFactor
+	* src/BkgStreamsConcentricCache.cxx: FIXME just fix the iface!!!
+
+2010-05-19  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpComps-00-07-05
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setNEvtsXing): fix the bug
+	fix (thanks John)
+
+2010-05-18  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setNEvtsXing): 
+	get correct poisson distr of bkg events when using m_subtractBC0
+	(fix from John Chapman, also in 00-05-05-03)
+	
+2010-03-30  Paolo Calafiura  <calaf@calaf-laptop>
+	tag PileUpComps-00-07-04
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setNEvtsXing): fix bug
+	in BC0 subtraction 
+
+2010-03-29  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setNEvtsXing): use new
+	property m_subtractBC0 to subtract from number of bkg events at 
+	BC=0. This is done mainly to handle the case in which original and
+	backround events belong to the same (minbias) stream
+	
+
+2010-03-24  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpComps-00-07-02
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::nextEvent): copy
+	EventID of original event properly 
+
+2009-11-16  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpComps-00-07-01
+	* src/BkgStreamsConcentricCache.cxx (BkgStreamsConcentricCache::canUse): 	minor cleanup
+
+2009-11-13  Paolo Calafiura  <calaf@calaf-laptop>
+
+	tag PileUpComps-00-07-00
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::setupStreams): 
+	new IBkgStreamsCache::setup signature (includes first xing)
+	* BkgStreamsConcentricCache: added new cache that supports concentric
+	xing rings (memory optimization)
+	* src/BkgStreamsCache: adapted to new sig of IBkgStreamsCache::setup
+
+
+2009-09-18  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpComps-00-06-03
+	* src/PileUpEventLoopMgr.cxx (nextEvent): clear output store at the 
+	end of the event, like we do in AthenaEventLoopMgr by default
+
+2009-09-01  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpComps-00-06-02
+	* src/PileUpToolsAlg.cxx (execute): bug fixes from John
+	tag PileUpComps-00-06-01
+	* src/PileUpToolsAlg.cxx (execute): move clearing of Xings here
+	
+
+2009-08-27  Paolo Calafiura  <calaf@lxplus229.cern.ch>
+
+	tag PileUpComps-00-06-00
+	* src/PileUpEventLoopMgr.cxx (nextEvent): added XingByXing mode
+
+2009-08-06  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpComps-00-05-05
+	* src/PileUpToolsAlg.cxx: loop over the PUTools also for the final 
+	crossing (thanks John!)
+
+2009-07-08  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpComps-00-05-04
+	* src/PileUpToolsAlg.cxx (execute): call prepareEvent
+
+2009-07-04  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpComps-00-05-03
+	* cmt/requirements: please checkreq
+
+2009-07-03  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	tag PileUpComps-00-05-02
+	* src/PileUpToolsAlg.cxx (execute): remove unchecked sc
+
+2009-07-03  Paolo Calafiura  
+
+	tag PileUpComps-00-05-01
+	* first working version of PileUpToolsAlg and TestPileUpTool 
+
+2009-06-24  Paolo Calafiura  
+	tag PileUpComps-00-05-00
+	* new class PileUpToolsAlg: algorithm to call back IPileUpTools for 
+        every bunch xing and at the end of every event
+        * new class TestPileUpTool: an example of IPileUpTool
+
+2009-06-22  Paolo Calafiura  
+	tag PileUpComps-00-04-06
+	* src/PileUpEventLoopMgr.cxx: propagate beginRun/endRun to algorithms
+	use locally cached MsgStream
+	
+2008-09-10  Paolo Calafiura  
+
+	tag PileUpComps-00-04-05
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::setupStreams): 
+	setupStore does not have the "readNextEvent" arg anymore
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setup): setupStore does
+	not have the "readNextEvent" arg anymore
+
+2008-08-27  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::nextEvent): call nextEventPre to avoid reading the last 
+	preloaded event twice and having duplicated bkg subevents. Introduced m_log for speed.
+	tag PileUpComps-00-04-04
+
+2008-08-15  Paolo Calafiura  
+        * src/BkgStreamCache (BkgStreamsCache::addSubEvents): added some sanity checks (ifdef-d away by default)
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::finalize): fix silly bug that was causing finalize to return RECOVERABLE 
+	in certain weird cases (don't ask...)
+	tag PileUpComps-00-04-03
+
+2008-06-27  Paolo Calafiura  
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::finalize): clean up
+	original evt stream, release caches.
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::finalize): clean up our
+	PileUpStreams
+	tag PileUpComps-00-04-02
+	
+2008-04-23  Paolo Calafiura
+	* src/PileUpEventLoopMgr.cxx: (PileUpEventLoopMgr::nextEvent):
+	added AllowSubEvtsEOF property
+	tag PileUpComps-00-04-01
+
+	* src/PileUpEventLoopMgr.cxx: support PileUpType (provenance) 
+	* src/BkgStreamsCache.cxx: support PileUpType (provenance) 
+	tag PileUpComps-00-04-00
+
+	* src/PileUpXingFolder.cxx (PileUpXingFolder::PileUpXingFolder): 
+	update for v19r9: declareProperty does not return SC anymore
+	tag PileUpComps-00-03-02
+
+2008-02-19  Paolo Calafiura
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setup): do not use std::ends
+	http://gcc.gnu.org/bugzilla/show_bug.cgi?id=8655
+	tag PileUpComps-00-03-01
+	
+2007-10-17  Paolo Calafiura
+
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::nextEvent): call PileUpStream::nextEventPost
+	(load store before reading next event) 
+
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::nextEvent): handle correctly looping over
+	original events (basically same way as AthenaEventLoopMgr).
+	
+	* the above fixes two problems reported by Seth and Sven (crash when opening second original
+	event file, and wrong number of original events processed). Requires PileUpTools-01-02-00
+
+	tag PileUpComps-00-03-00
+
+2007-10-16  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* src/PileUpEventLoopMgr.cxx (PileUpEventLoopMgr::nextEvent): clean up
+	event loop
+	tag PileUpComps-00-02-02
+
+2007-08-08  Paolo Calafiura  <calaf@lxplus208.cern.ch>
+	* src/PileUpEventLoopMgr.cxx: honour IEvtProcessor::stopRun requests
+	tag PileUpComps-00-02-01
+	
+2007-08-07  Paolo Calafiura
+        * src/PileUpEventLoopMgr.h: get MinimalEventLoopMgr from GaudiKernel
+        * cmt/requirements: remove hack to link against GaudiSvc (no dupes)
+	tag PileUpComps-00-02-00
+
+2007-08-01  Paolo Calafiura
+	* src/BkgStreamsCache.cxx (BkgStreamsCache::setup): fixing bug fix 27954
+	tag PileUpComps-00-01-05
+
+2007-07-11  Paolo Calafiura
+	* src/BkgStreamsCache.cxx (setup): use ceil to round up properly m_nStores (thanks Brian). Fixes bug 27954
+	tag PileUpComps-00-01-04
+
+2007-07-06  Paolo Calafiura
+        * BkgStreamsCache(addSubEvts): return StatusCode (Zhijun fix)
+	* src/PileUpEventLoopMgr.cxx (nextEvent): check that addSubEvts worked
+	* cmt/requirements: make chkconfig happy
+	tag PileUpComps-00-01-03
+
+2007-06-22  Paolo Calafiura
+	* doc/mainpage.h: added
+	* PileUpXingFolder: turned into an AlgTool and moved here from 
+	PileUpTools
+	tag PileUpComps-00-01-02
+
+2007-04-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class BkgStreamsCache: use IAtRndmGenSvc as engine for CLHEP.
+	Allow to control service (and seeds) via job opts. Improved f_collDistr
+	function pointer
+	tag PileUpComps-00-01-01
+
+2007-04-03  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/PileUpEventLoopMgr.*: use THA and ServiceHandle 
+	tag PileUpComps-00-01-00
+	
+2007-03-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/BkgStreamsCache.h: remove superfluos forward declaration
+	* src/PileUpEventLoopMgr.h: constructor should be public now
+	* src/components/PileUpComps_entries.cxx: get rid of a really silly 
+	typo (thanks Sebastien)
+	tag PileUpComps-00-00-05
+
+2007-03-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* moved PileUpStream back to PileUpTools (needed by InDetOverlay)
+	tag PileUpComps-00-00-04
+
+2007-03-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: fix use statements following checkreq
+	tag PileUpComps-00-00-03
+
+2007-02-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* fixed requirements and added include to _entries.cxx files,
+        misteriously needed by Reflex
+	tag PileUpComps-00-00-02
+	* moved CloneService.{h,cxx} to AthenaKernel
+	tag PileUpComps-00-00-01
+	* new package containing pile up "true" components. Initial import.
+	tag PileUpComps-00-00-00
+

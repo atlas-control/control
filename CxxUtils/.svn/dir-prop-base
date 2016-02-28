@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 17
+version.hwaf
+run
+
+K 13
+svn:mergeinfo
+V 125
+/Control/CxxUtils/devbranches/CxxUtils-00-01-09-rootcore:579479-581149
+/Control/CxxUtils/tags/CxxUtils-00-01-09:574236-579478
+END

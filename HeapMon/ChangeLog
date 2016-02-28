@@ -1,0 +1,88 @@
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging HeapMon-00-01-11.
+	* Fix coverity warnings.
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* Tagging HeapMon-00-01-10
+	* cmt/requirements
+		Add cmake compatibility (fully backwards compatible on CMT side)
+
+2014-05-22  Paolo Calafiura  <calaf@lxplus0056.cern.ch>
+
+	* Tagging HeapMon-00-01-09
+	* src/MemoryMarker.c: fix gperftools warning
+
+2014-05-22  Paolo Calafiura  <calaf@lxplus0078.cern.ch>
+	* Tagging HeapMon-00-01-08
+	* src/tcmalloc_dummy.c: fix gperftools warning
+
+2014-01-21  Emil Obreshkov <obreshko@cern.ch>
+	* Tagging HeapMon-00-01-07
+	* cmt/requirements use AtlasGPerfTools since tcmalloc moved in there
+
+2013-09-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging HeapMon-00-01-06.
+	* src/MemoryMarker.c: Fix warnings.
+
+2013-07-18  Rolf Seuster
+
+	* Tagging HeapMon-00-01-05.
+	* #define linux does not work for c++11, need now #define __linux__
+
+2013-06-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging HeapMon-00-01-04.
+	* Fix warnings.
+
+2010-02-04 Charles Leggett
+      * undo cmt/fragments/python_extension change
+      * tag HeapMon-00-01-03
+
+2010-02-03 Charles Leggett
+	* cmt/fragments/python_extension: put .so in InstallArea/$CMTCONFIG/lib/python2.5/HeapMon
+	* tag HeapMon-00-01-02
+
+2010-02-01 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Tweaks for MacOSX compatibility
+	* src/MemoryScanner.cxx: Hacks to make it build on MacOSX (but it's not functional)
+	* src/MemoryHarker.c: Hacks to make it build on MacOSX (but it's not functional)
+	* tagging with HeapMon-00-01-01
+	
+2009-08-10 Mous Tatarkhanov <tmmous@berkeley.edu>	
+		* MemoryScanner.cxx and MemoryMarker.c are modified to avoid Warnings 
+		* x86-64bit compatibility kept 
+		* tagging with HeapMon-00-01-00
+
+2009-07-24 Mous Tatarkhanov <tmmous@berkeley.edu>	
+		* MemoryScanner.cxx is modified for x86-64bit compatibility
+		* tagging with HeapMon-00-00-05
+
+2009-07-23 Mous Tatarkhanov <tmmous@berkeley.edu>	
+		* MemoryScanner.cxx is modified for x86-64bit compatibility
+		* ms_uint64 and ms_uint32 introduced for i686-32bit and x86-64bit compatibility
+		
+2009-07-21 Mous Tatarkhanov <tmmous@berkeley.edu>	
+		* python/EventNotifier.py is slightly modified 
+		* share/heapmon_jobo.py is added
+		* tagging with HeapMon-00-00-04
+		
+2009-06-25  Mous Tatarkhanov <tmmous@berkeley.edu>		
+		* HeapMon performs for both options of allocators '--stdcmalloc' or 'tcmalloc'
+		* tcmalloc_dummy.c is added to substitute unresolved symbols of tcmalloc when it's not loaded
+		* The Memory footprint of output ROOT files can be reduced through the use of EventExecutionNotifier algorithm parameters max_events, report_scan_number 
+		* Keeping partial statistics of holes while storing all information.
+		* MemoryMarker has an additional interface set_marker(), get_marker to change the 'color' of memory marking
+		* MemoryScanner allows to scan different 'colors' of marker
+		* tagging with HeapMon-00-00-03
+
+2009-06-03  Mous Tatarkhanov <tmmous@berkeley.edu>
+		* modification to MemoryMarker to work with google-tcmalloc allocator
+		* Delete and New hooks for tcmalloc
+        * tagging with HeapMon-00-00-02
+
+2009-05-03  Mous Tatarkhanov <tmmous@berkeley.edu>
+		* MemoryScanner attaches to the main process to scan for memory holes
+		* MemoryMarker works with glibc ptmalloc2 
+        * tagging with HeapMon-00-00-01

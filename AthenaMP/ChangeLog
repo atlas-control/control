@@ -1,0 +1,1013 @@
+2016-01-18  Antonio Limosani <anotonio.limosani@cern.ch>
+
+	* Protect against coverity scan error in rapidjson (ATEAM-252) 
+	* tag AthenaMP-01-04-07
+
+2016-01-12  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing EventOrders configuration flags
+
+2015-12-09  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Dropping temporary dependency on PersistentDataModel
+
+2015-11-25  Antonio Limosani  <antonio.limosani@cern.ch>
+	* Update of MemoryMonitor (see ATEAM-242)
+	* tag AthenaMP-01-04-04
+	
+2015-10-29  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing new configuration flag: TokenExtractorChannel
+
+2015-10-27  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Set the Debug flag to File Scheduling tool
+
+2015-10-18  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Adding AthenaMP_EventService.py to the repository
+
+2015-10-12  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Renaming TokenExtractor strategy with EventService
+	* Introducing AthenaMP_EventService.py
+
+2015-09-29  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Merging AthenaMP-01-02-30-branch to the trunk:
+	* Switch to uuid_generate for making random components of the IPC object names
+	* Add PID to the IPC object names
+	* SIGKILL children instead of relying on SIGHUP
+
+2015-09-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMP-01-03-08.
+	* src/memory-monitor/MemoryMonitor.cxx: Fix compilation warning.
+
+2015-09-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixes for the SharedReader strategy (OBO Peter)
+
+2015-07-20  Antonio Limosani  <antonio.limosani@sydney.edu.au>
+
+	* Tagging AthenaMP-01-03-06.
+	* Bug fix of memory monitor
+
+2015-06-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMP-01-03-05.
+	* src/memory-monitor/rapidjson/encodings.h: Fix coverity warning
+	(#include cycle).
+
+2015-06-15  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Dropping the PreCountedEvents property
+
+2015-06-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMP-01-03-03.
+	* src/memory-profiler/getSharedMemory.cc (main): Avoid redundant
+	division.
+
+2015-06-03  Charles Leggett
+	* move basic concurrency options to AthenaCommon/ConcurrencyFlags.py
+	* tag AthenaMP-01-03-02
+
+M       python/AthenaMPFlags.py
+M       python/PyComps.py
+
+2015-05-27  Charles Leggett
+	* fix typo
+	* tag AthenaMP-01-03-01
+
+M       python/PyComps.py
+
+2015-05-27  Charles Leggett
+	* merge in changes for hybrid mp/mt from mig1 branch (--threads=N)
+	* allow debugging of workers by pausing them until SIGUSR1 signal received
+	*     enabled with --debugWorker command line opt
+	* tag AthenaMP-01-03-00
+
+M       python/AthenaMPFlags.py
+M       python/PyComps.py
+
+2015-05-15  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Reintroducing the Round Robin strategy
+	* Migrating the code to ATH_CHECK and ATH_MSG macros
+
+2015-05-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMP-01-02-29.
+	* Fix compilation and coverity warnings.
+
+2015-05-04  Antonio Limosani  <antonio.limosani@cern.ch>
+	* Include MemoryMonitor (see ATEAM-147)
+	* tag AthenaMP-01-02-28
+
+2015-04-16  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Backwards compatibility fix for 19.2.X.Y: bring back setting the old XRootD environment
+
+2015-03-30  Charles Leggett
+	* bump tag to make a new branch
+	* tag AthenaMP-01-02-26
+
+2015-02-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* For the Event Service: send PID of the failed processor to the Scatterer via Shared Queue
+
+2015-02-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Updating the name of environment variable required for enabling XRootD fork handlers
+
+2015-01-23  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Firing new PreFork incident just before first call to fork(), for CowAuditors
+
+2015-01-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMP-01-02-22.
+	* src/memory-profiler/getSharedMemory.cc (main): Try to fix
+	remaining coverity warning.
+
+2014-12-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing event chunks in the Shared Event Queue
+
+2014-11-06  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixing coverity defects in getPss.cc
+
+2014-10-30  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing TokenScattererCaching configuration flag
+
+2014-10-24  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* First version of the getSharedMemory utility
+
+2014-10-22  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* A bit of polishing of the smaps mechanism
+
+2014-10-09  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* First version of the memory sampling with smaps
+
+2014-10-01  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Bug fix: make sure the shared memory segment is removed only once (in the master)
+
+2014-09-26  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix race condition in SharedEventQueue strategy
+
+2014-08-15  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Support forking after 1st event in PileUp digitization jobs
+
+2014-06-18  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Extend the excluded pattern list inside extractFds()
+
+2014-06-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Use random numbers instead of pid in the names of Shared Queue and Shared Memory
+
+2014-03-14  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Save a copy of PoolFileCatalog.xml if it exists in the master run directory at configuration stage
+
+2014-03-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* New flag EventRangeChannel for connecting AthenaMP and Pilot in the Event Service
+
+2014-02-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Minor patch: set default value for the polling interval to 0.1sec
+
+2014-02-08  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* FdsRegistry and a new method for reopening file descriptors
+
+2014-01-30  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Drop shared queue from the TokenScatterer strategy
+
+2014-01-17  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Restart failed workers in the TokenScatterer strategy
+
+2014-01-10  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Reintroduce forking after N events
+
+2013-12-14  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fix in PyComps.py for setting PollingInterval property on the event loop manager
+
+2013-12-13  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Process polling instead of the blocking wait
+
+2013-12-13  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Reverting to AthenaMP-01-00-19
+
+2013-12-12  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Reintroducing TokenScatterer. FileScheduling still pending
+
+2013-12-11  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Following changes in the AthenaMPTools package
+	* TokenScatterer and FileScheduling strategies temporarily taken out
+
+2013-12-05  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introduced Version flag for transforms
+
+2013-11-21  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* SingleBSReader strategy dropped. TokenScatterer and SharedReader strategies introduced
+
+2013-10-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMP-01-00-17.
+	* src/AthMpEvtLoopMgr.cxx (initialize): Fix coverity warning.
+
+2013-10-17  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* After forking restart the event selector in the mother instead of doing the complete I/O reinitialization
+
+2013-10-14  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Finalize IO before forking. Mainly needed for running over EOS
+
+2013-07-10  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixes for the SingleBSReader
+
+2013-07-03  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Create the shared queue object and pass it over to the tools via DetStore
+
+2013-05-03  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* One fix for the mechanism of collecting workers' logs
+
+2013-04-02  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* New feature: dump logs of all workers into the master log. Controlled by a configuration flag.
+
+2013-03-29  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Rename InpFilePerWorker strategy with FileScheduling
+
+2013-03-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Drop runtime dependency on AtlasEvent
+
+2013-03-18  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Fixes for running pileup digitization
+
+2013-01-22  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Introducing InpFilePerWorker strategy
+
+2013-01-14  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Enable file manager logging by default
+
+2012-12-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Use strsignal for signal reporting
+
+2012-12-20  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Remove leftover OutputLevel setting for tools from PyComps.py
+
+2012-12-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Wait for sub-processes in the event loop manager instead of tools
+
+2012-11-08  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* New python flag: PreCountedEvents
+
+2012-10-26  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Introduced new python flag Strategy and provided a snippet for running in SingleBSReader mode
+	* Creation of the top run directory for subprocesses moved from tools to the event loop manager
+
+2012-10-09  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Cleanup
+
+2012-10-06  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Make worker run directory name configurable via job options
+	* Event loop manager becomes responsible of generating output report file 
+
+2012-10-02  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fixes for the MP event loop mgr: initialize wrapped evt loop mgr and drop useless handle for IEvtSeek
+
+2012-09-19  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Introducing new MP event loop manager
+
+2012-07-11  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Some cleanup following recent changes in AthenaOutputStream
+
+2012-06-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tag AthenaMP-00-03-39
+	* python/MpMergeUtils.py: Avoid using metadata itemList, not needed and will be migrated.
+
+2012-06-14  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix several problems revealed by AthenaMP validation run digi+reco
+	* 1. Switch to merge_trf for TAG files
+	* 2. Don't copy *.pool.root files to workers' run directories 'just in case'
+	* 3. Remove workers' outputs after merging, controlled by new flag
+
+2012-05-11  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Schedule worker finalization in order to fight memory spikes
+
+2012-04-18  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Replace unsetenv with environ.pop() in order to fix merging problems with ATHENA_PROC_NUMBER environment
+	* Fix SkipEvents in hit merging
+
+2011-11-28  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tag AthenaMP-00-03-35
+	* Small fix for Single bytestream reader, still loses provenance (needs fix in ByteStreamCnvSvc).
+
+2012-03-22  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix hit merging problems when running with ATHENA_PROC_NUMBER environment
+
+2012-03-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaMP-00-03-33
+	* preliminary support for d3pd reading with MP
+	* M python/PyComps.py
+
+2012-02-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * define sc in MpMergeUtils for the case where there are no files to merge
+
+2012-02-21  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Switch to hybrid merger for Hits files by default
+	* Put some protection into get_mp_root for systems with no LOGNAME
+
+2012-02-16  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Stop the job if some merger fails
+
+2012-02-07  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Change the way we handle mergePOOL.exe return values 
+
+2012-02-01  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixes for checkreq.sh
+
+2012-01-28  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Skip execution of the first event using filter algorithm. Switch to this mode by default
+	* Fix for merging TAG files
+	* Merge monitoring histograms using DQHistogramMerge.py
+
+2012-01-25  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * A bit of reorganization for allowing multiple groups after all.
+
+2012-01-20  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * Workaround for differences between asetup and GaudiPolicy. Enforce global flags
+          when loading _athenamp.
+	* tag AthenaMP-00-03-28
+
+2012-01-19  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * More improved error propagation for corner cases. Now enabled MpProcessing.
+
+2012-01-18  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * More exit code handling: different paths through PyComps give completely different
+          results. (Note that the current multiprocessing based code hangs, crashes, or does
+          whatever.) Adiabatic expansion still disabled.
+
+2012-01-17  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * Finalized some of the worker return handling (still following the old reporting
+          style, even as it is no longer necessary). Adiabatic expansion still disabled.
+
+2012-01-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * Further expansion of adiabatic changes (still disabled). Reworked python
+          function processing and argument passing. Started worker -> mother communication.
+
+2012-01-11  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Merger for DRAW files
+
+2012-01-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * Expansion of adiabatic changes (still disabled) with initializers and
+          better result returns
+
+2011-12-22  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * First codes for an attempt to adiabatically remove the unmaintainable
+	  python/C++ hybrid prototype code in order to be able to run AthenaMP
+	  in production. For now, this new code is disabled in use (modify
+	  PyComps to enable, or run share/tests/AMP_basictests.py).
+
+          Fix: use full include for more recent boost (message_queue has become
+          a template ... )
+
+2011-12-19  Vakho Tsulaia  <tsulaia@cern.ch>
+
+	* Add merger for RDOs
+
+2011-11-28  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tag AthenaMP-00-03-26
+	* Fix event data merging to exclude new metadata DataHeader tree
+
+2011-11-16  Peter van Gemmeren  <gemmeren@anl.gov>
+	* tag AthenaMP-00-03-25
+	* for athenaMP in queue mode, seek to beyond last event to cause EndFile incidents to be fired.
+M       python/PyComps.py
+
+2011-10-27  Charles Leggett
+	* tag AthenaMP-00-03-23
+	* when running AthenaMP, disable Monitoring algs in mother process
+	* to prevent duplicate histogram entries. Re-enable for workers 
+M       python/PyComps.py
+
+2011-10-06  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* Call IEventShare interface to make reader a server
+	* Fix IEventShare cast problem
+
+2011-10-05  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* Add draft version for shared RAW reader process
+	* Make name of shared memory configurable
+
+2011-10-05  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Remove LD_LIBRARY_PATH hack from the hybrid merger
+
+2011-09-27  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Remove one line from Utils.py left there by mistake
+
+2011-09-26  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Sebastien's fixes for non-linux platforms
+
+2011-09-23  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Switch to iService for determining geo version in the merge_pool_files_fast
+
+2011-09-05  Robert Harrington <R.Harrington@ed.ac.uk>
+	* tagging AthenaMP-00-03-14
+	* MpMergeUtils.py: added merge_hit_files method for HITS merging using Merging_trf.py
+
+2011-09-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging AthenaMP-00-03-13
+	* remove old AthenaInternal::to_ievent_seek hack
+	* M python/PyComps.py
+
+2011-08-30  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix ATN failures caused by problems with openning certain files in AthFile
+
+2011-08-19  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix merging for the histograms made through THistSvc
+
+2011-08-15  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix AthenaMP crash when NumEvents > NumWorkers
+
+2011-08-05  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix hybrid megrer crash when AthenaMP is activated using ATHENA_PROC_NUMBER environment
+
+2011-07-27  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix for LD_LIBRAY_PATH hack in the hybrid merger
+
+2011-07-27  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Multiple updates and fixes
+	1. Replace the old fast pool merger with the hybrid merger and switch to the latter by default
+	2. Use Round Robin mode only if explicitly requested, disable automatic failover
+	3. By default process 1 event before forking
+	4. Re-start the event selector after I/O reinit in workers to fix the missing 1st event problem
+
+2011-07-04  Vakho Tsulaia  <tsulaia@mal.cern.ch>
+
+	* More fixes for the merger selection mechanism
+
+2011-07-01  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix the merger selection mechanism 
+
+2011-06-30  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Several fixes in MpMergeUtils
+	1. Do merging even if the number of files =1
+	2. Move away from the mechanism of choosing the merger based on file names
+	3. Use CollAppend.exe instead of CollAppend for TAG merging
+
+2011-06-22  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Patch IoUtils to deal with castor access problems
+
+2011-06-07  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fix few typos in PyComps. Critical for running AthenaMP with transforms
+
+2011-06-03  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Apply AthenaMP-00-02-20-01 changes to the trunk
+
+2011-06-02  Charles Leggett
+	* move IoComponent stuff to GaudiMP
+	* tag AthenaMP-00-03-00
+
+D       python/IoRegistry.py
+D       python/FdsRegistry.py
+D       src/IoComponentMgr.cxx
+D       src/IoComponentMgr.h
+
+M       python/IoUtils.py
+M       python/PyComps.py
+M       python/MpMergeUtils.py
+M       src/components/AthenaMP_entries.cxx
+
+	
+2011-05-30  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Don't crash if some of output streams have no OutputFile attribute
+
+2011-05-27  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Fire EndRun at the end of worker processes
+
+2011-05-13  Vakho Tsulaia  <tsulaia@mail.cern.ch>
+
+	* Change the way MpMergeUtils decides whether or not a given file is POOL file 
+
+2011-05-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* Remove the exception catching around PoolFileCatalog uses,
+	now that the coding error is fixed in PyUtils-00-10-70 and
+	collected in 17.0.1. The exception handling may hide other,
+	more serious errors otherwise.
+
+2011-05-10  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* AthenaMP-00-02-17 for the benefit of a possible branch-point
+
+2011-05-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* cleanup of idea that neither harms nor works
+
+2011-05-04  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* python/Utils.py (hack_copy): minor cleanup. Not worth a tag...
+
+2011-05-03  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* AthenaMP-00-02-16
+	* cleanup global variable, place IoRegistry pickling with IoCompMgr
+
+2011-05-02  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* tagging AthenaMP-00-02-15
+	* Allow pickling of MpEventLoopMgr and its assorted spread out
+	and otherwise obscurely hidden properties
+
+2011-04-26  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaMP-00-02-14
+	* python/Utils.py (hack_copy): skip files already in destination 
+	directory, allowing hack_copy to be called twice in a job (needed 
+	for simulation)
+
+2011-04-08  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaMP-00-02-13
+	* python/PyComps.py: call hack copy before initialize to catch
+	SimParams.db
+
+2011-03-04  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaMP-00-02-12
+	* python/AthenaMPFlags.py (TmpDir): switched default value to CWD
+	which makes more sense for production
+
+2011-01-16  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaMP-00-02-11
+	* python/IoUtils.py (reopen_fds): fix syntax error...
+
+2011-01-14  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaMP-00-02-10
+	* python/IoUtils.py (reopen_fds): HACK ALERT: in ATN there seems to be 
+	temporary files in the IoRegistry that have disappeared by the time
+	we are ready to reopen them. While we understand what is going on, we
+	skip these files and hope for the best...
+
+2010-12-20  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* tagging AthenaMP-00-02-08
+	* changed how CollAppend is used in @f merge_pool_collection_files after 
+	    Peter v G's correct instruction.
+	* @f write_merging_log is added for writing log files from outputs of meregers.
+	* Changed the way merger is picked for each output type
+
+2010-12-17  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* tagging AthenaMP-00-02-07
+	* Added  merge_pool_collection_files function for TAGs merging
+	* List of files for merging extended by adding all *.root
+	    files from workers dir
+	* Changed the way merger is picked for each output type
+	* M python/MpMergeUtils.py
+
+2010-12-02  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* tagging AthenaMP-00-02-06
+	* Added the mechanism to choose worker run function
+	    round_robin  or queue run using doRoundRobin job property.
+	    evtmax=-1 also switches to round_robin scheme
+	* minor cleanup with logs and comments
+	* M python/PyComps.py
+
+2010-12-02  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* tagging AthenaMP-00-02-05
+	* Added AthenaMP_jobProperties that
+	    lists, explains and gives examples of all properties usage.
+	* A share/AthenaMP_jobProperties.py
+
+2010-12-01  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* Added @properties: doFastMerge and doRoundRobin
+	* M python/AthenaMPFlags.py
+
+2010-12-01  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* Added @fn merge_pool_files_fast for merging pool files fast,
+	    that utilizes PoolMerge tool from Peter van Gemmeren
+	* Added "sort of" plugin feature to choose the merger @fn 
+	    based on output being merging
+	* Plugin @fns avaialbe and used:
+	    merge_pool_files - from PyUtils.PoolFile 
+	    merge_pool_files_fast - local, uses PoolMerge
+	    merge_root_files - local, uses hadd
+	    merge_pmon_files - local, blank - TBImplemented
+	* M python/MpMergeUtils.py 
+
+2010-11-30  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* Added @fn merge_root_files
+	* Added @fn merge_pmon_files
+	* Skip the perfmon output merging for now
+	* M python/MpMergeUtils.py 
+
+2010-11-30  Yushu Yao
+
+	* tagging AthenaMP-00-02-04
+	* A share/bs2esd.py: added example joboption for bytestream2esd reconstruction
+
+2010-11-29  Yushu Yao
+
+	* tagging AthenaMP-00-02-03
+	* M python/MpMergeUtils.py: fix poolfilecatalog problem when using bytestream
+
+2010-11-25  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* Additions and modifications on behalf of Charles Leggett:
+	* Charles created VetoFirstEvent algorithm and corresponding test jobo
+	* A python/VetoFirstEvent.py 
+	* A share/tests/test_VetoFirstEvent.py
+	* M python/PyComps.py
+
+2010-11-20  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+	
+	* Added mp example version of fast and full reco 
+	* (mp_rdotoesd_id and mp_rdotoesd)
+	* A share/mp_rdotoesd_id.py
+	* A share/mp_rdotoesd.py
+
+2010-11-15  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaMP-00-02-02
+	* M python/PyComps.py 
+	* (MpEventLoopMgr.__init__): check that EvtMax is defined before we try to use it
+
+2010-11-13  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* Fix to PoolFileCatalog name error for ByteStream input files
+	* Fallback to dummy_pfc for ByteStream jobs, 
+	* when PoolFileCatalog?()  raises naming exception 
+	* catch an error from PyUtils.PoolFileCatalog and 
+	* provide dummy replacement function that returns unchanged name 
+	* M python/PyComps.py
+
+2010-10-19  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* Adding python script to monitor PSS, RSS and VMEM for AthenaMP
+	    that usese smem tool underneath
+	* A share/tests/smem_mon.py
+
+2010-10-14  Mous Tatarkhanov  <tmmous@berkeley.edu>
+
+	* tagging AthenaMP-00-02-01
+	* Close and join workers asynchronously
+	* M python/PyComps.py
+
+2010-09-15  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* Adding essential job-properties to AthenaMP in AthenaMPFlags
+	* M python/PyComps.py
+	* M python/Utils.py
+	* A python/AthenaMPFlags.py
+	* A share/mp_reco_fast.py
+
+2010-09-12  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* tagging AthenaMP-00-02-00
+	* First major attempt to refactorize the AhenaMP code and IO related bug fixes
+	* Code related to Memory-status, CPU-status, affinity or Timer-log moved to Utils.py
+	* Code related to IO-operations moved to IoUtils.py
+	* Code related to Merging moved to MpMergeUtils.py
+	* File Descriptors snapshot is taken in mother process as FdsDict class in FdsRegistry.py
+	* FdsDict class deals with files created/used outside Athena IO framework
+	* In case EvtMax is -1 athenaMP falls back to "round-robin" evt. scheme (run_worker_batch) 
+	    verse default "queued" evt. scheme (run_worker_queue)
+	* M python/PyComps.py
+	* M python/IoRegistry.py
+	* M python/Utils.py
+	* A python/FdsRegistry.py
+	* A python/IoUtils.py
+	* A python/MpMergeUtils.py
+
+2010-08-04  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* tagging AthenaMP-00-01-15
+	* tide up PyComps.py from profiling mess and some other comments
+	* M python/PyComps.py
+
+2010-07-30  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging AthenaMP-00-01-14
+	* python/IoRegistry.py (merge_io_output): protect against running
+	multiple merging procs when ATHENA_PROC_NUMBER is set
+
+2010-07-30  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* tagging AthenaMP-00-01-13
+	* Fixes to the trouble of merged file removal by parent process original output at finalization
+	* moved merging of output into finalize() from executeRun() to bypass removal of files by mother
+	* added the merge_dir arg into IoRegistry.merge_io_output function for merge destination
+	* M python/PyComps.py
+	* M python/IoRegistry.py
+
+2010-07-30  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+	
+	* redirected merged files  to "merge_dir" to avoid being deleted by mother process during finalize in curdir.
+	* M python/IoRegistry.py
+
+2010-07-22  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+	
+	* tagging AthenaMP-00-01-12
+	* M python/IoRegistry.py: fix LFN to PFN handling
+
+2010-04-21  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* adding to the scripts list and minor fix of mp_basic_test.py 
+	* M share/tests/mp_basic_test.py
+	* M cmt/requirements
+
+2010-04-20  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* adding script to extract workers event by event timing statistics from logs
+	* merged output is renamed as mp_merged.$output_name 
+	* A python/share/extract_mp_stat.py
+	* M python/PyComps.py
+	* M python/IoRegistry.py
+	* M python/tests/mpMonTools.py
+
+2010-04-20  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* seeking to last event problem fix 
+	* M python/PyComps.py
+
+2010-04-07  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* tagging AthenaMP-00-01-11
+	* queued distribution of events to workers
+	* M python/PyComps.py
+	* M python/IoRegistry.py 
+
+2010-04-07  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* seeking fixed moving setupEvtSelForSeekOps() into init() from setDefaults()
+	* M python/PyComps.py
+	* M python/IoRegistry.py
+
+2010-04-06  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* worker-cpu affinity settings
+	* M python/PyComps.py
+
+2010-04-05  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+
+	* queue implementation of events to workers distribution 
+	* M python/PyComps.py
+
+2010-03-17  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+	
+	* mp-scaling benchmark tools and monitor for athena multiple jobs
+	* A share/tests/mjMon.py
+	* A python/tests/mjMonTools.py
+	* M share/tests/mpMon.py
+	* M python/tests/mpMonTools.py
+
+2010-03-17  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+	
+	* mp-scaling benchmark monitor for AthenaMP
+	* A share/tests/mpMon.py
+	* A python/tests/mpMonTools.py
+
+2010-02-22  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-01-10
+	* dummy-out atn tests (they are just too heavy for ATN)
+	* M test/AthenaMP.xml
+	* M share/tests/mp_basic_test.py
+
+2010-02-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-01-09
+	* use athena-pool-merge instead of pool-fast-merge
+	* reduce number of events for basic-test so it can run within atn
+	* M python/IoRegistry.py
+	* M share/tests/mp_basic_test.py
+
+2010-02-17  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-01-08
+	* fix utest (not enough karma)
+	* add a basic utest (with enough AtlasCore karma)
+	* put back the default EventsBeforeFork to 0
+	* A share/tests/mp_basic_test.py
+	* M test/AthenaMP.xml
+	* M python/PyComps.py
+
+2010-02-16  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-01-07
+	* adding a genevt unit-test
+	* A test/AthenaMP.xml
+
+	* tagging AthenaMP-00-01-06
+	* first attempt at adding support for g4 jobs
+	* M python/PyComps.py
+
+2010-02-03  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+	
+	* the script for flushing cached memory
+	* A share/tests/flush_cache.py
+	* added an option to flush cache in mpMon.py
+	* M share/tests/mpMon.py 
+	* fast merge merge_pool_files added, slow merge commented
+	* M pyton/IoRegistry.py
+
+2010-01-25  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+	
+	* added timer logs for mpMon.py script
+	* M python/PyComps.py
+
+2010-01-21  Mous Tatarkhanov  <tmmous@berkeley.edu> 
+	
+	* mp-scaling benchmark monitor for AthenaMP
+	* A share/tests/mpMon.py
+	* A python/tests/mpMonTools.py
+
+2010-01-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-01-05
+	* simple little genevt testing script
+	* consolidate rankid numbering scheme
+	* A share/tests/mp_genevt_test.py
+	* M python/PyComps.py
+
+2010-01-19  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-01-04
+	* create a shared queue to reliably distribute rank-ids
+	* fix merging in batch-run mode
+	* fix skipping events in batch-run mode
+	* M python/PyComps.py
+	* M python/IoRegistry.py
+
+2010-01-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-01-03
+	* adding directories for testing infrastructure
+	* fixing batch-run mode
+	* A test
+	* A python/tests
+	* A share
+	* A share/tests
+	* M python/PyComps.py
+
+2009-12-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-01-02
+	* cosmetics
+	* M python/IoRegistry.py
+
+2009-12-17  Paolo Calafiura  for Mous Tatarkhanov
+
+	* tagging AthenaMP-00-01-01
+	* python/IoRegistry.py (merge_io_output): use merge_pool_file from
+	PyUtils
+
+2009-12-16  Paolo Calafiura for Mous Tatarkhanov
+	
+	* tagging AthenaMP-00-01-00
+	* python/IoRegistry.py (merge_io_output): find files to be merged
+	* python/PyComps.py: support forking of event workers after n events
+
+2009-09-21  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-00-10
+	* obo Mous: hacks for the pileupevtloopmgr
+	* M python/PyComps.py
+	* M python/IoRegistry.py
+
+2009-09-02  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* tagging AthenaMP-00-00-09
+	* python/IoRegistry.py (update_io_registry): hack to deal with rfio paths
+
+2009-08-28  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthenaMP-00-00-08
+	* better fall-back solution when no $TMP variable defined
+	* M python/PyComps.py (_ATHENA_MP_TMPDIR)
+
+2009-07-09 Paolo Calafiura
+
+	* tagging AthenaMP-00-00-07
+	* M python/PyComps.py: fix crash when trying to get AthenaEventLoopMgr
+
+2008-12-10  Sebastien Binet  <binet@lxplus237.cern.ch>
+
+	* tagging AthenaMP-00-00-06
+	* using the official way of fixing oid2
+	* M python/Utils.py
+
+2008-11-25  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaMP-00-00-05
+	* stream-lined implementation
+	* M python/IoRegistry.py
+	* M python/PyComps.py
+	* M python/Utils.py
+
+2008-10-06  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging AthenaMP-00-00-04
+	* checkreq fixes
+	* M cmt/requirements
+
+2008-09-29  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaMP-00-00-03
+	* migration to AthenaBaseComps + updates
+	* M cmt/requirements
+	* M python/PyComps.py
+	* M python/Utils.py
+	* M src/IoComponentMgr.cxx
+	* M src/IoComponentMgr.h
+
+2008-08-27  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaMP-00-00-02
+	* preliminary support of POOL-files merging
+	* M python/Utils.py
+
+2008-08-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaMP-00-00-01
+	* support for theApp.EvtMax=-1
+	* M python/PyComps.py
+
+	* tagging AthenaMP-00-00-00
+	* first import
+	
+

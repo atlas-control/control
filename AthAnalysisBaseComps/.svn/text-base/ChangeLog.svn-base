@@ -1,0 +1,43 @@
+2016-02-16 Will Buttinger <will@cern.ch>
+        * AthAnalysisAlgorithm : now inheriting from AthHistogramAlgorithm
+        * AthAnalysisBaseComps/AthAnalysisHelper.h: added a setProperty method to help set properties of tools through toolhandles
+        * Tagging as AthAnalysisBaseComps-00-00-09
+
+2015-06-12 Will Buttinger <will@cern.ch>
+         * share/ContainerRemapping.py: added flags to disable bad remappings (common in AthAnalysisBase with all the old EDM bits)
+       * Tagging as AthAnalysisBasecomps-00-00-08
+
+2015-05-19 Will Buttinger <will@cern.ch>
+	* added share/ContainerRemapping.py: a copy of the one from RecExCommon, allows you to process DC14 samples as if they were MC15
+	* Tagging as AthAnalysisBaseComps-00-00-07
+
+2015-05-04 Will Buttinger <will@cern.ch>
+	* AthAnalysisBaseComps/AthAnalysisHelper.h: bug fix in method that accepts IOVTime. 
+	* Tagging as AthanalysisBaseComps-00-00-06
+
+2015-04-28 Will Buttinger <will@cern.ch>
+	* AthAnalysisBaseComps/AthAnalysisAlgorithm.h, AthAnalysisBaseComps/AthAnalysisHelper.h: Added another retrieveMetadata method that accepts an IOVTime and an optional channel number as well. I haven't thoroughly tested this method though, so may need tweaking :-S
+	* Tagging as AthAnalysisBaseComps-00-00-05
+
+2015-03-27 Will Buttinger <will@cern.ch?
+      * AthAnalysisBaseComps/AthAnalysisAlgorithm.h: added exception catching for retrieveMetadata
+      * AthAnalysisBaseComps/AthAnalysisHelper.h: made it clear that the helper can throw exception if the metadata isn't available
+      * Tagging as AthAnalysisBaseComps-00-00-04
+
+2015-03-23 Will Buttinger <will@cern.ch>
+      * share/SuppressLogging.py: Suppress harmless warning from HistogramPersistencySvc
+      * AthAnalysisBaseComps/AthAnalysisHelper.h: Added missing header
+      * Tagging as AthAnalysisBaseComps-00-00-03
+
+2015-03-19 Will Buttinger <will@cern.ch>
+      * AthAnalysisBaseComps/AthAnalysisAlgorithm.h: added ToolHandle, assuming it is useful enough to just be there!
+      * Tagging as AthAnalysisBaseComps-00-00-02
+
+2015-03-19 Will buttinger
+      * Pulled out retrieveMetadata method into separate AthAnalysisHelpers file
+      * Added SuppressLogging.py joboption to reduce output from athena, useful in analysis jobs
+      * Tagging as AthAnalysisBaseComps-00-00-01
+
+2015-03-18  Will Buttinger
+	* Created AthAnalysisAlgorithm, based on old AthMetadataAlgorithm from AthenaBaseComps-00-06-14
+

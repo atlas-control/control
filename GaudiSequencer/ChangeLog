@@ -1,0 +1,218 @@
+2015-08-18  Rolf Seuster
+
+	* src/AthSequencer.cxx: disable algorithm timeout if running in valgrind
+	* Tagging GaudiSequencer-00-03-24.
+
+2015-06-23  Karsten Koeneke  <karsten.koeneke@cern.ch>
+
+	* src/AthAnalysisSequencer.h/.cxx: Remove dependency on PATCore
+	* Tagging GaudiSequencer-00-03-23.
+
+2015-06-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging GaudiSequencer-00-03-22.
+	* src/AthSequencer.cxx (decodeNames): Fix clang warnings.
+
+2015-06-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging GaudiSequencer-00-03-21.
+	* src/AthSequencer.cxx: Avoid redundant division.
+
+2014-12-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging GaudiSequencer-00-03-20.
+	* Fix compilation warning.
+
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging GaudiSequencer-00-03-19.
+	* Fix coverity warnings.
+
+2014-04-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging GaudiSequencer-00-03-17.
+	* src/AthSequencer.cxx (execute): all_good needs to be volatile to
+	prevent warning with gcc 4.9.
+
+2013-06-18  Sebastien Binet  <binet@farnsworth>
+
+	* tagging GaudiSequencer-00-03-16
+	* add the AthRetrySequencer
+	* M src/components/GaudiSequencer_entries.cxx
+	* A share/test_athretrysequencer.py
+	* A src/AthRetrySequencer.h
+	* A src/AthRetrySequencer.cxx
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging GaudiSequencer-00-03-15
+	* adding wscript file
+	* A wscript
+
+2012-11-19  Sebastien Binet  <binet@cern.ch>
+
+	* tagging GaudiSequencer-00-03-14
+	* checkreq fixes
+	* M cmt/requirements
+
+2010-11-05  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging GaudiSequencer-00-03-13
+	* reindent
+
+	* tagging GaudiSequencer-00-03-12
+	* fix bug #74903: re-establish recoverable behaviour
+	* M src/AthSequencer.cxx
+	* A share/test_athseq_recoverable.py
+
+2010-09-16  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging GaudiSequencer-00-03-11
+	* fixing compilation warning
+	* M src/AthSequencer.cxx
+
+2010-08-25  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging GaudiSequencer-00-03-10
+	* fixing headers cleanup
+	* M src/AthSequencer.cxx
+
+2010-08-06  David Quarrie  <David.Quarrie@cern.ch>
+
+    * tagging GaudiSequencer-00-03-09
+    * Add MacOSX compatibility to FPE tracebacks using CxxUtils helpers
+    * cmt/requirements
+    * src/AthSequencer.cxx
+
+2010-07-30  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging GaudiSequencer-00-03-08
+	* adding FPE tracebacks capabilities (obo Rolf)
+	* also fixing gaudi FSM guards in start and stop
+	* M src/AthSequencer.cxx
+	* M src/AthSequencer.h
+
+2010-07-19  Sebastien Binet  <binet@pb-d-128-141-71-201.cern.ch>
+
+	* tagging GaudiSequencer-00-03-07
+	* use cputime instead of realtime for timeouts
+	* M src/AthSequencer.cxx
+
+2010-06-07  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging GaudiSequencer-00-03-06
+	* fwd compat w/ gaudi-v21
+	* M src/AthSequencer.cxx
+
+2009-12-09  Sebastien Binet  <binet@farnsworth>
+
+	* tagging GaudiSequencer-00-03-05
+	* better more versatile default for EventInfo key (take any EventInfo
+	  as long as there is only one EventInfo in evtstore)
+	* M python/PyComps.py
+
+2009-06-29  Sebastien Binet  <binet@farnsworth>
+
+	* tagging GaudiSequencer-00-03-04
+	* pre-emptively remove all on-the-stack temporary StatusCodes
+	* M src/AthSequencer.cxx
+
+2009-06-23  Sebastien Binet  <binet@farnsworth>
+
+	* tagging GaudiSequencer-00-03-03
+	* tentative fix for bug #52206 (unchecked statuscode)
+	* M src/AthSequencer.cxx
+
+2009-06-22  Sebastien Binet  <binet@farnsworth>
+
+	* tagging GaudiSequencer-00-03-02
+	* namespace sanitization
+	* M src/AthSequencer.cxx
+	* M src/AthSequencer.h
+
+2009-05-06  Sebastien Binet  <binet@farnsworth>
+
+	* tagging GaudiSequencer-00-03-01
+	* fixing up verbosity level
+	* M src/AthSequencer.cxx
+
+2009-05-05  Sebastien Binet  <binet@farnsworth>
+
+	* tagging GaudiSequencer-00-03-00
+	* adding timeout capabilities to AthSequencer
+	* M cmt/requirements
+	* M src/AthSequencer.cxx
+	* M src/AthSequencer.h
+
+2008-12-11  Sebastien Binet  <binet@lxplus245.cern.ch>
+
+	* tagging GaudiSequencer-00-02-01
+	* addressing bug #45234
+	* M src/AthSequencer.cxx
+
+2008-09-30  Sebastien Binet  <binet@lblbox>
+
+	* tagging GaudiSequencer-00-02-00
+	* support for Gaudi-v20
+	* M src/AthSequencer.cxx
+	* M src/AthSequencer.h
+
+2008-09-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging GaudiSequencer-00-01-00
+	* fixes for gcc4 + migration to AthenaBaseComps
+	* M cmt/requirements
+	* M src/AthEventCounter.cxx
+	* M src/AthEventCounter.h
+	* M src/AthPrescaler.cxx
+	* M src/AthPrescaler.h
+	* M src/AthSequencer.cxx
+	* M src/AthSequencer.h
+
+2008-07-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging GaudiSequencer-00-00-07
+	* slightly changed the way to veto events. see doc.
+	* M python/PyComps.py
+	* M share/test_pyevtfilter.py
+
+	* tagging GaudiSequencer-00-00-06
+	* fixing a few loose ends
+	* A share/test_pyevtfilter.py
+	* M python/PyComps.py
+
+	* tagging GaudiSequencer-00-00-05
+	* adding (python) filtering algorithm
+	* M cmt/requirements
+	* A python/PyComps.py
+	* A python/__init__.py
+
+2007-12-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging GaudiSequencer-00-00-04
+	* removed redundant code in AthSequencer::execute
+	* M src/AthSequencer.cxx
+
+	* tagging GaudiSequencer-00-00-03
+	* cosmetic fixes
+	* M src/AthEventCounter.cxx
+	* M src/AthPrescaler.cxx
+	* M share/test_athsequencer.py
+
+	* tagging GaudiSequencer-00-00-02
+	* added a jobO example
+	* A share/test_athsequencer.py
+	* M cmt/requirements
+	* M src/AthEventCounter.cxx
+	* M src/AthPrescaler.cxx
+
+	* tagging GaudiSequencer-00-00-01
+	* reviving this old guy
+	* A src/AthEventCounter.cxx
+	* A src/AthEventCounter.h
+	* A src/AthPrescaler.cxx
+	* A src/AthPrescaler.h
+	* A src/AthSequencer.cxx
+	* A src/AthSequencer.h
+	* A src/components/GaudiSequencer_entries.cxx
+	* A src/components/GaudiSequencer_load.cxx

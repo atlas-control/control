@@ -1,0 +1,129 @@
+2015-11-30  Antonio Limosani  <antonio.limosani@cern.ch>
+	* Tagging MinimalRunTime-00-00-26.
+	* cmt/requirements: AtlasDPM is gone.  Remove reference to it.
+
+2015-11-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging MinimalRunTime-00-00-25.
+	* cmt/requirements: AtlasShift is gone.  Remove reference to it.
+
+2013-10-11 Emil Obreshkov
+	* cmt/requirements: Remove obsolete SLC5_Compat
+    * Tagged as MinimalRunTime-00-00-24
+
+
+2013-02-26 Emil Obreshkov <Emil.Obreshkov>
+	* cmt/requirements: Remove obsolete SLC4_Compat and AtlasGFAL
+	* Tagged as MinimalRunTime-00-00-23
+
+2010-01-22  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Remove obsolete dependency aainst SLC3_Compat and replace by dependencies against SLC4_Compat and SLC5_Compat
+	* Tagged as MinimalRunTime-00-00-22
+	
+2008-12-14  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Remove obsolete reference to SealPluginRefresh
+	
+2007-09-03  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Make all dependencies public again.
+
+2007-08-29  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Make all dependencies private to ensure that
+	only environment variables are setup for clients and no macros.
+
+2007-08-23  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Use AtlasXXX packages for I/O, deferring
+	any cleanup of LD_LIBRARY_PATH to them rather than to the LCGCMT
+	equivalents.
+
+2007-08-20  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Cleanup use of tags for controlling I/O. 
+	Add noCASTOR, noDCACHE, noDPM and noGFAL tags
+
+2007-07-24 Nir Amram <Nir.Amram@cern.ch>
+ 	* Changed used package AtlasSEAL to AtlasReflex
+ 	* Tagged as MinimalRunTime-00-00-17
+
+2007-03-30  Emil Obreshkov <Emil.Obreshkov@cern.ch>
+
+        * cmt/requirements: Remove dependency on Tools/Scripts - autocompletion annoy many people
+
+
+2007-03-20  Emil Obreshkov <Emil.Obreshkov@cern.ch>
+
+	* cmt/requirements: Add dependency on Tools/Scripts - take benefit of autocompletion
+
+2007-03-11  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Add dependency on External/SLC3_Compat
+
+2007-01-01  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Remove dependencies on obsolete GaudiHistory
+	and HbookCnv
+
+2005-11-21  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Add conditional dependencies on CASTOR
+	and DCACHE. These are triggered by useCASTOR and useDCACHE
+	tags. The CERN tag also forces a CASTOR dependency
+
+2006-02-21  Emil Obreshkov <Emil.Obreshkov@cern.ch>
+
+	* Add dependency on AtlasCORAL
+
+2006-02-16  Emil Obreshkov <Emil.Obreshkov@cern.ch>
+
+	* Add dependency on AtlasRELAX and AtlasReflex
+
+2006-01-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* cmt/requirements: adding use of AtlasAuthentication.
+	fixed typo for -no_auto_imports (was export)
+
+	* tagging MinimalRunTime-00-00-09
+	
+2005-10-20  David Quarrie <David.Quarrie@cern.ch>
+
+	* Add yet more dependencies on more Gaudi packages that were 
+	  previously in ExternalRunTime
+
+2005-10-06  David Quarrie <David.Quarrie@cern.ch>
+
+	* Add dependencies on more Gaudi packages that were previously in
+	ExternalRunTime which is not compatible with project builds
+
+2005-08-15  David Quarrie <David.Quarrie@cern.ch>
+
+	* Add dependency on AtlasOracle
+
+2005-08-09  David Quarrie <David.Quarrie@cern.ch>
+
+        * cmt/requirements: Remove dependency on ExternalComponents
+	since this comes in through AtlasPolicy anyway and isn't necessary
+	for project builds.
+
+2005-06-08  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging MinimalRunTime-00-00-03
+	
+	* cmt/requirements: added in AtlasCOOL
+
+2005-04-17  David Quarrie <David.Quarrie@cern.ch>
+
+        * cmt/requirements: Add post-install macro
+
+2004-12-14  David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Remove dependency on HepMC since this
+	is no longer necessary (but _is_ necessary for applications
+	that use HepMC).
+
+2004-11-25  David Quarrie <David.Quarrie@cern.ch>
+
+	* Initial package version
+

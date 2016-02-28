@@ -1,0 +1,31 @@
+## -*- yaml -*-
+# $Id: hscript.yml 570883 2013-11-16 18:47:55Z krasznaa $
+
+package: {
+    name:    Control/AthContainersInterfaces,
+    authors: [scott snyder <snyder@bnl.gov>],
+
+    ## Package dependencies:
+    deps: {
+        public: [
+            AtlasPolicy,
+            Control/SGTools,
+            Control/CxxUtils,
+            External/AtlasBoost,
+        ],
+        runtime: [],
+    },
+}
+
+build: {
+    ## Build a test for the code:
+    AthContainersInterfaces-test-AuxStore_traits: {
+        features: "atlas_unittest",
+        source:   ["test/AuxStore_traits_test.cxx"],
+        use: ["SGTools", "CxxUtils", "AtlasBoost"],
+    },
+    ## Install the headers from the package:
+    AthContainersInterfaces: {
+        features: "atlas_install_headers",
+    },
+}

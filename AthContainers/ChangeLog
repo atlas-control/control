@@ -1,0 +1,1335 @@
+2016-02-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-83.
+	* AthContainers/ViewVector.h: Add missing boost #include.
+
+2016-02-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adding an include to ViewVector_test.cxx, which is necessary for
+	  the CMake build. Really not sure why it's not necessary for the
+	  CMT one though. :-/
+	* Tagging as AthContainers-00-02-82
+
+2016-02-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-81.
+	* test/ViewVector_test.cxx, test/DataVector_test.cxx: Fix pedantic
+	warnings.
+
+2016-02-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-80.
+	* Fix some typos in comments.
+
+	* Tagging AthContainers-00-02-79.
+	* Introduce VIEWVECTOR_CLASS_DEF.  Allow a record of ViewVector to
+	work even if VIEWVECTOR_CLASS_DEF is not visible in the current
+	compilation.  Allow recording ViewVector via a pointer to its base
+	DataVector.
+	* AthContainers/DataList.h: Dependency workaround.
+	* AthContainers/ViewVector.h, AthContainers/ViewVector.icc: Add
+	VIEWVECTOR_CLASS_DEF, and ClassID_traits specialization for @c
+	ViewVector.  Allows using @c ViewVector types with SG even if the
+	CLID definition for the vector isn't present in the current
+	compilation unit.  Fix standalone compilation?
+	* test/ViewVector_test.cxx: Test the changes.
+	* AthContainers/exceptions.h, Root/exceptions.cxx: Add
+	ExcMissingViewVectorCLID, ExcMissingBaseInfo.
+	* test/exceptions_test.cxx, share/exceptions_test.ref: Update
+	tests.
+	* AthContainers/tools/DVLDataBucket.h,
+	AthContainers/tools/DVLDataBucket.icc: Add missing override
+	keywords.  Add support for recording a @c ViewVector using a
+	pointer to the base @c DataVector.
+	* test/DVLDataBucket_test.cxx: Test the changes.
+
+2016-01-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-78.
+	* Add AuxVectorData::getConstStoreLink().
+
+2016-01-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-77.
+	* Remove experimental DV const change accidentally included in
+	last commit.
+
+2016-01-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-76.
+	* test/ViewVector_test.cxx (test1): Fix clang parse.
+	* Tagging AthContainers-00-02-75.
+	* AthContainers/ViewVector.h, AthContainers/ViewVector.icc: (new)
+	* test/ViewVector_test.cxx, share/ViewVector_test.ref: (new)
+	* cmt/requirements: Add the test.
+	* AthContainers/ConstDataVector.h,
+	AthContainers/ConstDataVector.icc: Add two-argument clear().
+	* test/DataVector_test.icc: Updated.
+	* AthContainers/exceptions.h, Root/exceptions.cxx: Add
+	ExcViewVectorNotView.  Change ATH_NORETURN to [[noreturn]].
+	* test/exceptions_test.cxx, share/exceptions_test.ref: Updated.
+	* AthContainers/DataVector.h: Fix ConstDataVector friendship to
+	work when used with ViewVector.
+
+	* Tagging AthContainers-00-02-74.
+	* Forgot one file.
+	* Tagging AthContainers-00-02-73.
+	* AthContainers/dataVectorAsELV.h: (new)
+	* test/dataVectorAsELV_test.cxx, share/dataVectorAsELV_test.ref:
+	(new)
+	* cmt/requirements: Add the test.
+	* AthContainers/exceptions.h, Root/exceptions.cxx: Add
+	ExcDVToELV.
+	* test/exceptions_test.cxx, share/exceptions_test.ref: Updated.
+
+2016-01-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-72.
+	* AthContainers/ConstDataVector.h,
+	AthContainers/ConstDataVector.icc, test/DataVector_test.icc: Allow
+	constructing/assigning a CDV from a vector of ELs.
+
+	* Tagging AthContainers-00-02-71.
+	* test/TestThinningSvc.icc: Use TestStore.
+
+2015-12-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-70.
+	* test/TestThinningSvc.icc: Update for IStringPool changes.
+
+2015-11-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-69.
+	* Root/AuxVectorData.cxx (thinningHook): deep_proxy -> proxy.
+	* test/TestThinningSvc.icc: Update for IProxyDict changes.
+
+2015-10-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-68.
+	* AthContainers/selection.xml: Generate dictionaries for
+	prime_rehash_policy.
+	* Tagging AthContainers-00-02-67.
+	* AthContainers/selection.xml, AthContainers/AthContainersDict.h:
+	Generate dictionaries for debugging functions.
+
+2015-10-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-66.
+	* cmt/requirements: Fix requirements file.
+	* Tagging AthContainers-00-02-65.
+	* Add helpers for dumping aux variables from the debugger.
+
+2015-10-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-64.
+	* test/threading_test.cxx: Fix placement of using declarations.
+
+2015-09-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-63.
+	* test/DataVector_test.icc, test/DataList_test.cxx: Fix placement
+	of using declarations.
+
+2015-09-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-62.
+	* Root/AuxVectorData.cxx: Fix memory leak in move assignment op.
+	Thanks to Goetz for reporting.
+
+2015-08-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added an explicit dependence on CxxUtils for the RootCore
+	  compilation. The lack thereof was causing problems when trying
+	  to compile the analysis release with CMake.
+	* Tagging as AthContainers-00-02-61
+
+2015-07-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-60.
+	* AthContainers/selection.xml: Clean up root selection warnings.
+
+2015-07-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-59.
+	* test/TestThinningSvc.icc: deep_proxy() is the same as proxy().
+
+2015-07-12 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Moved the variable declarations in
+	  Root/normalizedTypeinfoName.cxx into the main function of the
+	  file, and made them static.
+	* This is to avoid a problem with loading EDM libraries
+	  "too early" that declare static Accessor objects outside of a
+	  function.
+	* Tagging as AthContainers-00-02-58
+
+2015-06-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-57.
+	* test/AuxElement_test.cxx: Missing #include.
+
+2015-06-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-56.
+	* Root/AuxVectorData.cxx (isAvailableOol): Don't rely on
+	getAuxIDs(); explicitly try to fetch the data instead.
+
+2015-06-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-55.
+	* Root/AuxElement.cxx (copyAux): Make sure variables missing in
+	the source are cleared in the target.
+	* test/AuxElement_test.cxx: Test the changes.
+
+	* Tagging AthContainers-00-02-54.
+	* Revert const changes erroneously included as a part of the
+	previous commit.
+
+2015-06-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-53.
+	* AthContainers/AuxVectorData.h, AthContainers/AuxVectorData.icc,
+	Root/AuxVectorData.cxx: Add allowMissing option to getDataOol.
+	Add getDataArrayAllowMissing.
+	* Root/AuxElement.cxx (copyAux): Don't die if a variable is
+	missing.
+	* test/AuxVectorData_test.cxx: Test getDataArrayAllowMissing.
+	* test/AuxElement_test.cxx: Test the changes.
+
+2015-05-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-52.
+	* test/AuxTypeRegistry_test.cxx: Use TestStore.icc from SGTools.
+	* test/TestStore.icc: (deleted)
+
+2015-04-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-51.
+	* AthContainers/tools/UDSLabelHashTable.h,
+	Root/UDSLabelHashTable.cxx: Extend so that the tp converter can
+	use the public interfaces.
+
+2015-03-20 Will Buttinger <will@cern.ch>
+	* src/copyAuxStoreThinned.cxx: skip null auxids (happens when don't have the dictionary)
+	* Tagging AthContainers-00-02-50
+
+2015-03-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-49.
+	* Fix compilation in RootCore.
+
+2015-03-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-48.
+	* Root/dict/PackedContainerStreamer.cxx (new): Set up
+	PackedContainer streamers here.
+	* cmt/requirements: Updated.
+
+2015-03-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-47.
+	* test/PackedConverter_test.cxx: Fix integer overflow.
+
+2015-03-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-46.
+	* AthContainers/selection.xml: Fix last change for 32-bit builds.
+
+2015-03-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-45.
+	* AthContainers/selection.xml: Clean up selections for auxid
+	hashtable; make sure the allocator memory is transient.
+
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-44.
+	* AuxStoreStandalone_test: Fix test comparison in clang builds.
+
+2015-01-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-43.
+	* AthContainers/DataVector.h: Make baseOffset1 public; needed by
+	DataBucketVoid.
+
+2015-01-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-42.
+	* Root/AuxTypeRegistry.cxx: Enable T->P transformation for
+	ElementLink in copyForOutput.
+
+2015-01-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-41.
+	* Root/AuxTypeRegistry.cxx (AuxTypeRegistry): Add factories for a
+	few vector types.
+
+	* Tagging AthContainers-00-02-40.
+	* AthContainers/selection.xml, AthContainers/AthContainersDict.h:
+	Generate Accessor dictionaries for long.
+
+2014-12-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-39.
+	* Update copyThinned to provide the possibility of doing T->P
+	conversion on ElementLink aux variables.  Actual T->P step
+	disabled for the moment.
+	* AthContainers/AuxTypeRegistry.h, Root/AuxTypeRegistry.cxx: Add
+	copyForOutput().  T->P conversion of ElementLinks disabled for the
+	time being.
+	* AthContainers/tools/copyThinned.icc (copyThinned1): Use
+	copyAuxStoreThinned even if no thinning is actually being done,
+	since T->P conversion will be done there.
+	* src/copyAuxStoreThinned.cxx: Use copyForOutput.
+	* test/AuxTypeRegistry_test.cxx, share/AuxTypeRegistry_test.ref:
+	Test copyForOutput.
+	* test/TestStore.icc: (new)
+
+2014-12-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-38.
+	* AthContainers/tools/DVLIterator.h: Using boost::iterator_adapter
+	as a base for const_iterator causes problems with root6.  Write
+	out the iterator explicitly.
+
+2014-12-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-37.
+	* Add size() in derived classes to avoid root6 bug.
+	* Tagging AthContainers-00-02-36.
+	* AthContainers/DataVector.h, AthContainers/DataVector.icc: Add
+	get().
+	* test/DataVector_test.icc: Test it.
+
+2014-12-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-35.
+	* AthContainers/DataVector.h: Autoselect VirtBases base classes
+	with root5.
+
+	* Tagging AthContainers-00-02-34.
+	* Workarounds for root6 deficiencies:
+	* AthContainers/DataVector.h, AthContainers/DataVector.icc: Add
+	baseOffset(); add auxbase() in derived classes.
+	* test/DataVector_test.icc: Test baseOffset().
+
+2014-12-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-33.
+	* c++98 fixes.
+
+2014-11-26  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* AthContainers\DataVector.h: disabling automatic dict generation for
+	ROOT6 from tag AthContainers-00-02-28 - too much duplication
+	* Tagging AthContainers-00-02-32
+
+2014-11-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-31.
+	* AthContainers/selection.xml: Add SG::AuxDataOption.
+
+2014-11-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-30.
+	* AthContainers/PackedContainer.h: Add vector_type typedef.
+
+	* Tagging AthContainers-00-02-29.
+	* AthContainers/selection.xml, AthContainers/AthContainersDict.h:
+	Add dictionaries for vector accessors.
+
+2014-11-20  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* AthContainers\DataVector.h: enable automatic dict generation for
+	ROOT6 (not is standalone mode)
+	* Tagging AthContainers-00-02-28
+
+2014-11-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-27.
+	* AthContainers/AuxVectorBase.icc (resortAux): If a container is
+	empty, the xAOD base classes may report that aux variables are
+	present that cannot actually be retrieved.  Work around.
+	* test/DataVector_test.cxx, share/DataVector_test.ref: : Test the
+	changes.
+
+2014-11-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-26.
+	* AthContainers/AuxStoreInternal.h, Root/AuxStoreInternal.cxx:
+	Implement setOption().  Update getIOType() to handle the
+	possibility of packed containers.
+	* test/AuxStoreInternal_test.cxx, share/AuxStoreInternal_test.ref:
+	Test the changes.
+
+	* Tagging AthContainers-00-02-25.
+	* test/AuxTypeVector_test.cxx, share/AuxTypeVector_test.ref: Test
+	the changes from the last tag.
+	* Tagging AthContainers-00-02-24.
+	* AthContainers/tools/AuxTypeVector.h,
+	AthContainers/tools/AuxTypeVector.icc: Implement objType(),
+	setOption(), toPacked().
+
+	* Tagging AthContainers-00-02-23.
+	* test/PackedConverter_test.cxx, test/copyThinned_test.cxx,
+	test/copyAuxStoreThinned_test.cxx, test/DVLDataBucket_test.cxx:
+	C++98 compatibility.
+	* AthContainers/PackedParameters.icc: C++98 compatibility.
+	* Root/DVLInfo.cxx, Root/AuxStoreInternal.cxx: C++98
+	compatibility.
+	* src/copyAuxStoreThinned.cxx: C++98 compatibility.
+
+	* Tagging AthContainers-00-02-22.
+	* AthContainers/AuxVectorData.h, AthContainers/AuxVectorData.icc,
+	Root/AuxVectorData.cxx: Add setOption() methods.
+	* test/AuxVectorData_test.cxx: Test the changes.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc: Add
+	auxid() methods.
+	* test/AuxElement_test.cxx: Test the changes.
+	* AthContainers/tools/ClassID.h: Remove references to safe_clid.
+
+	* Tagging AthContainers-00-02-21.
+	* AthContainers/tools/AuxDataTraits.h: (new) Allow customizing how
+	aux data types are treated.
+	* Update other files to use it.
+
+2014-11-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-20.
+	* Added PackedConverter and PackedContainer classes.
+
+2014-11-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-19.
+	* Adding PackedParameters class.
+
+2014-11-07 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* (Hopefully) Made it possible to use ConstDataVector in the
+	  analysis release. (Had to hide some Athena-only code from the
+	  standalone compilation.)
+	* Added a simple unit test for checking that the code compiles
+	  and works correctly on just the most basic level.
+	* Should define this as a unit-test for Athena as well. And then
+	  rename the existing tests that are also meaningful in ROOT, to
+	  start with the prefix "ut_".
+	* Tagging as AthContainers-00-02-18
+
+2014-11-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-17.
+	* AthContainers/tools/DVLInfo.h, AthContainers/tools/DVLInfo.icc:
+	Add base().
+	* test/DVLInfo_test.cxx: Test the changes.
+
+2014-10-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-16.
+	* Fix problem with Decorator::isWritable not returning the write
+	thing when we have only an IConstAuxStore pointer.  Fix up some
+	other Decorator::isAvailable cases.  Use the cached vector
+	pointers as a cache for isAvailable too, only checking the sets if
+	the variable has not been cached.
+	* AthContainers/AuxVectorData.h, AthContainers/AuxVectorData.icc,
+	Root/AuxVectorData.cxx: Add isAvailableWritableAsDecoration;
+	out-of-line portions of isAvailable*.  Add m_decorCache.  Use
+	caches for isAvailable, going to out-of-line code for variables
+	that have not yet been cached.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc: Add
+	isAvailableWritableAsDecoration.  Use it from
+	Decorator::isAvailableWritable.
+	* AthContainers/selection.xml: AuxVectorData::m_decorCache needs
+	to be transient.
+	* test/AuxVectorData_test.cxx: Test the changes.
+
+2014-10-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-15.
+	* AthContainers/tools/DVLEltBaseInfo.icc,
+	AthContainers/tools/DVLInfo.icc, Root/DVLInfo.cxx: Adjust for
+	BaseInfo CLID changes.
+	* test/DVLInfo_test.cxx: Test the changes.
+
+2014-10-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-14.
+	* src/copyAuxStoreThinned.cxx: Don't copy variables suppressed by
+	selection.
+	* test/copyAuxStoreThinned_test.cxx: Test the changes.
+
+	* Tagging AthContainers-00-02-13.
+	* Fix coverity warnings.
+
+2014-10-20 Will Buttinger <will@cern.ch>
+   * AthContainers/tools/threading.h: added a protection against annoying unused_variable warnings coming from boost, only applies in AthAnalysisBase
+   * tagging AthContainers-00-02-12
+
+2014-10-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-11.
+	* AthContainers/AuxVectorData.icc (isAvailable): Fix typo.
+
+2014-09-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-10.
+	* AthContainers/tools/ElementProxy.h: Prevent self-selection.
+
+	* Tagging AthContainers-00-02-09.
+	* AthContainers/AuxTypeRegistry.h: Fix return type of hash
+	function.
+
+2014-09-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removed the usage of the ROOT::Meta::Selection::SelectNoInstance
+	  type when using ROOT 6 releases up to and including v6.00/02.
+	  Since the type was introduced sometime after this. (And we
+	  use 6.00/01 in the analysis release at the moment.)
+	* Tagging as AthContainers-00-02-08
+
+2014-09-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-07.
+	* AthContainers/AuxVectorData.h, AthContainers/AuxVectorData.icc:
+	Add isAvailable() methods.
+	* AthContainers/AuxElement.icc: Use isAvailable() implementations
+	from AuxVectorData.
+	* test/AuxVectorData_test.cxx: Test the changes.
+
+	* Tagging AthContainers-00-02-06.
+	* AthContainers/AuxElement.h,
+	AthContainers/AuxElement.icc, Root/AuxElement.cxx: Fix crash with
+	getStore(), etc., for the case of an object with a private store
+	placeholder.
+	* test/AuxElement_test.cxx, share/AuxElement_test.ref: Test the
+	changes.
+
+2014-09-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a missing include to AuxTypeRegistry.cxx that prevented the
+	  code from compiling in standalone mode.
+	* Tagging as AthContainers-00-02-05
+
+2014-09-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-04.
+	* AthContainers/DataVector.h, AthContainers/DataVector.icc,
+	AthContainers/DataList.h: Use SelectNoInstance for root6 where we
+	previously had NO_SELF_AUTOSELECT.
+
+2014-09-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-03.
+	* Root/AuxTypeRegistry.cxx (findAuxID): Work around library
+	loading issues that sometimes result in multiple type_info
+	instances being visible for the same type.
+
+2014-08-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-02.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc: Make
+	makePrivateStore work properly when given a pointer.
+	* test/AuxElement_test.cxx: Test the change.
+
+2014-08-12 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Now that xAODCore has a definition of the SG_BASE macros for
+	  standalone compilation, and because the AthContainers and
+	  xAODCore headers may be included in any order, I had to protect
+	  the definitions in DataVector.h against re-defining existing
+	  definitions for these macros.
+	* The code seems to work fine in standalone mode with this
+	  modification.
+	* Tagging as AthContainers-00-02-01
+
+2014-08-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-02-00.
+	* Root/AuxStoreInternal.cxx: Forgot to check vector bounds.
+
+2014-08-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Moved the Athena-only source files (copyAuxStoreThinned.cxx,
+	  getThinnedFlags.cxx) under src/. Updated the requirements file
+	  to use the source files under src/ as well once more, but didn't
+	  actually test it in Athena yet. :-(
+	* Hid the thinning code in AuxVectorData.cxx from the standalone
+	  compilation.
+	* Hid the thinning code's tests from the standalone compilation.
+	* Introduced an explicit dependency on TestTools for the
+	  standalone compilation.
+	* Tagging as AthContainers-00-01-99
+
+2014-08-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-98.
+	* Use expect_exception.h and random.h from TestTools.
+
+	* Tagging AthContainers-00-01-97.
+	* AthContainers/ConstDataVector.h,
+	AthContainers/ConstDataVector.icc, AthContainers/ConstDataList.h,
+	AthContainers/ConstDataList.icc: Fix problem with creating a
+	DataBucket for a ConstDataVector/List using unique_ptr.
+	* test/DVLDataBucket_test.cxx: Test this case.
+
+2014-08-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-96.
+	* Still more accessor dictionaries.
+
+2014-08-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-95.
+	* More accessor dictionaries.
+
+	* Tagging AthContainers-00-01-94.
+	* AthContainers/AuxElement.h, Root/AuxElement.cxx: Add clearCache().
+	* test/AuxElement_test.cxx: Test it.
+	* AthContainers/selection.xml, AthContainers/AthContainersDict.h:
+	Add dictionaries for more accessor types.
+
+2014-07-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-93.
+	* AthContainers/copyThinned.h, AthContainers/copyThinned.icc:
+	Change copyThinned to return a non-const pointer, and put a
+	const_cast in the DataVector case.
+
+2014-07-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-92.
+	* AthContainers/tools/copyThinned.h,
+	AthContainers/tools/copyThinned.icc: (new)
+	* test/copyThinned_test.cxx, share/copyThinned_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* Tagging AthContainers-00-01-92.
+	* AthContainers/tools/copyAuxStoreThinned.h,
+	Root/copyAuxStoreThinned.cxx: (new)
+	* test/copyAuxStoreThinned_test.cxx,
+	share/copyAuxStoreThinned_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* Tagging AthContainers-00-01-90.
+	* AthContainers/tools/getThinnedFlags.h,
+	AthContainers/tools/getThinnedFlags.icc, Root/getThinnedFlags.cxx:
+	(new)
+	* test/TestThinningSvc.icc: (new)
+	* test/getThinnedFlags_test.cxx, share/getThinnedFlags_test.ref:
+	(new)
+	* cmt/requirements: Add it.
+
+	* Tagging AthContainers-00-01-89.
+	* AthContainers/AuxStoreInternal.h, Root/AuxStoreStandalone.cxx:
+	Add copy ctor.
+	* test/AuxStoreInternal_test.cxx: Updated.
+	* share/AuxStoreStandalone_test.ref: Updated.
+
+	* Tagging AthContainers-00-01-88.
+	* AthContainers/tools/AuxTypeVector.h,
+	AthContainers/tools/AuxTypeVector.icc: Add clone().
+	* AthContainers/AuxStoreInternal.h, Root/AuxStoreInternal.cxx: Add
+	size().
+	* test/AuxTypeVector_test.cxx: Updated.
+	* test/AuxStoreInternal_test.cxx: Updated.
+	* test/AuxElement_test.cxx: Updated.
+
+2014-07-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-87.
+	* AthContainers/AuxVectorData.h, Root/AuxVectorData.cxx: Add
+	thinningHook.
+
+2014-07-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-86.
+	* AthContainers/tools/AuxTypeVector.icc: Protect against empty
+	vector.
+
+2014-07-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-85.
+	* AthContainers/selection.xml, AthContainers/AthContainersDict.h:
+	Generate dictionaries for OwnershipPolicy, TypelessConstAccessor.
+	* AthContainers/tools/DVLEltBaseInfo.icc: Include in bases classes
+	added with SG_BASE.
+	* test/DataVector_test.cxx, test/DataList_test.cxx: Update for the
+	SG_BASE change.
+
+2014-06-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-84.
+	* test/ElementProxy_test.cxx: c++98 fixes.
+
+2014-06-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-83.
+	* Root/exceptions.cxx (excBadAuxVar_format): Fix message
+	formatting.
+	* share/exceptions_test.ref: Updated.
+
+2014-06-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-82.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc: Add
+	set method for Accessor and Decorator.  Const fixes.
+
+2014-06-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-81.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc: Add
+	TypelessConstAccessor.
+	* test/AuxElement_test.cxx: Updated.
+	* AthContainers/exceptions.h, Root/exceptions.cxx: Add
+	ExcUnknownAuxItem.
+	* test/exceptions_test.cxx, share/exceptions_test.ref: Updated.
+
+2014-06-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-80.
+	* AthContainers/tools/ElementProxy.h,
+	AthContainers/tools/ElementProxy.icc: Need to hide unique_ptr
+	methods from reflex here too.
+
+	* Tagging AthContainers-00-01-79.
+	* AthContainers/DataVector.icc: Fix for compiling with gcc 4.7.
+
+	* Tagging AthContainers-00-01-78.
+	* AthContainers/tools/DVL_algorithms.h: Add specializations for
+	shuffle(), inplace_merge().
+
+	* Tagging AthContainers-00-01-77.
+	* Add move constructor and assignment for DataVector.
+
+2014-06-17  scott snyder  <snyder@bnl.gov>
+
+	* AthContainers/AuxVectorData.h, AthContainers/AuxVectorData.icc,
+	Root/AuxVectorData.cxx: Add move constructor.  Hold
+	m_constStoreLink by value, not by pointer.
+	* test/AuxVectorData_test.cxx, share/AuxVectorData_test.ref: Updated.
+
+	* AthContainers/DataVector.h, AthContainers/DataVector.icc: Add
+	C++11 interfaces: cbegin/cend/crbegin/crend; emplace/emplace_back;
+	shrink_to_fit.  Add initializer_list interfaces for insert,
+	assign, ctor, assignment.
+	* AthContainers/ConstDataVector.h,
+	AthContainers/ConstDataVector.icc: Likewise.
+	* test/DataVector_test.icc: Updated.
+
+	* Tagging AthContainers-00-01-76.
+	* Add ElementProxy assignment from unique_ptr.
+
+	* AthContainers/DataVector.h, AthContainers/DataVector.icc,
+	AthContainers/ConstDataVector.h,
+	AthContainers/ConstDataVector.icc: Add swapElement interfaces
+	taking unique_ptr.
+	* test/DataVector_test.icc: Updated.
+
+2014-06-16  scott snyder  <snyder@bnl.gov>
+
+	* AthContainers/DataVector.h, AthContainers/DataVector.icc: Start
+	providing interfaces taking unique_ptr.
+	* AthContainers/ConstDataVector.h,
+	AthContainers/ConstDataVector.icc: Likewise.
+	* test/DataVector_test.icc: Updated.
+	* AthContainers/exceptions.h, Root/exceptions.cxx: Add
+	ExcNonowningContainer.
+	* test/exceptions_test.cxx, share/exceptions_test.ref: Updated.
+
+	* Tagging AthContainers-00-01-75.
+	* AthContainers/normalizedTypeinfoName.h,
+	Root/normalizedTypeinfoName.cxx: (new)
+	* test/normalizedTypeinfoName_test.cxx,
+	share/normalizedTypeinfoName_test.ref: (new)
+	* cmt/requirements: Add it.
+	* AthContainers/AuxTypeRegistry.h,
+	AthContainers/AuxTypeRegistry.icc, Root/AuxTypeRegistry.cxx: Add
+	getTypeName, getVecTypeName().  Const adjustments.
+	* test/AuxTypeRegistry_test.cxx: Updated.
+	* AthContainers/tools/threading.h,
+	AthContainers/tools/threading.icc: Const adjustments.
+
+	* AthContainers/ConstDataVector.h, AthContainers/ConstDataList.h:
+	Improve usage example.
+
+2014-06-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-74.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc: Split
+	up auxdata and friends so as to not rely on default arguments.
+	This is to work better with pyroot.  Add auxdataConst.
+	* test/AuxElement_test.cxx: Test auxdataConst.
+	* AthContainers/AthContainersDict.h: Generate dictionary for
+	auxdata instantiations for common types.
+
+2014-06-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-73.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc: Split
+	off ConstAccessor from Accessor.
+	* test/AuxElement_test.cxx: Test it.
+	* AthContainers/DataVector.h, AthContainers/AuxVectorData.h:
+	Update documentation.
+	* AthContainers/selection.xml, AthContainers/AthContainersDict.h:
+	Generate dictionaries for ConstAccessor instantiations.
+
+2014-06-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-72.
+	* AthContainers/selection.xml, AthContainers/AthContainersDict.h:
+	Generate dictionaries for Accessor/Decorator for common types.
+	Make operator== dictionary for auxid_set_t.
+
+2014-06-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-71.
+	* AthContainers/tools/DVLDataBucket.h,
+	AthContainers/tools/DVLDataBucket.icc: DVLDataBucket ctor can take
+	a unique_ptr.
+	* test/DVLDataBucket_test.cxx: Test it.
+
+2014-06-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-70.
+	* cmt/requirements: Fix checkreq warning.
+
+2014-06-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-69.
+	* AthContainers/DataVector.h, AthContainers/DataList.h,
+	AthContainers/tools/ElementProxy.h: Get selection_ns.h from
+	AthLinks.
+	* AthContainers/tools/selection_ns.h: Deleted.
+
+2014-06-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removed the code's dependence on AthenaKernel/ILockable.h
+	  in standalone mode. Since we don't have AthenaKernel in the
+	  analysis release.
+	* Tagging as AthContainers-00-01-68
+
+2014-06-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-67.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc,
+	Root/AuxElement.cxx: Add Decorator, auxdecor(), getAuxIDs(),
+	clearDecorations().
+	* test/AuxElement_test.cxx, share/AuxElement_test.ref: Updated.
+	* AthContainers/DataVector.h: Document decorations.
+
+	* Tagging AthContainers-00-01-66.
+	* AthContainers/AuxStoreInternal.h, Root/AuxStoreInternal.cxx:
+	Make data members private.  Add override keywords.  Add protected
+	getDataInternal with no_lock_check flag.
+	* AthContainers/selection.xml: Update transient fields for
+	AuxStoreInternal.
+	* test/AuxStoreInternal_test.cxx, share/AuxStoreInternal_test.ref:
+	Updated.
+	* AthContainers/AuxVectorData.h, AthContainers/AuxVectorData.icc,
+	Root/AuxVectorData.cxx: Decoration changes.
+	* test/AuxVectorData_test.cxx, share/AuxVectorData_test.ref:
+	Updated.
+
+	* Tagging AthContainers-00-01-65.
+	* AthContainers/exceptions.h, Root/exceptions.cxx: Add
+	ExcNoAuxStore taking a string.  Add exception names to all
+	messages.
+	* test/exceptions_test.cxx, share/exceptions_test.ref: Updated.
+
+2014-05-26 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added an explicit dictionary for DataLink<SG::IConstAuxStore>.
+	  ROOT 6 was already generating this dictionary for the package
+	  silently, but not ROOT 5. Which lead to missing dictionary
+	  problems when using some new code with ROOT 5.
+	* Tagging as AthContainers-00-01-64
+
+2014-05-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-63.
+	* AthContainers/AuxTypeRegistry.h, Root/AuxTypeRegistry.cxx:
+	Replace a dynamic factory when an instantiated one is available.
+	Locking fixes.
+	* test/AuxTypeRegistry_test.cxx: Updated.
+
+	* Tagging AthContainers-00-01-62.
+	* AthContainers/tools/threading.h (upgrade_mutex): Need to make
+	this non-assignable for proper dictionary generation with
+	AtlasReflex-00-02-47.
+
+	* Tagging AthContainers-00-01-61.
+	* AthContainers/AuxVectorBase.h, AthContainers/AuxVectorBase.icc:
+	Add setConstStore(), setNonConstStore().
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc:
+	Likewise.
+	* AthContainers/ConstDataVector.h: Make them accessible.
+	* test/AuxElement_test.cxx, test/AuxVectorBase_test.cxx,
+	share/AuxVectorBase_test.ref: Test the changes.
+
+2014-05-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added convenience isAvailable<...>(...) and
+	  isAvailableWritable<...>(...) functions to AuxElement.
+	  Has been requested by the EDM developers for a long time...
+	* Tagging as AthContainers-00-01-60
+
+2014-05-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-59.
+	* AthContainers/AuxStoreInternal.h: Temporarily make internals
+	protected again.
+
+2014-05-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-58.
+	* AthContainers/AuxStoreInternal.h, Root/AuxStoreInternal.cxx: Add
+	getDecoration(), lock(),
+	clearDecorations().
+	* test/AuxStoreInternal_test.cxx, share/AuxStoreInternal_test.ref:
+	Updated.
+	* AthContainers/exceptions.h, Root/exceptions.cxx: Add
+	ExcStoreLocked.
+	* test/exceptions_test.cxx, share/exceptions_test.ref: Updated.
+
+	* Tagging AthContainers-00-01-57.
+	* AthContainers/AuxStoreInternal.h: Add standalone flag.  Use
+	ATH_OVERRIDE.  Add addAuxID.
+	* Root/AuxStoreInternal.cxx: Likewise.
+	* AthContainers/AuxStoreStandalone.h: Implement by passing
+	standalone flag to AuxStoreInternal rather than overriding methods.
+	* Root/AuxStoreStandalone.cxx: Likewise.
+	* AthContainers/selection.xml: Add uuid for AuxStoreInternal.
+	More transient fields.
+	* test/AuxStoreInternal_test.cxx: Updated.
+	* share/AuxStoreInternal_test.ref: Updated.
+
+2014-05-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-56.
+	* Rework registry to manage a of type -> vector factory mapping.
+	This is moving towards allowing adding factories for types
+	discovered dynamically.
+
+2014-05-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Trying to make the code work with ROOT 5 in C++11 mode, without
+	  using a special version of genreflex/gccxml.
+	* The basic tests seem to be working after hiding a bit of
+	  implementation code from gccxml.
+	* Tagging as AthContainers-00-01-55
+
+2014-04-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-54.
+	* AthContainers/AuxElement.icc (isAvailable, isAvailableWritable):
+	Don't copy aux id set.
+
+2014-04-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed the standalone compilation of the code in
+	  non-threading mode. Some threading code crept into the tests,
+	  and the non-threading implementation of two functions were
+	  not declared as inline. (Giving linking issues.)
+	* Tagging as AthContainers-00-01-53
+
+2014-04-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-52.
+	* test/AuxStoreInternal_test.cxx: Cut down number of iterations:
+	was taking too long to run on lxplus.
+	* Tagging AthContainers-00-01-51.
+	* Make AuxStoreInternal thread-safe.
+
+	* Tagging AthContainers-00-01-50.
+	* AthContainers/tools/threading.h: Adding thread_specific_ptr.
+	* test/threading_test.cxx, share/threading_nothreads_test.ref,
+	share/threading_test.ref: Update test.
+
+2014-04-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-49.
+	* Making AuxVectorData thread-safe.
+
+2014-04-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-48.
+	* AthContainers/tools/threading.h,
+	AthContainers/tools/threading.icc: Add a couple fencing
+	operations.  Expose mutex, lock_guard.
+	* test/threading_test.cxx, share/threading_test.ref: Updated.
+	* test/threading_nothreads_test.cxx,
+	share/threading_nothreads_test.ref: (new)
+	* cmt/requirements: Add it.
+
+	* Tagging AthContainers-00-01-47.
+	* test/AuxVectorBase_test.cxx: Fix use of swap.
+	* test/foreach_test.cxx, share/foreach_test.ref: (new)
+	* cmt/requirements: Add it.
+	* AthContainers/DataList.h, AthContainers/DataVector.h,
+	AthContainers/tools/foreach.h: Minor cleanup.
+
+2014-04-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Merging all the changes from AthContainers-00-01-43-root6
+	  back into the trunk.
+	* To be tested in mig14 first.
+	* Tagging as AthContainers-00-01-46
+
+2014-04-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-45.
+	* Root/AuxTypeRegistry.cxx: Make the global instance a static
+	local of instance(), to avoid initialization ordering issues.
+	* AthContainers/AuxTypeRegistry.h: Make default ctor private.
+	Forbid copy ctor.
+
+2014-04-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-44.
+	* AthContainers/DataVector.icc: Fix for icc.
+	* share/AuxStoreStandalone_test.ref: Update.
+
+2014-04-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made the package "conditionally" depend on Asg_gccxml.
+	  If that package is available, it provides the Reflex and Cintex
+	  library linking for this package. If it's not available, then
+	  we're hopefully on ROOT 6, and we don't need either of
+	  those libraries...
+	* Tagging as AthContainers-00-01-43-04
+
+2014-04-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Changed the implementation of SG::AuxTypeRegistry::instance()
+	  slightly. In the new implementation we no longer run into
+	  initialization order issues on MacOS X 10.9.
+	* Tagging as AthContainers-00-01-43-03
+
+2014-04-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removed an unnecessary cast from AuxStoreInternal_test that
+	  triggered a warning on MacOS X 10.9.
+	* Tagging as AthContainers-00-01-43-02
+
+2014-04-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Starting with the ROOT 6 migration in the package.
+	* Had to change the RootCore build rule slightly for the new
+	  ROOT version, so let's keep the modifications in a branch
+	  for now...
+	* Tagging as AthContainers-00-01-43-01
+
+2014-03-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-43.
+	* Root/AuxElement.cxx (copyAux): Locking fix.
+
+2014-03-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-42.
+	* AthContainers/AuxTypeRegistry.h: Work around reflex issue with
+	gcc 4.8.3.
+
+2014-02-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-41.
+	* AthContainers/AuxTypeRegistry.h,
+	AthContainers/AuxTypeRegistry.icc, Root/AuxTypeRegistry.cxx: Add
+	getEltSize().
+	* test/AuxTypeRegistry_test.cxx: Test it.
+	* Additional dictionary entries.
+
+2014-02-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-40.
+	* AthContainers/DataVector.h: Add _FWD variants of DATAVECTOR_BASE
+	macros.
+
+2014-02-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-39.
+	* Obo Marcin:
+	* AthContainers/AuxTypeRegistry.h: Add findAuxID().
+	* Root/AuxTypeRegistry.cxx: Add findAuxID().  Handle
+	AuxTypePlaceholder.
+	* test/AuxTypeRegistry_test.cxx, share/AuxTypeRegistry_test.ref:
+	Test the changes.
+
+2014-02-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Marked SG::IAuxElement::m_dummy as a transient variable
+	  finally. I was convinced that this was done a long time ago.
+	  Never made it to SVN apparently...
+	* Tagging as AthContainers-00-01-38
+
+2014-02-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removed an error message from AuxStoreInternal in a place that
+	  is not necessarily an error condition anymore. (With the new
+	  implementation of Accessor::isAvailable.
+	* Updated the test reference files that have changed as a result.
+	* Tagging as AthContainers-00-01-37
+
+2014-02-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Changed the implementation of SG::AuxElement::Accessor::isAvailable
+	  a bit. It now explicitly tries to access a variable before
+	  declaring that it's not available. This way dynamic variables
+	  are reported correctly as existing. (If they do.)
+	* Tagging as AthContainers-00-01-36
+
+2014-02-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Merging in all the RootCore and DataLink changes into the
+	  trunk.
+	* No additional changes for the moment. The isAvailable(...)
+	  changes will come next.
+	* Tagging as AthContainers-00-01-35
+
+2014-01-31 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Declaring the SG::AuxVectorData::m_constStoreLink variable
+	  transient. Didn't notice an error about it in the standalone
+	  build... :-/
+	* Tagging as AthContainers-00-01-34-04
+
+2014-01-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Basic standalone tests seem to be successful after the
+	  update. Time to make a tag for mig14 once more.
+	* Tagging as AthContainers-00-01-34-03
+
+2014-01-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out, the modifications were quite unusable in
+	  Athena...
+	* SG::AuxVectorData now only holds a pointer to a
+	  DataLink<SG::IConstAuxStore> object. So that this link would
+	  only be instantiated when we actually want to use a DataLink.
+	* Updated the logic of SG::AuxVectorData to hopefully deal
+	  correctly with this new setup.
+	* Updated SG::AuxElement to also provide a DataLink version of
+	  its setStore(...) function. As it turns out, it was not even
+	  necessary to make AuxElement any heavier for this than it
+	  already was. Since the element's store is handled by a
+	  helper object that is pointed to by a bare pointer in the class.
+	* Not tagging yet, will try to run some standalone tests first.
+	  (Athena compilation is fixed by the modifications at least.)
+
+2014-01-29 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Basic compilation seems to work in Athena (mig14) as well,
+	  so it's time to make a tag to collect into mig14.
+	* Tagging as AthContainers-00-01-34-02
+
+2014-01-29 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* A first stab at exchanging AuxVectorData's bare IConstAuxStore
+	  pointer for a DataLink<SG::IConstAuxStore> smart pointer.
+	* Tried to update the logic of all the DV code, the result seems
+	  to work correctly in standalone mode at least.
+	* Enabled keyword expansion on all of the header files.
+	* Not tagging just yet, still more tests to come.
+
+2014-01-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Tested the package's compilation in Athena, and updated the
+	  test reference files. (So the error messages would show the
+	  new source file locations.)
+	* Tagging as AthContainers-00-01-34-01
+
+2014-01-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making the package compile with RootCore.
+	* No runtime tests done yet, so no tag at this time.
+
+2013-11-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-34.
+	* AthContainers/tools/IsMostDerivedFlag.h: Fix coverity warning.
+
+2013-11-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthContainers-00-01-33
+	* temporarily disabling tests for xaod-standalone (tests which
+	  rely on gaudi)
+	* M hscript.yml
+
+2013-11-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthContainers-00-01-32
+	* hwafize
+	* A hscript
+	* D wscript
+
+2013-11-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-31.
+	* AthContainers/AuxElement.icc: Add missing cassert include.
+
+	* Tagging AthContainers-00-01-30.
+	* AthContainers/AuxElement.icc (isAvailable, isAvailableWritable):
+	Return false (instead of crashing) if the container or store is
+	missing.
+	* test/AuxElement_test.cxx: Test this.
+
+2013-11-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-29.
+	* AthContainers/AuxElement.icc (Accessor::operator()): Add an
+	assertion on the container pointer, for better error detection.
+
+	* Tagging AthContainers-00-01-28.
+	* AthContainers/AuxVectorBase.h, AthContainers/AuxVectorBase.icc,
+	AthContainers/DataVector.icc, test/AuxVectorBase_test.cxx: Change
+	clearIndex to take an iterator rather than a pointer.  This allows
+	avoiding casting in the no-auxdata case.
+
+	* Tagging AthContainers-00-01-27.
+	* src/AuxElement.cxx (releasePrivateStoreForDtor): Fix memory
+	leak.
+
+2013-11-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-26.
+	* AthContainers/DataVector.h, AthContainers/DataVector.icc: Add a
+	one-argument version of clear(), for compatibility with
+	AthenaROOTAccess.
+
+2013-11-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-25.
+	* AthContainers/AuxElement.h, AthContainers/AuxElement.icc:
+	(Accessor): Add methods to get auxdata via container / index and
+	to get array of aux data directly.
+	* test/AuxElement_test.cxx: Test it.
+	* AthContainers/DataVector.h: Working on adding aux data
+	documentation.
+
+2013-11-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-24.
+	* Sync between trunk and auxdata branch.
+	* Tagging AthContainers-00-01-23.
+	* More typo fixes.
+	* Tagging AthContainers-00-01-22.
+	* Merge in more changes from aux data branch: copy ctor fix.
+
+2013-10-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-21.
+	* Merge in DataVector / ConstDataVector changes from aux data
+	branch.
+
+2013-10-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a dictionary for the newly defined SG::IAuxStoreHolder
+	  interface.
+	* Added the wscript file from 00-01-07-branch, but the code
+	  doesn't compile in standalone mode yet. Oh well...
+	* Tagging as AthContainers-00-01-20
+
+2013-10-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-19.
+	* Merge in DataList / ConstDataList changes from aux data branch.
+
+	* Tagging AthContainers-00-01-18.
+	* Merge in DVL_algorithms changes from aux data branch.
+
+2013-10-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-17.
+	* Merge in DVL_iter_swap changes from aux data branch.
+
+	* Tagging AthContainers-00-01-16.
+	* Merge in ElementProxy and DVLIterator changes from aux data
+	branch.
+
+2013-10-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-15.
+	* Merging in more changes from aux data branch.
+	* AthContainers/IndexTrackingPolicy.h: (new)
+	* AthContainers/AuxVectorBase.h, AthContainers/AuxVectorBase.icc,
+	src/AuxVectorBase.cxx, test/AuxVectorBase_test.cxx,
+	share/AuxVectorBase_test.ref: (new)
+	* cmt/requirements: Add it.
+	* AthContainers/AuxElement.h: Updated.
+	* test/AuxElement_test.cxx: Updated.
+	* src/AuxStoreInternal.cxx: Add missing #include.
+	* test/AuxVectorData_test.cxx: Update to work with CxxUtils
+	hashtable.
+	* test/AuxStoreInternal_test.cxx: Likewise.
+	* test/auxid_set_equal.icc: (new)
+	* share/AuxVectorData_test.ref: Updated.
+	* share/AuxStoreInternal_test.ref: Updated.
+
+2013-10-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-14.
+	* AthContainers/tools/assume.h: (new)
+	* AthContainers/AuxVectorData.icc: Use it.
+	* Tagging AthContainers-00-01-13.
+	* Const fix from branch.
+
+2013-10-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-12.
+	* share/exceptions_test.ref: Update reference file.
+
+	* Tagging AthContainers-00-01-11.
+	* Merge in more changes from aux data branch.
+
+2013-09-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-10.
+	* Merge some standalone fixes from aux data branch.
+
+2013-09-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-09.
+	* AthContainers/AuxTypeRegistry.h: Fix for checkreq.
+
+	* Tagging AthContainers-00-01-08.
+
+	* Merging in more changes from aux data branch.
+
+	* AthContainers/AuxTypes.h, AthContainers/IConstAuxStore.h: Moved
+	to AthContainersInterfaces.
+	* AthContainers/AthContainersDict.h, AthContainers/selection.xml:
+	Add IAuxStore, IConstAuxStore, IAuxStoreIO.
+
+	* AthContainers/UserDataStore.h: Update for standalone build.
+	* AthContainers/tools/DVLCast.h: Likewise.
+	* AthContainers/tools/UDSLabelHashTable.h: Likewise.
+	* src/CompareAndPrint.cxx: Likewise.
+	* src/DVLInfo.cxx: Likewise.
+	* src/UDSLabelHashTable.cxx: Likewise.
+	* src/UserDataStore.cxx: Likewise.
+
+	* AthContainers/AuxTypeRegistry.h,
+	AthContainers/AuxTypeRegistry.icc, src/AuxTypeRegistry.cxx,
+	test/AuxTypeRegistry_test.cxx, share/AuxTypeRegistry_test.ref:
+	(new)
+
+	* AthContainers/tools/AuxTypeVector.h,
+	AthContainers/tools/AuxTypeVector.icc,
+	test/AuxTypeVector_test.cxx, share/AuxTypeVector_test.ref: (new)
+
+	* AthContainers/tools/threading.h,
+	AthContainers/tools/threading.icc, test/threading_test.cxx,
+	share/threading_test.ref: (new)
+	* AthContainers/tools/error.h, src/error.cxx, test/error_test.cxx,
+	share/error_test.ref: (new)
+	* AthContainers/tools/ClassID.h: (new)
+
+	* cmt/requirements: Updated.
+
+2013-09-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-07.
+	* AthContainers/IConstAuxStore.h: Add missing CLASS_DEF / SG_BASE
+	declarations.
+
+2013-09-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-06.
+	* AthContainers/IConstAuxStore.h: (new)
+	* AthContainers/AuxTypes.h: (new)
+
+2013-09-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-05.
+	* AthContainers/DataVector.h, AthContainers/DataList.h: For
+	isSequence, use boost::true_type instead of type_tools::true_tag
+	(avoids an AthenaKernel dependency).
+
+2013-08-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-04.
+	* Generate dictionary for UserDataStore.
+	* Tagging AthContainers-00-01-03.
+	* Remove Association collections --- they result in dependency
+	problems, and they're not actually used anywhere.
+	* Tagging AthContainers-00-01-02.
+	* Moved Association collections here from DataModel.
+	* Tagging AthContainers-00-01-01.
+	* Moved UserDataStore here from DataModel.
+
+2013-08-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainers-00-01-00.
+	* Moved DataVector / DataList code here from DataModel.
+
+
+	LocalWords:  getAuxIDs getDataInternal ExcNoAuxStore EDM ATH uuid
+LocalWords:  setConstStore setNonConstStore ExcStoreLocked addAuxID
+	

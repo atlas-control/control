@@ -1,0 +1,56 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'StoreGateBindings',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+
+    ctx.use_pkg('Control/SGTools')
+    ctx.use_pkg('Control/StoreGate')
+    ctx.use_pkg('Control/AthenaKernel')
+
+    ctx.use_pkg('External/AtlasPython')
+    ctx.use_pkg('External/AtlasROOT')
+    ctx.use_pkg('External/AtlasPOSIX')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_linklib(
+        name     = 'StoreGateBindings',
+        source   = '*.cxx',
+        use      = ['AthenaKernel', 'SGTools', 'StoreGate',
+                    'PyROOT', 'ROOT', 'Reflex', 
+                    'python', 'util', 'pthread',
+                    ],
+        )
+
+    ctx.build_reflex_dict(
+        name     = 'StoreGateBindings',
+        source   = 'src/StoreGateBindingsDict.h',
+        selection_file = 'StoreGateBindings/selection.xml',
+        use      = ['StoreGateBindings',
+                    'AthenaKernel', 'SGTools', 'StoreGate',
+                    'PyROOT',
+                    'Reflex',
+                    'ROOT',
+                    'python', 'util', 'pthread',
+                    ],
+        )
+
+
+    ctx.install_headers()
+    ctx.build_pymodule(source=['python/*.py', 'python/tests'])
+    return
+
+### EOF ###

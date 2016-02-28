@@ -1,0 +1,141 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'Control/AthenaKernel',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+    
+    ctx.use_pkg('Control/CxxUtils')
+    ctx.use_pkg('GaudiKernel')
+                 
+    ctx.use_pkg('AtlasTest/TestTools')
+    
+    #FIXME
+    ctx.use_pkg('External/AtlasBoost')
+    ctx.use_pkg('External/AtlasUUID')
+    ctx.use_pkg('External/AtlasPOSIX')
+    ctx.use_pkg('External/AtlasROOT')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_linklib(
+        name     = 'AthenaKernel',
+        source   = '*.cxx',
+        use      = ['GaudiKernel', 'Reflex', 'Cintex',
+                    'CxxUtils',
+                    'boost-system', 'boost-filesystem',
+                    'boost-regex', 'boost-thread',
+                    'uuid', 'rt',
+                    ],
+        )
+
+    ctx.build_reflex_dict(
+        name     = 'AthenaKernel',
+        source   = 'AthenaKernel/AthenaKernelDict.h',
+        selection_file = 'AthenaKernel/selection.xml',
+        use      = ['AthenaKernel',
+                    #'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system',
+                    'boost-regex', 'boost-thread',
+                    'uuid',],
+        )
+
+    o = ctx.build_app(
+        name     = 'genCLIDDB',
+        source   = 'utils/genCLIDDB.cxx',
+        use      = ['AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system',
+                    'boost-regex', 'boost-thread', 'boost-program_options',
+                    ],
+        )
+    ctx.env['GENCLIDDB'] = 'genCLIDDB.exe'
+    #ctx.add_group()
+    
+    ctx.install_headers()
+
+
+    ### --- tests -------------------------------------------------------------
+    
+    ctx.build_app(
+        name     = 'type_tools_test',
+        source   = 'test/type_tools_test.cxx',
+        use      = ['AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system',
+                    'boost-regex', 'boost-thread',],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'getMessageSvc_test',
+        source   = 'test/getMessageSvc_test.cxx',
+        use      = ['AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system',
+                    'boost-regex', 'boost-thread',],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DirSearchPath_test',
+        source   = 'test/DirSearchPath_test.cxx',
+        use      = ['AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system',
+                    'boost-regex', 'boost-thread',],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'MsgStreamMember_test',
+        source   = 'test/MsgStreamMember_test.cxx',
+        use      = ['AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system',
+                    'boost-regex', 'boost-thread',],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'AthenaPackageInfo_test',
+        source   = 'test/AthenaPackageInfo_test.cxx',
+        use      = ['AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system',
+                    'boost-regex', 'boost-thread',],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'errorcheck_test',
+        source   = 'test/errorcheck_test.cxx',
+        use      = ['AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system',
+                    'boost-regex', 'boost-thread',],
+        do_test  = True,
+        )
+
+    return
+
+### EOF ###

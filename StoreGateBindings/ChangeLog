@@ -1,0 +1,349 @@
+2015-08-11  sss  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-17.
+	* src/SgPyDataModel.cxx: Use TClass::GetActualClass to
+	do downcasting when binding objects.
+
+2015-07-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-16.
+	* src/AthenaPyRoot.h, src/SgPyDataModel.cxx: Reduce dependencies
+	on PyROOT externals.  Compile with root 6.03.
+
+2015-07-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-15.
+	* src/SgPyDataModel.h: Add override keywords.  Add tinfo().
+	* src/PyThinning.cxx: deep_proxy -> proxy.
+
+2015-03-31  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-14.
+	* src/SgPyDataModel.h (proxy): Fix format string/type mismatch. 
+
+2014-12-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-13.
+	* Attempt to clean up checkreq warning.
+
+2014-10-23  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* python\Bindings.py (_setup): add loadDictionary( "libStoreGateBindings" )
+	* Tagging StoreGateBindings-00-06-11
+
+2014-10-22  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* StoreGateBindings\selection.xml: fix dummy class name
+	* Tagging StoreGateBindings-00-06-11
+
+2014-10-21  Wim Lavrijsen <WLavrijsen@lbl.gov>
+	* PyCintex -> cppyy
+	* add dummy class to allow ROOT6 to see functions in a namespace
+
+2014-09-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-10.
+	* python/Bindings.py: Update python SG retrieve functions to do
+	aux store associations in the same manner as the C++ StoreGateSvc
+	interfaces.
+
+2014-07-16 David Quarrie <David.Quarrie@cern.ch>
+	* Tagging StoreGateBindings-00-06-09
+	* cmt/requirements
+		Add cmake compatibility (fully backwards compatible on CMT side)
+
+2014-07-09  Wim Lavrijsen <WLavrijsen@lbl.gov>
+
+	* Tagging StoreGateBindings-00-06-08.
+	* first attempt to migrate to ROOT
+
+2014-05-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-07.
+	* src/SgPyDataModel.cxx (cast): On failure, return 0 rather than
+	throwing an exception.
+
+2014-04-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-06.
+	* src/SgPyDataModel.h, src/SgPyDataModel.cxx: Implement lock().
+
+2014-02-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-05.
+	* python/Bindings.py (_setup.__setitem__): Fix arguments to
+	py_record.
+
+2013-10-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-04.
+	* Add optional allowMods, resetOnly, noHist args to record.
+
+2013-09-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-03.
+	* unordered_map.h moved to CxxUtils.
+
+2013-04-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-06-02.
+	* src/SgPyDataModel.h, src/SgPyDataModel.cxx: Update for
+	DataBucket interface change.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging StoreGateBindings-00-06-01
+	* adding wscript file
+	* A wscript
+
+2012-08-14  Sebastien Binet  <binet@cern.ch>
+
+	* tagging StoreGateBindings-00-06-00
+	* fixing bug #96739: removed the caching layer for SG::DataProxy
+	  and their type/object. we seem to get dangling DataProxies, now.
+	  The performance hit should be recouped when/if we migrate to cppyy.
+	* M src/SgPyDataModel.h
+	* M src/StoreGatePyExt.cxx
+
+2012-06-26  Sebastien Binet  <binet@cern.ch>
+
+	* tagging StoreGateBindings-00-05-06
+	* make py-store.contains accept a clid (instead of just a typename)
+	* M python/Bindings.py
+
+2012-06-22  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* tagging StoreGateBindings-00-05-05
+	* improve dict-onization of py-storegate
+	* removed deprecated use of Exception.message
+	* M python/Bindings.py
+
+2011-05-20  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging StoreGateBindings-00-05-04
+	* support for (a few more) builtins in storegate
+	* handle more std::string naming madness
+	* M src/StoreGatePyExt.cxx
+	* M src/SgPyDataModel.h
+
+2011-05-19  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging StoreGateBindings-00-05-03
+	* support for (a few) builtins in storegate
+	* M src/StoreGatePyExt.cxx
+
+2010-03-30  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateBindings-00-05-02
+	* py-wrap ::clearProxyPayload
+	* M src/StoreGateBindingsDict.h
+	* M src/StoreGatePyExt.cxx
+	* M StoreGateBindings/selection.xml
+
+2009-08-06  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateBindings-00-05-01
+	* restore correct handling of namespaced types
+	* M src/SgPyDataModel.h
+
+2009-07-31  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateBindings-00-05-00
+	* consolidation: using the extended IDictLoaderSvc to load
+	  types by CLID (needs AthenaKernel-00-34-00)
+	* M src/StoreGatePyExt.cxx
+	* M src/SgPyDataModel.h
+	* M src/SgPyDataModel.cxx
+
+2009-07-29  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateBindings-00-04-00
+	* use BIB::typeinfo to reliably load dicts
+	* A src/SgPyMsg.h
+	* M src/SgPyDataModel.h
+	* M src/SgPyDataModel.cxx
+	* M src/StoreGatePyExt.cxx
+
+2009-05-20  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateBindings-00-03-09
+	* improved debugging
+	* M src/StoreGatePyExt.cxx
+
+2009-05-11  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateBindings-00-03-08
+	* pythonization of StoreGateSvc<>::keys
+	* M python/Bindings.py
+
+2009-02-19  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateBindings-00-03-07
+	* fixes for new binary layout of PyROOT::ObjectProxy
+	* M src/AthenaPyRoot.h
+	* M src/SgPyDataModel.h
+	* M src/SgPyDataModel.cxx
+
+2009-02-13  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGateBindings-00-03-06
+	* workarounds for new ROOT-5.22 types naming
+	* M src/SgPyDataModel.h
+
+2008-12-12  scott snyder  <snyder@bnl.gov>
+
+	* tagging StoreGateBindings-00-03-05
+	* src/AthenaPyRoot.h: Avoid compilation warnings.
+
+2008-09-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-03-04
+	* gcc4 fixes
+	* M src/AthenaPyRoot.h
+	* M src/SgPyDataModel.cxx
+	* M src/SgPyDataModel.h
+
+2008-09-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-03-03
+	* fixing ownership issues with (py)IdcThinningHdlr
+	* M src/PyThinning.cxx
+
+2008-09-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-03-02
+	* first attempt at python thinning for IDC
+	* A src/AthenaPyRoot.h
+	* A src/PyThinning.cxx
+	* A src/SgPyDataModel.cxx
+	* A src/SgPyDataModel.h
+	* M src/StoreGatePyExt.cxx
+
+2008-09-08  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-03-01
+	* mods for new IThinningSvc iface + checkreq warnings
+	* M src/StoreGatePyExt.cxx
+	* M cmt/requirements
+
+2008-07-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-03-00
+	* make regular PyObject storeable
+	* M src/StoreGatePyExt.cxx: 
+
+2008-06-30  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-02-07
+	* make sg.__getitem__ raise a KeyError exception instead of LookupError
+	* M python/Bindings.py
+
+	* tagging StoreGateBindings-00-02-06
+	* added py-contains, __setitem__ and __getitem__
+	* M StoreGateBindings/selection.xml
+	* M python/Bindings.py
+	* M src/StoreGateBindingsDict.h
+	* M src/StoreGatePyExt.cxx
+
+2008-06-01  Sebastien Binet  <binet@lxplus207.cern.ch>
+
+	* tagging StoreGateBindings-00-02-05
+	* fix ownership issue (pydatabucket content is create from
+	  python interpreter so we can just decrement ObjectProxy
+	  and all is fine)
+	* M src/StoreGatePyExt.cxx
+
+	* tagging StoreGateBindings-00-02-04
+	* improved relinquish to _only_ leak the content of ObjectProxy
+	  _not_ the ObjectProxy shell
+	* M src/StoreGatePyExt.cxx
+	
+2008-05-31  Paolo Calafiura
+
+	* tagging StoreGateBindings-00-02-03
+	* added relinquish() method to PyDataBucket
+
+2008-05-25  Sebastien Binet  <binet@lxplus242.cern.ch>
+
+	* tagging StoreGateBindings-00-02-02
+	* fix to handle the fix of bug #36875 (thx scott)
+	* M src/StoreGatePyExt.cxx
+
+2008-05-19  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-02-01
+	* fixing crashes in record/retrieve: 
+	   - use BIB<T>::cast when possible
+	   - return most derived class when possible
+	* M src/StoreGatePyExt.cxx
+	
+2008-04-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGateBindings-00-02-00.
+
+2008-04-07  scott s snyder  <snyder@bnl.gov>
+
+	* src/StoreGatePyExt.cxx: Update for change in DataBucket
+	interface.
+
+2008-04-03  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-01-02
+	* addressing the CLID/typename/typedef problem: when the CLID of a type
+	  is looked for by the SG::PyProxyDict class, an additional look-up
+	  into a dictionary of "typedef'ed type"->"typename" is performed to
+	  handle cases such as the INavigable4MomentumCollection which has
+	  been registered with the CLIDSvc with this typedef string rather than
+	  the real C++ name. This confuses the (Py)CLIDSvc...
+	  This dictionary of aliases is installed on the python side, in the 
+	  AthenaPython.Bindings module, '_clid_typename_aliases'.
+	* M src/StoreGatePyExt.cxx
+
+2008-03-21  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-01-01
+	* small clean-up
+	* M python/Bindings.py
+
+	* tagging StoreGateBindings-00-01-00
+	* speed-optimizations of py-retrieve and py-record
+	* M python/Bindings.py
+	* M src/StoreGateBindingsDict.h
+	* M src/StoreGatePyExt.cxx
+
+2008-01-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-00-04
+	* added needed methods to get py-thinning working
+	* M StoreGateBindings/selection.xml
+	* M src/StoreGateBindingsDict.h
+	* M src/StoreGatePyExt.cxx
+
+2008-01-15  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-00-03
+	* first implementation of AthenaInternal::thinContainer
+	  need to pour more work into PyThinningHdlr 
+	  (require sthg like Scott's DVCollectionProxy)
+	* M StoreGateBindings/selection.xml
+	* M src/StoreGateBindingsDict.h
+	* M src/StoreGatePyExt.cxx
+
+2007-12-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-00-02
+	* use TClass API rather than Reflex one
+	* M src/StoreGatePyExt.cxx
+
+2007-12-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-00-01
+	* finalize migration of StoreGate's python bindings to here
+	* A python/Bindings.py
+	* M python/__init__.py
+	* M src/StoreGatePyExt.cxx
+
+2007-12-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGateBindings-00-00-00
+	* re-packaging of StoreGate bindings to get leaner dependencies
+	
+

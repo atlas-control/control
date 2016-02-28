@@ -1,0 +1,239 @@
+## package header
+package: {
+    name:    Control/AthContainers,
+    authors: [
+        Paolo Calafiura <Paolo.Calafiura@cern.ch>,
+        Hong Ma <hma@bnl.gov>,
+        Srini Rajagopalan <srinir@bnl.gov>,
+        scott snyder <snyder@bnl.gov>,
+        ],
+
+
+    deps: {
+        public: [
+            AtlasPolicy,
+            Control/AthenaKernel,
+            Control/SGTools,
+            Control/CxxUtils,
+            Control/AthContainersInterfaces,
+            External/AtlasBoost,
+            External/GaudiInterface,
+            External/AtlasReflex,
+        ],
+        private: [
+            ## AtlasTest/TestTools, ## not strictly needed
+            External/AtlasReflex,
+        ],
+        runtime: [],
+    }
+}
+
+options: {
+    tools: [],
+}
+
+configure: {
+    tools: [],
+    env: {
+
+    },
+    alias: {
+
+    },
+}
+
+build: {
+    
+    AthContainers: {
+        features: "atlas_library",
+        source:   ["src/*.cxx"],
+        use: [
+            "AthenaKernel",
+            "SGTools",
+            "CxxUtils",
+            "AthContainersInterfaces",
+            "AtlasBoost",
+            "GaudiKernel",
+            "Reflex",
+            ],
+    },
+    
+    AthContainersDict: {
+        features: "atlas_dictionary",
+        source:   ["AthContainers/AthContainersDict.h"],
+        use: ["AthContainers"],
+        selection_file: ["AthContainers/selection.xml"],
+    },
+    
+
+    ### tests ---
+    
+    # AthContainers-test-removeDuplicates: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/removeDuplicates_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DataVector: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DataVector_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DataVector_a: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DataVector_a_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DataVector_b: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DataVector_b_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DataVector_c: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DataVector_c_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DataVector_d: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DataVector_d_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DataVector_e: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DataVector_e_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DataVector_f: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DataVector_f_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DataList: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DataList_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DVLInfo: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DVLInfo_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DVLDataBucket: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DVLDataBucket_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DVLCast: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DVLCast_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-IsMostDerivedFlag: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/IsMostDerivedFlag_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-ElementProxy: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/ElementProxy_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DVLIterator: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DVLIterator_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-DVL_iter_swap: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/DVL_iter_swap_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-AuxTypeVector: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/AuxTypeVector_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-AuxTypeRegistry: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/AuxTypeRegistry_test.cxx"],
+    #     use: ["AthContainers"],
+    #     extrapatterns: ["will use std::"],
+    # },
+    
+    # AthContainers-test-AuxVectorData: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/AuxVectorData_test.cxx"],
+    #     use: ["AthContainers"],
+    #     extrapatterns: ["will use std::"],
+    # },
+    
+    # AthContainers-test-AuxVectorBase: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/AuxVectorBase_test.cxx"],
+    #     use: ["AthContainers"],
+    #     extrapatterns: ["will use std::"],
+    # },
+    
+    # AthContainers-test-AuxStoreInternal: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/AuxStoreInternal_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-AuxStoreStandalone: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/AuxStoreStandalone_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-AuxElement: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/AuxElement_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-AuxElementComplete: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/AuxElementComplete_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-error: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/error_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-threading: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/threading_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    # AthContainers-test-exceptions: {
+    #     features: "atlas_unittest",
+    #     source:   ["test/exceptions_test.cxx"],
+    #     use: ["AthContainers"],
+    # },
+    
+    hwaf-call: [],
+}
+
+## EOF ##

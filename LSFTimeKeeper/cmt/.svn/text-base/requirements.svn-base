@@ -1,0 +1,28 @@
+package LSFTimeKeeper
+
+author Paolo Calafiura   <Paolo.Calafiura@cern.ch>
+
+use AtlasPolicy  AtlasPolicy-01-*
+use AthenaKernel AthenaKernel-00-* Control
+use GaudiInterface GaudiInterface-01-* External
+#use LSF          LSF-00-*      External
+use AtlasCERNLIB  AtlasCERNLIB-00-* External
+# assume timeL from CERNLIB is available everywhere
+#DR macro LSFTimeKeeperSources "LSF_NOT_AVAILABLE" \
+#DR	hasLSF            "*.cxx -s=components *.cxx"
+macro LSFTimeKeeperSources    "*.cxx -s=components *.cxx"
+
+library LSFTimeKeeper $(LSFTimeKeeperSources)
+apply_pattern component_library 
+
+apply_pattern declare_joboptions files="LSFTimeKeeperOptions.txt LSFTimeKeeperOptions.py"
+
+
+
+private
+use TestTools       TestTools-*          AtlasTest
+apply_pattern install_runtime
+  
+apply_pattern UnitTest_run unit_test=LSFTimeKeeperSvc
+
+macro_append LSFTimeKeeperSvc_testlinkopts " -L../$(CMTCONFIG) -lLSFTimeKeeper"

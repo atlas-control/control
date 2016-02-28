@@ -1,0 +1,42 @@
+2009-08-03  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* src/LSFJobInfo.cxx: remove compilation warnings
+	tag LSFTimeKeeper-00-01-08
+
+2006-03-13  David Quarrie  <David.Quarrie@cern.ch>
+
+	* /src/components/LSFTimeKeeper_entries.cxx: Remove redundant ";"
+	for gcc 3.4.4.
+
+2005-05-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/LSFTimeKeeper.sh: remove: redundant and not for opt
+	tag LSFTimeKeeper-00-01-06
+
+2005-03-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/LSFTimeKeeper.sh: run gmake check in the nightlies
+	tag LSFTimeKeeper-00-01-05
+
+2004-09-24  David Rousseau  <droussea@lxplus037.cern.ch>
+
+	* src/LSFJobInfo.h,cxx,requirements : switch to good old CERNLIB timel  
+
+2004-09-06  David Quarrie  <David.Quarrie@cern.ch>
+	* LSFTimeKeeperSvc; Replace IID by InterfaceID since the former
+	is no longer available.
+
+2004-04-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: add required use GaudiInterface
+	tag LSFTimeKeeper-00-01-02
+
+2004-02-19  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/LSFTimeKeeperSvc.cxx (initialize): print package version
+	tag LSFTimeKeeper-00-01-01
+
+2004-01-21  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* cmt/requirements: use LSF glue package and LSFJobInfo class
+	tag LSFTimeKeeper-00-01-00
+
+2004-01-07  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* new package that contains the LSF implementation of the 
+	ITimeKeeper interface
+	tag LSFTimeKeeper-00-00-00

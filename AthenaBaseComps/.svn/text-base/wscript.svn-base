@@ -1,0 +1,49 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'Control/AthenaBaseComps',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+
+    ctx.use_pkg('Control/AthenaKernel')
+    ctx.use_pkg('Control/DataModel')
+    ctx.use_pkg('GaudiKernel')
+    ctx.use_pkg('Control/SGTools')
+    ctx.use_pkg('Control/SGMon/SGAudCore')
+    ctx.use_pkg('Control/CxxUtils')
+
+    ctx.use_pkg('External/AtlasBoost')
+
+    #FIXME:
+    ctx.use_pkg('External/AtlasROOT')
+    #ctx.use_pkg('External/AtlasReflex')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_linklib(
+        name     = 'AthenaBaseComps',
+        source   = '*.cxx',
+        use      = ['StoreGate', 'DataModel', 'SGTools', 'SGAudCore',
+                    'AthenaKernel', 'CxxUtils',
+                    'GaudiKernel', 'Reflex',
+                    'boost_filesystem', 'boost_system',
+                    'uuid',
+                    ],
+        )
+
+
+    ctx.install_headers()
+
+    return
+### EOF ###

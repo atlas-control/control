@@ -1,0 +1,249 @@
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+        * Tagging CLIDComps-00-06-18.
+	* src/ClassIDSvc.cxx (processCLIDDB): Fix clang warning.
+
+2015-01-26  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+        * Tagging CLIDComps-00-06-17
+	* src/ClassIDSvc.h (Service): use std::recursive_mutex to remove
+	AtlasTBB dependency
+
+2015-01-07  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+        * Tagging CLIDComps-00-06-16
+	* cmt/requirements: use AtlasTBB
+
+2015-01-06  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+        * Tagging CLIDComps-00-06-15 merge back hive changes
+	* src/ClassIDSvc.[h,cxx]: protect db filling with mutex lock 
+
+2014-12-15  scott snyder  <snyder@bnl.gov>
+
+        * Tagging CLIDComps-00-06-14.
+	* src/ClassIDSvc.cxx (processCLIDDB): Suppress uninitialized
+	variable warning from boost::lexical_cast.
+
+2014-09-03  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+        * Tagging CLIDComps-00-06-13
+	* share/ClassIDSvc_test.ref: updated before v1 branch
+
+2014-06-18  scott snyder  <snyder@bnl.gov>
+
+        * Tagging CLIDComps-00-06-12.
+	* src/ClassIDSvc.cxx (getRegistryEntries): Update for c++98
+	compatibility.
+
+2014-04-01  Paolo Calafiura  <calaf@calaf-desktop>
+
+        * Tagging CLIDComps-00-06-11.
+	* src/ClassIDSvc.cxx (getRegistryEntries): to speed up initialization
+	only take entries added to CLIDRegistry since last checked 
+	(thanks Niels!)
+	* moved CLIDRegistry_test to SGTools
+
+2013-04-29  scott snyder  <snyder@bnl.gov>
+
+        * Tagging CLIDComps-00-06-10.
+	* test/CLIDRegistry_test.cxx: Fix clang warnings.
+
+2013-04-25  scott snyder  <snyder@bnl.gov>
+
+        * Tagging CLIDComps-00-06-09.
+	* cmt/requirements: More patterns to ignore.
+        * Tagging CLIDComps-00-06-08.
+	* Update reference files for new Gaudi.
+	* cmt/requirements: Fix checkreq warnings.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+        * tagging CLIDComps-00-06-07
+	* adding wscript file
+	* A wscript
+
+2011-12-08  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+        * tagging CLIDComps-00-06-05
+	* src/ClassIDSvc.h: get DirSearchPath from Gaudi
+
+2011-10-05  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+        * tagging CLIDComps-00-06-04
+	* test/CLIDRegistry_test.cxx (main): fixed unit tests
+
+2011-04-28  Charles Leggett
+
+        * tagging CLIDComps-00-06-03
+	* src/ClassIDSvc.cxx: fixing message level check logic
+
+2011-04-28  Paolo Calafiura  <calaf@calaf-laptop>
+
+        * tagging CLIDComps-00-06-02
+	* src/ClassIDSvc.cxx: forgot to initialize the base class. Also fixed
+	some message to make them follow the error reporting strategy
+
+        * tagging CLIDComps-00-06-01
+	* src/ClassIDSvc.cxx: get rid of AthService inheritance as it 
+	introduced a circular dependency AthenaBaseComps/CLIDComps
+
+2011-04-11  Paolo Calafiura  <calaf@calaf-laptop>
+
+        * tagging CLIDComps-00-06-00
+	* src/ClassIDSvc.cxx: various changes to check debug/verbose prints
+	and to remove (some) unnecessary string copying
+	FIXME: somehow appeared a comp warning in some boost code
+
+2009-09-25  Paolo Calafiura  
+        * tagging CLIDComps-00-05-06
+        * test/ClassIDSvc_test.cxx: finger problems...
+
+2009-09-25  Paolo Calafiura  
+        * tagging CLIDComps-00-05-05
+        * test/ClassIDSvc_test.cxx: test handling of spaces (savannah 39528)
+
+2009-08-03  Paolo Calafiura  
+        * tagging CLIDComps-00-05-04
+        * cmt/requirements: use new pattern component_library_no_genCLIDDB
+
+2009-08-03  Paolo Calafiura  
+        * tagging CLIDComps-00-05-03
+        * cmt/requirements: fix install_scripts pattern usage
+
+2009-02-03  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CLIDComps-00-05-02
+	* hooks for tid inspection from python
+	* M python/clidGenerator.py
+
+2009-01-19  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CLIDComps-00-05-01
+	* fixing up utests and python clid.db deciphering code
+	* M python/clidGenerator.py
+	* M test/CLIDRegistry_test.cxx
+	* M test/ClassIDSvc_test.cxx
+	* M test/_clid_unittest.py
+
+2009-01-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging CLIDComps-00-05-00
+	* new ClassIDSvc to nicely handle typedefs
+	* M share/Gaudi_clid.db
+	* M src/ClassIDSvc.cxx
+	* M src/ClassIDSvc.h
+
+2008-04-22  Paolo Calafiura  
+	* tagging CLIDComps-00-04-08
+	* share/Gaudi_clid.db: fix PACKAGE-VERSION format
+
+2008-04-21  Paolo Calafiura  <calaf@localhost.localdomain>
+	* tagging CLIDComps-00-04-07
+	* share/Gaudi_clid.db: added package name to entries
+
+2008-04-18  Paolo Calafiura  <calaf@localhost.localdomain>
+	* tagging CLIDComps-00-04-06
+	* share/clid: cleaned up
+	* python/clidGenerator.py: bring up to speed withnew clid.db format. 
+	Handle multiple clid.db files correctly
+
+2008-04-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging CLIDComps-00-04-05
+	* update ref for ClassIDSvc_test
+	* M share/ClassIDSvc_test.ref
+
+2008-02-18  Sebastien Binet  <binet@lxplus220.cern.ch>
+
+	* tagging CLIDComps-00-04-04
+	* share/clid: fixing last bits of CLIDComps migration
+
+2008-02-05  Paolo Calafiura 
+
+	* tagging CLIDComps-00-04-03
+	* src/ClassIDSvc.cxx: cleaned up a few extra MsgStream instantiations 
+
+2008-01-17  Sebastien Binet  <binet@lblbox>
+
+	* tagging CLIDComps-00-04-02
+	* test/_clid_unittest.py: fixing utest (location of py-module changed)
+
+2007-12-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging CLIDComps-00-04-01
+	* adding missing test files and tools from CLIDSvc package
+	* M cmt/requirements
+	* A python/__init__.py
+	* A python/clidGenerator.py
+	* A share/CLIDRegistry_test.ref
+	* A share/Gaudi_clid.db
+	* A share/PYTHONSTARTUP
+	* A share/clid
+	* A share/cvs2cliddb.csh
+	* M test/CLIDComps.xml
+	* A test/CLIDRegistry_test.cxx
+	* A test/_clid_unittest.py
+
+	* tagging CLIDComps-00-04-00
+	* migration of CLIDSvc's content to SGTools
+	* M cmt/requirements
+	* M src/ClassIDSvc.cxx
+	* M src/ClassIDSvc.h
+	* M test/ClassIDSvc_test.cxx	
+
+2007-10-08  Paolo Calafiura 
+
+	tag CLIDComps-00-03-01
+	* src/ClassIDSvc.cxx (ClassIDSvc::fillDB): add 
+	boost::filesystem::no_check when creating paths (thanks Scott)
+
+2007-10-05  Paolo Calafiura  
+	tag CLIDComps-00-03-00
+	* src/ClassIDSvc.cxx (ClassIDSvc::processCLIDDB): add package info to
+	clid.db content
+
+2007-10-04  Paolo Calafiura 
+	* src/ClassIDSvc.cxx (ClassIDSvc::processCLIDDB): use CLIDDB instead
+	of FIXME if clid comes from file
+	tag CLIDComps-00-02-01
+	* src/ClassIDSvc.cxx (ClassIDSvc::fillDB): use DirSearchPath instead of
+	PathResolver. Loop over all clid db files in DATAPATH
+	tag CLIDComps-00-02-00
+
+2007-09-28  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+	* src/ClassIDSvc.cxx: add clid.db to CLIDDBFiles default value
+	tag CLIDComps-00-01-00
+
+2007-09-24  Paolo Calafiura  
+
+	* cmt/requirements: do not generate clid.db for this package (trying
+	to work around mysterious cmt dependency problems)
+	tag CLIDComps-00-00-04
+	
+2007-09-19  Paolo Calafiura  
+
+	* src/ClassIDSvc.cxx (ClassIDSvc::reinitialize): new method used by genCLIDDB
+	tag CLIDComps-00-00-03
+
+2007-08-30  scott snyder  <snyder@bnl.gov>
+
+	* src/ClassIDSvc.h, src/ClassIDSvc.cxx: Rescan the registry if its
+	iterators have changed since the last call.  Allow picking up CLID
+	definitions from libraries that are loaded via reflex instead of
+	seal.
+
+2007-06-16  Paolo Calafiura
+        * doc standdown
+	* src/ClassIDSvc.cxx: don't write out clid.db by default 
+	tag CLIDComps-00-00-02
+
+2007-03-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * cmt/requirements: added needed use statements 
+	* test/ClassIDSvc_test.cxx: fixed include
+	tag CLIDComps-00-00-01
+
+2007-03-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* new package containing ClassIDSvc. Initial import.
+	tag CLIDComps-00-00-00
+

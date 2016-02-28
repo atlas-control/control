@@ -1,0 +1,77 @@
+10
+
+dir
+726715
+svn+ssh://svn.cern.ch/reps/atlasoff/Control/AthenaPython/trunk
+svn+ssh://svn.cern.ch/reps/atlasoff
+
+
+
+2015-11-15T17:08:48.301599Z
+708004
+ssnyder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4525493e-7705-40b1-a816-d608a930855b
+
+python
+dir
+
+AthenaPython
+dir
+
+share
+dir
+
+cmt
+dir
+
+src
+dir
+
+ChangeLog
+file
+
+
+
+
+2016-02-28T22:24:53.000000Z
+cad7635b1d7ab74edcbac8a30b890d81
+2015-11-15T17:08:48.301599Z
+708004
+ssnyder
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+29275
+

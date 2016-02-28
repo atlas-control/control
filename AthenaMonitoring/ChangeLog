@@ -1,0 +1,903 @@
+2016-02-24 Peter Onyisi <ponyisi AT cern.ch>
+	* Move histogram finalization to stop() instead of finalize()
+	  in AthenaMonManager
+	* Tag AthenaMonitoring-02-02-00
+
+2015-12-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMonitoring-02-01-29.
+	* cmt/requirements: Remove obsolete compiler flag override.
+	* Tagging AthenaMonitoring-02-01-28.
+	* src/ManagedMonitorToolBase.cxx (finalHists): Remove code with no
+	effect.
+	* Tagging AthenaMonitoring-02-01-27.
+	* src/ManagedMonitorToolBase.cxx: Remove unused function
+	strToUpper.
+	* Tagging AthenaMonitoring-02-01-26.
+	* Fix names to comply with ATLAS standards (except for protected
+	names references from other packages).
+
+2015-11-03 Peter Onyisi <ponyisi AT cern.ch>
+	* Activate HI monitoring if doHIMon=True
+	* Add command to switch off all monitoring (can then be reenabled as desired)
+	* tag AthenaMonitoring-02-01-25
+
+2015-10-23 Peter Onyisi <ponyisi AT cern.ch>
+	* Includes Walter Lampl's fix for collision time monitoring
+	* Doesn't count HVRAMPUP defects for LAr defect filtering obo B. Trocme
+	* tag AthenaMonitoring-02-01-24
+
+2015-08-18 Peter Onyisi <ponyisi AT cern.ch>
+	* Fix Coverity 30958
+	* set AtlasReady filter to run by default on express
+
+2015-06-26 Peter Onyisi <ponyisi AT cern.ch>
+	* Fix bug breaking menu-aware monitoring recognition
+	* tag AthenaMonitoring-02-01-23
+
+2015-05-30 Peter Onyisi <ponyisi AT cern.ch>
+	* Fully enable menu-aware monitoring
+	* tag AthenaMonitoring-02-01-21
+
+2015-05-22 Peter Onyisi <ponyisi AT cern.ch>
+	* Remove some unnecessary INFO messages
+	* tag AthenaMonitoring-02-01-20
+
+2015-05-08 Peter Onyisi <ponyisi AT cern.ch>
+	* Enable IDPerfmon+IDDiMuMon
+	* Disable stream aware monitoring by default
+	* tag AthenaMonitoring-02-01-19
+
+2015-05-05 - Yuriy Ilchenko
+	* Lumi methods return guard values if information invalid
+	* tag AthenaMonitoring-02-01-18
+
+2015-04-28 Peter Onyisi <ponyisi AT cern.ch>
+	* Backport steering changes from 02-01-13-branch
+	* tag AthenaMonitoring-02-01-17
+
+2015-04-28 Thijs Cornelissen <thijs.cornelissen@ cern.ch>
+	* Disable IDPerfMon+IDDiMuMon
+	* tag AthenaMonitoring-02-01-16
+
+2015-04-27 Peter Onyisi <ponyisi AT cern.ch>
+	* include Trigger Translator Simple tool
+	* tag AthenaMonitoring-02-01-15
+
+2015-04-24 Walter Lampl <walter.lampl@ cern.ch>
+	* BadLBFilterTool.py: Fix Copy-paste error, default DB instance CONDBR2
+	* tag AthenaMonitoring-02-01-14
+
+2014-10-20 David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		Specify the required ROOT components for cmake (transparent to CMT)
+	* Tagged as AthenaMonitoring-02-01-13
+
+2014-10-07 Peter Onyisi
+	* merge changes from AthenaMonitoring-02-01-09-branch
+
+2014-09-23 Walter Lampl <walter.lampl@ cern.ch>
+	* don't run METMonitoring if rec.doMet is false
+	* tag AthenaMonitoring-02-01-12
+
+2014-09-17 Peter Onyisi
+	* Merge change from AthenaMonitoring-02-01-09-branch
+
+2014-09-11 Peter Onyisi
+	* Add enableLumiAccess flag to suppress all lumi access if desired
+	* tag AthenaMonitoring-02-01-11
+
+2014-08-18  scott snyder  <snyder@bnl.gov>
+	* Tagging AthenaMonitoring-02-01-10.
+	* AlgTool -> AthAlgTool; Algorithm -> AthAlgorithm.
+
+2014-07-04 Peter Onyisi
+	* Fix online access for lumi tool
+	* Happy Independence Day
+	* tag AthenaMonitoring-02-01-06
+
+2014-06-19 Peter Onyisi
+	* Suppress some unnecessary WARNINGs
+	* tag AthenaMonitoring-02-01-05
+
+2014-06-13 Peter Onyisi
+	* Do not set up luminosity conditions for MC
+	* tag AthenaMonitoring-02-01-04
+	* Reenable jet monitoring flag
+
+2014-05-23 Peter Onyisi
+	* Make sure we have public lumitool
+	* tag AthenaMonitoring-02-01-03
+
+2014-05-07 Walter Lampl <walter.lampl@ cern.ch>
+	* changes to enable monitoring in rel 19
+	* tag AthenaMonitoring-02-01-02
+
+2014-04-16 Peter Onyisi
+	* Some more work on autoconfiguring MC
+	* Tag AthenaMonitoring-02-01-01
+
+2014-04-15 Peter Onyisi
+	* Autodetermine MC status
+	* Tag AthenaMonitoring-02-01-00
+
+2014-04-01 Peter Onyisi
+	* Disable some tools that aren't working as of 20140401
+	* Tag AthenaMonitoring-02-00-10
+
+2014-02-21 Rolf Seuster
+	* fix compilation failure for new LCGCMT 67
+	* Tagging AthenaMonitoring-02-00-06
+
+2013-09-28 Peter Onyisi <ponyisi AT cern.ch>
+	* Add AOD-only monitoring as an option
+	* Tagging AthenaMonitoring-01-12-00
+
+2013-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMonitoring-01-11-47.
+	* Fix coverity warnings.
+
+2013-05-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthenaMonitoring-01-11-46.
+	* Fix gcc4.8 warnings.
+	* Tagging AthenaMonitoring-01-11-45.
+        * Fix clang warnings.
+	* Tagging AthenaMonitoring-01-11-44.
+	* Fix warnings.
+
+2013-02-11 Peter Onyisi <ponyisi AT cern.ch>
+	* switch MuonSegmentMon, MuonPhysicsMon, MuonTrackMon off by default, obo James Frost
+	* tag AthenaMonitoring-01-11-43
+
+2013-02-01 Walter Lampl <walter.lampl @cern.ch>
+	* ManagedMonitorToolBase: Fix unprotected DEBUG messages
+	* tag AthenaMonitoring-01-11-42
+
+2013-01-16 Steve Farrell <sfarrell AT cern.ch>
+	* Modified stream-aware monitoring settings for HIP runs. Now, 
+	  MinBias, MinBiasOverlay, HardProbes, bulk, and UPC streams use
+	  same settings as the express stream, and the rest are normal
+	* tag AthenaMonitoring-01-11-41
+
+2013-01-15 Steve Farrell <sfarrell AT cern.ch>
+	* Override stream-aware monitoring settings for HIP runs to use same settings as express stream.
+	  So, all tools are on except LArRawChannelMon
+	* Cleaned up DQMonFlagConfig_jobOptions slightly
+	* tag AthenaMonitoring-01-11-40
+
+2012-10-12 Rolf Seuster
+	* fix missing include files for gcc46
+	* tagging AthenaMonitoring-01-11-39
+
+2012-08-06 Steve Farrell <sfarrell AT cern.ch>
+	* Turned on HLT monitoring for default stream settings, as requested by experts
+
+2012-07-11 Steve Farrell <sfarrell AT cern.ch>
+	* Fix stream aware monitoring which screwed up tools for most streams
+	* This fix is propagated from AthenaMonitoring-01-11-36-01
+	* tag AthenaMonitoring-01-11-38
+
+2012-07-06 Peter Onyisi <ponyisi AT cern.ch>
+	* Added disableAtlasReadyFilter flag to switch off ATLAS Ready filtering
+	* Added disableFilledBunchFilter flag to switch off filled bunch filtering
+	* tag AthenaMonitoring-01-11-37
+
+2012-06-18 Steve Farrell  <sfarrell AT cern.ch>
+	* Added stream-aware monitoring settings for default stream
+	* Will now run global, CTP, ID, LAr, Tile, and muon raw monitoring
+	  for streams not listed here: https://twiki.cern.ch/twiki/bin/viewauth/Atlas/DQStreamMatrix
+	* tag AthenaMonitoring-01-11-36
+
+2012-04-28  Adrian Vogel  <adrian.vogel@cern.ch>
+	* share/DQMonFlagsConfig_jobOptions.py: protection against rec.doMuon = False (obo Nektarios Benekos, bug #94014)
+	* tag AthenaMonitoring-01-11-35
+
+2012-04-23 Adrian Vogel <adrian.vogel@cern.ch>
+	* share/DataQualitySteering_jobOptions.py: take DQMonFlags.doMuonTrkPhysMon into account (obo Nektarios Benekos)
+	* tag AthenaMonitoring-01-11-34
+
+2012-04-12 Peter Onyisi <ponyisi AT cern.ch>
+	* Change to CaloMon steering obo Diedi Hu
+	* tag AthenaMonitoring-01-11-33
+
+2012-04-01 Peter Onyisi <ponyisi AT cern.ch>
+	* Add "doMuonTrkPhysMon" flag
+	* tag AthenaMonitoring-01-11-32
+
+2011-11-24 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+	* More coverity fixes.
+	* tag AthenaMonitoring-01-11-31
+
+2011-11-17 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+	* Coverity fixes.
+	* tag AthenaMonitoring-01-11-30
+
+2011-11-16 Peter Onyisi <ponyisi AT cern.ch>
+	* Compatibility fix for InDetDiMuonMonitoring-00-00-04 
+	* Tag AthenaMonitoring-01-11-29
+
+2011-11-10 Peter Onyisi <ponyisi AT cern.ch>
+	* Include dimuon mointoring
+	* Tag AthenaMonitoring-01-11-28
+
+2011-08-03 Steve Farrell <sfarrell AT  cern.ch>
+	* Updates from Peter Onyisi
+	*   Switch new enhanced PV monitoring based on global switch, obo Adrian Vogel
+	*   Tag AthenaMonitoring-01-11-25
+	*   Add AtlasCORAL dependency
+	*   Tag AthenaMonitoring-01-11-26
+	* Turn LArFEBMon on for all streams
+	* Tag AthenaMonitoring-01-11-27
+
+2011-07-21 Steve Farrell <sfarrell AT  cern.ch>
+	* added flag doStreamAwareMon to DQMonFlags for easily turning off all stream-aware settings
+	* Tag AthenaMonitoring-01-11-24
+
+2011-07-07 Iacopo Vivarelli <iacopo.vivarelli AT cern.ch>
+	* added src/DQBadLBFilterTool.cxx, AthenaMonitoring/DQBadLBFilterTool.h
+	* AthenaMonitoring_entries modified accordingly
+	* added share/BadLBFilterTool_jobOptions.py 
+
+2011-06-21 Steve Farrell <sfarrell AT  cern.ch>
+	* added LArMonFlags.doLArRODMonTool=False to all streams except express and ZeroBias
+	* Flag was requested by LAr folks to solve a monitoring bug at T0
+	* See savannah bug report #83390
+	* Tag AthenaMonitoring-01-11-23
+
+2011-06-11 Susumu Oda <Susumu.Oda@cern.ch> 
+	* Merged AthenaMonitoring-01-11-20-01 by Steve Farrell <sfarrell AT  cern.ch> to trunk.  
+	* added LArMonFlags.doLArRawMonitorSignal=True to CosmicCalo stream 
+	* Flag was requested by LAr folks, needed to solve a T0 monitoring bug 
+	* Tag AthenaMonitoring-01-11-22
+
+2011-06-11 Susumu Oda <Susumu.Oda@cern.ch> 
+	* Removed lines to disable DQMonFlags.doMuonRawMon from share/DQMonFlagsConfig_jobOptions.py. 
+	* Equivalent with AthenaMonitoring-01-11-20-00
+	* Tag AthenaMonitoring-01-11-21
+
+2011-05-19 Steve Farrell <sfarrell AT  cern.ch>
+	* Updates to Stream-aware monitoring
+	* TRT runs in CosmicCalo stream
+	* Tag AthenaMonitoring-01-11-20
+
+2011-05-05 Walter Lampl <walter.lampl@ cern.ch>
+	* Merge with branch tag AthenaMonitoring-01-11-16-00
+	  (Add McEventWeight as ntuple variable to FastPhysMonToolBase)
+	* Tag AthenaMonitoring-01-11-19
+
+2011-05-03 Rolf Seuster <seuster AT cern.ch>
+	* share/DQMonFlagsConfig_jobOptions.py: disable DQMonFlags.doMuonRawMon until 81553 is resolved
+	* Tag AthenaMonitoring-01-11-18
+
+2011-04-26 Steve Farrell <sfarrell AT  cern.ch>
+	* Implement stream-aware monitoring according to this table:
+	* https://twiki.cern.ch/twiki/bin/viewauth/Atlas/DQStreamMatrix
+	* Tag AthenaMonitoring-01-11-17
+
+2011-04-26 Peter Onyisi <ponyisi AT  cern.ch>
+	* use TrigAnalysisInterfaces to untangle project dependencies
+	* Tag AthenaMonitoring-01-11-15
+	* Correct a requirements bug
+	* Tag AthenaMonitoring-01-11-16
+
+2011-04-22 Susumu Oda <Susumu.Oda@cern.ch>
+	* fix checkreq.py -p ERRORs. 
+	* Tag AthenaMonitoring-01-11-14
+
+2011-04-19 Peter Onyisi <ponyisi AT  cern.ch>
+	* make standard instance of DQFilledBunchFilterTool switch off in CosmicCalo stream
+	* Tag AthenaMonitoring-01-11-13
+
+2011-04-18 Peter Onyisi <ponyisi AT  cern.ch>
+	* add the new DQFilledBunchFilterTool
+	* Tag AthenaMonitoring-01-11-12
+
+2011-03-16 Rolf Seuster <seuster AT  cern.ch>
+	* move inclusion of LArCollisionTime_jobOptions.py here, to ensure proper ordering of topSequence
+	* this is to remove *_ugly_* hack later on in two monitoring tools which are messing up the topSequence
+	* Tag AthenaMonitoring-01-11-11
+
+2011-03-10 Peter Onyisi <ponyisi AT cern.ch>
+	* fix everyone's ChangeLog dates!
+	* double length of sub-run DQ periods to account for shortening of LBs
+	* Revert Rolf's changes (switch ON InDetPerfMon)
+	* Tag AthenaMonitoring-01-11-10
+
+2011-03-09 Rolf Seuster <seuster AT  cern.ch>
+	* switch off InDetPerfMon (o.b.o. PROC)
+	* Tag AthenaMonitoring-01-11-09
+
+2011-03-08 Walter Lampl <walter.lampl@ cern.ch>
+     * FastPhysMonToolBase: Add a specialized methods for ntuple booking
+     * Tag AthenaMonitoring-01-11-08
+
+2011-03-07 Walter Lampl <walter.lampl@ cern.ch>
+     * FastPhysMonToolBase:
+       - Add method to create & book a tree (internal new)
+	- Fix typo (thanks to Peter O. for notifying me)
+     * Tag AthenaMonitoring-01-11-07
+
+2011-03-07 Walter Lampl <walter.lampl @cern.ch>
+     * Preparations for new "Fast Physics Monitoring":
+       New class FastPhysMonToolBase, deriving from ManagedMonToolBase
+       The main method is regFPMTree to register a ntuple for Fast Physics Monitoring
+     * Tag AthenaMonitoring-01-11-06
+
+2011-02-26 Steve Farrell <steve.farrell@cern.ch>
+     * added triggerChainMap to DQMonFlags
+     * implemented trigger chain override functionality in 
+     * DataQualitySteering_jobOptions.py
+     * tag AthenaMonitoring-01-11-05
+
+2010-10-07 Rolf Seuster <seuster AT cern.ch>
+     * switch on jet tag monitoring job options only for ESDtoAOD
+     * tag AthenaMonitoring-01-11-04
+
+2010-08-31 Peter Onyisi <ponyisi@cern.ch>
+     * call jet tag monitoring job options
+     * tag AthenaMonitoring-01-11-03
+
+2010-08-27 Peter Onyisi <ponyisi@cern.ch>
+     * Bug fix to previous commit
+     * tag AthenaMonitoring-01-11-02
+
+2010-08-27 Peter Onyisi <ponyisi@cern.ch>
+     * Make sure that ATLAS Ready filter lets through cosmic runs
+     * tag AthenaMonitoring-01-11-01
+
+2010-08-27 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Add warning when people use expensive MonGroup pass-by-value.
+     * tag AthenaMonitoring-01-11-00
+
+2010-08-18 Rolf Seuster <seuster AT cern.ch>
+     * fixing complaints from static code checker Coverity:
+	M      src/MonitorToolBase.cxx
+	M      src/AthenaMonManager.cxx
+	M      src/ManagedMonitorToolBase.cxx
+     * tag AthenaMonitoring-01-10-06
+
+2010-06-18 Peter Onyisi <ponyisi@cern.ch>
+     * Disable ATLAS Ready filter if running on MC (#68883)
+     * Become aware of heavy ion running
+     * tag AthenaMonitoring-01-10-05
+
+2010-06-17 Peter Onyisi <ponyisi@cern.ch>
+     * move tau monitoring setup code to their package
+     * tag AthenaMonitoring-01-10-03
+
+2010-06-10 Peter Onyisi <ponyisi@cern.ch>
+     * improve ATLAS Ready filter
+     * fix bug in event block interaction with filters
+     * fix histogram booking bug in ManagedMonitorToolTest
+     * tag AthenaMonitoring-01-10-02
+
+2010-06-08 Peter Onyisi <ponyisi@cern.ch>
+     * Fix some avn.py stupidity
+     * tag AthenaMonitoring-01-10-01
+
+2010-06-08 Peter Onyisi <ponyisi@cern.ch>
+     * Add filter capability for mon tools (e.g. require ATLAS Ready)
+     * Add heavyIonCollisions datatype
+     * tag AthenaMonitoring-01-10-00
+
+2010-06-04 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Proper gROOT->SetMustClean call when deleting ROOT histograms from
+     LW hists. Saves around 230 seconds in ESD->AOD overhead!
+     * tag AthenaMonitoring-01-09-04
+
+2010-04-12 Peter Onyisi <ponyisi@cern.ch>
+     * switch singlebeam configuration to collisions, not cosmics
+     * tag AthenaMonitoring-01-09-03
+
+2009-12-10 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DQMonFlagsConfig_jobOptions.py: enable L1Calo ESD monitoring (Pete Faulkner)
+     * tag AthenaMonitoring-01-09-02
+
+2009-11-19 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DQMonFlagsConfig_jobOptions.py: protections against missing reco objects when running on ESD
+     * tag AthenaMonitoring-01-09-01
+
+2009-11-05 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * add new writeAndDelete methods to MMTB to reduce memory usage by
+       dynamically created histograms (Evan Wulf) 
+     * tag AthenaMonitoring-01-09-00
+
+2009-10-31 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Active calls to ISGAudSvc.
+     * tag AthenaMonitoring-01-08-10
+
+2009-10-29 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Add hooks to let SGAudSvc monitor on a per-tool basis for
+     mon-tools. To avoid branching the actual call to ISGAudSvc doesn't
+     happen yet.
+     * tag AthenaMonitoring-01-08-09
+
+2009-10-19 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Monitor undeleted lw hists (requires LWHists-00-05-02)
+     * tag AthenaMonitoring-01-08-08
+
+2009-10-07 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Enable HLT monitoring on ESD
+     * tag AthenaMonitoring-01-08-07
+
+2009-09-23 Peter Onyisi <ponyisi@cern.ch>
+     * set doMuonAlignMon = True by default
+     * tag AthenaMonitoring-01-08-06
+
+2009-08-22 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * enable LUCID monitoring
+     * tag AthenaMonitoring-01-08-05
+
+2009-08-19 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * add new client LUCID monitoring (disabled by default)
+     * tag AthenaMonitoring-01-08-04
+
+2009-06-28 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Add code for benchmarking cpu and memory usage of the various
+     tools. Enabled when output level of the tool and/or manager is DEBUG
+     or lower.
+     * tag AthenaMonitoring-01-08-02 and AthenaMonitoring-01-08-03.
+
+2009-06-23 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Comply with LWHists-00-03-00 interface.
+     * Use ROOT backend for LW histograms if environment is online.
+     * Instrument ManagedMonitorToolBase for performance
+     monitoring. Enabled with DEBUG output level.
+     * tag AthenaMonitoring-01-08-01
+
+2009-06-19 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * don't create histogram file if DQMonFlags.histogramFile=""
+
+2009-06-15 Thomas Kittelmann <thomas.kittelmann@cern.ch>
+     * Add private impl pointer to ManagedMonitorToolBase in anticipation
+     of future developments.
+     * tag AthenaMonitoring-01-08-00
+
+2009-06-05 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * MonitorToolBase.h: add convertLWHists() method
+     * MMTB.cxx fix gcc4.3 compiler warning
+     * tag AthenaMonitoring-01-07-02
+
+2009-06-04 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * add missing interface files for lightweight histograms
+     * tag AthenaMonitoring-01-07-01
+
+2009-06-03 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * support lightweight histograms (Thomas Kittelmann)
+     * tag AthenaMonitoring-01-07-00
+
+2009-05-11 Peter Onyisi <ponyisi@cern.ch>
+     * Allow global monitoring to handle monitoring environment in its own
+       jobOptions
+     * tag AthenaMonitoring-01-06-02
+
+2009-05-11 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * tag AthenaMonitoring-01-06-01
+
+2009-05-08 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * use trigger decision tool interface from Trig:: namespace
+
+2009-05-07 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * use new trigger decision tool
+     * switch trigger-awareness on by default
+     * remove dynamic trigger mapping 
+     * switch egamma mon back on by default (bug fixed)
+     * tag AthenaMonitoring-01-06-00
+
+2009-05-05 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DataQualitySteering_jobOptions.py: use job options from MET
+     monitoring package
+     * tag AthenaMonitoring-01-05-04
+
+2009-05-04 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * add example for ntuples (TTree)
+     * changes in
+	- AthenaMonitoring/ManagedMonitorToolTest.h
+	- share/ManagedMonitorToolTest.py
+	- src/AthenaMonManager.cxx
+	- src/ManagedMonitorToolTest.cxx
+     * tag AthenaMonitoring-01-05-03
+
+2009-04-22 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DQMonFlagsConfig_jobOptions.py: use rec.doTrigger instead of
+     recAlgs.doTrigger to check trigger availability
+
+2009-04-21 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * include tau, InDetPerf, TRTelectron for cosmics
+     * disable Egamma because of errors with TrigDecTool
+     * changes in:
+	- python/DQMonFlags.py
+	- share/DQMonFlagsConfig_jobOptions.py
+	- share/DataQualitySteering_jobOptions.py
+     * tag AthenaMonitoring-01-05-02
+
+2009-04-09 Peter Onyisi <ponyisi@cern.ch>
+     * Change to new muon monitoring configuration system
+     * changes in:
+        - share/DataQualitySteering_jobOptions.py
+     * tag AthenaMonitoring-01-05-01
+
+2009-03-20 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * transition from minutes intervals to LB intervals
+     * changes in:
+        - AthenaMonitoring/AthenaMonManager.h
+        - AthenaMonitoring/ManagedMonitorToolBase.h
+        - python/DQMonFlags.py
+        - share/DataQualityInit_jobOptions.py
+        - src/AthenaMonManager.cxx
+        - src/ManagedMonitorToolBase.cxx
+     * tag AthenaMonitoring-01-05-00
+
+2009-03-16 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * cmt/requirements: move AtlasROOT to public use statement
+     * tag AthenaMonitoring-01-04-06
+
+2009-01-20 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DataQualitySteering_jobOptions.py: import Egamma job options from
+     Egamma monitoring package
+     * tag AthenaMonitoring-01-04-05
+
+2008-12-16 David Quarrie <David.Quarrie@cern.ch>
+	* src/AthenaMonManager.cxx: Use <limits.h> instead of <limits> for gcc 4.3 compatibility
+	* tag AthenaMonitoring-01-04-04
+	
+2008-12-15 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * cleaned up private/public requirements, forward declarations; changed
+     *  - AthenaMonitoring/AthenaMonManager.h
+     *  - AthenaMonitoring/ManagedMonitorToolBase.h
+     *  - src/AthenaMonManager.cxx
+     *  - src/ManagedMonitorToolBase.cxx
+     *  - cmt/requirements
+     * tag AthenaMonitoring-01-04-03
+
+2008-12-15 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * migrated AthenaMonManager to AthAlgorithm, changed
+     *    - AthenaMonitoring/AthenaMonManager.h
+     *    - src/AthenaMonManager.cxx
+     *    - cmt/requirements
+     * tag AthenaMonitoring-01-04-02
+
+2008-12-09 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * src/ManagedMonitorToolBase.cxx: use message service from AthAlgTool
+     * tag AthenaMonitoring-01-04-01
+
+2008-12-09 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * AthenaMonitoring/ManagedMonitorToolBase.h: inherit from AthAlgTool
+     * src/ManagedMonitorToolBase.cxx: inherit from AthAlgTool
+     * cmt/requirements: add dependency on AthenaBaseComps
+     * tag AthenaMonitoring-01-04-00
+
+2008-12-04 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * AthenaMonitoring/IMonitorToolBase.h: add #include <vector>; fixes
+     https://savannah.cern.ch/bugs/?44937
+     * tag AthenaMonitoring-01-03-08
+
+2008-11-26 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DataQualitySteering_jobOptions.py: clean up job options for global monitoring;
+     related to bug https://savannah.cern.ch/bugs/?44204
+     * tag AthenaMonitoring-01-03-07
+
+2008-11-25 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * python/DQMonFlags.py: change internal container name, 
+     fixes https://savannah.cern.ch/bugs/?44475
+     * tag AthenaMonitoring-01-03-06
+
+2008-11-18 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DataQualitySteering_jobOptions.py: include combined muon monitoring job
+     options from MuonCombinedDQA package
+     * tag AthenaMonitoring-01-03-05
+
+2008-10-31 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DQMonFlagsConfig_jobOptions.py: switch trigger monitoring off if
+     recAlgs.doTrigger()==False
+     * tag AthenaMonitoring-01-03-04
+
+2008-10-22 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * sync with 01-02-08-branch (Tier-0):
+	- combined calorimeter monitoring via separate flag
+	  DQMonFlags.doCaloMon and separate monitoring manager
+        - BS_ESD is default
+        - MuonAlignMon switched off (doesn't compile!)
+     * tag AthenaMonitoring-01-03-03
+
+2008-10-20 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DataQualitySteering_jobOptions.py: include jet monitoring job
+     options from JetMonitoring package
+     * tag AthenaMonitoring-01-03-02
+
+2008-10-14 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * python/DQMonFlags.py: new flag doMuonAlignMon
+     * share/DQMonFlagsConfig_jobOptions.py: include doMuonAlignMon (running
+     in ESD->AOD)
+     * share/DataQualitySteering_jobOptions: new monitoring manager for Muon
+     alignment, include MuonAlignMonitoring/MuonAlignDQA_options.py
+     * tag AthenaMonitoring-01-03-01
+
+2008-10-14 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * python/DQMonFlags.py: new flag doTRTElectronMon
+     * share/DataQualitySteering_jobOptions.py: use new flag doTRTElectronMon
+     to switch TRT electron monitoring
+     * share/DQMonFlagsConfig_jobOptions.py: include doTRTElectronMon; disable
+     egamma, TRT electron, InDetPerf, tau monitoring for commissioning with
+     cosmics
+
+2008-10-13 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * AthenaMonitoring/ManagedMonitorToolBase.h: add virtual destructor to
+     class StreamNameFcn; fixes https://savannah.cern.ch/bugs/?42349
+     * tag AthenaMonitoring-01-03-00
+
+2008-10-09 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DQMonFlagsConfig_jobOptions.py: move muon segment monitoring to ESD
+     * share/DataQualitySteering_jobOptions.py: tidy redundant 'if
+     MuonESDMon:' switches
+
+2008-10-07 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * share/DataQualityInit_jobOptions.py: don't set up histogram file if DQ
+     monitoring disabled 
+     * tag AthenaMonitoring-01-02-07
+
+2008-10-07 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * python/DQMonFlags.py: enable HLT monitoring
+     * tag AthenaMonitoring-01-02-06
+
+2008-09-30 Michael Wilson <mgwilson@cern.ch>
+     * Updated Tile job options
+     * tag AthenaMonitoring-01-02-05
+
+2008-09-30 Michael Wilson <mgwilson@cern.ch>
+     * Updated LAr job options
+     * tag AthenaMonitoring-01-02-04
+
+2008-09-30 Michael Wilson <mgwilson@cern.ch>
+     * Updated muon job options
+     * tag AthenaMonitoring-01-02-03
+
+2008-09-24 Michael Wilson <mgwilson@cern.ch>
+     * Disabled HLT monitoring and trigger-aware monitoring
+     * tag AthenaMonitoring-01-02-02
+
+2008-09-23 Michael Wilson <mgwilson@cern.ch>
+     * Re-enabled muon monitoring
+     * tag AthenaMonitoring-01-02-01
+
+2008-09-23 Michael Wilson <mgwilson@cern.ch>
+     * Moved production monitoring config and steering to this package
+     * tag AthenaMonitoring-01-02-00
+
+2008-08-27 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * AthenaMonManager.cxx: fix bug in envStringToEnum, https://savannah.cern.ch/bugs/index.php
+     * tag AthenaMonitoring-01-01-03
+
+2008-08-20 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * AthenaMonManager.cxx: print the created trigger map as INFO
+     * tag AthenaMonitoring-01-01-02
+
+2008-08-18 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * AthenaMonManager.cxx: improved dynamic trigger mapping
+     * tag AthenaMonitoring-01-01-01
+
+2008-08-05 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * cosmetic reformatting of code in AthenaMonManager.{cxx,h}, ManagedMonitorToolBase.{cxx,h}, 
+     and ManagedMonitorToolTest.{cxx,h}
+
+2008-08-05 Michael Wilson <mgwilson@cern.ch>
+     * Added INFO messages when Tools are initialized
+     * Added dependencies and infrastructure for automatic min/LB lookup
+     * tag AthenaMonitoring-01-01-00
+
+2008-08-05 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * ManagedMonitorToolBase.cxx: call AthenaMonManager::getTrigNameMap() only if trigDecTool not empty
+     * tag AthenaMonitoring-01-00-00
+
+2008-08-04 Sebastian Schaetzel <sebastian.schaetzel@cern.ch>
+     * AthenaMonManager/ManagedMonitorToolBase: dynamic lookup of low pt triggers in menu
+     * tag AthenaMonitoring-00-00-48
+
+2008-07-08 Michael Wilson <mgwilson@cern.ch>
+     * Minor interface changes needed to support long-term versions of some previous patches
+
+2008-07-07 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-47 (fixes AthenaMonitoring-00-00-46)
+     * Avoid problem with ROOT not writing empty strings to metadata TTree
+     * Temporary workaround to allow fractional number of minutes per lumiBlock
+
+2008-05-09 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-45
+     * Added flag to select Raw, ESD, or Raw and ESD histograms
+
+2008-05-05 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-44
+     * Added deregObject() for online/HLT use; added 'tier0ESD' environment enum
+
+2008-04-11 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-43
+     * Added example code for using TGraphs
+
+2008-02-26 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-42
+     * Added support for comma-separated trigger chains and trigger groups
+       as jobOptions
+     * Added support for clients to specify the merge method used at Tier0
+
+2008-01-29 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-41
+     * Don't check for event info during finalize
+
+2008-01-23 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-40
+     * Added ITrigDecisionTool
+     * Only allow increasing LB
+     * Added inherited flags for checking length of time (10, 30, 90 minutes)
+
+2007-11-26 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-39
+     * Moved some services to ToolHandle
+     * Moved all declarePropery calls to ctor
+     * Add LB counter
+     * Added getHist for TH2
+     * Speed up for TObject dtor
+     * Added trigger logic and metadata
+
+2007-10-25 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-38
+     * protection against calling procHistograms() if no events processed
+
+2007-10-14 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-37
+     * changed new function names slightly
+
+2007-10-08 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-36
+     * Delete histograms that are recreated at LB/run rollover
+
+2007-09-06 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-35
+     * Modify physical path-creation logic in 'tier0' and 'altprod' environments
+
+2007-08-09 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-34
+     * Added getHist(...) methods
+
+2007-08-02 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-33
+     * Added linking against libGraf in requirements
+     * Improved DEBUG messages and null-pointer checking
+     * Added option not to have leading Run/LB directories added
+     * Added m_path variable to MMTB for LAr backwards compatibility
+     * Added intervalStringToEnum() and levelOfDetailStringToEnum()
+     * Added regTree(...) methods
+
+2007-07-28 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-32
+     * migrate AthenaMonManager to configurables
+     
+2007-07-17 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-31
+     * check or ignore all StatusCode objects
+     * added regGraph() methods
+     * added new Interval_t enums (lumiBlocks10, lumiBlocks30, lumiBlocks90)
+
+2007-05-27 Rolf Seuster <seuster@cern.ch>
+     * tag AthenaMonitoring-00-00-30
+     * initialize m_counter also in setupOutputStreams, this protects against 
+     *  the case when tools implement their own initialize
+
+2007-05-26 Rolf Seuster <seuster@cern.ch>
+     * tag AthenaMonitoring-00-00-29
+     * fixes for Hong
+
+2007-03-26 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-28
+     * bug fixes: initialization of streamNameFcn, booking on first event
+
+2007-03-06 Michael Wilson <mgwilson@cern.ch>
+     * tag AthenaMonitoring-00-00-27 (release 13)
+     * tag AthenaMonitoring-00-00-25-01 (release 12)
+     * Moved regHist methods to ManagedMonitorToolBase from AthenaMonManager
+     * MonGroup stores histograms it has registered for lookup by user
+
+2007-03-01  Sebastien Binet  <binet@lblbox>
+
+	* tagging AthenaMonitoring-00-00-26
+	* src/AthenaMonManager.cxx: adapted for new IJobOptionSvc interface
+	  (Gaudi 19)
+	* share/ManagedMonitorToolTest.py: migration to Configurables
+
+2007-02-28 Michael Wilson <mgwilson@cern.ch>
+     * special version for Tier-0 tests
+     * tag AthenaMonitoring-00-00-25
+
+2007-02-28 Michael Wilson <mgwilson@cern.ch>
+     * removed an erroneous line in requirements
+     * tag AthenaMonitoring-00-00-24
+
+2007-02-25 Michael Wilson <mgwilson@cern.ch>
+     * Implemented Run/LB lookup
+     * Allow DQM Algorithm to be associated with histogram
+     * Some properties of AthenaMonManager made available via
+       JobOptionsSvc
+     * Miscellaneous fixes
+     * tag AthenaMonitoring-00-00-23
+
+2007-01-29 Michael Wilson <mgwilson@cern.ch>
+     * added new classes to support global configuration, logical
+       streams, and alternative control flow; see Data Quality meeting
+       for a summary:
+       
+         http://indico.cern.ch/conferenceDisplay.py?confId=10830
+         
+     * tag as AthenaMonitoring-00-00-22
+
+2007-01-12 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * bug-fix for gcc34 (removed extra `;')
+     * tag as AthenaMonitoring-00-00-21
+
+2007-01-11 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * bug-fix for prescale = 0
+     * tag as AthenaMonitoring-00-00-20
+	
+2007-01-10 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * added possibility to prescale monitor tools
+     * tag as AthenaMonitoring-00-00-19
+
+2006-10-04 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * added possibility to write histograms to several output stream of THistSvc
+     * implemented beginRun and endRun in AthenaMon, plus calls to bookHists and runStat to tools
+     * tag as AthenaMonitoring-00-00-18
+	
+2006-01-13 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * bug fix, checkHists checked every n+1 events
+     * tag as AthenaMonitoring-00-00-17
+
+2005-11-04 Rob McPherson <Robert.McPherson@cern.ch>
+     * Removed obsolete example monitoring tool and jobOption
+     * (should add simple example again ...)
+	
+2005-11-01 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * changed defaults for new jobOptions for THistSvc
+     * tag as AthenaMonitoring-00-00-15
+
+2005-10-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+     * src/AthenaMon.cxx: removed extra ; (Mattias) 
+     * src/components/AthenaMonitoring_entries.cxx: removed extra ; (Mattias) 
+     * tag as AthenaMonitoring-00-00-14
+
+2005-10-30 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * two new jobOptions for streams of the THistSvc
+
+2005-10-28 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * enable logging to logfile and output stream, via LogFileMsgStream.h
+
+2005-10-26 Rolf Seuster <Rolf.Seuster@cern.ch>
+     * added checkHists(bool) to MonitorToolBase and AthenaMon
+
+2005-07-26 Rob McPherson <Robert.McPherson@cern.ch>
+     * Check StatusCode fixes.
+
+2004-06-21 Rob McPherson <Robert.McPherson@cern.ch>
+     * Added m_path as property to MonitorToolBase base class
+	
+2004-04-28 Rob McPherson <Robert.McPherson@cern.ch>
+     * Removed storegate from requirements file
+	
+2004-04-06 Rob McPherson <Robert.McPherson@cern.ch>
+     * Fix small bug in histsNotBooked()
+     * Also put m_path into jobOption properties of AthenaMonToolExample
+     * tag as AthenaMonitoring-00-00-05
+
+2004-04-01 Manuel Diaz <Manuel.Diaz.Gomez@cern.ch>
+     * Add Interface class : IMonitorToolBase
+     * slight modification in existing code due to this addition
+     * Add example template for the creation of Monitoring Tools (AthenaMonToolExample)
+     * tag as AthenaMonitoring-00-00-03
+
+2004-03-31 Rob McPherson <Robert.McPherson@cern.ch>
+     * Add first code, tag as AthenaMonitoring-00-00-02
+     * Fixed cvs tag problem in AthenaMonitoring-00-00-01
+	
+2004-03-23 Frederick Luehring <luehring@indiana.edu>
+
+     * Create and tag package as AthenaMonitoring-00-00-00.
+

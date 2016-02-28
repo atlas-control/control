@@ -1,0 +1,323 @@
+2016-02-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adding a hand-written CMakeLists.txt file to the package.
+	* This was mainly necessary because of the problems with setting
+	  up the unit test of the package. Since CMake very strongly
+	  prohibits linking against component libraries.
+	* The reference file of the test will have to be updated with the
+	  new Gaudi version. Or the ignore pattern of the test will have
+	  to be extended. But I'll let that up to the experts.
+	* Removed the executable property from all of the source files of
+	  the package.
+	* Tagging as SGComps-00-02-06
+
+2016-02-25  Frank Winklmeier  <fwinkl@cern>
+	* Tagging SGComps-00-02-05
+	* src/SGInputLoader.cxx: Fix unchecked StatusCode
+
+2015-10-06  Charles Leggett
+	* Tagging SGComps-00-02-04
+	* SGInputLoader: use DataObjIDColl natively for Load property
+	               : check for empty keys
+	               : handle preloading trans and pers objects correctly
+
+M       src/SGInputLoader.cxx
+M       src/SGInputLoader.h
+
+2015-10-01  Charles Leggett
+	* Tagging SGComps-00-02-03
+	* SGInputLoader: add protection for non-Hive builds
+
+A       src/SGInputLoader.cxx
+
+2015-10-01  Charles Leggett
+	* Tagging SGComps-00-02-02
+	* SGInputLoader: for Hive: reads in data on disk and informs the Whiteboard
+	                 objects declared via jobOpt "Load", in DataObjID format.
+	                 No need to set ExtraOutputDeps property
+A       src/SGInputLoader.cxx
+M       src/components/SGComps_entries.cxx
+A       src/SGInputLoader.h
+
+
+2015-06-04 Will Buttinger
+      * src/AddressRemappingSvc.cxx: Introduced new 'SkipBadRemappings' mode of running, which 
+            checks for bad remappings at first event load. A bad remapping is when the CLID or any of its base CLID can be located
+            If a base CLID is found, the remapping is modified to reflect this. This was necesary in the case where xAOD Aux containers were replace by AuxContainerBase in derivations
+      * tagging as SGComps-00-02-01
+
+
+2015-02-03  Charles Leggett
+	* Tagging SGComps-00-02-00
+	* src/SGCommitAuditor: for use in hive. afterExecute commits all
+	DataObjects recorded during last alg's execute
+
+2015-01-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGComps-00-01-10.
+	* src/ProxyProviderSvc.cxx (addAddress): Make sure transient CLIDs
+	related by conversions are in the TAD's clid set.
+
+2014-11-20  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* src/ProxyProviderSvc.cxx (retrieveProxy): stylistic change
+
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGComps-00-01-09.
+	* Migrate Algorithm -> AthAlgorithm, Service -> AthService.
+	* Tagging SGComps-00-01-08.
+	* Fix coverity warning.
+
+2014-01-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGComps-00-01-07.
+	* src/ProxyProviderSvc.cxx (addAddresses): Make sure provider is
+	set when we update an existing proxy.
+
+2013-04-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGComps-00-01-06.
+	* cmt/requirements: Really fix typo in last change.
+	* Tagging SGComps-00-01-05.
+	* cmt/requirements: Fix typo in last change.
+	* Tagging SGComps-00-01-04.
+	* Update reference files for new Gaudi version.
+
+2013-04-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGComps-00-01-03.
+	* src/ProxyProviderSvc.cxx: Make auto symlinks for copying
+	conversions.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging SGComps-00-01-02
+	* adding wscript file
+	* A wscript
+
+2013-01-17  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tagging SGComps-00-01-01
+	* src/ProxyProviderSvc.cxx (retrieveProxy): fix call to
+	TransientAddress::setProvider
+
+2013-01-16  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tagging SGComps-00-01-00
+	* src/AddressRemappingSvc.cxx (updateAddress): add storeID
+	to signature (so far unused)
+	* src/ProxyProviderSvc.cxx (updateAddress): implement new
+	signature with storeID
+	NB change is not backward compatible. Branch under here
+
+2011-10-07  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging SGComps-00-00-38
+	* remove CLIDSvc use + checkreq fixes
+	* M src/SGFolder.cxx
+	* M test/SGFolder_test.cxx
+	* M cmt/requirements
+
+	* tagging SGComps-00-00-37
+	* adding an algorithm to programmatically access proxies
+	* A src/SGAccessAlg.cxx
+	* A src/SGAccessAlg.h
+	* M src/components/SGComps_entries.cxx
+
+2010-11-24  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging SGComps-00-00-36
+	* src/SGDeleteAlg.cxx (SGDeleteAlg::execute): downgrade per-object
+	message to VERBOSE
+
+2010-06-15  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* tagged as SGComps-00-00-35
+	* src/ProxyProviderSvc.cxx (ProxyProviderSvc::addAddresses): Remove SGComps-00-00-33
+
+2010-06-07  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging SGComps-00-00-34
+	* fwd compat w/ gaudi-v21
+	* M src/ProxyProviderSvc.h
+	* M src/AddressRemappingSvc.h
+
+2010-05-14  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging SGComps-00-00-33
+	* src/ProxyProviderSvc.cxx (ProxyProviderSvc::addAddresses): use
+	setTransientAddress when refreshing proxy so that alias and symlinks
+	are refreshed from one event to the next (#62088)
+
+2010-04-02  Sebastien Binet  <binet@farnsworth>
+
+	* tagging SGComps-00-00-32
+	* reverting previous change, migrating to AthMessaging instead
+	* M src/AddressRemappingSvc.cxx
+	* M src/ProxyProviderSvc.cxx
+	* M src/AddressRemappingSvc.h
+	* M src/ProxyProviderSvc.h
+
+2010-03-31  Sebastien Binet  <binet@farnsworth>
+
+	* tagging SGComps-00-00-31
+	* migration to AthenaBaseComps
+	* M cmt/requirements
+	* M src/SGDeleteAlg.cxx
+	* M src/AddressRemappingSvc.cxx
+	* M src/SGDeleteAlg.h
+	* M src/SGFolder.cxx
+	* M src/ProxyProviderSvc.cxx
+	* M src/AddressRemappingSvc.h
+	* M src/SGFolder.h
+	* M src/ProxyProviderSvc.h
+
+2009-12-18  Peter van Gemmeren <gemmeren@anl.gov>
+	* src/AddressRemappingSvc.cxx: Fix appearance of huge memory leak caused by SGComps-00-00-29.
+	* tagged as SGComps-00-00-30
+
+2009-10-13  Peter van Gemmeren <gemmeren@anl.gov>
+	* src/AddressRemappingSvc.cxx: Do address creation for new proxies in preLoad only for EventStore.
+	* tagged as SGComps-00-00-29
+
+2009-09-21  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* src/ProxyProviderSvc.cxx (addAddress): improved error checking
+
+2009-09-16  Peter van Gemmeren <gemmeren@anl.gov>
+	* src/AddressRemappingSvc.cxx: Move IProxyDict retrieval to preLoadAddress to handle ElementLinks
+	more completely (Thanks Scott)
+	* tagged as SGComps-00-00-28
+
+2009-09-03  Peter van Gemmeren <gemmeren@anl.gov>
+	* src/AddressRemappingSvc: Move address creation for new proxies to preLoad (Savannah #55249)
+	* tagged as SGComps-00-00-27
+
+2009-08-27  Paolo Calafiura 
+	* SGDeleteAlg: use clearProxyPayload (bug 54916)
+	* tagged as SGComps-00-00-26
+
+2009-08-20  Peter van Gemmeren <gemmeren@anl.gov>
+	* src/AddressRemappingSvc: Revert back to use IProxyDict but this time with IStringPool (Thanks Scott)
+	* tagged as SGComps-00-00-25
+
+2009-08-17  Peter van Gemmeren <gemmeren@anl.gov>
+	* src/AddressRemappingSvc: Use IProxyDictWithPool (rather than IProxyDict) to make address remapping
+	work for ElementLinks (Thanks Scott)
+	* tagged as SGComps-00-00-24
+
+2009-07-24  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* src/AddressRemappingSvc.cxx: Create addresses for new proxies to make remapping work with
+	OutputStream ForceRead = true; and use GenericAddress.par() to copy token, so it can be overloaded
+	for PoolTokenAddress.
+	* tagged as SGComps-00-00-23
+
+2009-05-27  scott snyder  <snyder@bnl.gov>
+	* src/AddressRemappingSvc.cxx: Handle chained remappings.
+	* tagged as SGComps-00-00-22
+
+2009-05-04  Paolo Calafiura 
+	* AddressRemappingSvc: add ProxyDict property for PileUp jobs
+	* tagged as SGComps-00-00-21
+
+2009-04-15  Paolo Calafiura  
+	* new algo SGDeleteAlg deletes all data objs in its ToDelete.ItemList 
+	* tagged as SGComps-00-00-20
+
+2008-06-06  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* AddressRemappingSvc: Handle symlinks and key alias.
+	* tagged as SGComps-00-00-19
+
+2008-05-27  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* AddressRemappingSvc.cxx: Use old clid for sqizzled object.
+	* tagged as SGComps-00-00-18
+
+2008-05-21  Paolo Calafiura 
+	* src/ProxyProviderSvc.cxx (ProxyProviderSvc::addAddress): HACK to delete HLTAutoKey proxies at the end of each event
+	* tagged as SGComps-00-00-17
+
+2008-05-15  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* AddressRemappingSvc: Replace StoreGateSv with IProxyDict.
+	* tagged as SGComps-00-00-16
+
+2008-05-13  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* AddressRemappingSvc: Changes after code inspection (thanks David).
+	* tagged as SGComps-00-00-14
+
+2008-05-09  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* src/AddressRemappingSvc: Adding AddressRemappingSvc to map new clid/key tads to older clid/key token.
+	* tagged as SGComps-00-00-13
+
+2008-04-23  Paolo Calafiura  
+
+	* src/SGFolder.h: added clear() method as requested by Peter to
+	address the issue of "exploding" trigger keys
+	* tagged as SGComps-00-00-12
+
+
+
+	* src/SGFolder.cxx (Folder::Folder): 
+	update for v19r9: declareProperty does not return SC anymore
+	* tagged as SGComps-00-00-11
+
+
+2008-03-05  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* src/ProxyProviderSvc.h: Use std::list for IAddressProvider* to allow fixed order
+	* tagged as SGComps-00-00-10
+
+2008-01-04  Peter van Gemmeren <gemmeren@anl.gov>
+
+	* src/ProxyProviderSvc.cxx: skip updateAddress() for objects in SIMPLE_STORE
+	* tagged as SGComps-00-00-09
+
+2007-10-12  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* src/SGFolder.cxx (Folder::decodeItem): fix bug in handling items of the form "typename/..."
+	* tagged as SGComps-00-00-08
+
+2007-10-10  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+	* src/SGFolder.cxx (Folder::add): when using typename/key must check
+	if clid is valid anyway
+	* test/SGFolder_test.cxx : added Folder_tester class to test the 
+	add method with checkValidCLID true and false
+	* tagged as SGComps-00-00-07
+
+2007-08-29  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* src/SGFolder.h: added flag checkValidCLID to add methods, and introduced new method updateItemList.
+	This allows to do loose checking of typename/CLID match when setting the ItemList, and gives a hook
+	to update the list of valid items in the folder when it is time e.g. to write out an output stream.
+	Fixes bug 29015
+	* tagged as SGComps-00-00-06
+
+2007-08-23  Paolo Calafiura  <calaf@localhost.localdomain>
+	* class SG::Folder: new property CheckItems. Set to check if 
+	item types are known to ClassIDSvc. False by default. bug 29015
+	* share/SGFolder_test.txt: set Folder::CheckItems for this test
+	* tagged as SGComps-00-00-05
+
+2007-07-09  Paolo Calafiura 
+	* cmt/requirements: moved ProxyProviderSvc_test to ControlTest to 
+	remove StoreGate <-> SGComps dep loop
+	* tagged as SGComps-00-00-04
+
+2007-07-06  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* cmt/requirements: make chkconfig happy
+	* tagged as SGComps-00-00-03
+
+2007-06-23  Paolo Calafiura  <calaf@localhost.localdomain>
+	* src/SGFolder.h: #include IClassIDSvc.h for the benefit of our clients
+	* tagged as SGComps-00-00-02
+
+2007-06-22  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* Initial import as SGComps-00-00-00
+	* documentation standdown change
+	* tagged as SGComps-00-00-01
+

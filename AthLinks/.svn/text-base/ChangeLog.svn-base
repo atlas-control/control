@@ -1,0 +1,356 @@
+2016-02-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-37.
+	* AthLinks/tools/IdentContIndexingPolicy.icc: Add missing
+	#include.
+
+2016-02-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-36.
+	* test/ElementLink_test.cxx: Another warning fix.
+	* Tagging AthLinks-00-02-35.
+	* test/ElementLink_test.cxx: Fix clang warnings.
+	* Tagging AthLinks-00-02-34.
+	* test/TestThinningSvc.icc: Use SGTools/TestStore.
+
+2016-02-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-33.
+	* AthLinks/ElementLink.icc (operator<): Always allow comparison
+	with a null link.
+	* test/ElementLink_test.cxx: test the changes.
+
+2015-12-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-32.
+	* IProxyDictWithPool -> IProxyDict.
+
+2015-12-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-31.
+	* AthLinks/GenericElementLinkBase.h: GenericElementLinkBase should
+	be declared with SelectNoInstance.
+
+2015-11-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-30.
+	* test/TestThinningSvc.icc: Update for changes in IProxyDict.
+
+2015-11-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-29.
+	* AthLinks/AssociationMap.h, AthLinks/AssociationMap.icc: Add
+	addAssociation() taking links.
+	* AthLinks/tools/AssociationObjectIterator.h: Add getObjectLink().
+	* AthLinks/tools/AssociationVectorIterator.h: Add getLink().
+	* test/AssociationMap_test.cxx: Test the changes.
+
+2015-10-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-28.
+	* AthLinks/ElementLinkVector.h: Fix pyroot iteration over
+	ElementLinkVector.  (root6 fix?)
+
+2015-10-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-27.
+	* AthLinks/ElementLink.h, AthLinks/ElementLink.icc: Use default
+	copy ctor rather than writing one explicitly.  Avoids a coverity
+	warning.
+
+2015-09-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-26.
+	* Implement conversion from EL<D> -> EL<B> where both both D,B
+	and their element types are related by derived -> base
+	conversions.
+
+2015-06-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-25.
+	* src/DataProxyHolder.cxx: Be more tolerant of running with no
+	event store.
+
+2015-06-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-24.
+	* Remove defaultDataSource(), resetCachedSource().
+	* AthLinks/tools/SGgetDataSource.h, src/SGgetDataSource.cxx:
+	(deleted)
+
+2015-05-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-23.
+	* Add interfaces to allow reducing default store lookups.
+	* AthLinks/ElementLinkBase.h, AthLinks/ElementLinkBase.icc,
+	AthLinks/GenericElementLinkBase.h,
+	AthLinks/GenericElementLinkBase.icc: Add protected proxyHolder()
+	method.
+	* test/ElementLinkBase_test.cxx,
+	test/GenericElementLinkBase_test.cxx: Test it.
+	* AthLinks/tools/ElementLinkTraits.h: Document the new interface.
+	* AthLinks/DataLinkBase.h, AthLinks/DataLinkBase.icc,
+	AthLinks/DataLink.h, AthLinks/DataLink.icc: Add a constructor from
+	sgkey_t and DataProxyHolder.
+	* test/DataLinkBase_test.cxx, test/DataLink_test.cxx: Test it.
+	* AthLinks/ElementLink.h, AthLinks/ElementLink.icc: Add
+	getDataLink to efficiently return a DataLink<> to the container.
+	* test/ElementLink_test.cxx: Test it.
+	* AthLinks/ElementLinkVector.icc (findHostDObj): Use getDataLink()
+	here to avoid a store lookup.
+
+2015-05-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-22.
+	* AthLinks/ElementLinkVector.h: Add move constructor/operator.
+
+2015-05-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-21.
+	* AthLinks/DataLink.h, AthLinks/tools/SGgetDataSource.h,
+	AthLinks/tools/DataProxyHolder.icc,
+	AthLinks/tools/DataProxyHolder.h,
+	AthLinks/tools/ElementLinkTraits.h, AthLinks/ElementLink.h,
+	src/DataProxyHolder.cxx, src/SGgetDataSource.cxx: Working on
+	moving where we hold the notion of the default store to
+	SGTools/CurrentEventStore.  This is a transitional version that
+	preserves the old interfaces.
+	* test/TestStore.icc: (deleted) Get this now from SGTools.
+	* test/expect_exception.icc: (deleted) Get this now from
+	TestTools.
+	* test/*_test.cxx: Update tests.
+
+2015-03-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-20.
+	* AthLinks/selection.xml: Fix coverity warning.
+
+2015-02-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-19.
+	* AthLinks/tools/ElementLinkTraits.h (ELEMENTLINK_FWD): (new)
+	* AthLinks/tools/ForwardIndexingPolicy.h,
+	AthLinks/tools/ForwardIndexingPolicy.icc: Add an optional second
+	arg, to allow instantiating the class template on an incomplete
+	class declaration.
+	* AthLinks/ElementLink.h: Document forward declarations.
+	* Add test of forward declarations.
+
+2015-02-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-18.
+	* AthLinks/tools/SGgetDataSource.h: Hide getDataSourcePointerFunc
+	from cling, to avoid pyroot converter warnings.
+
+2015-02-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-17.
+	* AthLinks/GenericElementLinkBase.icc: Fix uninitialized
+	m_element.
+
+2014-11-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-16.
+	* AthLinks/tools/AssociationObjectIterator.h
+	(AssociationObjectIterator): Fix coverity warning.
+
+2014-10-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-15.
+	* AthLinks/GenericElementLinkBase.icc: Fix coverity warnings.
+
+2014-09-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-14.
+	* AthLinks/ElementLinkVector.h: Prevent self-selection.
+
+2014-09-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-13.
+	* src/DataProxyHolder.cxx: Logic fix for calling
+	toTransient/toIdentifiedObject on a null link.
+
+2014-08-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-12.
+	* AthLinks/exceptions.h, src/exceptions.cxx: Add
+	ExcIncomparableEL.
+	* test/exceptions_test.cxx: Add it.
+	* AthLinks/ElementLink.icc (<): Change to raise an exception if
+	either link does not have sgkey/index.
+
+2014-07-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-11.
+	* Add thinning tests to ElementLinkBase_test and
+	DataProxyHolder_test.
+
+	* Tagging AthLinks-00-02-10.
+	* Remove m_transIndex.  Move thinning handling from toPersistent
+	to a separate thin() method.  This will be called for now from a
+	hook set up in DataModelAthenaPool.
+	* AthLinks/tools/DataProxyHolder.h, src/DataProxyHolder.cxx: Move
+	thinning handling to new thin() method.  Factor out remap handling
+	into private tryRemap method.
+	* AthLinks/selection.xml: Remove m_transIndex.
+	* AthLinks/ElementLinkBase.h, AthLinks/ElementLinkBase.icc: Remove
+	m_transIndex.  Add thin().
+
+2014-07-14 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making it possible to use ElementLinks that are written out
+	  directly, together with the ThinningSvc.
+	* This necessitated the introduction of
+	  ElementLinkBase::m_transIndex, which keeps the index valid
+	  for the transient container. While m_persIndex is given the
+	  value that needs to be written to the output file/stream.
+	* Most of the logic is put into the DataProxyHolder::toPersistent
+	  functions, those are the ones calculating the correct index
+	  for the links after the thinning.
+	* Tagging as AthLinks-00-02-09
+
+2014-06-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-08.
+	* Fix compilation on 32-bit platforms.
+
+2014-06-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-07.
+	* More fixes for 32-bit persistent index type.
+	* Tagging AthLinks-00-02-06.
+	* Make persistent index type 32 bits.
+
+2014-06-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-05.
+	* test/TestStore.icc: Compile with c++98.
+
+2014-06-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-04.
+	* AthLinks/ElementLinkBase.h: Default ctor needs to be public for
+	root I/O.
+
+2014-06-02  Marcin Nowak  <Marcin.Nowak@cern.ch>
+
+	* Tagging AthLinks-00-02-03.
+	* AthLinks\tools\selection_ns.h: added support for ROOT6
+
+2014-06-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-02.
+	* src/exceptions.cxx: Put complete exception names in messages.
+	* share/exceptions_test.ref: Updated.
+
+2014-05-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-01.
+	* AthLinks/selection.xml: From Marcin: root6 requires that target=
+	be present in read rule definitions.
+
+2014-04-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-02-00.
+	* Reimplementation of DataLink / ElementLink.
+
+2014-04-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-15.
+	* AthLinks/DataLink.h: Add a couple temporary interfaces for
+	AthLinks migration.
+
+	* Tagging AthLinks-00-01-14.
+	* Adjust reference files for icc.
+
+2014-03-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-13.
+	* Adding DataProxyHolder, IndexHolder.
+
+2014-02-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-12.
+	* AthLinks/ElementLinkBase.h, AthLinks/DataLinkBase.h: ROOT
+	doesn't properly handle abstract classes with persistent data.
+	Make these classes non-abstract.
+
+2014-02-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-11.
+	* AthLinks/tools/DataProxyHolder.h: Temporary
+	forward-compatibility header.
+
+2014-01-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-10.
+	* test/DataProxyStorage_test.cxx: Update for IProxyDict
+	interface additions.
+
+2013-11-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthLinks-00-01-09
+	* hwafize
+	* A hscript
+
+2013-11-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-08.
+	* AthLinks/ElementLink.h, AthLinks/DataLink.h,
+	AthLinks/tools/PlainPtrStorage.h: Attila's changes hid the policy
+	base classes of EL and DL from Reflex.  But this breaks python
+	code, since there are some methods from those classes which are
+	needed for proper operation.  Add forwarding stubs in DL/El.
+
+2013-11-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-07.
+	* AthLinks/ElementLink.icc: Don't try to copy an invalid index.
+
+2013-10-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removed some debug messages left in the code by mistake, and
+	  rationalized the toTransient() functions a little bit.
+	* Tagging as AthLinks-00-01-06
+
+2013-10-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Merged in the changes from AthLinks-00-01-03-standalone01.
+	  See that branch for the details of all the changes...
+	* Removed the svn:executable flag from a few more files.
+	* Attempting to fix bug #102995
+	  As it turns out, ElementLinkVector<>::toTransient() was copying
+	  the contents of the ElementLinkVectorBase base class into the
+	  transient class even during regular Athena POOL (P->T) I/O.
+	  To fix this, now I introduced a transient boolean flag into
+	  DataLinkBase, ElementLinkBase and ElementLinkVectorBase,
+	  called m_isDirectIO. It is set by the ROOT streamer to true
+	  when the object is read directly from a TTree. In all other
+	  cases it should be false, preventing the toTransient() functions
+	  from doing anything harmful.
+	* Tagging as AthLinks-00-01-05
+
+2013-10-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-04.
+	* AthLinks/tools/SGELVRef.icc: Fix #include loop..
+
+2013-09-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-03.
+	* AthLinks/tools/IsSTLSequence.h: Use boost::true_type instead of
+	type_tools::true_tag for isSequence to avoid DataVector dependency
+	on AthenaKernel.
+
+	* Tagging AthLinks-00-01-02.
+	* AthLinks/tools/IsSTLSequence.h: Change FLAG -> FLAG_: Muon code
+	defines FLAG is a macro.
+
+2013-08-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-01.
+	* Move AssociationMap here from DataModel.
+
+2013-08-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthLinks-00-01-00.
+	* Moved ElementLink / DataLink code here from DataModel.
+
+

@@ -1,0 +1,226 @@
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-33.
+	* AthContainersInterfaces/AuxStore_traits.h: Fix clang warning.
+
+2014-12-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adding an include for std::type_info in IAuxTypeVector.h.
+	  It is probably possible to just use a forward declaration here
+	  instead, but the include seemed safer.
+	* This was needed to get the code compiling on MacOS X.
+	* Tagging as AthContainersInterfaces-00-01-32
+
+2014-11-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-31.
+	* AthContainersInterfaces/IAuxTypeVector.h: Fix for c++98
+	compatibility.
+
+2014-11-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-30.
+	* Add a regression test for AuxDataOption.
+	* Tagging AthContainersInterfaces-00-01-29.
+	* AthContainersInterfaces/AuxDataOption.h: Add missing #include
+	<string>.
+
+2014-11-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-28.
+	* Adding interfaces to support packed containers:
+	* AthContainersInterfaces/AuxDataOption.h,
+	AthContainersInterfaces/AuxDataOption.icc: (new)
+	* AthContainersInterfaces/IAuxSetOption.h: (new)
+	* AthContainersInterfaces/IAuxTypeVector.h: Add setOption(),
+	toPacked(), objType().
+	* AthContainersInterfaces/IAuxStore.h: Add setOption().
+
+2014-08-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-27.
+	* AthContainersInterfaces/IConstAuxStore.h,
+	AthContainersInterfaces/IAuxTypeVector.h: Make decoration and
+	size/clone interfaces pure.
+
+2014-07-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-26
+	* AthContainersInterfaces/IAuxTypeVector.h: Add clone().
+	* AthContainersInterfaces/IConstAuxStore.h: Add size().
+
+2014-06-02  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-25.
+	* AthContainersInterfaces/IConstAuxStore.h: Add interfaces for
+	decorations.  Temporarily add stub definitions for these, until
+	all derived classes are updated.
+
+2014-05-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-24.
+	* Add IAuxTypeVectorFactory.h.
+
+2014-04-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a dummy operation on m_dummy in the IAuxElement
+	  constructor. This is necessary to avoid warning messages
+	  about the unused variable on MacOS X 10.9.
+	* Not a big fan of this solution though. Will have to check if
+	  we can do away with this m_dummy variable with ROOT 6...
+	* Tagging as AthContainersInterfaces-00-01-23
+
+2014-02-20 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a CLID for SG::IAuxStoreIO. The way the interface is used
+	  by AthenaOutputStream, now makes this necessary.
+	* Updated the documentation of the new functions of SG::IAuxStoreIO
+	  a bit.
+	* Tagging as AthContainersInterfaces-00-01-22
+
+2014-02-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-21.
+	* Obo Marcin:
+	* AthContainersInterfaces/AuxTypes.h: Add AuxTypePlaceholder.
+	* AthContainersInterfaces/IAuxStoreIO.h: Add selectAux() and
+	getSelectedAuxIDs().
+
+2014-02-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Merging in the changes from the RootCore branch.
+	* No additional changes on top of that.
+	* Tagging as AthContainersInterfaces-00-01-20
+
+2014-01-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Ran some very basic tests in Athena after the modification.
+	* Tagging as AthContainersInterfaces-00-01-19-01
+
+2014-01-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making the package "compile" with RootCore.
+	* No real tests done yet, not tagging at the moment.
+
+2013-11-16 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new function to IAuxStoreHolder to make the I/O code's
+	  work a little easier.
+	* Cleaned up the hscript.yml file a bit.
+	* Tagging as AthContainersInterfaces-00-01-19
+
+2013-11-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging AthContainersInterfaces-00-01-18
+	* hwafize
+	* A hscript
+	* D wscript
+
+2013-11-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Gave an explicit initialiser for SG::IAuxElement::m_dummy.
+	  Valgrind was printing some pretty obscure warnings because
+	  of this.
+	* Tagging as AthContainersInterfaces-00-01-17
+
+2013-10-31 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out one needs to include <boost/version.hpp>
+	  explicitly to use the BOOST_VERSION macro. I was sure that
+	  it would be pulled in by all Boost headers like ROOT_VERSION
+	  is by all the ROOT ones...
+	* Set the usual keywords on all the source files.
+	* I'm still not sure exactly when
+	  <boost/type_traits/conditional.hpp> was introduced. So
+	  there may still come some compilation issues on certain
+	  platforms...
+	* Tagging as AthContainersInterfaces-00-01-16
+
+2013-10-31 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making AuxStore_traits.h work with the version of Boost that
+	  comes with SLC6 by default. This meant defining boost::conditional
+	  by hand when using an older Boost version...
+	* Tagging as AthContainersInterfaces-00-01-15
+
+2013-10-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Re-introducing the SG::IAuxElement::m_dummy variable, as
+	  ROOT can still not function without it.
+	* Tagging as AthContainersInterfaces-00-01-14
+
+2013-10-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adding a new interface: SG::IAuxStoreHolder
+	* Its purpose is to signal to the I/O infrastructure that an
+	  object wants to do I/O for "dynamic" auxiliary variables
+	  that it is holding.
+	* Tagging as AthContainersInterfaces-00-01-13
+
+2013-10-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-12.
+	* ispellwords: Updated.
+
+2013-10-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-11.
+	* AthContainersInterfaces/AuxStore_traits.h: Add flag typedef.
+	Allow pointers as template arguments.
+
+2013-10-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-10.
+	* AthContainersInterfaces/AuxTypes.h: The CxxUtils implementation
+	of unordered_set is the only one that'll work with reflex for now.
+
+2013-10-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-09.
+	* AthContainersInterfaces/IAuxTypeVector.h: Add size().
+
+2013-09-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-08.
+	* wscript: (new) From Attila.
+
+2013-09-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-07.
+	* AthContainersInterfaces/AuxTypes.h: add null_auxid.
+
+	* Tagging AthContainersInterfaces-00-01-06.
+	* AthContainersInterfaces/IAuxStore.h: off_t -> ptrdiff_t.
+
+2013-09-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-05.
+	* test/AuxStore_traits_test.cxx: Fix warnings.
+	* AthContainersInterfaces/AuxTypes.h,
+	AthContainersInterfaces/AuxStore_traits.h: Rearrange for checkreq
+	compatibility.
+
+2013-09-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-04.
+	* AthContainersInterfaces/IAuxStore.h: Add getWritableAuxIDs.
+	* AthContainersInterfaces/AuxTypes.h: Use namespace alias.
+	* AthContainersInterfaces/IAuxStoreIO.h: Change getVector to
+	getIOData and make const.  Add getIOType.
+
+2013-09-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-03.
+	* AthContainersInterfaces/IAuxTypeVector.h: off_t -> ptrdiff_t.
+
+2013-09-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-02.
+	* AthContainersInterfaces/IAuxTypeVector.h: (new)
+
+2013-09-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-01.
+	* AthContainersInterfaces/AuxStore_traits.h: (new)
+	* AthContainersInterfaces/CLASS_AUXSTORE.h: (new)
+	* test/AuxStore_traits_test.cxx: (new)
+	* share/AuxStore_traits_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2013-09-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging AthContainersInterfaces-00-01-00.
+	* AthContainersInterfaces/AuxTypes.h: (new)
+	* AthContainersInterfaces/IConstAuxStore.h: (new)
+	* AthContainersInterfaces/IAuxStore.h: (new)
+	* AthContainersInterfaces/IAuxElement.h: (new)
+	* AthContainersInterfaces/IAuxStoreIO.h: (new)
+
