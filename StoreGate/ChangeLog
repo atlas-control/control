@@ -1,0 +1,3696 @@
+2016-02-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-25.
+	* Remove empty file.
+
+	* Tagging StoreGate-03-06-24.
+	* test/WriteHandle_test.cxx, share/WriteHandle_test.ref: Fix ref
+	file comparison.
+
+	* Tagging StoreGate-03-06-23.
+	* Update to VarHandles: allow reentrant use, constness fixes,
+	other extensions.
+
+2016-02-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-22.
+	* StoreGate/VarHandleBase.h: Add storeHandle().
+	* StoreGate/StoreGateSvc.h, src/StoreGateSvc.cxx: Update for
+	IProxyDict changes.
+	* share/SGHive_test.ref: Updated.
+
+2016-02-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-21.
+	* Add HandleKey classes.
+
+2016-02-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-20.
+	* Update for IProxyDict changes.
+
+2016-01-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-19.
+	* StoreGate/SGIterator.h: Move `detail' namespace inside SG.
+	Don't start names with underscores.
+
+2016-01-15  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging StoreGate-03-06-18.
+	* src/SGImplSvc.cxx (keyless retrieve): Call retrieveProxy() to trigger
+	updateAddress().
+
+2015-12-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-17.
+	* IProxyDictWithPool -> IProxyDict.
+
+2015-11-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-16.
+	* src/SGImplSvc.cxx (typeless_overwrite): Make sure old proxy
+	isn't freed until after replaceProxy() call.
+
+2015-10-26  Charles Leggett
+	* Tag StoreGate-03-06-15
+	* DataObjID: swap order of parameters in constructor to
+                     classID/key
+
+M       src/VarHandleBase.cxx
+M       src/SGImplSvc.cxx
+M       StoreGate/VarHandleBase.h
+
+2015-10-20  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-14.
+	* cmt/requirements: Fix checkDbgSymbols warning.
+
+2015-10-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-13.
+	* StoreGate/DataHandle.h, StoreGate/tools/SGImplSvc.h: Fix clang
+	warnings: add missing override keywords.
+
+2015-10-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-12.
+	* Comply with ATLAS naming conventions.  Fix placement of using
+	directives.
+
+2015-10-01  Charles Leggett
+	* expose StoreGateSvc::addedNewPersObject
+	* tag StoreGate-03-06-11
+
+M       src/StoreGateSvc.cxx
+M       StoreGate/StoreGateSvc.h
+
+2015-09-28  Charles Leggett
+	* fix type in UpdateHandle
+	* tag StoreGate-03-06-10
+
+M       StoreGate/UpdateHandle.icc
+
+2015-09-23  Charles Leggett
+	* use Gaudi::DataHandle::Mode instead of VarHandleBase::Mode,
+	  add this as parameter to constructor of VarHandleBase
+	* tag StoreGate-03-06-09
+
+M       src/VarHandleBase.cxx
+M       StoreGate/ReadHandle.icc
+M       StoreGate/VarHandleBase.h
+M       StoreGate/UpdateHandle.icc
+M       StoreGate/WriteHandle.icc
+M       StoreGate/ReadHandle.h
+
+
+2015-09-22  scott snyder  <snyder@bnl.gov>
+
+        * Tagging StoreGate-03-06-08.
+	* Fix incompatibility between VarHandle caching and hive.
+	* StoreGate/ReadHandle.h, StoreGate/WriteHandle.h,
+	StoreGate/UpdateHandle.h: Add cachedPtr.
+	* src/SGImplSvc.cxx (clearStore): Clear the m_newBoundHandles
+	vectors for all threads.
+	(commitNewDataObjects): Reset handles added since the last call to
+	commit (in this thread).
+	(boundHandle, unboundHandle): (new)
+	* StoreGate/tools/SGImplSvc.h: Add m_newBoundHandles,
+	commitNewDataObjects, boundHandle, unboundHandle.
+	* StoreGate/SGtests.h, test/SGtests.cxx: Test bound reset
+	functions.
+	* test/VarHandles_test.cxx: Test cachedPtr.
+
+        * Tagging StoreGate-03-06-07.
+	* src/SGHiveMgrSvc.cxx, src/StoreGateSvc.cxx (finalize): Make sure
+	finalize gets called on the impl services.  As they're created
+	here, Gaudi doesn't flag them as active, so ServiceManager won't
+	finalize them.
+	* src/StoreGateSvc.cxx (initialize): Fix refcount for impl
+	services.
+	* StoreGate/StoreGateSvc.icc (constRetrieveAux): Was calling the
+	wrong impl method.  Fixed.
+	* share/SGHive_test.ref: Update reference file.
+
+2015-09-21  scott snyder  <snyder@bnl.gov>
+
+	* test/VarHandles_test.cxx: test.
+
+        * Tagging StoreGate-03-06-06.
+	* test/SGHive_test.cxx: Fix compilation.
+	* share/SGHive_test.ref: Updated.
+
+2015-09-14  Charles Leggett
+
+        * Tagging StoreGate-03-06-05
+	* added include for DataObjID
+
+M       StoreGate/VarHandleBase.h
+
+2015-09-14  Charles Leggett
+
+        * Tagging StoreGate-03-06-04
+        * Hive: change data products identifier from string to
+	        DataObjIDColl. bit of a hack in VarHandleBase as
+	        we need to know the clid, but it's not available at
+	        constructor time
+
+M       src/VarHandleBase.cxx
+M       src/SGHiveMgrSvc.cxx
+M       src/SGImplSvc.cxx
+M       src/StoreGateSvc.cxx
+M       src/SGHiveMgrSvc.h
+M       StoreGate/VarHandleBase.h
+M       StoreGate/StoreGateSvc.h
+M       StoreGate/VarHandleProperty.h
+M       StoreGate/tools/SGImplSvc.h
+
+
+2015-09-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-03.
+	* Do a hard reset() on handles if there's more than one hive
+	store.  As part of this, SGImplSvc gets a setSlotNumber method to
+	record its slot and the total number of slots.  This is set by
+	SGHiveMgrSvc.
+
+2015-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-02.
+	* StoreGate/DataHandle.h: Further temp workaround for
+	TrigDecisionTool compatibility.
+
+2015-09-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-01.
+	* StoreGate/VarHandleBase.h, StoreGate/DataHandle.h: Temp
+	workaround for TrigDecisionTool compatibility.
+
+2015-09-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-06-00.
+	* Add HARD argument to reset() method for handles.
+
+2015-09-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-05-01.
+	* src/SGImplSvc.cxx, src/StoreGateSvc.cxx: Current event store is
+	now thread-safe in hive builds.  Get rid of old hacks related to
+	this.
+
+2015-07-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-05-00.
+	* Rework VarHandle classes to use IProxyDict rather than
+	StoreGateSvc.
+
+2015-07-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-04-00.
+	* Add recordObject / updatedObject interfaces.  Remove deep_proxy
+	and proxy(CLID) interfaces.  Add override/final keywords where
+	appropriate.
+
+2015-07-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-03-07.
+	* cmt/requirements: Add VarHandles_test.
+
+2015-06-11  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-03-06
+	* StoreGate/StoreGateSvc.icc (retrieveUniquePrivateCopy): get rid of copy
+	of std::unique_ptr for hive stores
+	
+2015-06-10  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-03-05
+	* src/SGImplSvc.cxx (record_impl): support auto VersionedKey records,
+	allow to use VersionedKeys also when legacy key is present (trying
+	to address ATEAM-167)
+	
+
+2015-06-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-03-04.
+	* StoreGate/SGObjectWithVersion.h: Fix another clang struct/class
+	mismatch warning.
+
+2015-06-09  Paolo Calafiura  <calaf@lxplus0141.cern.ch>
+
+	* Tagging StoreGate-03-03-03
+	* StoreGate/StoreGateSvc.icc (_SGXCALL): use recursive_mutex
+
+2015-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-03-02.
+	* StoreGate/StoreGateSvc.icc: Hide BOOST_CONCEPT_ASSERTs from
+	clang, to avoid warnings.
+	* StoreGate/StoreGateSvc.h, StoreGate/StoreGateSvc.icc: Add
+	unique_ptr versions of readPrivateCopy/retrievePrivateCopy.
+	* test/SGtests.cxx: Use them.
+
+2015-05-05  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-03-01
+	* StoreGate/StoreGateSvc.icc (_SGXCALL): lock access also for detstore
+
+	* Tagging StoreGate-03-03-00
+	* src/SGImplSvc.cxx (record_impl): make last recorded VersionedKey the default (currently was the first)
+	* test/SGtests.cxx: update testVersionedKey for the above
+
+2015-05-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-02-08
+	* Temporary workaround to get hive working until the final version
+	of CurrentEventStore is in place.
+
+2015-05-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-02-07.
+	* src/SGImplSvc.cxx: Track current store in
+	SG::CurrentEventStore.
+
+2015-04-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-02-06.
+	* StoreGate/DataHandle.icc: Fix coverity warning.
+
+2015-03-31  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* StoreGate/UpdateHandle.icc (op=): allow to write data into
+	uninitialized handle
+
+	* Tagging StoreGate-03-02-04
+	* StoreGate/WriteHandle.icc (op=): caching of m_proxy does not work in
+	general (requires resetProxy), and not at all for Hive. Always record
+
+2015-03-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-02-03.
+	* StoreGate/tools/SGImplSvc.h: Hide tbb from cling, to prevent
+	dictionary parse errors.
+
+2015-03-25  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-02-02
+	* StoreGate/WriteHandle.h:
+	* StoreGate/UpdateHandle.h: add StoreGateSvc.h needed in icc
+
+	* Tagging StoreGate-03-02-01
+	* StoreGate/tools/SGImplSvc.h: make the addedNew*Object methods public
+	so that they can be called directly from handles
+
+2015-03-24  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-02-00
+	* StoreGate/StoreGateSvc.h: addedNewTransObject allows handles
+	to tell hive what they did, just like record does
+	* StoreGate/VarHandleBase.h: make m_store a StoreGateSvc handle
+	* StoreGate/UpdateHandle.icc (op=): use m_store for record and
+	addedNewTransObject
+	* StoreGate/WriteHandle.icc (op=): use m_store for record and
+	addedNewTransObject
+
+2015-03-19  Charles Leggett
+	* Tagging StoreGate-03-01-12
+	* StoreGate/StoreGateSvc.h: fix typo
+
+2015-03-19  Charles Leggett
+	* StoreGate/tools/SGImplSvc.h: include IProxyProviderSvc.h explicitly
+
+2015-03-18  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-01-11
+	* StoreGate/StoreGateSvc.h: get rid of leftover resetOnly argument in
+	one of overwrite methods
+	
+
+2015-03-17  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-01-10
+	* StoreGate/tools/SGImplSvc.h: 
+	* StoreGate/StoreGateSvc.h: force removal of proxies when overwriting.
+	Fixes ATEAM-123
+
+2015-03-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-01-09.
+	* test/ActiveStore_test.cxx: Make members public to avoid clang
+	warning about unused private members.
+	* StoreGate/ActiveStoreSvc.h, src/SGImplSvc.cxx,
+	src/components/StoreGateSvc_entries.cxx: Break #include cycle
+	(coverity warning).
+
+2015-03-11  David Quarrie  <David.Quarrie@cern.ch>
+
+	* Tagging StoreGate-03-01-08.
+	* cmt/requirements
+		Inform cmake that this package has private header files (transparent to CMT)
+
+2015-03-10  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-01-07.
+	* Add a ProxyProviderSvc property to StoreGateSvc.  Allows
+	configuring StoreGateSvc without a PPS, in order to break the
+	dependency of the unit tests in this package on SGComps.
+	* cmt/requirements: Avoid having SGHive test fail in non-hive
+	builds.  Tweak patterns to be ignored.
+
+2015-03-04  Paolo Calafiura  <calaf@lxplus0073.cern.ch>
+
+	* Tagging StoreGate-03-01-06
+	* src/StoreGateSvc.cxx (setSlot): allow setting slot to 0 to run in serial mode
+
+2015-03-03  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-01-05
+ 	* src/SGImplSvc.cxx (clearStore): hack to avoid firing StoreCleared incident during finalize
+
+2015-02-17  Paolo Calafiura  <calaf@Paolos-MacBook-Air.local>
+
+	* Tagging StoreGate-03-01-04 
+	* StoreGate/tools/SGImplSvc.h: restore friend class PerfMon::StorePayloadMon
+
+2015-02-12  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-03-01-03 
+	* src/StoreGateSvc.cxx (initialize): add missing }! 
+	* Tagging StoreGate-03-01-02
+	* StoreGate/tools/SGImplSvc.h: be friendly to python... 
+
+2015-02-12  Paolo Calafiura  <calaf@lxplus0032.cern.ch>
+
+	* Tagging StoreGate-03-01-01
+	* src/VarHandleBase.cxx (SG): protect pointer in debug printout
+
+2015-02-10  Paolo Calafiura
+	* Tagging StoreGate-03-01-00
+	* merge in from branch:
+	* test/VarHandles_test.cxx: test moving 
+	* StoreGate/ReadHandle.icc: added move constructor and assigment 
+	* StoreGate/WriteHandle.icc: added move constructor and assigment 
+	* StoreGate/UpdateHandle.icc: added move constructor and assigment 
+	* src/VarHandleBase.cxx:added move constructor and assigment. 
+	Use quiet bool flag to control warnings, and set default using NDEBUG 
+	* src/VarHandleBase.cxx (SG): fix NDEBUG typo
+	* fixed validity checking and resetting of VarHandles, added unit test 
+	* src/StoreGateSvc.cxx: Need to create DataStore and remap table
+	in ctor after all, for proper operation of some tests running
+	outside of Athena.
+
+2015-02-10  Paolo Calafiura
+	* Tagging StoreGate-03-00-12
+	* cmt/requirements: use AtlasTBB
+	
+2015-02-03  Charles Leggett
+	* Tagging StoreGate-03-00-11
+	* StoreGateSvc: added commitNewDataObjects() method from IHiveStoreMgr
+	* SGImplSvc: added commitNewDataObjects() method, thread_local vec
+	to store new data objects. these are swept by SGCommitAuditor at
+	afterExecute
+	* updated SGHive_test.cxx and ref
+
+M       src/SGImplSvc.cxx
+M       src/StoreGateSvc.cxx
+M       StoreGate/StoreGateSvc.h
+M       StoreGate/tools/SGImplSvc.h
+M       test/SGHive_test.cxx
+M       share/SGHive_test.ref
+
+2015-02-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-00-10.
+	* Merge from branch:
+	* Clean up more memory during finalize().
+
+2015-01-31  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-00-09.
+	* Merge from branch:
+	* src/StoreGateSvc.cxx: Don't need to register/unregister the
+	Arena in the ctor/dtor.  Dump out Arena statistics if we're
+	dumping the store at end-of-event.  Drop memory used by Arenas
+	during finalize().
+
+2015-01-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-00-08.
+	* Merge from branch:
+	* Starting to move towards making allocators compatible with hive.
+	* StoreGate/ActiveStoreSvc.h, src/ActiveStoreSvc.cxx: Make
+	setStore out-of-line.  Call StoreGateSvc::makeCurrent when a store
+	is made active.
+	* StoreGate/StoreGateSvc.h, src/StoreGateSvc.cxx: StoreGateSvc
+	holds an Arena object, cleared when the store is cleared.  Add
+	makeCurrent() method for use by ActiveStoreSvc to make a store's
+	Arena current.
+
+2015-01-22  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-00-07.
+	* Merge from branch:
+	* src/StoreGateSvc.cxx (addSymLink, addAutoSymLinks): Don't do the
+	transient registration if the proxy doesn't have an object (i.e.,
+	don't trigger input from here!).
+
+2015-01-26  scott snyder  <snyder@bnl.gov>
+
+        * Tagging StoreGate-03-00-06.
+	* StoreGate/StoreGateSvc.h: Delete unused class members.
+
+2015-01-13  Paolo Calafiura  <calaf@lxplus0059.cern.ch>
+
+        * Tagging StoreGate-03-00-05
+	* StoreGate/DataHandle.h: cleaned up includes, BUT had to add back useless include for ActiveStoreSvc.h to get
+	many Muon AtlasEvent packages to compile (they were getting it through DataHandle.icc before...) FIXME
+
+2015-01-12  Paolo Calafiura  <calaf@lxplus0198.cern.ch>
+
+        * Tagging StoreGate-03-00-04
+	* src/StoreGateSvc.cxx (releaseObject): add forwarding to SGImplSvc to be able to build TileCalibration
+
+2015-01-11  Paolo Calafiura  <calaf@lxplus0226.cern.ch>
+
+        * Tagging StoreGate-03-00-03
+	* src/StoreGateSvc.cxx (typeless_record): added forwarding to SGImplSvc (needed by StoreGateBindings)
+	* StoreGate/StoreGateSvc.h: redefine deprecated methodvcreateProxy. Use __attribute__((deprecated))
+	to mark all deprecated methods
+	* StoreGate/StoreGateSvc.icc (retrieve/constRetrieveAux): forward to SGImplSvc as we are supposed to
+
+2015-01-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-03-00-01.
+	* cmt/requirements: Remove obsolete template depth setting ---
+	this was now making the limit smaller, not larger!
+
+2014-12-23  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* share/SGHive_test.ref: updated (no reflex plugin debug printouts anymore)
+
+	* Tagging StoreGate-03-00-00
+	* merging in Hive support from StoreGate-02-39-07-branch. Forward 
+	StoreGateSvc implementation to SGImplSvc which, in Hive, will have
+	multiple instances assigned to different events by SG::HiveMgrSvc
+	Hive support only available when ATHENAHIVE in #defined
+
+2014-12-12  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-02-45-01
+	* StoreGate/*Var.h: 
+	* StoreGate/*Handle.h: fixed the backward compatibility layer 
+
+2014-12-04  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-02-45-00
+ 	* renamed VarHandles
+	* src/VarHandleBase.cxx use IProxyDictWithPool instead of StoreGateSvc
+
+2014-11-20  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-02-44-00
+	* src/StoreGateSvc.cxx (bindHandleToProxy): don't addRef the proxy (already done in DHB::setState)
+	fixes memory leak ATEAM-61
+
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-43-01.
+	* Fix coverity warnings.
+
+2014-09-04  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-02-43-00
+	* StoreGate/WVar.icc: check handle valid before assigning value to it
+	* StoreGate/RWVar.icc: check handle valid before assigning value to it
+
+	* src/VarHandleProperty.cxx: simplified property structure from dict
+	to string of the form "[StoreName/]Key"
+
+2014-09-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-42-01.
+	* src/StoreGateSvc.cxx (typeless_readPrivateCopy): Fix unchecked
+	StatusCode.  Fix mislabelled warning.
+	* src/VarHandleBase.cxx (typeless_dataPointer_impl): Fix
+	compilation warning.
+
+2014-09-02  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging StoreGate-02-42-00
+	* StoreGate/WVar.icc: replace T* with unique_ptr in operator =,
+	fixed its implementation which did not register transient ptr
+	* StoreGate/VarHandleBase.h: fixed isValid implementation
+	* src/VarHandleBase.cxx: added extensive debug printouts, quiet flag
+	to typeless_dataPointer_impl
+	* StoreGate/StoreGateSvc.icc (symLink): cleaned up implementation
+
+2014-08-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-17.
+	* StoreGate/setupStoreGate.h, src/setupStoreGate.cxx: Helper for
+	setting up StoreGate for use in regression tests.  Adapted from
+	CppUnit-based code in TestPolicy.
+
+2014-07-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-16.
+	* test/SGtests.cxx: Update for addition to IConstAuxStore
+	interface.
+
+2014-06-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-15.
+	* test/SGtests.cxx: Fix for compiling test with c++98.
+
+2014-06-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-14.
+	* StoreGate/StoreGateSvc.h, StoreGate/StoreGateSvc.icc: Add
+	record() and overwrite() overloads taking unique_ptr.
+	* test/SGtests.cxx: Test them.
+
+2014-05-20  Paolo Calafiura  <calaf@electra>
+
+	* Tagging StoreGate-02-41-13
+	* StoreGate/StoreGateSvc.icc (create): protect with BOOST CXX11
+	ifndefs as well to avoid errors with gccxml
+
+2014-05-19  Paolo Calafiura  <calaf@electra>
+
+	* Tagging StoreGate-02-41-12
+	* StoreGate/StoreGateSvc.h: new create method to new and register
+	a data object in one go.
+	* test/SGtests.cxx: added testCreate function
+
+2014-05-13  Paolo Calafiura  <calaf@electra>
+
+	* Tagging StoreGate-02-41-11
+	* src/StoreGateSvc.cxx (typeless_overwrite): call replaceProxy for
+	DetectorStore objects (savannah #104311)
+
+2014-04-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-10.
+	* StoreGate/StoreGateSvc.h, StoreGate/StoreGateSvc.icc,
+	src/StoreGateSvc.cxx: Make addAutoSymLinks more robust: if we
+	can't find the type by CLID, try finding it by type_info.  This
+	requires passing the type_info to record_impl from the templated
+	code.
+
+2014-04-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-09.
+	* test/SGtests.cxx (TestAuxStore): Adjust for IAuxStore interface
+	changes.
+
+2014-02-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-08.
+	* src/StoreGateSvc.cxx (addAutoSymLinks): Fix problem found by
+	coverity: shadowed parameter.
+
+2014-02-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-07.
+	* src/StoreGateSvc.cxx: DataProxy::setStore is now called from
+	DataStore::addToStore --- don't need to do it from here anymore.
+
+	* Tagging StoreGate-02-41-06.
+	* StoreGate/StoreGateSvc.icc (retrieve): Clean up spurious newline
+	in warning message.
+
+2014-02-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-05.
+	* StoreGate/StoreGateSvc.h: Add some final declarations for better
+	performance.
+	* cmt/requirements: Adjust dependencies.
+
+2014-02-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-04.
+	* Implement addToStore and proxy_exact(sgkey_t) in StoreGateSvc.
+
+2014-02-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-03.
+	* src/StoreGateSvc.cxx (recordAddress): Fix warn_nobib arg to
+	addAutoSymlinks.
+	* Tagging StoreGate-02-41-02.
+	* StoreGate/StoreGateSvc.h, src/StoreGateSvc.cxx: Add
+	auto-symlinking to recordAddress.
+
+2014-01-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-01.
+	* src/StoreGateSvc.cxx: Add IStringPool arg to DataStore ctor.
+	* src/StoreGateSvc.cxx, test/SGtests.cxx: Record store in
+	DataProxy.
+
+2014-01-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-41-00.
+	* StoreGate/ActiveStoreSvc.h, src/ActiveStoreSvc.cxx: Add methods
+	proxy_exact add addToStore.
+	* StoreGate/StoreGateSvc.h, src/StoreGateSvc.cxx: Likewise.
+
+2013-12-12  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* Tagging StoreGate-02-40-00
+	* StoreGate/StoreGateSvc.h: use DataHandle as arg for associateAux to
+	avoid useless lookup when object has no AuxStore. Added associateAux to
+	most retrieve method calls.
+	* test/SGtests.cxx: added more retrieveAux tests
+
+2013-11-08  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* Tagging StoreGate-02-39-14
+	* StoreGate/StoreGateSvc.icc (overwrite):  remove unchecked statuscode in overwrite fixing #102723 (thanks Werner)
+	* src/StoreGateSvc.cxx  (typeless_overwrite): improve semantics
+
+2013-10-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-39-13.
+	* StoreGate/StoreGateSvc.h: Update signature of
+	recordObjectToStore.
+
+2013-10-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-39-12.
+	* test/SGtests.cxx: Fix compilation on 32-bit platforms.
+
+2013-10-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-39-11.
+	* test/SGtests.cxx: Test standalone objects with aux store.
+
+2013-09-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-39-10.
+	* Merge in Paulo's auxdata changes from the branch.
+
+2013-09-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-39-09.
+	* unordered_map.h moved to CxxUtils.
+	* Arena allocators moved to AthAllocators.
+
+2013-08-07  Sebastien Binet  <binet@farnsworth>
+
+	* Tagging StoreGate-02-39-08
+	* fix package name
+	* M wscript
+
+2013-04-01  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* Tagging StoreGate-02-39-07
+	* src/StoreGateSvc.cxx (stop): increase svcmgr priority for event stores (fix #99993)
+
+
+2013-04-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-39-06.
+	* src/StoreGateSvc.cxx (record_impl): Make auto-symlinks for copy
+	conversions too.
+
+2013-02-26  Sebastien Binet  <binet@cern.ch>
+
+	* tagging StoreGate-02-39-05
+	* fixing clang warning (RemapImpl is a struct, not a class)
+	* M StoreGate/StoreGateSvc.h
+
+2013-02-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-39-04.
+	* StoreGate/StoreGateSvc.icc: Fix warnings.
+
+2013-01-31  Sebastien Binet  <binet@cern.ch>
+
+	* tagging StoreGate-02-39-03
+	* use new build_dual_use_lib hwaf-method
+	* M wscript
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging StoreGate-02-39-02
+	* adding wscript file
+	* A wscript
+
+2012-12-07  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* Tagging StoreGate-02-39-01.
+	* src/StoreGateSvc.cxx (record_impl): record with overwrite is
+	deprecated but does not fail.
+
+2012-09-26  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* src/StoreGateSvc.cxx (StoreGateSvc::recordAddress): if no key is
+	provided first try the second parameter of IOA and then the first
+
+2012-07-11  Paolo Calafiura  <calaf@pb-d-128-141-141-100.cern.ch>
+
+	* Tagging StoreGate-02-39-00.
+	* StoreGate/StoreGateSvc.h : prevent record from overwriting
+	object on disk. Introduce overwrite  to record an object on top of
+	another (on disk or  in memory) 
+
+2012-07-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-38-05.
+	* Coverity warning fixes.
+
+2012-06-01  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging StoreGate-02-38-04
+	* StoreGate/StoreGateSvc.h: introduced new methods tryRetrieve and
+	tryConstRetrieve
+
+2012-03-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-38-03.
+	* StoreGate/SGIterator.h: Implement missing methods.
+
+2012-03-02  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* Tagging StoreGate-02-38-02
+	* remove VarHandle
+	* add RVar, WVar and RWVar handles
+	* add property support for var handles
+	* A StoreGate/RVar.h
+	* A StoreGate/RVar.icc
+	* A StoreGate/RWVar.h
+	* A StoreGate/RWVar.icc
+	* A StoreGate/VarHandleProperty.h
+	* A StoreGate/WVar.h
+	* A StoreGate/WVar.icc
+	* A src/VarHandleProperty.cxx
+	* D StoreGate/VarHandle.h
+	* D StoreGate/VarHandle.icc
+	* M StoreGate/VarHandleBase.h
+	* M src/VarHandleBase.cxx
+
+2011-11-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-38-01.
+	* test/SGtests.cxx (Athena_test): Fix regression test.
+
+2011-11-28  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging StoreGate-02-38-00
+	* fixing coverity defect 16556 (disambiguate proxy api)
+	* split-up DataHandle into DataHandle and DataHandleBase (reduce
+	  template bloat)
+	* introduce VarHandle and VarHandleBase
+	* A StoreGate/VarHandleBase.h
+	* A StoreGate/VarHandle.h
+	* A StoreGate/VarHandle.icc
+	* A src/VarHandleBase.cxx
+	* M test/DataHandle_test.cxx
+	* M test/SGtests.cxx
+	* M StoreGate/DataHandle.icc
+	* M StoreGate/StoreGateSvc.h
+	* M StoreGate/StoreGateSvc.icc
+	* M StoreGate/DataHandle.h
+
+2011-09-23  scott snyder  <snyder@bnl.gov>
+
+	* tagging StoreGate-02-37-05
+	* StoreGate/StoreGateSvc.icc: Automatically make recorded objects
+	const if ClassID_traits<T>::s_isConst is set.
+
+2011-08-27  scott snyder  <snyder@bnl.gov>
+
+	* tagging StoreGate-02-37-04
+	* cmt/requirements: More patterns to ignore.
+
+2011-05-31  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-37-03
+	* StoreGate/StoreGateSvc.icc: introduced SG_MSG_ macros to protect
+	debug and verbose messages
+
+2011-05-26  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-37-02
+	* StoreGate/DataHandle.icc: remove unnecessary include StoreGateSvc.h 
+	(coverity 46721)
+	
+2011-05-13  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-37-01
+	* StoreGate/StoreGateSvc.icc  : get CLASS_DEF.h from SGTools
+
+2011-05-11  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-37-00
+	* test/SGtests.cxx (CLASS_DEF): get CLASS_DEF.h from SGTools
+	* test/DataHandle_test.cxx (CLASS_DEF): get CLASS_DEF.h from SGTools
+	* test/SGIterator_test.cxx (CLASS_DEF): get CLASS_DEF.h from SGTools
+	D StoreGate/tools/ClassID_traits.h: obsolete
+	
+2011-05-10  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-36-07
+	* StoreGate/StoreGateSvc.h: fix CLASS_DEF include package
+	* cmt/requirements: removed redundant CLIDSvc use statement
+
+2011-03-01  Charles Leggett
+	
+	* tagging StoreGate-02-36-06
+	* src/StoreGateSvc.cxx: turn bindHandleToProxy warning message into
+	  a real FATAL error as was promised 1.5 years ago
+
+2011-01-27  Paolo Calafiura  <calaf@calaf-laptop>
+
+        * tagging StoreGate-02-36-05
+        * StoreGate/StoreGateSvc.[h,icc]: making clang happy (and the regFcn declarations more logic)
+
+2010-11-11  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-36-04
+	* StoreGate/DataHandle.h: remove gcc forward_iterator references
+	* src/StoreGateSvc.cxx: remove gcc sstream references
+	* test/SGIterator_test.cxx (operator=): use floatEQ
+
+2010-09-07  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-36-03
+	* src/ActiveStoreSvc.cxx (ActiveStoreSvc::ActiveStoreSvc): fix
+	initialization order 
+
+2010-08-18  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-36-02
+	* src/ActiveStoreSvc.cxx (ActiveStoreSvc::ActiveStoreSvc): Coverity fix 20724
+	* test/SGtests.cxx (class Foo): Coverity fix 20724
+
+2010-06-07  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging StoreGate-02-36-01
+	* fwd compat w/ gaudi-21
+	* M test/SGtests.cxx
+
+2010-05-14  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging StoreGate-02-36-00
+	* src/StoreGateSvc.cxx (StoreGateSvc::recordAddress): new version 
+	of the method not relying on getting key from IOA::par()[0] (#568750
+
+2010-03-30  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGate-02-35-03
+	* fixing all msglevel problems
+	* M src/StoreGateSvc.cxx
+	* M StoreGate/StoreGateSvc.h
+	* M StoreGate/StoreGateSvc.icc
+
+	* tagging StoreGate-02-35-01
+	* adding new friends (for ::clearProxyPayload)
+	* adding a MsgStream datamember (for efficiency reasons)
+	* M src/StoreGateSvc.cxx
+	* M StoreGate/StoreGateSvc.h
+	* M StoreGate/StoreGateSvc.icc
+
+2010-01-11  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* src/StoreGateSvc.h: Fix bug 33458 (extended functionality of keys method, deprecated old version). 
+	Deprecated retrieve(DH,DH) in favour of version with SG::iterator
+	Reshuffled methods around in h file to improve header file and doxygen readability.
+
+	* test/SGtests.cxx (Athena_test): new testKeys() added
+	* tag StoreGate-02-35-00
+
+2009-10-01  Charles Leggett
+	* StoreGate/StoreGateSvc.cxx: I hate you. ERROR == Success??
+	* tag StoreGate-02-34-04
+
+2009-10-01  Charles Leggett
+	* StoreGate/StoreGateSvc.cxx: change "FATAL" to "F*A*T*A*L" to
+	  avoid post-processing grepping issues.
+	* tag StoreGate-02-34-03
+
+2009-09-29  Charles Leggett
+	* StoreGate/StoreGateSvc.cxx: print nasty error message in
+	  bindHandleToProxy if multiply bound handle detected.
+	* tag StoreGate-02-34-02
+
+2009-09-28  Charles Leggett
+	* StoreGate/DataHandle.icc: change key() to talk to the DataProxy
+	* if the ProxyIterator is not set.
+	* tag StoreGate-02-34-01
+
+2009-09-25  Charles Leggett
+	* StoreGate/DataHandle.h: add isSet() method from IResetable
+	* requires change to IResetable
+	* StoreGateSvc.cxx: add an addRef() to bindHandleToProxy
+	* tag StoreGate-02-34-00
+	
+2009-09-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging Tagging StoreGate-02-33-09
+	* src/StoreGateSvc.cxx (queryInterface): Add IDs for IStringPool
+	and IProxyDictWithPool.
+
+2009-09-11  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+	* Tagging Tagging StoreGate-02-33-08
+        * remove redundant StoreGateSvc::proxy(const CLID& id, const char* key)
+	* src/StoreGateSvc.cxx (regHandle): disambiguate proxy call for MAC 
+
+2009-08-28  David Quarrie <David.Quarrie@cern.ch>
+	* Tagging Tagging StoreGate-02-33-07
+	* StoreGate/StoreGateSvc.h: } Add overloaded proxy(const CLID& id, const char* key) member 
+	* src/StoreGateSvc.cxx:     } function to solve a problem on MacOSX
+	
+2009-08-27  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* Tagging StoreGate-02-33-06
+	* StoreGate/StoreGateSvc.h: add SGDeleteAlg to list of friends (bug 54916)
+
+2009-08-14  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* Tagging StoreGate-02-33-05
+	* src/StoreGateSvc.cxx (clearProxyPayload): new method to help
+	cleanup IOV(Db)Svc memory
+
+2009-08-04 Paolo Calafiura
+	* Tagging StoreGate-02-33-04
+	* class StoreGateSvc: new friends (IOVDbSvc and IOVSvcTool) want to
+        call releaseObject
+
+2009-05-02  Charles Leggett
+	* removed spurrious USER mode from SegMemSvc
+	* added doxygen stuff
+	* tag StoreGate-02-33-03
+
+2009-05-02  scott snyder  <snyder@bnl.gov>
+
+	* tagging StoreGate-02-33-02
+	* src/StoreGateSvc.cxx (dump): Get rid of spurious NUL in dump
+	output. 
+	* test/StoreGate.xml: Test output differences are failures.
+
+2009-04-21  Sebastien Binet  <binet@farnsworth>
+
+	* tagging StoreGate-02-33-01
+	* fixing memory leak in SegMemSvc::handle
+	* M StoreGate/SegMemSvc.icc
+	* M src/SegMemSvc.cxx
+
+2009-04-17 Paolo Calafiura
+	* Tagging StoreGate-02-33-00
+	* class ActiveStoreSvc: implement IProxyDict
+
+2009-04-17 Charles Leggett
+	* SegMemSvc: updates
+
+	
+2009-03-09 Paolo Calafiura
+	* Tagging StoreGate-02-32-00
+	* class StoreGateSvc : instrumented with IPageAccessControlSvc
+
+2009-01-19  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging StoreGate-02-31-10
+	* class StoreGateSvc : For now move m_pPPS->preLoadProxies back to initialize().
+
+2009-01-15  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging StoreGate-02-31-09
+	* class StoreGateSvc : new method (from extended Gaudi states) start() will call
+	m_pPPS->preLoadProxies (rather than initialize()) to delay reading data from file.
+
+2009-01-09 Paolo Calafiura
+	* Tagging StoreGate-02-31-08
+	* class StoreGateSvc : new method 
+	retrieve(ConstIterator&b, ConstIterator&e) and its tests
+
+2008-12-08  Paolo Calafiura
+	* Tagging StoreGate-02-31-07
+	* StoreGate/constraints/KeyConcept.h: use BOOST_VERSION for backward compatibility
+
+2008-12-08  David Quarrie <David.Quarrie@cern.ch>
+	* Tagging StoreGate-02-31-06
+	* StoreGate/constraints/KeyConcept.h: Change for Boost 1.37
+
+2008-10-27  Paolo Calafiura
+	* Tagging StoreGate-02-31-05
+	* src/StoreGateSvc.cxx (reinitialize): do not call Service::reinitialize as this is
+	badly implemented in v20r2p2.
+
+2008-10-27  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-31-04.
+	* src/StoreGateSvc.cxx (record_impl): If auto-symlink fails, print
+	a warning, but don't fail the record.
+
+2008-10-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-31-03.
+	* StoreGate/SegMemSvc.h: Fix compilation warning.
+	* cmt/requirements: Fix typo that was causing a checkreq warning.
+
+2008-10-01  Charles Leggett
+	* Added unit tests for SegMemSvc, modified requirements accordingly
+	* StoreGateSvc/SegMemSvc.h: put a default return for the cvt
+	  function (which you should never see)
+
+2008-09-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-31-02.
+	* StoreGate/DataHandle.icc (DataHandle): isValid shouldn't print a
+	warning for a null proxy --- just return false.
+	* share/SGIterator_test.ref: (new)
+
+2008-09-26  Paolo Calafiura  
+
+	* StoreGate/SGIterator.h: a standard conforming forward iterator based
+	on DataHandle
+
+2008-09-24  Sebastien Binet  <binet@lblbox>
+
+	* gcc4 fix
+	* M src/StoreGateSvc.cxx
+
+2008-09-18  Charles Leggett
+	* Added SegMemSvc, which provides a service used to access the
+	Arenas for memory management. Example client code:
+	   SegMemSvc *sms;
+	   if (service("SegMemSvc",sms).isSuccess()) {
+	       MyDataObj *obj = new( sms->allocate<MyDataObj>(LIFETIME)) MyDataObj
+
+	currently defined object lifetimes are enums, valid values are
+	      EVENT,JOB,INCIDENT,USER
+
+	back ends to these policies (ie, that which clears them out)
+	remains to be implemented. The "INCIDENT" also needs to be defined.
+	
+2008-09-12  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* Tagging StoreGate-02-31-01
+	* src/StoreGateSvc.cxx (StoreGateSvc::finalize): protect against
+	null service pointers (double release?)
+
+2008-09-09  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-31-00.
+	* StoreGate/StoreClearedIncident.h: (new)
+	* src/StoreClearedIncident.cxx: (new)
+	* test/StoreClearedIncident_test.cxx: (new)
+	* share/StoreClearedIncident_test.ref: (new)
+	* cmt/requirements: Add it.
+	* src/StoreGateSvc.cxx (clearStore): Send StoreCleared incident.
+	(reinitialize): Likewise.
+
+2008-07-10  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging StoreGate-02-30-01
+	* test/SGtests.cxx: Default namespace tweaks for MacOSX. Tested for both Mac & SLC4
+
+2008-07-09  Paolo Calafiura 
+
+	* tagging StoreGate-02-30-00
+	* new version of StoreGateSvc::readPrivateCopy and its test. 
+	Different (improved...) behaviour
+
+2008-06-27  Paolo Calafiura
+
+	* tagging StoreGate-02-29-16
+	* src/StoreGateSvc.cxx: minor cleanup in the handling of HistorySvc
+	and reinitialize
+
+2008-06-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGate-02-29-15
+	* make ::deep_proxy forward to ::proxy
+	* M StoreGate/StoreGateSvc.h
+	* M src/StoreGateSvc.cxx
+
+2008-06-10  scott snyder  <snyder@bnl.gov>
+
+	* tagging StoreGate-02-29-14
+	* StoreGate/StoreGateSvc.h: Fix documentation bug.
+	* src/StoreGateSvc.cxx: Likewise.
+
+2008-05-30  Paolo Calafiura  
+
+	* tagging StoreGate-02-29-13
+	* test/SGtests.cxx: fixed test-specific leaks, improved testRecord  
+	* src/StoreGateSvc.cxx: improved printouts, fixed leaks on failed records 
+
+2008-05-22  Paolo Calafiura  
+
+	* tagging StoreGate-02-29-12
+	* test/DataHandle_test.cxx (refcount_test): cleanup heap allocated objects at end of test
+
+2008-05-21  Paolo Calafiura  
+
+	* tagging StoreGate-02-29-11
+	* StoreGate/StoreGateSvc.h (class StoreGateSvc): one more friend (testHLTAutoKeyReset)
+
+2008-05-20  Paolo Calafiura  
+
+	* tagging StoreGate-02-29-10
+	* src/StoreGateSvc.cxx (StoreGateSvc::deep_proxy): make sure that deep_proxy always returns a valid proxy or the NULL ptr
+
+2008-05-16  Paolo Calafiura  <calaf@localhost.localdomain>
+
+	* tagging StoreGate-02-29-09
+	* test/SGtests.cxx (testVersionedKey): updated to reflect new (still
+	ill-defined) behaviour of generic retrieve.
+
+2008-05-16  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tagging StoreGate-02-29-08
+	* StoreGate/StoreGateSvc.icc (StoreGateSvc::regHandle): removed
+	name of store from registration to iovsvc for the moment.
+
+2008-04-25  Paolo Calafiura 
+	* tagging StoreGate-02-29-07
+	* src/StoreGateSvc.cxx (StoreGateSvc::record_impl): change type of trueKey
+	to pick up right version of proxy() method to use.isn't 
+
+2008-05-14  Charles Leggett
+      * StoreGateSvc.icc: IOVSvc->regProxy takes store name parameter
+      * tag StoreGate-02-29-06
+
+2008-05-07  Paolo Calafiura  <calaf@ibm-0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* tagging StoreGate-02-29-05
+	* StoreGateSvc: added methods retrieveAllVersions, 
+	retrieveHighestVersion 
+	* StoreGate/StoreGateSvc.h: removed extra include guards
+	* StoreGate/constraints/KeyConcept.h: do not require conversion from
+	string to key type
+
+2008-05-07  scott s snyder  <snyder@bnl.gov>
+
+	* tagging StoreGate-02-29-03
+	* src/StoreGateSvc.cxx (record_impl): Fix setting versioned key
+	aliases.
+
+2008-04-25  Paolo Calafiura  <calaf@ibm-0-11-25-81-1e-12.dhcp.lbl.gov>
+	* tagging StoreGate-02-29-02
+	* src/StoreGateSvc.cxx (StoreGateSvc::record_impl): before adding an
+	alias for the true key of a versioned key, check that there isn't 
+	already a proxy for the true key
+
+2008-04-18  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGate-02-29-01
+	* optimization: don't activate recording history objects by default (saves 70% of ::typeless_record)
+	* M src/StoreGateSvc.cxx
+
+2008-04-17  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-29-00.
+
+	* StoreGate/StoreGateSvc.h: Add remapping.
+	* StoreGate/StoreGateSvc.icc: Likewise.
+
+2008-04-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-28-00.
+
+2008-03-28  scott s snyder  <snyder@bnl.gov>
+
+	* StoreGate/StoreGateSvc.icc (record): Use BaseInfo<>::baseinfo().
+
+	* test/SGtests.cxx: Add test_symlink3.
+	* StoreGate/SGtests.h: Likewise.
+
+2008-03-27  scott s snyder  <snyder@bnl.gov>
+
+	* StoreGate/StoreGateSvc.icc (symLink): Remove t2pRegister.  This
+	is redundant with what's done in addSymLink.
+
+2008-04-04  Paolo Calafiura
+	* tagging StoreGate-02-27-03
+	* StoreGate/StoreGateSvc.h: added retrievePrivateCopy (read DOC!) 
+	* test/SGtests.cxx: added testRetrievePrivateCopy function
+	
+2008-03-31  Paolo Calafiura 
+	* tagging StoreGate-02-27-01
+	* StoreGate/StoreGateSvc.icc: contains should check (as it did
+	before 02-26-00) that a proxy isValid.
+
+2008-03-31  Paolo Calafiura
+	* tagging StoreGate-02-27-00
+	* StoreGate/DataHandle.h: removed unused data members p_storeGateSvc
+	and p_activeStoreSvc. The latter was slowing down significantly the
+	finalize stage (bug 35078).
+	
+2008-03-26  Paolo Calafiura  
+	* tagging StoreGate-02-26-00
+	* src/StoreGateSvc.cxx (StoreGateSvc::record_impl): handle VersionedKeys
+	* StoreGate/StoreGateSvc.h: define retrieve<T,KEY> also for the version
+	returning a T* (this is needed to use VersionedKey)
+	* tests/SGtests.cxx: add testVersionedKey(
+	
+	* StoreGate/StoreGateSvc.icc (StoreGateSvc::record): removed
+	explicit creation of temporary string keys. Rely on std::string 
+	conversion for non-string keys
+
+	* StoreGate/StoreGateSvc.icc (StoreGateSvc::contains): like for retrieve
+	do not check if proxy is valid.
+
+2008-03-21  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGate-02-25-06
+	* applied change of signature of friend function (recordObjectToStore)
+	* M StoreGate/StoreGateSvc.h
+
+2008-03-04  Paolo Calafiura
+	* test/SGtests.cxx (test_symlink2): moved here from ControlTest 
+	* src/StoreGateSvc.cxx (StoreGateSvc::releaseObject): don't delete
+	the guy we want to release, give up ownership
+	* tag StoreGate-02-25-05
+
+2008-02-21  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* StoreGateSvc: added new public methods readPrivateCopy and a record
+	that takes an auto_ptr (savannah 33581).
+	Also added a releaseObject private method to support the above
+	* tag StoreGate-02-25-04
+
+2008-01-10  Peter van Gemmeren  <gemmeren@anl.gov>
+	* src/StoreGateSvc.cxx: add TagMetaDataStore StoreID.
+	* tag StoreGate-02-25-03
+
+2008-01-09  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGate-02-25-02
+	* M src/StoreGateSvc.cxx: flipped the order of initialization of 
+	  ProxyProviderSvc and CLIDSvc to prevent crash in -dbg for Det.Store
+
+2008-01-04  Peter van Gemmeren  <gemmeren@anl.gov>
+	* src/StoreGateSvc.cxx: add MetaDataStore with SIMPLE_STORE StoreID.
+	* tag StoreGate-02-25-01
+
+2007-12-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGate-02-25-00
+	* migrated the python bindings to StoreGateBindings
+	* M cmt/requirements
+	* M python/Bindings.py
+	* R StoreGate/StoreGateDict.h
+	* R StoreGate/selection.xml
+	* R src/pyext/StoreGatePyExt.cxx
+
+2007-12-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGate-02-24-02
+	* M src/pyext/StoreGatePyExt.cxx: impl. DataBucketBase::clone
+	* M src/StoreGateSvc.cxx: cosmetics
+	* M StoreGate/StoreGateSvc.h: let ThinningSvc access typeless_record
+	* M cmt/requirements: migration of ClassID_traits to SGTools
+
+2007-12-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGate-02-24-01
+	* src/StoreGateSvc.cxx: shielded record_impl against bogus CLIDs
+	* src/pyext/StoreGatePyExt.cxx: correctly implemented clID() for 
+	  SG::PyDataBucket.
+
+	* tagging StoreGate-02-24-00
+	* implemented a 'kitchen-sink' typeless_record
+	* implemented StoreGateSvc::record from python (needs some more testing)
+	* M StoreGate/StoreGateSvc.h
+	* M StoreGate/StoreGateSvc.icc
+	* M src/StoreGateSvc.cxx
+	* M src/pyext/StoreGatePyExt.cxx
+
+2007-12-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-23-00.
+	* StoreGate/StoreGateSvc.h: Change IProxyDict to
+	IProxyDictWithPool.  Add StringPool member and IStringPool
+	members.
+	* src/StoreGateSvc.cxx: Likewise.
+
+2007-12-10  Sebastien Binet  <binet@lblbox>
+
+	* tagging StoreGate-02-22-00
+	* implementation of extended IProxyDict interface
+	* introduction of StoreGateSvc::transientSwap + according utest
+	* prepare for StoreGateSvc::record from python
+	* M StoreGate/StoreGateDict.h
+	* M StoreGate/StoreGateSvc.h
+	* M StoreGate/selection.xml
+	* M cmt/requirements
+	* M python/Bindings.py
+	* M src/StoreGateSvc.cxx
+	* M src/pyext/StoreGatePyExt.cxx
+	* M StoreGate/SGtests.h
+	* M test/SGtests.cxx
+
+2007-11-09  Paolo Calafiura
+	* tag StoreGate-02-21-02
+	* StoreGate/StoreGateSvc.icc: return failure if retrieved ptr is NULL
+
+2007-10-18  scott snyder  <snyder@bnl.gov>
+	* Tagging StoreGate-02-21-01.
+	* src/StoreGateSvc.cxx (finalize): Release the history svc when
+	we're done.
+	* cmt/requirements: More patterns to ignore.
+
+2007-10-11  Sebastien Binet  <binet@lblbox>
+	* tagging StoreGate-02-21-00
+	* improving IProxyDict interface to allow to 'deep' find a proxy given
+	  a transient pointer.
+	* fixing bug #29753
+	* M StoreGate/StoreGateSvc.h
+	* M src/StoreGateSvc.cxx
+
+2007-10-10  Paolo Calafiura
+
+	* share/StoreGate_jobOptions.py: update to new-style job conf
+
+2007-10-04  Paolo Calafiura 
+	* tag StoreGate-02-20-08
+	* test/SGtests.cxx (CLASS_DEF): removed CLID conflict for Bar 
+
+2007-09-21  Paolo Calafiura  
+	* StoreGate/StoreGateSvc.h: new methods clid(key) and clids(key) from Sebastien
+	* tag StoreGate-02-20-07
+
+2007-09-11  Wim Lavrijsen
+        * fix-up for AthenaCommon compat removal
+
+2007-08-10  Paolo Calafiura 
+	* src/StoreGateSvc.cxx(StoreGateSvc::proxy): checkValid also for
+	proxies retrieved on the spot
+	* tag StoreGate-02-20-05
+	
+2007-08-05  Paolo Calafiura  <calaf@lxplus217.cern.ch>
+	* StoreGate/StoreGateSvc.icc (StoreGateSvc): ignore a couple of 
+	unchecked StatusCode in regHandle
+	* tag StoreGate-02-20-04
+	
+2007-07-24 Nir Amram <Nir.Amram@cern.ch>
+ 	* Changed used package AtlasSEAL to AtlasReflex
+ 	* Tagged as StoreGate-02-20-03
+
+2007-07-09  Paolo Calafiura 
+	* test/StoreGateSvcClient_test.cxx: moved to ControlTest to clean up deps
+	* test/ClearStore_test.cxx: moved to ControlTest to clean up deps
+	* StoreGate/SGtests.h: moved here from test to make it accessible to
+	ControlTest
+	* cmt/requirements: major deps clean-up
+	* tag StoreGate-02-20-02
+	
+2007-07-06  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* cmt/requirements: make checkreq happy
+	* tag StoreGate-02-20-01
+
+2007-06-22  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+
+	* doc/MainPage.h: updated 
+        * StoreGate/DataLink.h: removed forwarding include
+        * StoreGate/ElementLink.h: removed forwarding include
+        * StoreGate/DataVector.h: removed forwarding include
+	* StoreGateSvc::addFolder(): removed (Folder is not data obj anymore)
+	also removed "FolderNameList" property
+        * ProxyProviderSvc moved to SGComps
+	* python/__init__.py: redirect imports of ProxyProviderSvc
+	* python/RedirectProxyProviderSvc.py: (new) redirect imports of 
+	ProxyProviderSvc
+	* cmt/requirements: cleaned up dependencies
+	* tag StoreGate-02-20-00
+
+2007-05-16  Paolo Calafiura 
+	* test/StoreGate.xml: increased test time limit to 10 units
+	* tag StoreGate-02-19-11
+
+2007-05-04  Charles Leggett
+      * src/StoreGateSvc.cxx: added friendship to MemoryMonitorSvc
+
+2007-04-27  Paolo Calafiura 
+	* src/StoreGateSvc.cxx (clearStore): in VERBOSE, print which dobj are
+	cleared
+	* tag StoreGate-02-19-10
+
+2007-03-20  Peter van Gemmeren  <gemmeren@anl.gov>
+	* src/StoreGateSvc.cxx: add InputMetaDataStore with METADATA_STORE StoreID.
+	* tag StoreGate-02-19-09
+
+2007-03-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/StoreGateSvc.h: improve error message for bug #24582
+        * tag StoreGate-02-19-08
+
+2007-03-05  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* src/StoreGateSvc.cxx: initialize all pointers in constructor 
+	(hopefully will fix bug #24380)
+        * tag StoreGate-02-19-07
+
+2007-03-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-19-06.
+	* src/pyext/StoreGatePyExt.cxx (retrieveObjectFromStore): Fix
+	warning on x86_64.
+
+2007-03-02  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* cmt/requirements: not really obsolete: put back use CLIDSvc needed
+	for CLASS_DEF info
+	* updated ref files
+        * tag StoreGate-02-19-05
+
+2007-03-02  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Remove obsolete dependency on CLIDSvc package
+	* src/StoreGatePyExt.cxx: Replace include of CLIDSvc/ClassIDSvc.h
+	by AthenaKernel/IClassIDSvc.h
+
+2007-01-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/StoreGate_jobOptions.py: add back StoreGate to theApp.Dlls to avoid plugin mgr mess
+        * tag StoreGate-02-19-03
+
+2007-01-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-19-02.
+
+	* src/pyext/StoreGatePyExt.cxx: Get rid of checkreq warning about
+	AtlasPython.
+	* StoreGate/StoreGateSvc.icc (setAlias): Fix compilation warning.
+
+2007-01-12  Charles Leggett
+	* src/StoreGateSvc.cxx: if ClassIDSvc doesn't work, use numeric ID
+        for key instead of "UNKNOWN" when recording History object
+	* tag StoreGate-02-19-01
+
+2006-12-22  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* src/StoreGateSvc.cxx: replace include GaudiHistory by GaudiKernel
+        * tag StoreGate-02-19-00
+
+2006-12-21  Paolo Calafiura 
+	* share/*.ref: updated
+	* share/*.txt: cleaned up, use plugin mgr. Don't load folders if not needed
+	* class StoreGateSvc: remove History specialization of record, merged
+	changes from 12.0.x branch (removeDataAndProxy). 
+	Cleaned up retrieve returning pointer.
+	* test/*.cxx: cleaned up and updated tests
+	* tag StoreGate-02-18-00
+
+
+2006-12-12 David Quarrie <David.Quarrie@cern.ch>
+	* StoreGate/StoreGateSvc.icc src/StoreGateSvc.cxx:
+	Replace references to GaudiHistory by GaudiKernel
+        * tag StoreGate-02-17-00
+	
+2006-11-14 Charles Leggett <charles.leggett@cern.ch>
+        * made EventDumperSvc a friend of StoreGateSvc
+        * tag StoreGate-02-16-07
+
+2006-11-07 S. Rajagopalan <srinir@bnl.gov>
+	* ignore t2pRegister error in symLink as the bse and derived
+	* class could have the same pointer value (if no virtual declarations)
+	* Move t2pregister error to record_imp - this now puts out an error
+	* if recording the same object twice (instead of error in t2pregister)
+	* tag StoreGate-02-15-20-07
+	
+2006-11-06  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * mod to src/pyext/StoreGatePyExt.cxx: use Reflex if BaseInfo cast fails
+        * tag StoreGate-02-16-06
+
+2006-11-06  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* class StoreGateSvc: introduce removeDataAndProxy that forces
+	proxy removal regardless of the proxy reset flag. This allows e.g. a 
+	merge job to replace an object in the input DataHeader with a new 
+	version. Updated tests and ref outputs to reflect this change
+	* StoreGate-02-15-20-06
+
+2006-10-30  Paolo Calafiura  <calaf@lxplus005.cern.ch>
+	* StoreGate/StoreGateSvc.icc: fix bugs in the use of getIIOVSvc 
+        * tag StoreGate-02-16-05
+
+2006-10-30 S. Rajagopalan <srinir@bnl.gov>
+	* more fixes to auto generated symLinks, refcounts
+	* StoreGate-02-15-20-05
+	
+2006-10-25 S. Rajagopalan <srinir@bnl.gov>
+	* fix constness
+	* StoreGate-02-15-20-03
+	
+2006-10-24 S. Rajagopalan <srinir@bnl.gov>
+	* fix for duplicate entries (bug 20935)
+	* this was caused by unnecessary symLinking every event
+	* also discovered a refcount problem with symLink
+	* fixed by re-write of addSymLink() - check if symLink 
+	  already exists before doing anything.
+	* StoreGate-02-15-20-02
+	
+2006-10-23  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* StoreGateSvc::getIIOVSvc: delay access to IOVSvc hence breaking the
+	recursion at initialize time
+        * tag StoreGate-02-16-04
+
+2006-10-20 S. Rajagopalan <srinir@bnl.gov>
+	* fix in symLink to avoid forced data unpacking
+	* remove call to t2pregister() in addSymLink()
+	* add call to t2pregister in symLink() when pointer is available
+	* Tag StoreGate-02-15-20-01
+
+2006-10-06  Wim Lavrijsen <WLavrijsen@cern.ch>
+        * fix typo in Bindings.py
+        * tag StoreGate-02-16-03
+
+2006-10-04  Wim Lavrijsen <WLavrijsen@cern.ch>
+        * solved retrieve from python pbs with multiple objects and stores other
+          than EventStore
+        * tag StoreGate-02-16-02
+
+2006-09-06  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements: Remove redundant "do_genconf"
+
+2006-08-29 S. Rajagopalan <srinir@bnl.gov>
+	* ProxyProvideService::addAddress() Change to read back persistent alias.
+	 (coupled to change in DataHeaderElement by pvg to save alias)
+	 (also requires new interface in AthenaKernel::IProxyRegistry
+	* Tag StoreGate-02-16-00
+	
+2006-08-18  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-15-23.
+
+	* test/DataHandle_test.cxx: Test refcounting.
+
+	* StoreGate/DataHandle.icc: Maintain refcount on the held
+	DataProxy.
+	* test/DataHandle_test.cxx: Avoid double-delete of proxy.
+
+2006-08-07  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-15-22.
+
+2006-08-03  scott s snyder  <snyder@bnl.gov>
+
+	* share/StoreGateSvcClient_test.ref: Updated.
+
+	* src/StoreGateSvc.cxx (finalize): Force deleting all proxies when
+	finalizing, to avoid leaking them.
+
+2006-07-13  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixed up StoreGateSvc and StoreGateSvc/EventStore interfaces
+           -> see python/Bindings.py for details
+        * cleaned up requirements as to not affect libStoreGate* with python
+        * tag StoreGate-02-15-21
+
+2006-07-11  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * added pythonization that allows object retrieval in python w/o PyGate
+
+2006-06-28 S. Rajagopalan <srinir@bnl.gov>
+	* add typeCount() method in StoreGateSvc interface.
+	  will return the number of "proxies" of type T in transient memory.
+	* Change MSG::ERROR to MSG::WARNING in StoreGateSvc::retrieve
+	  in case of problems retrieving data object.
+	* add unit test to test typeCount in SGtests::testRetrieve()
+	* update StoreGateSvcClient_test reference file
+	* tag StoreGate-02-15-20
+	
+2006-05-30  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/StoreGateSvc.icc: turn key into string before invoking
+	proxy() bug 17182
+	* tag StoreGate-02-15-19
+
+2006-05-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/StoreGate_jobOptions.py: use CreateSvc for DetectorStore and 
+	StoreGateSvc to get them finalized in the right order
+	* src/StoreGateSvc.cxx: added INFO msg in finalize
+	* tag StoreGate-02-15-16
+
+2006-05-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: added do_genconf 
+	* tag StoreGate-02-15-15
+
+2006-04-20  scott s snyder  <snyder@bnl.gov>
+	* Tagging StoreGate-02-15-14.
+	* share/StoreGateSvcClient_test.ref: Update expected output.
+
+2006-04-19 S. Rajagopalan <srinir@bnl.gov> 
+	        * add keys() method to retrieve all keys associated with T 
+	        * add test for keys() in StoreGateSvc_client 
+	        * tag StoreGate-02-15-13 
+	
+2006-04-13 Charles Leggett <charles.leggett@cern.ch>
+	* src/StoreGateSvc.h/icc: bypass history recording
+        with new bool noHist=false parametr for fully
+        qualified record menthod
+	* tag StoreGate-02-15-12
+
+2006-04-13  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-15-11.
+
+	* share/ClearStore_test.ref, Adjust expected output.
+	* share/ProxyProviderSvc_test.ref: Likewise.
+	* share/StoreGateSvcClient_test.ref: Likewise.
+
+2006-04-12 S. Rajagopalan <srinir@bnl.gov>
+	* fix "recycling" objects when the same object is recorded twice
+	  -- i.e. do not trash this object
+	* uncomment accidentally commented tests
+	* tag StoreGate-02-15-10
+	
+2006-04-10 S. Rajagopalan <srinir@bnl.gov>
+	* introduce alias for DataObjects
+	* can be set by storeGate->setAlias()
+	* also add alias test to StoreGateSvc_client.cxx
+	* tag StoreGate-02-15-09.
+
+2006-03-30  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging StoreGate-02-15-08.
+
+2006-03-30  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/StoreGateSvcClient_test.cxx: removed semicols for gcc 3.4 
+
+2006-03-18  scott s snyder  <snyder@bnl.gov>
+
+	* src/ProxyProviderSvc.cxx (addAddresses): Use proxy_exact.
+	* src/StoreGateSvc.cxx (recordAddress): Likewise.
+	(setupProxy): Likewise.
+
+2006-03-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/StoreGate.xml: use xml test description
+        * tag StoreGate-02-15-07
+
+2006-03-13  scott s snyder  <snyder@bnl.gov>
+
+	* Tag StoreGate-02-15-05.
+	* StoreGate/DeclareIndexingPolicy.h: (deleted)
+
+	* StoreGate/constraints/KeyConcept.h (class KeyClass): Give it a
+	ctor/dtor to avoid unused variable warnings.
+
+	* StoreGate/errorcheck.h: (deleted)
+	* test/errorcheck_test.cxx: (deleted)
+	* share/errorcheck_test.ref: (deleted)
+	* share/errorcheck.txt: (deleted)
+	* cmt/requirements: Remove errorcheck_test.
+
+2006-03-05 S. Rajagopalan <srinir@bnl.gov>
+	* fix printing errors even in debug mode during retrieves
+	* information still printed in debug mode.
+
+2006-03-03  David Quarrie  <David.Quarrie@cern.ch>
+	* StoreGate/constraints/KeyConcept.h: Fix gcc 344 problem
+
+2006-01-12  scott s snyder  <snyder@bnl.gov>
+
+	* StoreGate/errorcheck.h: Fix #endif.
+
+	* StoreGate/errorcheck.h: Disable by default.
+	* test/errorcheck_test.cxx: Adjust.
+	* share/errorcheck_test.ref: Updated.
+
+	* StoreGate/StoreGateSvc.h: Restore retrieve() returning a
+	pointer.
+	* StoreGate/StoreGateSvc.icc (retrieve): Likewise.
+	* test/SGtests.cxx: Likewise.
+	* share/StoreGateSvcClient_test.ref: Updated.
+
+2006-01-10  scott s snyder  <snyder@bnl.gov>
+
+	* StoreGate/StoreGateSvc.h: Undo changes adding retrieve_ex(),
+	retrieve() returning a pointer, exception.
+	* StoreGate/StoreGateSvc.icc: Likewise.
+	* share/StoreGateSvcClient_test.ref: Likewise.
+	* src/StoreGateSvc.cxx: Likewise.
+	* test/SGtests.cxx: Likewise.
+
+	* StoreGate/errorcheck.h: (new)
+	* test/errorcheck_test.cxx: (new)
+	* share/errorcheck_test.ref: (new)
+	* share/errorcheck.txt: (new)
+	* cmt/requirements: Add regression test.
+
+2005-11-30  scott s snyder  <snyder@bnl.gov>
+
+	* Tag StoreGate-02-15-02.
+
+2005-11-29  scott s snyder  <snyder@bnl.gov>
+
+	* StoreGate/StoreGateSvc.h: Add retrieve_ex(). retrieve()
+	returning a pointer.  Add exception.
+	* StoreGate/StoreGateSvc.icc: Likewise.
+	* src/StoreGateSvc.cxx: Likewise.
+	* test/SGtests.cxx: Test the changes.
+	* share/StoreGateSvcClient_test.ref: Updated.
+
+2005-11-28  scott s snyder  <snyder@bnl.gov>
+
+	* src/ProxyProviderSvc.cxx (addAddress): Automatically make
+	symlinks for all legal conversions that aren't already listed in
+	the clid set.
+
+2005-11-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/StoreGateSvcClient_test.cxx: add undef NDEBUG
+	* test/ClearStore_test.cxx: add undef NDEBUG
+
+2005-11-17  scott s snyder  <snyder@bnl.gov>
+
+	* Tag StoreGate-02-15-00.
+
+2005-11-09  scott s snyder  <snyder@bnl.gov>
+
+	* src/StoreGateSvc.cxx (removeProxy): Remove all possible entries
+	from t2p map.
+
+	* test/StoreGateSvcClient_test.cxx: Test the new functionality.
+
+	* StoreGate/StoreGateSvc.icc (record_imp): Automatically make all
+	known legal baseclass symlinks.
+	* StoreGate/StoreGateSvc.h: Add SG_dump, mainly for use from the
+	debugger.
+	* src/StoreGateSvc.cxx (SG_dump): (new)
+	(addSymLink): Add additional t2p map entries for the symlinks.
+
+2005-11-08  scott s snyder  <snyder@bnl.gov>
+
+	* share/DataHandle_test.ref: Updated.
+	* share/StoreGateSvcClient_test.ref: Updated.
+	* share/ClearStore_test.ref: Updated.
+	* share/ProxyProviderSvc_test.ref: Updated.
+
+2005-09-02  Charles Leggett <charles.leggett@cern.ch>
+	* fix unchecked StatusCode in regFcn
+	* tag StoreGate-02-14-32
+
+2005-08-23  Charles Leggett <charles.leggett@cern.ch>
+	* fix unchecked StatusCode in regFcn
+	* tag StoreGate-02-14-31
+
+2005-07-29  Charles Leggett <charles.leggett@cern.ch>
+	* specializations for specific history objects
+	* tag StoreGate-02-14-30
+
+2005-07-22  Paolo Calafiura <pcalafiura@lbl.gov>
+	* StoreGateSvc DataHandle: break circular dependency (Mattias)
+	* tag StoreGate-02-14-29
+
+2005-07-19   Charles Leggett <charles.leggett@cern.ch>
+      * src/StoreGateSvc.cxx: added ignore() to unchecked StatusCode returns
+        in dump()
+	* tag StoreGate-02-14-28
+
+2005-06-22  Paolo Calafiura <pcalafiura@lbl.gov>
+	* src/StoreGateSvc.cxx (transientProxy): fixed bug. Simplified iface
+	* tag StoreGate-02-14-27
+
+2005-06-20 S. Rajagopalan <srinir@bnl.gov>
+	* Change symlink so that it returns an active TLINK*
+	* avoids client having to do retrieve of their symLink
+	* added new const and non-const method for symLink
+	* tag StoreGate-02-14-26
+	
+2005-06-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/ProxyProviderSvc.cxx (initialize): try to break the init cycle
+	SG->PPS->IOVDBSVC->[SG,PPS]
+	* src/StoreGateSvc.cxx: move printout around 
+	* tag StoreGate-02-14-25
+
+2005-06-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/StoreGateSvc.cxx: implement reinitialize clearing the store 
+	* tag StoreGate-02-14-24
+
+2005-06-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * class StoreGateSvc: added transientContains/transientProxy methods
+	* test/SGtests.cxx: added transientContains tests
+	* test/ProxyProviderSvc_test.cxx: added transientContains tests
+	* tag StoreGate-02-14-23
+
+2005-06-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * StoreGate/StoreGateSvc.icc: ignore StatusCode in retrieve all 
+	* src/ProxyProviderSvc.cxx: check StatusCodes 
+	* tag StoreGate-02-14-22
+
+2005-05-25 Charles Leggett <charles.leggett@cern.ch>
+	* src/StoreGateSvc.cxx: check return code of getTypeNameOfID
+	* tag StoreGate-02-14-21
+	
+2005-05-18 S. Rajagopalan <srinir@bnl.gov>
+	* src/StoreGateSvc.cxx: preLoadProxies returns StatusCode::FAILURE
+        * tag StoreGate-02-14-20
+	
+2005-05-03  Charles Leggett <charles.leggett@cern.ch>
+	* src/StoreGateSvc.cxx: added ignore() to unchecked StatusCode returns
+	
+	* tag StoreGate-02-14-18
+
+2005-04-27  Paolo Calafiura <pcalafiura@lbl.gov>
+	* StoreGate/StoreGateSvc.icc (retrieve): catch missing converter 
+	exception, handle non-string keys
+	* test/ProxyProviderSvc_test.cxx: test mechanism to hand missing 
+	converter
+	* cmt/requirements: updated dict pattern (Emil)
+        * tag StoreGate-02-14-17
+
+2005-04-21  Paolo Calafiura <pcalafiura@lbl.gov>
+	* class ProxyProviderSvc: added provider names property handler
+        * tag StoreGate-02-14-16
+
+2005-04-19 Charles Leggett <charles.leggett@cern.ch>
+        * added GaudiAud to Dll list in StoreGate_jobOptions.py
+        * tag StoreGate-02-14-15
+
+2005-03-22 S. Rajagopalan <srinir@bnl.gov>
+	* Change order of Event and DetectorStore
+	* since Event depends on DetectorStore, Event should get deleted first
+	* tag StoreGate-02-14-14
+	
+2005-01-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/StoreGateSvc.icc (contains): do not throw if converter 
+	not found (bug #6157)
+	* tag StoreGate-02-14-13
+
+2004-12-16  Emil Obreshkov  <Emil.Obreshkov@cern.ch>
+	* StoreGate : Add support for make -jN option
+	* tag StoreGate-02-14-12
+
+
+2004-10-20  Peter van Gemmeren  <gemmeren@bnl.gov>
+	* StoreGateSvc: Move preLoadProxies() back into initialization
+	* tag StoreGate-02-14-11	
+
+2004-11-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/StoreGate.sh: moved from TestTools
+	* share/*.ref: updated
+	* tag StoreGate-02-14-10	
+
+2004-10-20  Peter van Gemmeren  <gemmeren@bnl.gov>
+	* StoreGateSvc: Move preLoadProxies() call to after initialization
+	is complete and BeginRun incident is fired.
+	* tag StoreGate-02-14-09	
+
+2004-09-06  David Quarrie  <David.Quarrie@cern.ch>
+	* ActiveStoreSvc, ProxyProviderSvc, StoreGateSvc: Replace IID by
+	InterfaceID since the former is no longer available.
+
+2004-08-26  David Quarrie  <David.Quarrie@cern.ch>
+	* cmt/requirements: Change to use AtlasSEAL instead of SEAL
+	* since this will still make the SEAL pattern available and
+	* is compatible with the LCGCMT migration
+	* tag StoreGate-02-14-07	
+
+2004-08-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: had to put back the absolute path! Waiting
+	for new AtlasSEAL tag....
+	* tag StoreGate-02-14-06	
+
+2004-08-24  Paolo Calafiura  <calaf@localhost.localdomain>
+	* cmt/requirements: remove absolute path from dict generation
+	* moved StoreGate_bindings.h and selection.xml from dict to StoreGate
+	* tag StoreGate-02-14-05	
+
+2004-08-13  Charles Leggett  <charles.leggett@cern.ch>
+	* src/StoreGateSvc.cxx: made HistorySvc creation thread safer
+	* tag StoreGate-02-14-04
+
+2004-08-04  David Quarrie  <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Change dependency on Boost to one on
+	AtlasBoost to avoid a name clash
+
+2004-06-30  Wim Lavrijsen  <WLavrijsen@lbl.gov>
+        * Added PyGate helper class to turn member function instantiations
+          into class instantiations (for lcgdicts benefit)
+        * added dict/selection.xml and dict/StoreGate_bindings.xml as well
+          as the pattern information in the requirements file to generate
+          bindings for PyLCGDict
+        * tagged StoreGate-02-14-02
+
+2004-06-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/StoreGateSvc.cxx(loadEventProxies): need to set active store
+	* tag StoreGate-02-14-01
+
+2004-06-22  Charles Leggett  <charles.leggett@cern.ch>
+        * StoreGateSvc: specialized record for HistoryObj, added record_imp
+	  and record_HistObj
+	* added AlgContextAuditor to jobOptions
+	* tag StoreGate-02-14-00
+	
+2004-05-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/ProxyProviderSvc.cxx: use MT-enabled service accessor.
+	* tag StoreGate-02-13-01
+
+2004-05-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* share/StoreGate_jobOptions.py: remove ClassIDSvc and ActiveStoreSvc
+	from list of ExtSvc
+	* share/StoreGate_jobOptions.txt: remove ClassIDSvc and ActiveStoreSvc
+	from list of ExtSvc
+	* tag StoreGate-02-13-00
+
+2004-05-09  David Quarrie  <David.Quarrie@cern.ch>
+	* cmt/requirements: Cleanup gcc related tags using new derived tags
+	  from ExternalPolicy
+
+2004-04-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/StoreGateSvc.h: PileUpMergeSvc is our new friend
+	* tag StoreGate-02-12-28
+	
+2004-03-31 S. Rajagopalan <srinir@bnl.gov>
+	* Changes from Scott : Add new method DataHandle::key()
+	* allows asking DataHandle for the key
+	* very useful while iterating over all objects in SG using
+	  DataHandle begin and DataHandle-end
+	* tag StoreGate-02-12-27
+	
+2004-03-26  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/DataHandle_test.cxx: needs to initGaudi to get MessageSvc
+	* tag StoreGate-02-12-26
+
+2004-03-19  Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * renamed StoreGate.py StoreGate_jobOptions.py
+
+2004-03-17  Charles Leggett <charles.leggett@cern.ch>
+	* StoreGate/StoreGateSvc.h,.icc: added regFcn interface to
+	  register a callback function against an AlgTool by name
+	* tag StoreGate-02-12-24
+
+2004-03-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * share/*.ref: updated
+	* src/StoreGateSvc.cxx: don't use serviceLocator(): not good for MT
+	* tag StoreGate-02-12-23
+
+2004-03-11 S. Rajagopalan <srinir@bnl.gov>
+	* Fix problem with objects becoming unlocked in second event
+	* Proxy const was not set properly in StoreGateSvc::setupProxy
+	
+2004-03-06 S. Rajagopalan <srinir@bnl.gov>
+	* Fix for retrieve(begin, end) : now returns DataHandles with
+	* begin and end iterators set to same if no objects are found
+	* print out changed to DEBUG level instead of an ERROR
+	* return maintained as StatusCode::FAILURE to NOT change behaviour
+	* tag StoreGate-02-12-22
+	
+2004-02-19  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* tag StoreGate-02-12-21
+
+2004-02-05  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/ProxyProviderSvc.cxx (initialize): get AddressProviders by type/name
+
+2004-02-02  Charles Leggett <charles.leggett@cern.ch>
+      * share/*.txt: removed creation of ConditionsStore
+
+2004-01-27  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/StoreGateSvc.cxx: always check that m_pPPS is non NULL before
+	using it. SGSvc was dumping when trying to get objects from 
+	"StoreGateSvc" using the PileUpEventLoopMgr.
+	FIXME should we use a dummy PPS instead?
+	FIXME should we get missing proxies from the original evt store?
+	* tag StoreGate-02-12-20
+
+2004-01-23  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* class StoreGateSvc: new property FolderNameList allow to create
+	a list of logical folders to the store
+	* cleaned up unit tests, added test for folder list
+        * tag StoreGate-02-12-09	
+
+2003-12-04: Wim Lavrijsen <WLavrijsen@lbl.gov>
+        * fixed StoreGate.py
+        * tag StoreGate-02-12-08
+
+2003-12-03: Charles Leggett <charles.leggett@cern.ch>
+	* made all contains() methods const
+	* tag StoreGate-02-12-07
+
+2003-12-03 S. Rajagopalan <srinir@bnl.gov>
+	* remove record without key
+	* retrieve via default key
+	* update address not called for retrieve without key
+	* contains() without key removed (obsolete)
+	* tests/SGtests.cxx changed to accomodate above changes
+	* StoreGateSvcClient_ref file also updated
+	* tag StoreGate-02-12-06
+
+2003-11-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/StoreGateSvc.cxx: don't load proxies at BeginEvent
+	* tag StoreGate-02-12-05
+
+2003-11-18: Charles Leggett <charles.leggett@cern.ch>
+        * StoreGateSvc.icc: Added include for IIOVSvc.h
+	* tag StoreGate-02-12-04
+
+2003-11-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGateSvc::loadEventproxies() check if proxies already loaded
+        (probably should be left to the providers)
+	* tag StoreGate-02-12-02
+
+2003-11-12: Charles Leggett <charles.leggett@cern.ch>
+        * StoreGateSvc.cxx: fixed some printouts.
+	* share/*.ref: updated the ref files
+	* tag StoreGate-02-12-01
+	
+2003-11-10: Charles Leggett <charles.leggett@cern.ch>
+	* class StoreGate: new methods for IVOSvc: regHandle, regFcn
+	                 : fixed include guards
+	                 : added IIOVSvc interface ptr
+	* share/*: fixed "include syntax, added include for IOVSvc"
+	* cmt/requirements: added to declare_joboptions
+	* tag StoreGate-02-12-00
+
+2003-11-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/StoreGateSvc.h: new method loadEventProxies for PileUp
+	* tag StoreGate-02-11-02
+
+2003-10-16 S. Rajagopalan <srinir@bnl.gov>
+	* Multi-Thread Fixes from Werner to
+	  ActiveStoreSvc.cxx, ProxyProviderSvc.cxx, StoreGateSvc
+	  mainly in locating svcLocator()
+	* tag StoreGate-02-11-00
+	* rh9 patch for Joe
+	* tag StoreGate-02-11-01
+	
+2003-09-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataHandle: fix typedefs for const ptr/ref types. This makes for
+	stricter (but not complete) const-correctness checking. 
+	Unfortunately it will also break some (non const-correct) existing 
+	client code.	
+	* tag StoreGate-02-10-00
+
+2003-09-03 S. Rajagopalan <srinir@bnl.gov>
+	* Fix ProxyProviderSvc for duplicate Transient Addresses
+	* tag StoreGate-02-09-09
+	
+2003-06-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGateSvc: new accessData methods to request the read of
+	a given DataObject (identified by CLID and optional key)
+	* tag StoreGate-02-09-07
+
+2003-04-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: use TestTools with -no_auto_imports
+	* share/ClearStore_test.ref: update output
+	* share/ProxyProviderSvc.ref: update output
+	* share/StoreGateSvcClient_test.ref: update output
+	* tag StoreGate-02-09-06
+
+2003-04-21 S. Rajagopalan <srinir@bnl.gov>
+	* ProxyProviderSvc.cxx: add symLinks from TransientIDs to store
+	* tag StoreGate-02-09-05
+	
+2003-04-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/*.h: used Charles script to add include guards
+	* tag StoreGate-02-09-04
+
+2003-04-08  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/StoreGateSvc.h: wrong IProxyDict include guard
+	* tag StoreGate-02-09-03
+
+2003-04-08  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class StoreGate: implement IProxyDict interface, hence removed most
+	locatePersistent methods and friendship with the link storage states
+        * moved DataLink, ElementLink and related stuff to DataModel 
+	(removed lots of files)
+	* tag StoreGate-02-09-00
+
+	* src/StoreGateSvc.cxx (initialize): typo in ConditionsStore name 
+	* share/StoreGate_jobOptions.txt: put ClassIDSvc before StoreGateSvcs
+	* share/StoreGate.py: sync with .txt
+
+	* tag StoreGate-02-09-02
+
+2003-04-03  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class DataHandle: fixed constructors and assignment ops 
+	* test/DataHandle_test.cxx: test assignment
+	* doc/Mainpage.h:   updated
+        * remove forwarding headers fro DataPtr and DataList (no client)
+	* tag StoreGate-02-08-04
+
+2003-04-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* cmt/requirements: safer linkopts for tests
+	* doc/Mainpage.h:   updated
+	* StoreGate/tools/StorableConversions.h: put back as fowarding
+	* tag StoreGate-02-08-02
+
+2003-04-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * moved classes DataBucket DataBucketBase DataProxy DataStore
+	TransientAddress ProxyMap.h StorableConversions.h to SGTools
+	* moved IResetable to AthenaKernel
+	* StoreGate/tools/DataProxyStorage.h (class DataProxyStorage): 
+	* share/*.ref: added reference output for unit tests
+	* use new TestTools
+	* tag StoreGate-02-08-00
+	
+2003-03-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class StoreGateSvc: don't use TimeChecked
+	* class DataHandle: don't use TimeChecked and ValidityRange
+	* test/DataHandle_test.cxx: don't use TimeChecked and ValidityRange
+
+        * StoreGate/DeclareProxiesIncident.h : obsolete, REMOVED 
+	* StoreGate/ITimedDataObject.h : obsolete, REMOVED 
+	* StoreGate/TimeCheckedHandle.h : obsolete, REMOVED 
+	* StoreGate/ValidityRange.h : obsolete, REMOVED 
+	* StoreGate/tools/TimeCheckPolicy.h : obsolete, REMOVED 
+	* src/DeclareProxiesIncident.cxx : obsolete, REMOVED 
+	* src/ValidityRange.cxx		: obsolete, REMOVED 
+	* tag StoreGate-02-07-00
+
+	* test/DataList_test.cxx  : in DataModel, REMOVED
+	* test/DataPtr_test.cxx   : in DataModel, REMOVED
+        * test/DataVector_test.cxx : in DataModel, REMOVED
+	* tag StoreGate-02-07-02
+
+2003-03-13 S. Rajagopalan <srinir@bnl.gov>
+	* DataProxy::setAddress(), remove check of IOA == 0.
+	  Calling setAddress with valid IOA will delete the old IOA.
+	  Needed by AthenaOutputStream to reset IOA after createRep call.
+	* tag StoreGate-02-06-10
+	
+2003-03-12 S. Rajagopalan <srinir@bnl.gov>
+	* StoreGateSvc::removeProxy, pass pointer to transient object 
+	  (as void*) helps in calling t2pRemove easily
+	* StoreGaveSvc.h::remove(const T*) enabled.
+	* DataStore::removeProxy: Check whether proxy is 0
+	  Reset proxy if Proxy isResetOnly, delete otherwise.
+	* To deal with backward compatibility with 2.95.2 compiler, 
+	  introduce #ifndef HAVE_NEW_IOSTREAMS in several places:
+	  StoreGateSvc.icc, StoreGateSvc.cxx, DataLink_test.cxx
+	* test/SGtests.cxx: add test for StoreGateSvc::remove
+	  
+2003-03-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/StoreGateSvc.cxx: use MSG::hex and MSG::dec
+	* tag StoreGate-02-06-08
+
+2003-03-04  Paolo Calafiura  <calaf@pb-d-128-141-36-215.cern.ch>
+        * ActiveStoreSvc, DataHandle, TimeCheckPolicy, ValidityRange:
+	get rid (in a quick-and-dirty fashion) of EventInfo deps
+	* cmt/requirements: remove use EventInfo
+	* StoreGate/StoreGateSvc.icc: fix 3.2 hex and dec warnings
+	* test/DataPtr_test.cxx:  3.2 compatibility fixes
+	* test/DataLink_test.cxx: 3.2 compatibility fixes
+	* tag StoreGate-02-06-07 (first of 6.x cycle)
+
+2003-02-21 S. Rajagopalan <srinir@bnl.gov>
+	* StoreGateSvc.icc: contains should call locatePersistent with "true" 
+	  meaning check if proxy is valid. It was changed to false??
+	  changed back to true.
+	* tag StoreGate-02-06-06
+	
+2003-02-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/StoreGateSvc.h: remove undefined getProxies method
+
+2003-02-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/StoreGateSvc.cxx: use namespace std
+	* share/StoreGate_jobOptions.txt: don't use clid.db yet
+	* StoreGate/StoreGateSvc.h: add superfluous include CLASS_DEF.h to
+	work around bugs in client code FIXME!!!
+	* tag StoreGate-02-06-05
+
+2003-02-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/DataProxy.cxx (release): don't return deleted m_refCount!!!
+	* tag StoreGate-02-06-03
+
+2003-02-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/DataProxy.cxx (requestRelease): add DEBUG printout
+
+2003-02-13  Paolo Calafiura  <calaf@0-c0-f0-5a-1b-8b.dhcp.lbl.gov>
+
+	* share/StoreGate_jobOptions.txt: read clid.db by default
+	* test/ProxyProviderSvc_test.cxx: remove warning
+	* tag StoreGate-02-06-02
+
+2003-02-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* share/StoreGate_jobOptions.txt: create ClassIDSvc
+	* StoreGate/tools/ClassID_traits.h: remove duplicate include guard
+	* tag StoreGate-02-06-01
+
+2003-02-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * cmt/requirements: use CLIDSvc
+        * share/StoreGateTestCommon.txt: load CLIDSvc
+	* StoreGate/constraints/KeyConcept.h: fix ifndef name
+	* StoreGate/ClassIDSvc.h
+	* src/ClassIDSvc.cxx
+	* test/ClassIDSvc_test.cxx
+	* share/ClassIDSvc_test.txt
+	* StoreGate/tools/CLIDRegistry.h
+	* src/CLIDRegistry.cxx
+	* test/CLIDRegistry_test.cxx: moved all to CLIDSvc
+
+	* StoreGate/tools/type_tools.h: moved to AthenaKernel 
+
+	* StoreGate/DataBucket.icc: migrated ClassID_traits, include guards
+	* StoreGate/DataHandle.h: include guards
+	* StoreGate/DataProxy.{h,icc}: migrated ClassID_traits, include
+	guards, forward declare IResetable 
+	* StoreGate/DataStore.h: include guards
+	* StoreGate/StoreGateSvc.{h,icc}: include guards, workaround wrong
+	bool conversion in locatePersistent
+	* StoreGate/TransientAddress.h: fix ifndef name
+	* StoreGate/tools/AssociativeIndexingPolicies.h: fix ifndef name,
+	add doxy comments, fix include guards
+	* StoreGate/tools/ClassID_traits.h: forward to CLIDSvc/CLASS_DEF.h
+	* StoreGate/tools/ForwardIndexingPolicy.h: fix ifndef name,
+	add doxy comments, fix include guards
+	* StoreGate/tools/DataProxyStorage.h: migrated ClassID_traits, include guards
+	* StoreGate/tools/RemoveDataPtr.h: migrated DataPtr, include guards
+	* StoreGate/tools/StorableConversions.h: migrated ClassID_traits
+	* use CLASS_DEF.h and fix clid values in all tests
+	* tag StoreGate-02-06-00
+
+	
+2003-02-10 S. Rajagopalan <srinir@bnl.gov>
+	* TransientAddress.cxx: Move inline methods into .h file
+	* DataProxy, CLIDRegistry, ActiveStoreSvc, StoreGate: 
+	  remove "inline" in .cxx // FIXME: move to .h if inline is needed
+	* tag StoreGate-02-05-10
+	
+2003-02-10 S. Rajagopalan <srinir@bnl.gov>
+	* StoreGateSvc.icc: remove casting to std::string
+	  rely on automatic conversion when passing TKEY
+	* StoreGateSvc.icc: Checking of adding same object twice in
+	  record wrapped under #ifndef NDEBUG (not done in optimized mode)
+	* StoreGateSvc.cxx: remove inline declaration from .cxx
+	* test code: Fix test code to #include DataModel/...
+	* tag StoreGate-02-05-09
+	
+2003-02-05 S. Rajagopalan <srinir@bnl.gov>
+	* Forgot to set default StoreID in DataStore constructor
+	* tag StoreGate-02-05-08
+	
+2003-02-05 S. Rajagopalan <srinir@bnl.gov>
+	* DataStore.h: Cache StoreID::type (default = Unknown)
+	     - implement setStoreID() & storeID() methods.
+	* ProxyProviderSvc.h: pass storeID to AddressProvider using 
+	  IProxyRegistry.storeID()
+	* StoreGateSvc::initialize(): setStoreID in DataStore based on name().
+	  If name does not match, set to "Unknown" and can later be set.
+	* StoreGateSvc: Add setStoreID() method allowing storeID to be set
+	  instead of depending on name. Overwrites storeID set in initialize.
+	* StoreGateSvc:: uncomment preLoadProxies call in initialize()
+	* ProxyProviderSvc_test.cxx: fix to reflect change in IAddPro interface
+	* tag StoreGate-02-05-07
+	
+2003-01-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/ClassIDSvc.cxx: use MINCLID and MAXCLID from CLIDRegistry
+	* test/ClassIDSvc_test.cxx: as above
+        tag StoreGate-02-05-06
+
+2003-01-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataPtr.h: forward to DataModel
+	* StoreGate/DataVector.h: forward to DataModel
+	* StoreGate/DataList.h: forward to DataModel
+	* doc/MainPage.h: update doc
+        tag StoreGate-02-05-05
+
+2003-01-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/CLIDRegistry.h: effectively remove MAXCLID check
+        tag StoreGate-02-05-04
+
+	* StoreGate/tools/ClassID_traits.h: add s_ to please rulechecker
+	* cmt/requirements: fix name of gcc32 platform
+
+
+2003-01-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/DataProxy.cxx (accessData): throw a runtime_error when a 
+	converter createObj fails
+	* StoreGate/StoreGateSvc.icc (retrieve): catch runtime_error above
+
+	* src/ClassIDSvc.cxx (initialize): bug fix
+
+	* get ClassIDSvc and its test from AthenaServices to solve a cmt
+	dependency bug
+        tag StoreGate-02-05-03
+	
+2003-01-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * class CLIDRegistry: new static registry CLID->typeName
+	* test/CLIDRegistry_test.cxx: unit test for CLIDRegistry
+	* test/DataBucket_test.cxx: fix a CLASS_DEF
+	* cmt/requirements: add CLIDRegistry_test
+	* StoreGate/tools/ClassID_traits.h: use CLIDRegistry,
+	undef local macro
+	* StoreGate/StoreGateSvc.icc (symLink): use CLIDRegistry mechanism
+	to set CLID/typeName relationship
+	tag StoreGate-02-05-00
+
+2003-01-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* class DataStore: remove toy CLIDDB (saving 500KB memory/instance!)
+	Move dump() implementation to StoreGateSvc
+	* class StoreGateSvc: use IClassIDSvc and remove toy
+	"implementation". 
+	* cmt/requirements: add private, no_autoimports dep on
+	AthenaServices to set-up runtime env for tests (need ClassIDSvc)
+	* share/StoreGateTestCommon.txt: add AthenaServices to DLLs
+	* test/ProxyProviderSvc_test.cxx: remove warning
+	tag StoreGate-02-04-11
+	
+2003-01-14  Charles Leggett <Charles.Leggett@cern.ch>
+	* StoreGate/ProxyProviderSvc.cxx: fixed double increment for
+	loadAddress
+	* StoreGate/StoreGateSvc::initialize preLoadProxies?
+	* StoreGate/StoreGateSvc::bindHandleToProxy - make non-const,
+	added retrieveProxy. This will call updateAddress, but that's ok
+	* StoreGate/TransientAddress - need to fix isValid to check
+	CLID and key
+	tag StoreGate-02-04-10
+	
+2003-01-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/ElementLinkVector.[h, icc]: collection that behaves
+	like a	vector<ElementLink>. It turns the host data object key
+	into an index. The memory size of a compactified link is now 3
+	words/link, and only 2 words/link needs to be persistified.
+	It also mantains a vector of hosts used to generate the "short ref"
+	* StoreGate/ElementLink.h: new "unchecked" constructor used by
+	ElementLinkVector for fast conversions
+	* StoreGate/StoreGateSvc.icc (record): re-add an extra check to avoid
+	adding the same transient object twice. This was removed in
+	02-04-07 (by mistake?)
+	* src/StoreGateSvc.cxx: fix std:: for gcc 3.2
+	* StoreGate/tools/StorableConversions.h: remove warning in NDEBUG mode
+	* StoreGate/tools/DataProxyStorage.h: make dataID() const
+	* test/ElementLinkVector_test.cxx: new test
+	* test/SGtests.cxx: basically comment out testBind, which breaks
+	after Srini changes. FIXME!!!
+        tag StoreGate-02-04-09
+
+2002-01-10 Charles Leggett <Charles.Leggett@cern.ch>
+      * Made IOVSvc a friend of StoreGateSvc to get access to store()
+        tag StoreGate-02-04-08
+
+2002-01-10 S. Rajagopalan <srinir@bnl.gov>
+	* Too many changes... and I did not keep track of them.
+	* On a broad picture, the interface for ProxyProviderSvc
+	  has been changed, the TransientID is obsolete, we introduced
+	  TransientAddress and the interface to AddressProvider changed.
+	  This has cause almost everything in SG to change.
+	  tag StoreGate-02-04-07
+	
+2002-12-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/DataHandle.icc (operator++): bug fix
+	(isValid->makeAccessible)
+	* tag StoreGate-02-04-06
+
+2002-12-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* class StoreGate (recordAddress): fix input flag meaning:
+	was isResetOnly should have been clearAddressFlag  
+
+2002-12-17  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* class DataHandle: remove useless m_isInitialized, 
+	replace isValid with makeAccessible when using DataHandle as
+	iterato
+	* tag StoreGate-02-04-05
+
+2002-12-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/DataProxy.cxx (accessData): ifdef DEBUG excessive printout
+
+2002-12-15  Paolo Calafiura  <calaf@lxplus055.cern.ch>
+
+	* src/StoreGateSvc.cxx (locatePersistent); turn isValid() into 
+	makeAccessible()  
+        * src/DataProxy (makeAccessible): fail silently if PPS ptr is 0
+	* tag StoreGate-02-04-03
+	
+2002-12-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * class DataProxy: cleaned up constr removing useless or dangerous
+	service pointers
+	* src/ProxyProviderSvc.cxx: new DataProxy constr
+	* src/StoreGateSvc.cxx: new DataProxy constr
+	* test/DataProxy_test.cxx: add test for proxy with IOA (and ToyCOnv)
+
+        * test/ToyConversionSvc.h: toy cnv svc for tests. Just define
+	storage_type 255
+	* test/ToyConverter.h: templated cnv that creates a default instance of
+	an object in createObject 
+	* cmt/requirement: build ToyConversion private library
+	* share/ToyConversionOpts.txt: activate ToyConversionSvc
+	* share/ProxyProviderSvc_test.txt: include ToyConversionOpts 
+
+2002-12-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class DataProxy: distinguish isValid and isAccessible. Rename
+	makeValid -> makeAccessible
+	* test/DataProxy_test.cxx: use makeAccessible 
+	* src/ProxyProviderSvc.cxx: use new IAddressProvider::getAddresses
+	* test/ProxyProviderSvc_test.cxx: new IAddressProvider::getAddresses
+	* StoreGate/DataHandle.icc: use again redefined isValid in setState
+	* test/SGtests.cxx: test bug with re-binding (commented-out)
+	* tag StoreGate-02-04-02
+
+2002-12-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/DataProxy_test.cxx (main): new test 
+	class DataProxy: turn m_transientID into a set, remove
+	clearTransientIDs bug fix in constructor, new setGaudiRef helper
+	* tag StoreGate-02-04-01
+
+2002-12-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/hash_functions.h: cleanup, move to ns SG,
+	move SG_HASH_MAP macro definition here
+	* class ActiveStore: added doc, cleanup includes
+	* class StoreGate: cleanup, provide a singleton accessor to
+	ActiveStoreSvc for clients which need better performance
+	* class DataBucket and DataBucketBase: cleanup include statements
+	and doxygen comments 
+
+2002-12-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataHandle.{h,icc}: fixes to compile with gcc 3.2 
+	fix std::iterator (HAVE_ITERATOR), add typename
+	* StoreGate/DataProxy.h: fix for gcc 3.2: remove private tdefs
+	* StoreGate/DataStore.h: fix for gcc 3.2: static init =
+	* StoreGate/ElementLink.{h,icc}: fixes for gcc 3.2: add typenames
+	* StoreGate/StoreGate.h: fix for gcc 3.2: friend -> friend class
+	* StoreGate/tools/GenerateIndexingPolicy.h: fix for gcc 3.2:
+	add typename
+	* src/StoreGate.cxx: fix for 3.2: deal with hash_map
+	* src/StoreGateSvc.cxx: fix for 3.2: using std::string
+	
+
+	* StoreGate/IResetable.h: a type providing void reset()
+	* StoreGate/DataHandle.h: implement IResetable
+	* StoreGate/DataHandle.icc: use DataProxy::makeValid
+	* class DataProxy: reset bound handles, make itself valid talking
+	to ProxyProviderSvc (if set)
+	* StoreGate/ProxyProviderSvc.h: fix addAddress signature
+	* src/ProxyProviderSvc.cxx(addAddress): set this ptr in DataProxy
+	when pIOA is 0  
+	* class StoreGateSvc: add bind method that binds an handle
+	to a proxy for the duration of the job. The proxy resets the
+	handle when it gets its own reset from DataStore. Also added
+	private methods bindHandleToProxy and locatePersistent(TransientID)
+	* test/SGtests.{h.cxx}: added testBind
+	* test/StoreGateSvcClient_test.cxx: call testBind
+	* test/ProxyProviderSvc_test.cxx: test the invalidProxy makeValid
+	mechanism (FIXME incomplete as dummy TestProvider sets a dummy IOA
+	in the proxy made valid)
+	* tag StoreGate-02-04-00
+
+2002-12-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/StoreGateSvc.icc (record): add an extra check to avoid
+	adding the same transient object twice. SHould not be needed but
+	avoids a double delete in clearStore. FIXME
+	* src/StoreGateSvc.cxx (recordAddress): fix logic of if statement
+	that avoids overwriting a recorded object
+	* test/ClearStore_test.cxx: new test, simulates the clearStore
+	between events 
+	* tag StoreGate-02-03-01
+
+2002-12-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* class ProxyProviderSvc: new service that manages the address
+	providers and add proxies on demand to the store 
+	* class DataProxy: major revision to use TransientID, reorganize
+	structors and cleanup doc and layout
+	* class DataStore: implement IProxyRegistry, use TransientID
+	* class StoreGateSvc: implement IProxyRegistry, use TransientID,
+	create needed services on demand, improved layout for doxygen
+	* StoreGate/constraints/KeyConcept.h: protect CODEWIZARD from
+	boost tricks
+	* cmt/requirement: use AthenaKernel, new tests
+	* share/StoreGateTestCommon.txt: common opts for unit tests
+	* share/ProxyProviderSvc_test.txt: drive ProxyProvider_test
+	* StoreGate/DataHandle.icc: create needed services on demand
+	* src/ActiveStoreSvc.cxx: create needed services on demand
+	* src/StoreGate.cxx: create needed services on demand
+	* test/DataHandle_test.cxx: use TransientID
+	* test/DataLink_test.cxx: use new initGaudi
+	* test/KeyConcept_test.cxx: new test (almost empty)
+	* test/ProxyProviderSvc_test.cxx: new test
+	* test/StoreGateSvc_test.cxx: use new initGaudi
+	* test/SGtests.[h,cxx]: use ns Athena_test. Bug fix (UnLocked was
+	locked) 
+	* test/initGaudi.[h,cxx]: use ns Athena_test. New job opts handling
+	* tag StoreGate-02-03-00
+
+	
+2002-11-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * doc/MainPage.h: new file for doxygen
+        * doc/README: moved content to MainPage.h
+	* StoreGate/StoreGateSvc.h: cleanup comments for doxygen
+	* src/StoreGateSvc.cxx: use generated interfaceID
+
+	* tag StoreGate-02-02-31 for release 5.0.0
+
+2002-11-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* class StoreGate: cleanup comments for doxygen, reorder methods
+	in header. Declare retrieve with DataHandles DEPRECATED. Clean up
+	createProxy/recordAddress (which will implement IAddressRegistry) 
+
+2002-11-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/DataLink_test.cxx: test identifier/index constructors
+
+2002-11-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/StorableConversions.h: return a reference from
+	Storable_cast<T&>. This fixes a memory leak (among other things)
+	* test/DataBucket_test.cxx: remove memory leaks
+
+2002-11-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataPtr.h: new implementation not based on shared_ptr
+	* test/DataHandle_test.cxx: remove leak
+	* test/DataLink_test.cxx: remove leak
+	* test/DataPtr_test.cxx: comment out wrong usage example
+	* test/SGtest.cxx: reorganized testSymlinks. THERE IS A BUG IN LOCKING
+	THERE IS AN INVALID DELETE IN CLEARSTORE
+	* cmt/requirements: put back forgotten DataBucket_test
+	* tag StoreGate-02-02-29
+	
+2002-11-10 Hong Ma <hma@bnl.gov>
+	* DataProxy::setTransient returns true, even if transient ID
+	  already exist.
+
+
+2002-11-10 S. Rajagopalan <srinir@bnl.gov>
+	* StoreGateSvc.cxx::setupProxy.cpp Check if dp->object() is non-zero 
+	instead of dp->isValid(). i.e., object can be set in proxy through a 
+	record if it has a valid IOA (previously possible only throgh conv.)
+	* StoreGateSvc: DataProxy.cxx: clearTransientID not called in reset
+	* tag StoreGate-02-02-27
+	
+2002-11-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* cmt/requirements: removed explicit use Doxygen                    
+        * tag StoreGate-02-02-26
+	                                                                   
+2002-11-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/STLlinks.h: bug fix in storage policy definition
+	* test/DataLink_test.cxx (SG_test): linkStreamers test active again
+	* StoreGate/tools/DataProxyStorage.h (class DataProxyStorage): bug
+	fix in dataPut,  remove oldCompiler.h refs
+	* StoreGate/tools/PlainPtrStorage.h: remove oldCompiler.h refs
+	* StoreGate/tools/oldCompiler.h: obsolete removed
+	* StoreGate/tools/DequeIndexingPolicy.h: obsolete removed
+	* StoreGate/tools/ListIndexingPolicy.h: obsolete removed
+	* StoreGate/tools/VectorIndexingPolicy.h: obsolete removed
+	* tag StoreGate-02-02-25
+
+2002-10-30  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/src/ActiveStoreSvc.cxx: remove warning from static method 
+        redeclaration
+
+2002-10-30  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/DataProxyStorage.h: gcc-opt bug fix from Guillaume
+	* tag StoreGate-02-02-24
+
+2002-10-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/tools/AssociativeIndexingPolicies.h: fixed tdefs
+	* StoreGate/tools/ForwardIndexingPolicy.h: fixed tdefs
+	* StoreGate/tools/RemoveDataPtr.h: new helper struct moved from
+	ForwardIndexingPolicy here
+	* class ElementLink : fixed tdefs 
+	* test/DataLink_test.cxx: more testing for link into DataVector
+	* tag StoreGate-02-02-23
+
+2002-10-28  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/DataLink_test.cxx (SG_test): adjust to new (right...)
+	definition of element_type for containers of DataPtrs
+
+	* StoreGate/tools/ForwardIndexingPolicy.h: added RemoveDataPtr
+	helper to deal "transparently" with containers of DataPtrs
+	* StoreGate/DataPtr.h (class DataPtr): removed DataPtrBase inheritance
+	not needed anymore
+	* StoreGate/tools/IsAtlasSequence.h: removed: not needed any more
+	* StoreGate/tools/DataPtrSequenceIndexingPolicy.h: removed: not
+	needed any more 
+	* tag StoreGate-02-02-22
+	
+2002-10-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataPtr.h: disallow base class instantiation
+	* tag StoreGate-02-02-21
+	* StoreGate/DataPtr.h (class DataPtr): added inheritance from
+	dummy "flag" class DataPtrBase
+	* StoreGate/tools/IsAtlasSequence.h: bug fix: now use "flag"
+	DataPtrBase inheritance to distinguish between plain stl sequences and
+	DataPtr sequences
+
+2002-10-25 S. Rajagopalan <srinir@bnl.gov>
+	* Add DataPtrSequenceIndexingPolicy to deal with DataVector/DataList
+	* Separate IsSTLSequence.h from IsAtlasSequence.h
+	* IsAtlasSequence deal with only Datavector/DataList
+	* Add DataPtr_type typedef in DataPtr.h
+	* GenerateIndexingPolicy.h: Check on IsSTLsqequence and isAtlasSequence
+	  to decide whether to select ForwardIndexingPolicy or the new
+	  DataPtrSequenceIndexingPolicy
+	* tag StoreGate-02-02-20
+	
+2002-10-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/PlainPtrStorage.h: removedinclude StoreGate.h
+	* StoreGate/ActiveStoreSvc.h: removed horrible IID_ global const
+        * cmt/requirements: use doxygen
+	* StoreGate/tools/IsAtlasSequence.h: "flag" struct that determines
+	whether a container is one of supported ATLAS sequences. Requires
+	the container to define value_type
+	* StoreGate/tools/GenerateIndexingPolicy.h: type generator that
+	associates a known container with an IndexingPolicy 
+	* StoreGate/ElementLink.h: use GenerateIndexingPolicy to generate
+	a default indexing policy (requires the storable to define value_type)
+	* test/DataLink_test.cxx: test GenerateIndexingPolicy 
+	* StoreGate/DataPtr.h: FIXME removed EqualityComparable concept
+	check (does not work for abstract types). Now DataPtr == checks
+	that the pointers rather than the pointed at objects are equal.	
+	* tag StoreGate-02-02-18
+
+2002-10-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * class ElementLink: fixed PlainPtrElementLink, added O(n)
+	constructor that searches for an element in the storable
+	* StoreGate/DeclareIndexingPolicy.h: new header with macros to
+	help declaring containers indexing policies
+	* StoreGate/tools/StoragePolicies.h: obsolete, remove
+	* test/DataLink_test.cxx: testing DeclareIndexingPolicy and new
+	ElementLink constructor
+	* tag StoreGate-02-02-17
+
+2002-10-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/StorableConversions.h: bug fix and quiet argument
+	* test/DataBucket_test.cxx: added tests for StorableConversions 
+	* tag StoreGate-02-02-16
+
+2002-10-16 S. Rajagopalan <srinir@bnl.gov>
+	* DataProxyStorage::setData(DataObject*) : Bug Fix
+	  use DataProxy_cast instead of fromStorable() to
+	  handle symLinks
+	* tag StoreGate-02-02-15
+	
+2002-10-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/StoreGateSvcClient_test.cxx: clearStore at the end
+	* test/SGtests.cxx (SG_test): remove multiple deletes
+
+	* StoreGateSvc: new methods recycle, emptry trash to deal with orphans
+	* DataStore: new method removeProxy, cleanup
+	* tag StoreGate-02-02-14
+
+2002-09-24 S. Rajagopalan <srinir@bnl.gov>
+	* Include ability to NOT deleted IOA to satisfy HLT requirement:
+	* StoreGateSvc::createProxy: Add flag = true by default to allow
+	  clients to indicate whether IOA should be deleted
+	* DataProxy: Add flag m_clearAddress to indicate whether IOA is deleted
+	* DataProxy:reset(): Delete IOA only if flag is true
+	* tag StoreGate-02-02-13
+	
+2002-09-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/DataStore.cxx: initialize m_typesById and unfreeze strstream
+	* src/StoreGateSvc.cxx: unfreeze strstream - fix memory leak
+	* tag StoreGate-02-02-12
+
+2002-09-23 S. Rajagopalan <srinir@bnl.gov>
+	* Change record(IOA*) to recordAddress(IOA*)
+	* Add contains(clid, key)
+	* tag StoreGate-02-02-11
+	
+2002-09-20  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataPtr.h: remove bogus boost #define. Left in a few
+	debug printouts (ifdef'd away)
+	* tag StoreGate-02-02-10
+
+2002-09-13 Hong Ma  <hma@bnl.gov>
+	* buf fix in PersistentState.cxx
+
+2002-09-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+
+	* StoreGate/tools/IStoragePolicy.h: added <string>
+
+	* StoreGate/tools/DefaultObjectTag.h: to attic
+	* StoreGate/tools/PlainPtrStorage.h:  no DefaultObjectTag
+	* StoreGate/test/DataLink_test.cxx:  no DefaultObjectTag
+	* StoreGate/constraints/KeyConcept.h: no DefaultObjectTag
+	* StoreGate/DataLink.h (class DataLink): use new DataProxyStorage
+	DefaultState, remove constructor with DefaultObjectTag
+	* tag StoreGate-02-02-08
+
+2002-09-04 S. Rajagopalan <srinir@bnl.gov>
+
+	* Add virtual destructors to DataVector and DataList
+  
+	* Introduce DefaultState for DataProxyStorage
+          Now DataProxyStorage cannot be in an invalid state.
+	  Default Constructor of DataProxyStorage goes to DefaultState
+	* DataLink::clear() goes to DefaultState
+	* DataLink & DataProxyStorage::setData() removed
+	* DataLink::toDefaultState() calls clear()
+	* Fix DataVector_test and DataLink_test
+	
+2002-09-03 S. Rajagopalan <srinir@bnl.gov>
+	* More bugs:
+	* Fix StoreGateSvc::locatePersistent to return proxy properly
+	* Accessible & Identified state.cxx :: toPersistable()
+	  Check if proxy is non-zero before calling setData()
+	* tag StoreGate-02-02-06 and submit to nightly
+	
+2002-09-03 S. Rajagopalan <srinir@bnl.gov>
+	* StoreGateSvc/contains: checks whether a proxy is valid
+	* StoreGateSvc/locatePersistent: added argument flag to check if a 
+	  proxy is valid or not. Default set to false (don't check if
+	  proxy is valid).
+	* tagged StoreGate-02-02-05
+	
+2002-09-01 S. Rajagopalan <srinir@bnl.gov>
+	* tools/STLlinks.h : include DataLink.h to define PlainPtrElementLink
+	* tag StoreGate-02-02-04
+	
+2002-08-30 S. Rajagopalan <srinir@bnl.gov>
+	* AccessibleState.h, IdentifiedState.h, ProxyState.h,
+	  PersistentState.h:
+	  - Fix bug, move static declaration to .cxx
+	  - created .cxx for each state above
+	  - moved all code to .cxx
+	  - tag StoreGate-02-02-03
+	  
+2002-08-27 S. Rajagopalan <srinir@bnl.gov>
+	* Changes to StoreGateSvc.h/StoreGateSvc.icc :
+	* Add retrieing non-const T* with and without key
+	  This will check if object is locked, else return Failure
+	* fix checking constness in retrieve const T* with key
+	* add #ifndef NDEBUG around log messages for optimization	
+
+	* DataVector and DataList also needs copy constructors. Added them
+	* StoreGate/test: Added testing of new constructors to DataVector_test
+	  and DataList_test
+	
+2002-08-26 S. Rajagopalan <srinir@bnl.gov>
+	* Fix bug in DataProxyStorage::setData(ptr): Handle ptr=0 properly
+	* Fix bug in IdentifiedState::isValid() validity was inverse
+	* DataLink_test broken... fixing
+	
+2002-08-24 S. Rajagopalan <srinir@bnl.gov>
+
+	* Split StoreGate/tools/StoragePolicies:
+	* Two Storage Policy classes: DataProxyStorage and PlainPtrStorage
+	* Two new interface classes: IStoragePolicy and IStorageState
+
+	* DataProxyStorage sub-classed from IStoragePolicy
+	* Separate states from StoragePolicies
+	* Four states: Accessible, Identified, Proxy and Persistent
+	* State sub-class from common IStorageState
+	* Splitting cause comminication between states and StoragePolicy 
+	  to change. In particular, states do not return the state anymore.
+	  Any change to the data members calls changeState() which determines
+	  the state.
+	
+	* DataLink and STLlinks changed to use new storagePolicy 
+	* Old StoragePolicies is now obsolete - not yet in attic
+
+	* StoreGate/DataVector and StoreGate/DataList: 
+	  Add constructors to replicate stl::vector and stl::list
+	  constructors. Other than default constructor, other constructor
+	  of base class are not automatically called and hence need to be
+	  replicated.
+
+	* StoreGate/test: Add new DataVector_test.cxx and DataList_test.cxx
+	* cmt/requirements: modify to invoke above new tests	
+	
+
+2002-08-20  S. Rajagopalan <srinir@bnl.gov>
+	* Enable ConditionsStore in StoreGate_jobOptions.txt
+	
+2002-08-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/DataHandle_test.cxx: start testing TimeCheckedHandle
+	* test/DataLink_test.cxx: use ElementLink, test link streamers
+
+	* StoreGate/DataHandle.[h,icc]: cleanup DataHolder
+	* StoreGate/TimeCheckedHandle.h: added necessary constructors
+	* StoreGate/StoreGateSvc.[h,icc]: (temporarily) forward static methods
+	asStorable and fromStorable. Also get rid of stored_type silly
+	tdef and replace it with DataObject* everywhere in StoreGateSvc
+
+	* StoreGate/DataProxy.icc (DataProxy_cast): implement new operator
+	that "casts" a DataProxy into its contained dobj
+
+	* StoreGate/ElementLink.[h,icc]: new template for links to
+	elements contained in a data object. It uses a specialized 
+	DefaultIndexingPolicy to index into the data object.
+	* StoreGate/DataLink.[h,icc]: only deals with data objects now 
+
+	* StoreGate/tools/StoragePolicies.h (class DataProxyStorage ): 
+	fixed dataGet and dataPut, got rid of too many tdefs, use
+	DataProxy_cast, new setData(const STORABLE*)
+	
+	* StoreGate/tools/ClassID_traits.h: added more MY_STATIC_ASSERT
+	
+	* StoreGate/tools/StorableConversions.h: new header containing as
+	open functions asStorable and fromStorable plus a new
+	Storable_cast operator (which calls fromStorable)
+
+	* StoreGate/tools/DefaultIndexingPolicy.h: new struct generating
+	the indexing policy type for ElementLink. Need a specialization
+	for each container we want to index into
+	* StoreGate/tools/DequeIndexingPolicy.h: specialize
+	DefaultIndexingPolicy for deque
+	* StoreGate/tools/ListIndexingPolicy.h: specialize
+	DefaultIndexingPolicy for list
+	* StoreGate/tools/MapIndexingPolicy.h: specialize
+	DefaultIndexingPolicy for map
+	* StoreGate/tools/SetIndexingPolicy.h: specialize
+	DefaultIndexingPolicy for set
+	* StoreGate/tools/VectorIndexingPolicy.h: specialize
+	DefaultIndexingPolicy for vector
+
+	* StoreGate/tools/STLlinks.h: left around for backward
+	compatibility, uses ElementLink now
+
+	* StoreGate/tools/NoIndexingPolicy.h: removed
+	
+	* StoreGate/tools/STLIndexingPolicies.h: removed, split in two	
+	* StoreGate/tools/AssociativeIndexingPolicies.h: new class derived
+	from the split of STLIndexingPolicies 
+	* StoreGate/tools/ForwardIndexingPolicy.h: new class derived
+	from the split of STLIndexingPolicies
+
+        * tag StoreGate-02-02-00
+
+2002-08-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/ClassID_traits.h: add <typeinfo> include
+        * StoreGate/DataHandle.icc: fix compil error in impl_datapointer
+        for timed data handle
+        * tag StoreGate-02-01-22
+
+2002-08-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/ClassID_traits.h: replace is_convertible with
+        is_base_and_derived
+        * StoreGate/test/DataBucket_test.cxx: check ClassID_traits for
+        abstract classes
+        * tag StoreGate-02-01-21
+
+2002-08-08 S. Rajagopalan <srinir@bnl.gov>
+	* remove ConvertibleConcept check in StoreGateSvc::symLink
+	 because it does not work for symLink between vector<A*> and
+	 vector<B*> when A inherits from B.
+	* tag StoreGate-02-01-20
+	
+2002-08-07 S. Rajagopalan <srinir@bnl.gov>
+	* tag StoreGate-02-01-19 : tag for release 4.2.0
+	
+2002-08-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/StoreGateSvc.h: ProxyMap.h is needed (unfortunately)
+
+	* StoreGate/tools/ProxyMap.h: needs include<string>
+
+	* StoreGate/DataHandle.icc (setState): remove warning and oldCompiler.h
+
+2002-08-02 S. Rajagopalan <srinir@bnl.gov>
+	* remove #include ProxyMap from StoreGateSvc.h
+	* fix type in ProxyMap.h
+	
+2002-08-01  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/constraints/KeyConcept.h: added specializations for
+	integer types 
+
+2002-07-31 S. Rajagopalan <srinir@bnl.gov>
+	* fix type error in DataHandle.icc 
+	* need to retag.. StoreGate-02-01-18
+	
+2002-07-31 S. Rajagopalan <srinir@bnl.gov>
+	* DataHandle: fix ++ operator and setState(svc,itr,itr) 
+	  so that the iterator is set to next Valid proxy
+	  If the next valid proxy is itrEnd, return failure
+        * Remove throwing exceptions in DataHandle and DataProxy
+	  Client will get a null pointer if dereferenced
+	* DataHandle::isValid returns true/false without throwing exception
+	  client can check this if necessary,
+ 	  but in pricinple, everything should be ok with only a check of 
+	  StatusCode upon StoreGateSvc::retrieve
+	* tag StoreGate-02-01-17	  
+	
+2002-07-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* class StoreGateSvc: new getProxies method fires DeclareProxies
+        incident
+	* StoreGate/DataHandle.*: fixed postfix operator ++
+
+2002-07-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataLink.h: setData returns a void not a bool: no point
+	in checking its return value! 
+
+2002-07-23  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/StoreGateSvc.h: made a few methods private, providing
+	access to select friends 
+	* StoreGate/StoreGateSvc.icc: removed superfluos includes
+	
+2002-07-22  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataLink.h: relaxed const correctness to ease clients
+	life, accessData renamed cptr and made public 
+
+	* StoreGate/DataHandle.icc (setState): check proxy ptr is non 0 
+	* class StoreGateSvc: improved fromStorable, corrected
+	createKey signature, simplify retrieve methods moving more
+	checks out to DataHandle and the cxx file
+
+	* StoreGate/tools/StoragePolicies.h: various hacks to relax
+	DataLink const correctness. Use new StoreGateSvc::fromStorable 
+
+	* test/DataLink_test.cxx (SG_test): test const * assignment and
+	retrieval 
+
+	* test/DataBucket_test.cxx: use SGASSERTERROR
+	* test/DataHandle_test.cxx: use SGASSERTERROR
+	* test/SGtests.cxx:         use SGASSERTERROR
+	* test/SGassert.h (SGASSERTERROR): new - assert an error condition with
+	pretty print
+	tag StoreGate-02-01-16
+
+2002-07-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* class DataProxy: const corrected
+
+	* src/DataStore.cxx: bigger better dump
+	* src/StoreGateSvc.cxx: cosmetics + fire DeclareProxiesIncident
+	from clearStore 
+
+	* test/StoreGateSvcClient_test.cxx: use SGtests
+	* test/DataStore_test.cxx: new test of clearStore (for now empty)
+	* test/SGtests.[h,cxx] (SG_test): "library" of test functions
+	* cmt/requirements: run DataStore_test
+	
+	tag StoreGate-02-01-15
+
+2002-07-18  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataHandle.[h.icc]: added required include DataProxy
+	We should try to move the proxy handling to a DataHandleImpl base
+	class (or contained object). Replaced the throw in setState
+	methods with StatusCode. Now  the setState methods are responsible
+	for checking the proxy they are handed. 
+
+	* src/DataStore.cxx: use ProxyMap.h, new method addSymLink,
+	changed signature of typeNameByID methods. t2pRegister now returns
+	FAILURE in case of re-insertion of the same transient object (this
+	allows proxy() to behave in a predictable way)
+	* StoreGate/tools/ProxyMap.h: extracted from DataStore.h to reduce deps
+
+	* StoreGate/StoreGateSvc.[h.icc]: reduced deps on DataProxy and
+	DataStore to name-only. Moved lots of code to src/StoreGateSvc.cxx
+
+	* test/DataLink_test.cxx: use reference to set storable obj pointer
+	* test/StoreGateSvcClient_test.cxx (SG_test): new test for the
+	algos interface
+	* cmt/requirements : run new StoreGateSvcClient_test
+	added private use GaudiSvc to be able to run tests using local setup.sh
+
+	* StoreGate/constraints/KeyConcept.h: have classIsKey return a
+	dummy int (makes it easier to make its invocation "static")
+
+	tag StoreGate-02-01-14
+
+2002-07-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* src/StoreGateSvc.cxx: fire DeclareProxy incident on init 
+	(FIXME should be after init)
+
+	* src/DataStore.cxx: use DataProxy requestRelease
+
+	* StoreGate/DataLink.h: remove throw declarations, don't throw 
+	in ops -> and conversion to pointer (NULL pointer flags error anyway)
+
+	* StoreGate/tools/StoragePolicies.h: remove throw declarations
+
+	* class DeclareProxiesIncident: new Incident type to be used by
+	ConversionSvcs (mainly) to declare new proxies to SG 
+
+	* class DataProxy: added requestRelease method and more cosmetics 
+
+2002-07-16 H. Ma <hma@bnl.gov>
+	*  restore one of the  DataLink constructors
+        *  do not throw exception in DataProxyStorage 
+	    instead, throw exception in DataLink dereference
+            if pointer is not valid. 
+	tag StoreGate-02-01-13?
+
+2002-07-16 S. Rajagopalan <srinir@bnl.gov>
+	* StoreGateSvc: do not clear primary id in list<transientID>
+	  only clear the symLinked IDs
+	* StoreGate::retrieve Check if proxy is valid, otherwise return failure
+	
+	
+2002-07-13 H. Ma <hma@bnl.gov>
+	* Improve performace for IdentifiableContainer. 
+		  StoragePolicies.h
+
+2002-07-12 S. Rajagopalan <srinir@bnl.gov>
+	* These set of changes reflect the move to NOT delete the
+	  proxies at the end of the event.  It also resulted in
+	  some amount of reshuffling of code:
+	* DataLink: Remove constructor to cache transient pointer
+	* StoragePolicy: reset modified to keep proxy
+	* DataProxy: isValid method : checks validity of IOA and DO
+	* DataProxy: setDefaults() : sets default configuration
+	* DataProxy: resetOnly and isResetOnly() - if true, proxy not 
+	  deleted at the end of the event, but only reset
+	* DataStore: typeNameByID() split from addToStore
+	* DataStore: cleareStore: reset proxy if they are reset only
+	  reset will delete DO and IOA, but not the proxy itself
+	* DataStore: addToStore does not check if key already exists anymore
+	* StoreGateSvc: record: If proxy exists, they are updated, otherwise
+	  a new proxy is created.
+	* StoreGateSvc: proxy for non-keyed objects are DELETED
+        * StoreGateSvc: record(IOA*) introduced in place of createProxy.
+	  this will _update_ the proxy with the IOA if it already exist
+	  otherwise make a new proxy with the IOA.
+	
+	
+2002-06-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataPtr.h:     new DataPtr based on boost::shared_ptr 
+	* test/DataPtr_test.cxx:   testing the above
+	* test/DataLink_test.cxx:  testing the above
+ 
+        * cmt/requirements:                   migrate to EventInfo package
+	* StoreGate/ValidityRange.h:          migrate to EventInfo package
+	* StoreGate/tools/TimeCheckPolicy.h:  migrate to EventInfo package 
+
+	* DataStore, DataLink, DataHandle: removed exception specification
+	which slows down execution (left there as a comment).
+	* test/DataPtr_test.cxx: added polymorphic copy test which fails!
+	tag StoreGate-02-01-10
+
+2002-06-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataPtr.h (class DataPtr): added ptr and cptr accessors 
+	* test/DataPtr_test.cxx: test cptr
+        tag StoreGate-02-01-09
+
+2002-06-13  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* test/initGaudi: all gaudi init stuff in a new function
+	* test/DataLink_test.cxx: use initGaudi, use SG_test ns
+	* test/DataHandle_test.cxx: new
+
+	* cmt/requirements: run new DataHandle_test
+
+	* StoreGate/DataHandle.[h,icc]: fixed oper ==, impl_dataPointer
+	throws instead of aborting, fixed isValid(), ptr now public as cptr
+
+2002-06-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* cmt/requirements: set max template depth to 25 for SG clients (CHECK!)
+        tag StoreGate-02-01-08
+	
+2002-05-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * StoreGate/StoreGateSvc.*: new method fromStorable turns a dobj
+	in a T*	
+        * StoreGate/DataHandle.icc: use fromStorable
+	* test/DataBucket_test.cxx: test fromStorable/asStorable
+	tag  StoreGate-02-01-07
+
+2002-05-26  Paolo Calafiura  <calaf@pb-d-128-141-36-217.cern.ch>
+
+	* StoreGate/tools/ClassID_traits.h: added more expressive error
+	message for missing CLASS_DEF
+
+2002-05-22 S. Rajagopalan <srinir@bnl.gov>
+	* Add operator() method to return const pointer in DataPtr
+	* tag StoreGate-02-01-06
+	
+2002-05-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/DataHandle.h: added DataStore.h
+	* StoreGate/DataPtr.h: constructor from T* does shallow copy again
+	constr from T& deep copy, added comparison ops
+	* test/DataPtr_test.cxx: test comparison ops
+	* test/DataLink_test.cxx: use vector< DataPtr<int> >
+	* tag StoreGate-02-01-05
+
+2002-05-14 S. Rajagopalan <srinir@bnl.gov>
+	* Fix cast to DataObject in symlinks (DataHandle.icc)
+	* remove DataHandleIterator #includes
+	* attic DataHandleIterator.cxx and .h
+	
+2002-05-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* StoreGate/DataPtr.h: modified constructor from T* 
+	Now it is safe but there is an extra copy (mumble, mumble...)
+	* test/DataPtr_test.cxx: new test
+	* src/StoreGateSvc.cxx: remove spurious static
+	
+2002-05-13 S. Rajagopalan <srinir@bnl.gov>
+	* DataHandle & DataHandleIterator merged
+	* DataHandleIterator is now obsolete (will attic after test)
+	* DataProxy::transientID(CLID) : checks if CLID is a symlink
+	* DataHandle::setState(...) interface changed
+	* DataHandle clean up: remove construtor DataHandle(setStorable), setStorable(..), setPersistentIterator(..) , m_mutable, isMutable(), setMutable().
+	* DataHandle.icc::impl_dataPointer() introduce static_cast for symLinks.
+	* StoreGateSvc.icc:: changes for removing DataHandleIterator
+	* DataBucket: inherits from DataBucketBase (new class)
+	* new classes DataVector and DataPtr: replacement for ObjectVector for polymorphic containers
+	* client interface remains unchanged (including symlinks)
+	* tag StoreGate-02-01-04
+	
+2002-04-26  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/DataStore.h: replace map<CLID,string> with boost::array
+	* src/DataStore.cxx: protect addToStore against empty names, 
+	const-corrected 
+	* StoreGate/StoreGateSvc.*: moved implementations to icc, 
+	added typeName<T> and typeNameByID, use anonymous namespace,
+	cleanup interfaceID
+	* src/StoreGateSvc.cxx: cleanup interfaceID
+	* StoreGate/DataProxy.h (setTransientID): const-corrected 
+	* src/DataProxy.cxx (setTransientID): const-corrected 
+	* StoreGate/tools/ClassID_traits.h (typeName): try harder for DataObjects 
+	* test/DataBucket_test.cxx: test new typeName for DataObjects
+	* test/DataLink_test.cxx: check record StatusCode
+	tag StoreGate-02-01-03
+	
+2002-04-18  Paolo Calafiura  <calaf@localhost>
+
+	* StoreGate/tools/ClassID_traits.h: add typeName accessor
+	* test/DataBucket_test.cxx: test ClassID_traits::typeName
+	* StoreGate/StoreGateSvc.icc: use DataStore::typeName
+	* StoreGate/DataProxy.h: add const to contructor args
+	* StoreGate/DataStore.h: add typeName and typeNameByID accessors
+	* ars/DataStore.cxx: add typeName and typeNameByID, improve dump,
+	constness 
+	* src/DataProxy.cxx: add const to contructor args
+	tag StoreGate-02-01-02
+	
+2002-04-16  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/tools/StoragePolicies.h (PlainPtrStorage): simplified 
+	* StoreGate/StoreGateSvc.icc: remove warnings about unused variables
+	* StoreGate/DataLink.*: remove template template parm and
+	compatibility macros
+	* StoreGate/tools/STLlinks.h: changes for template template par removal
+	* test/DataLink_test.cxx: 
+	remove warnings about unused variables,
+	changes for template template parm removal 
+	testing default copy consturctor and equal operator
+
+2002-04-15  Paolo Calafiura  <calaf@beba.lbl.gov>
+
+	* StoreGate/StoreGateSvc.*: added asStorable method
+	* src/DataStore.cxx (dump): added locked info 
+
+	* StoreGate/tools/replaceSlashes.h: moved to attic
+	* StoreGate/tools/splitSlash.h: moved to attic
+	* src/splitSlash.cxx: moved to attic
+
+2002-04-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/StoreGateSvc.h: added asStorable method
+	* StoreGate/DataStore.h (class DataStore): added std:: for Sun
+
+2002-04-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+        * tag StoreGate-02-01-00
+	
+	* StoreGate/ISelector.h: moved to attic
+	* StoreGate/IStoreGateSvc.h: moved to attic
+	* StoreGate/Serializable.h: moved to attic
+	* StoreGate/TypeInfo.h: moved to attic
+	* StoreGate/DataHandle.*: removed ISelector deps 
+	* StoreGate/DataBucket.*: removed StreamBuffer deps 
+
+	* StoreGate/tools/DataHandleStorage.h: moved to attic
+	* StoreGate/tools/ClassID_traits.h: removed Serializable deps
+	* StoreGate/tools/STLIndexing.h: removed  StreamBuffer deps 
+	* StoreGate/tools/StoragePolicies.h: removed StreamBuffer deps, adjust constness
+
+2002-04-02 S. Rajagopalan <srinir@bnl.gov>
+	* Introduce change in how data objects are stored internally
+	* from using multimaps to using map<... map<> >
+	* Modified code is: DataStore,& StoreGateSvc.icc
+	* Clean up StoreGateSvc.icc as well.
+	
+2002-03-29  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * share/StoreGate_jobOptions.txt: moved AthenaServices loading to
+	Atlas.UnixStandard 
+	
+	* src/DataStore.cxx(dump): show if object locked/modifiable
+
+	* StoreGate/StoreGateSvc.*: added new contains method to test
+	whether a data object is in the store 
+
+	* StoreGate/DataLink.h: make arg of DataLink constructor a const &
+
+2002-03-27  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* tag StoreGate-02-00-20: this is again the head tag including
+	what's new wrto 02-00-18 
+
+	* test/DataLink_test.cxx (DataLink_test ): 
+	* StoreGate/tools/StoragePolicies.h (class DataProxyStorage ):
+	now reset and clear do (almost) what they should
+	* src/DataProxy.cxx (setAddress): remove spurious return statement
+
+	* tag StoreGate-02-00-19: special tag for 3.0.1 bug fixes. Not
+	Gaudi 0.9.x compatible!
+
+	* test/DataLink_test.cxx (DataLink_test ): major rewrite, now
+	tests DataProxyStorage as well
+
+	* StoreGate/tools/StoragePolicies.h (class DataProxyStorage ):
+	improved state transitions, added reset method (FOR NOW same as clear)
+
+	* StoreGate/DataLink.h (class DataLink): "added setters to match
+	constructors, added reset method (FOR NOW same as clear) 
+
+2002-03-22 S. Rajagopalan <srinir@bnl.gov>
+	* Add ability to record const T* (request from R. Candlin)
+	* this by default is locked - non-modifiable
+
+	* Fix deletion of IOpaqueAddress in DataProxy.h (& .cxx)
+	* introduce setAddress() and do refCounting in IOA
+	* Also fix initialization of null pointers in constructor
+
+	* tag StoreGate-02-00-18
+	
+2002-03-21  Charles Leggett & Paolo Calafiura
+
+	* StoreGate/tools/TimeCheckPolicy.h: new policy checks a validity range
+	* StoreGate/ValidityRange.h: new time validity range class
+	* src/ValidityRange.cxx: new time validity range class
+	* StoreGate/TimeCheckedHandle.h: "templated typedef"
+	* StoreGate/ITimedDataObject.h: new interface to set validity range
+
+2002-03-19  Charles Leggett & Paolo Calafiura
+
+	* StoreGate/tools/StoragePolicies.h: extend error checking
+	rolled back to previous version of clear(). Forget 02-00-16b!
+	* cmt/requirements: add EventAthena dep for EventInfo and
+	EventID. Should be a private use but CMT does not handle it properly
+	* StoreGate/DataHandle.*: support changed DataHandle template
+	* StoreGate/DataProxy.h: throw when accessData fails
+	* src/DataProxy.cxx: throw when accessData fails
+	* StoreGate/DataHandleIterator.h: added reset proxy method
+	* src/DataHandleIterator.cxx: added reset proxy method
+	* StoreGate/DataHandle.*: removed PersistentIterator, added
+	TimeChecked flag
+	* StoreGate/DataBucket.*: added checkPolicy
+	* StoreGate/ActiveStoreSvc.h: added EventInfo accessor
+	* src/ActiveStoreSvc.cxx:  added EventInfo accessor
+
+	* StoreGate/tools/StoragePolicies.h: try to go to IdentfiedState
+	when clearing
+	* tag StoreGate-02-00-16b (starting from 02-00-16)
+
+2002-03-15 S. Rajagopalan <srinir@bnl.gov>
+
+	* remove GaudiIterator (in attic)
+	* DataProxy.* remove TransientStore() not in Gaudi 0.9.x
+	* tag StoreGate-02-00-17
+	
+2002-03-08  Paolo Calafiura  <Paolo.Calafiura@cern.ch>
+        *** tag StoreGate-02-00-16
+	* StoreGate/tools/StoragePolicies.h (class DataProxyStorage ): 
+	const_ref_type tdef does not seem to work. FIXME
+
+	* StoreGate/DataLink.h added toIndexedElement setter 
+
+2002-03-07  Paolo Calafiura  <calaf@lxplus045.cern.ch>
+        * src/DataProxy.cxx: remove comparison signed-unsigned, tdef vector CLID
+
+2002-02-22  Paolo Calafiura  <calaf@lxplus045.cern.ch>
+        * share/StoreGate_jobOptions.txt: instantiate ActiveStoreSvc
+
+2002-02-08  Paolo Calafiura  <calaf@lxplus045.cern.ch>
+
+	* StoreGate/tools/StoragePolicies.h (class DataProxyStorage ): 
+	made defaultDataSource() public (SUN port)
+
+	* StoreGate/StoreGateSvc.[h,icc]: help SUN CC
+
+2002-02-06  Paolo Calafiura  <calaf@lxplus045.cern.ch>
+
+	* cmt/requirements: support component tests
+
+	* test/DataBucket_test.cxx (CLASS_DEF): updated
+
+	* StoreGate/tools/StoragePolicies.h (class DataProxyStorage ): 
+	support links to default objects
+
+	* StoreGate/constraints/KeyConcept.h: don't check DefaultObject_tag
+
+	* StoreGate/DataLink.h: use DefaultObject_tag
+
+	* src/StoreGate.cxx: use ActiveStoreSvc to get default
+
+	* StoreGate/tools/DefaultObject_tag.h (operator <<):
+	new class used to link to the default object (good idea?)
+
+2002-02-05  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/StoreGateSvc.icc (retrieve):
+	    fix for Solaris non std distance
+
+2002-01-22 Paolo Calafiura  <pcalafiura@lbl.gov>
+          - Solaris WS6 5.1 port
+	
+2002-01-17 Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataLink.h ClassID_traits.h
+          - bug fixes
+	
+2002-01-11 Paolo Calafiura  <pcalafiura@lbl.gov> Massimo Marino <Massimo_Marino@lbl.gov>
+	* new ActiveStoreSvc class
+          - returns a pointer to the settable active StoreGateSvc 
+	    (handles multiple stores for PileUp)
+	
+2001-12-10 S. Rajagopalan <srinir@bnl.gov>
+	* add setConst() method to StoreGateSvc
+	* tag 02-00-06
+	
+2001-11-27 S. Rajagopalan <srinir@bnl.gov>
+	* Check returned object in DataHandle before dynamic_cast
+	* make setObject public in DataProxy
+	* add updateProxy in StoreGateSvc
+	
+2001-11-27 Paolo Calafiura  <pcalafiura@lbl.gov>
+	* full rewrite of DataProxyStorage (StoragePolicies.h)
+          - added a state machine Accessible<->Persistable<->Storable
+          - added a dataID accessor for persistency
+	
+2001-11-27 S. Rajagopalan <srinir@bnl.gov>
+	* Add = operator in DataHandle
+	* Make Copy constructor explicit
+	
+2001-11-15 S. Rajagopalan <srinir@bnl.gov>
+	* StoreGate_jobOptions: instantiate StoreGateSvc for DetectorStore
+	
+2001-11-15 S. Rajagopalan <srinir@bnl.gov>
+	* Fixed addref in StoreGateSvc::symLink
+	* make a setAddress method in data proxy (sets IOA)
+	* reset pointer in DataHandle in setState
+
+2001-11-13 Paolo Calafiura  <pcalafiura@lbl.gov>
+	* new method returning range of all stored objects 
+	
+2001-10-31 S. Rajagopalan <srinir@bnl.gov>
+	* Add new symLink feature
+	* Effected code is StoreGateSvc.h (.icc) and DataProxy.h (.icc)
+	* Client interface to symLink changed!
+	* Constructor of DataProxy changed!
+
+2001-10-25 Paolo Calafiura  <pcalafiura@lbl.gov>
+	* clean-up (add debug print outs)
+	* add dump() in StoreGateSvc.cxx
+	
+2001-10-02  S. Rajagopalan <srinir@bnl.gov>
+	* add example jobOptions in StoreGateexample
+	* fix bug in record with key
+	
+2001-09-30  S. Rajagopalan <srinir@bnl.gov>
+	* add StoreGateExample_Classdef (define CLID for non-DO's)
+	* Reset DataObject in DataLink from Hong
+	* Tag 01-04-05
+	
+2001-09-27  S. Rajagopalan <srinir@bnl.gov>
+
+	* cmt requirement file updated to :
+	  - include new *.cxx files for compilation
+	  - remove GaudiIterator.cxx from compilation
+	  - use ZebraTDREvent (needed by ReadData.cxx)
+            (this should be removed when we remove the examples)
+	
+2001-09-27  S. Rajagopalan  <srinir@bnl.gov>
+	
+	* Major Changes for new backend including:
+	* StoreGateSvc rewritten to work with new backend while 
+	  maintaining same client interface.
+	* DataStore introduced to hold map<clid, dataObject> and t2pmap
+	* DataProxy introduced - equivalent of registry
+	* DataHandleIterator replaces GaudiIterator
+	* DataHandle modified to use DataHandleIterator as default
+	* DataBucket modified - no CLID assigned by default
+	* DataLink modified to use DataProxyStorage by default
+	* StoragePolicy change to include proxy-based backend
+	* const-access flag moved from DataObject to DataProxy
+	* Read/Write example modified appropriately
+	* other minor fixes
+
+	
+2001-08-10  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+        * changes to use exception, improve cosnt correctness, 
+          use classID instead of typeinfo in pathname,
+          fix mutable handles and allow DataLink to use them
+
+2001-07-26  David Quarrie <David.Quarrie@cern.ch>
+
+	Downgrade the tag from 02-00-00 to 01-04-01
+
+2001-07-13  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+        * more bugs taken out in StoeGateSvc and GaudiIterator
+
+2001-06-21  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+        * fixed more bugs than I care to admit. See cvs log for details
+
+2001-06-15  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+        * DataLink.[h,icc], StoreGateSvc.[h,cxx]
+          Charles added basic support for generic converters...
+ 
+2001-05-30  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+        * DataLink.h, STLIndexingPolicies.h, StoragePolicies.h:
+          fix 2.95 compilation errors
+ 
+2001-05-26  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+        * many small changes check cvs log                    
+ 
+2001-05-16  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+        * StoreGate/PACKAGE,GNUMakefile.in: use Boost external 
+	* StoreGate/StoreGate/boost: removed temporary boost directory
+
+2001-05-11  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+	* StoreGate/example cleaned up for tutorial
+	* StoreGate/StoreGate/boost: temporarily add necessary boost libs
+
+2001-05-10  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+	* better support for gcc 2.91 (DataLink and Bucket included)
+
+2001-04-26  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+	* ReadData.cxx: included test of link inserter and exctractor 
+
+2001-04-25  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+	* ReadData.cxx, ReadData.h, WriteData.cxx, WriteData.h:
+	several bug fixes
+
+	* DataBucket_test.cxx, DataLink_test.cxx, ReadData.cxx, WriteData.cxx:
+	first shot at persistable DataLink. See ChangeLog for details
+
+2001-04-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* example/ReadData.[h,cxx] example/WriteData.[h,cxx]
+	updated TDS example to use DataLinks. It needs a vigorous cleanup
+
+2001-04-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* StoreGate/StoreGate.h src/StoreGate.cxx
+	new singleton providing access to the StoreGateSvc 
+
+	* StoreGateSvc.[h,icc]
+	added transient to persistent object map. Now, given a pointer to
+	a transient object it is possible to locate its
+	persistent/storable match (a DataObject for Gaudi). Various
+	cosmetic changes and bug fixes
+
+	*StoreGate/DataLink.[h.icc] StoreGate/tools/StoragePolicies.h StoreGate/tools/NoIndexingPolicy.h StoreGate/tools/STLIndexingPolicies.h
+	added naive support for persistency. 
+
+	*StoreGate/tools/STLlinks.h
+	added helper struct to generate complex DataLink declarations
+	
+	*StoreGate/DataHandle.[h,icc] StoreGate/GaudiIterator.h src/GaudiIterator.cxx
+	abstracted GaudiIterator behaviour as PersistentIterator
+	added new functionality needed by DataLink. In particular you can
+	now build an handle starting from a storable_type (a DataObject*
+	for GaudiIterator)
+
+	* example/ReadData.cxx example/WriteData.cxx
+	updated TDS example to use DataLinks. It needs a vigorous cleanup
+
+	* GNUMakefile.in test/DataLink_test.cxx test/DataBucket_test.cxx
+	moved updated standalone tests of link and bucket to test
+	directory. Use assert macro to assert(...) that the classes
+	function correctly. 
+
+2001-04-20  hma  <hma@electra>
+
+	* StoreGateSvc.icc: error check in retrieve
+
+2001-04-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+
+	* tools/oldCompiler.h, tools/STLIndexingPolicies.h, tools/type_tools.h, DataBucket.h, DataHandle.icc, DataLink.h, DataLink.icc, StoreGateSvc.icc:
+	merged new DataLink and DataBucket into the head
+
+2001-04-18  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+	* tools/oldCompiler.h, tools/STLIndexingPolicies.h, tools/type_tools.h:
+	added flag __OLD_COMPILER__ to hide new stuff from gcc 2.91
+
+	* tools/oldCompiler.h: New file.
+
+	* DataHandle.icc, DataLink.h, StoreGateSvc.icc, DataBucket.h:
+	added flag __OLD_COMPILER__ to hide new stuff from gcc 2.91
+
+2001-04-18  hma  <hma@electra>
+
+	* StoreGateSvc.icc:
+	return error if type is not in store when retrieving.
+
+2001-04-18  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+	* tools/STLIndexingPolicies.h, tools/type_tools.h, DataLink.h, DataLink.icc:
+	added inserters and extractors, toContainedElement method and efficient handling of scalar types
+
+	* DataLink.icc: New file.
+
+2001-04-18  srini  <srini@electra>
+
+	* StoreGateSvc.h, StoreGateSvc.icc: Changes from Hong Ma - add symLinks
+
+2001-04-18 Paolo Calafiura
+        * merged DataLink and DataBucket into cvs head. Protect with ifdefs 
+        * users of gcc 2.91
+2001-04-18 Hong Ma  <hma@bnl.gov>
+
+        * StoreGateSvc: 
+           add a new method StoreGateSvc::symLink 
+           for making soft link for a registered DataObject. 
+           add method 
+             StatusCode _record(T* p2BRegistered, bool soft );
+           to deal with both registerting and link. 
+
+2001-04-02  Paolo Calafiura  <calaf@electra.lbl.gov>
+
+	* DataBucket.h, DataBucket.icc, DataLink.h, tools, DataBucket_test.cxx, DataLink_test.cxx, ReadData.cxx, WriteData.cxx
+	Added support for generic data object types to StoreGate
+
+2001-03-20  dquarrie  <dquarrie@electra>
+
+	* DataHandle.h, DataHandle.icc, IStoreGateSvc.h, StoreGateSvc.h, StoreGateSvc.icc:
+	DataHandle.h DataHandle.icc StoreGateSvc.h StoreGateSvc.icc IStoreGateSvc.h
+		Changes related to use with Gaudi v7 (experiment-neutral version).
+
+	David Quarrie
+
+2001-03-02  Paolo Calafiura  <calaf@atlas006.cern.ch>
+
+	* DataHandle.icc: get rid of two warnings
+
+2001-02-22  Dave Quarrie  <dquarrie@atlas006>
+
+	* StoreGateSvc.h: StoreGateSvc.h
+		Add interfaceID information required by new Gaudi release.
+
+	David Quarrie
+
+2001-02-09  Dave Quarrie  <dquarrie@atlas006>
+
+	* GaudiIterator.h, StoreGateSvc.h: GaudiIterator.h StoreGateSvc.h
+		Change to use the new GaudiKernel header filer locations.
+
+	David Quarrie
+
+2001-01-13  Dave Quarrie  <dquarrie@atlas006>
+
+	* GaudiIterator.h: GaudiIterator.h
+		Change signature of m_svc to remove "const". Change signature
+		of postfix operator.
+
+	David Quarrie
+
+2001-01-12  Srini Rajagopalan  <srini@atlas006>
+
+	* GaudiIterator.h:
+	Gaudi dependencies in DataHandle isolated to GaudiIterator
+
+	* DataHandle.icc:
+	templated code removed from DataHandle.h
+
+	* DataHandle.h, StoreGateSvc.h, StoreGateSvc.icc:
+	Add GaudiIterator.cxx
+
+2001-01-12 Srini Rajagopalan <srinir@bnl.gov>
+	* const-access policy incoporated
+	* Templated code in DataHandle moved to DataHandle.icc
+	* Gaudi dependencies in DataHandle moved to GaudiIterator
+	
+2001-01-03  David Quarrie <David.Quarrie@cern.ch>
+    Add component library support. Correct bug in declaring the StoreGateSvc.
+
+2000-12-04  S. Rajagopalan <srinir@bnl.gov>
+
+	* StoreGate/StoreGateSvc.h: New Record/Retrieve Methods.
+	* StoreGate/StoreGateSvc.cxx: Implements new record/retrieve methods
+	* StoreGate/DataHandle.h: uses iterators instead of pointers, Gaudi's 
+	  retrieveObject called while derefencing, new constructor to pass
+	  Gaudi svc() pointers and iterators.
+	* StoreGate/DataHandleList.h: removed. The list feature is handled
+	  by DataHandle itself.
+	* example/WriteData.cxx, example/ReadData.cxx: modified to use the new
+	  StoreGate record/retrieve. 
+	
+2000-10-30  Paolo Calafiura  <calaf@atlas010.cern.ch>
+
+	* StoreGate/StoreGateSvc.icc: 
+	* StoreGate/StoreGateSvc.h: KEY is a separate template parameter to
+	register/retrieve methods now
+
+	* StoreGate/constraints: new dir. Contains type constraints
+	for KEY parameters
+
+	* StoreGate/example/jobOptions.txt:
+	* StoreGate/example/WriteData.cxx:
+	* StoreGate/example/ReadData.cxx: use a plain string with the
+	producer name as key
+	
+2000-10-18  Paolo Calafiura  <calaf@atlas010.cern.ch>
+
+	* PACKAGE: fixed StoreGateExamples linkset
+
+	* GNUmakefile.in: fixed StoreGateExamples target
+
+	* StoreGate/StoreGateSvc.icc: fixed memory leak in a *very* crude way
+
+	* StoreGate/DataHandleList.h: added typename to typedef for "pedantic"
+
+2000-10-14  Paolo Calafiura  <calaf@atlas008.cern.ch>
+
+	* GNUmakefile.in: fixed bug in local lib rule
+
+2000-10-11  Paolo Calafiura  <calaf@atlas011.cern.ch>
+
+	* example/jobOptions.txt: append algos to ApplicationMgr.DLLs
+
+2000-09-30  Paolo Calafiura  <calaf@atlas010.cern.ch>
+
+	* GNUmakefile.in: added custom target to get the 
+	StoreGate->StoreGateExample order right
+
+2000-09-29  Paolo Calafiura  <calaf@atlas010.cern.ch>
+
+	* first commit of the package. This is an oversimplified version that 
+	does not yet use the internal object dictionary as was originally
+	implemented by Hong and Srini. 
+	It provides a usable API that reflects the ideas of the design goals
+	document (see README)
+

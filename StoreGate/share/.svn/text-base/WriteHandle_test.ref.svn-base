@@ -1,0 +1,53 @@
+
+
+Initializing Gaudi ApplicationMgr using job opts ../share/VarHandleBase_test.txt
+JobOptionsSvc        INFO # =======> /afs/cern.ch/user/s/ssnyder/atlas-work3c/Control/StoreGate/run/../share/VarHandleBase_test.txt
+JobOptionsSvc        INFO # (1,1): ApplicationMgr.ExtSvc = ["StoreGateSvc/OtherStore"]
+JobOptionsSvc        INFO # (2,1): OtherStore.ProxyProviderSvc = ""
+JobOptionsSvc        INFO Job options successfully read in from ../share/VarHandleBase_test.txt
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v3r4)
+                                          running on lxplus0047.cern.ch on Sat Feb 27 21:11:15 2016
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+OtherStore           INFO Initializing OtherStore - package version StoreGate-03-03-06
+ClassIDSvc           INFO Initializing ClassIDSvc - package version CLIDComps-00-06-18-03
+ClassIDSvc           INFO  getRegistryEntries: read 155 CLIDRegistry entries for module ALL
+ClassIDSvc          ERROR uncheckedSetTypePackageForID: PyAnalysisExamples-00-00-49 can not set CLID <86839352> for type name MyObj: Known CLID for this name <293847295> It was set by StoreGate-03-03-06
+EventLoopMgr      WARNING Unable to locate service "EventSelector" 
+EventLoopMgr      WARNING No events will be processed from external input.
+HistogramPersis...WARNING Histograms saving not required.
+ApplicationMgr       INFO Application Manager Initialized successfully
+ApplicationMgr Ready
+test1
+StoreGateSvc         INFO Initializing StoreGateSvc - package version StoreGate-03-03-06
+ProxyProviderSvc     INFO Initializing ProxyProviderSvc - package version SGComps-00-02-06
+ClassIDSvc           INFO  getRegistryEntries: read 768 CLIDRegistry entries for module ALL
+ServiceManager      FATAL No Service factory for BazSvc available.
+VarHandleKey.Se...  ERROR ServiceLocatorHelper::service: can not locate service BazSvc
+                    FATAL FILE:LINE (FUNC): code 0: m_storeHandle.retrieve()
+VarHandle(BazSv...  FATAL FILE:LINE (FUNC): code 0: VarHandleKey::initialize()
+ServiceManager      FATAL No Service factory for BazSvc available.
+VarHandleKey.Se...  ERROR ServiceLocatorHelper::service: can not locate service BazSvc
+                    FATAL FILE:LINE (FUNC): code 0: m_storeHandle.retrieve()
+VarHandle(BazSv...  FATAL FILE:LINE (FUNC): code 0: VarHandleKey::initialize()
+test2
+test3
+test4
+VarHandle(FooSv...  ERROR FILE:LINE (FUNC): code 0: recordObject failed
+test5
+VarHandle(FooSv...  ERROR FILE:LINE (FUNC): code 0: recordObject failed
+                    FATAL FILE:LINE (FUNC): code 0: this->record(std::move(data))
+                    ERROR FILE:LINE (FUNC): code 0: recordObject of aux store failed
+test6
+VarHandle(FooSv...  ERROR FILE:LINE (FUNC): code 0: recordObject failed
+test8
+ServiceManager      FATAL No Service factory for BazSvc available.
+VarHandleKey.Se...  ERROR ServiceLocatorHelper::service: can not locate service BazSvc
+                    FATAL FILE:LINE (FUNC): code 0: m_storeHandle.retrieve()
+VarHandle(BazSv...  FATAL FILE:LINE (FUNC): code 0: VarHandleKey::initialize()
+ServiceManager      FATAL No Service factory for BazSvc available.
+VarHandleKey.Se...  ERROR ServiceLocatorHelper::service: can not locate service BazSvc
+                    FATAL FILE:LINE (FUNC): code 0: m_storeHandle.retrieve()
+VarHandle(BazSv...  FATAL FILE:LINE (FUNC): code 0: VarHandleKey::initialize()

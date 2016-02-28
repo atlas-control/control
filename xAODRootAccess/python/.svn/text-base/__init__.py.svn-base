@@ -1,0 +1,9 @@
+# $Id$
+#
+# File to make it possible to refer to xAODRootAccess as a module in
+# Python (PyROOT) code.
+#
+
+__version__ = "$Revision$"
+__author__  = "Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>"
+__all__     = [ "TPyEvent", "TPyStore", "GenerateDVIterators" ]

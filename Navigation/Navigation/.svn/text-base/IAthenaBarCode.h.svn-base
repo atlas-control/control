@@ -1,0 +1,1 @@
+#include "AthenaKernel/IAthenaBarCode.h"

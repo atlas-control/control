@@ -1,0 +1,1692 @@
+2016-02-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Introduced a new access mode: xAOD::TEvent::kAthenaAccess.
+	  It emulates the I/O pattern of Athena, recreating objects
+	  from scratch every time we load a new event. Making it the
+	  slowest access mode from the three.
+	* Only tested some very basic patterns with it so far, so
+	  not tagging yet. Not until I was able to test it properly.
+
+2016-01-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made xAOD::TAuxStore not print warnings on 20.7 (and release 21)
+	  primary xAODs when the user is actually reading the file in
+	  class access mode.
+	* Tagging as xAODRootAccess-00-01-40
+
+2016-01-12  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* scripts/checkxAOD.py (printFileInfo): small change to category dict def
+	* Tagging as xAODRootAccess-00-01-39
+
+2016-01-11  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* scripts/checkxAOD.py (printFileInfo): added categorization to printout
+	* Tagging as xAODRootAccess-00-01-38
+
+2015-10-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added the missing headers to the have_root_headers pattern
+	  in the requirements file. To make it possible to make use of these
+	  functions in interactive ROOT/PyROOT.
+	* Tagging as xAODRootAccess-00-01-37
+
+2015-10-08 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Yet another bugfix to how xAOD::TAuxStore handles decorations. :-(
+	* Tagging as xAODRootAccess-00-01-36
+
+2015-10-07 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Tuned how TAuxStore deals with decorations, a little further.
+	  There may still be some corner cases where an auxiliary variable
+	  will be considered a decoration when it shouldn't be (in case
+	  the object gets locked after creating the variable only in
+	  memory), but this is such a corner case that it didn't seem to
+	  make sense to put in extra code to protect against it.
+	* Tagging as xAODRootAccess-00-01-35
+
+2015-10-07 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Building against the head of ROOT v6-04-00-patches (in order
+	  to test the fix for ROOT-7181) revealed an issue in the
+	  GenerateDVIterators.py code. I now added an extra check in it
+	  to avoid interacting with emulated dictionaries.
+	* Tagging as xAODRootAccess-00-01-34
+
+2015-09-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out, besides not getting locked, xAOD::TAuxStore
+	  was also not dealing correctly with being locked.
+	* Now a locked xAOD::TAuxStore should throw an exception if the
+	  user tries to overwrite an existing variable using a decoration.
+	* Updated ut_xaodrootaccess_tauxstore_test.cxx to test for the
+	  correct behaviour of this functionality.
+	* Tagging as xAODRootAccess-00-01-33
+
+2015-09-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated xAOD::TEvent such that whenever it creates a TAuxStore
+	  object for reading an input file, it would lock it. So that it
+	  would behave correctly wrt. decorations. Hopefully.
+	* Didn't have a chance of checking the behaviour of this
+	  modification correctly unfortunately. Will have to test it
+	  in a few cases as we go along.
+	* Tagging as xAODRootAccess-00-01-32
+
+2015-09-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new xAOD::TEvent::copy function that could be used to
+	  conveniently copy all the ROOT-readable payload from the input
+	  tree into an output tree. Without having to specify each container
+	  name to be copied.
+	* Adjusted xAOD::TFileMerger to make use of this new function,
+	  instead of implementing the same code itself.
+	* Now initialising a variable in xAOD::TFileMerger's constructor
+	  that was left uninitialised in the past. Thanks to Eclipse for
+	  pointing this out!
+	* Tagging as xAODRootAccess-00-01-31
+
+2015-08-26 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Changed the prefix variables in TAuxStore from TString to
+	  std::string. As the code has to do a bit fewer type conversions
+	  like this.
+	* Tagging as xAODRootAccess-00-01-30
+
+2015-08-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* On Daniel Buescher's suggestion the code was updated to only
+	  call TBranch::SetMakeClass(...) when absolutely necessaru.
+	  Which seems to give the code a bit of performance boost.
+	* Updated ut_xaodrootaccess_tchain_test.cxx to use still existing
+	  mc14_13TeV files for the test.
+	* Tagging as xAODRootAccess-00-01-29
+
+2015-08-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made checkxAOD.py a little more robust, by not crashing on
+	  files that miss a/some interface container(s).
+	* Tagging as xAODRootAccess-00-01-28
+
+2015-08-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Through the ATLASG-249 report I found some major logic
+	  issues in how objects, which are in TStore, would be accessed
+	  through the TVirtualEvent interface. The access through the
+	  TEvent interface was fine, just the TVirtualEvent calls were
+	  broken.
+	* Updated the TEvent unit test to test for this mistake in the
+	  future.
+	* Tagging as xAODRootAccess-00-01-27
+
+2015-08-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made the code avoid printing some (in the end harmless) warnings
+	  when reading some of the latest derivations. The issue is
+	  described in ATLASG-248.
+	* Tagging as xAODRootAccess-00-01-26
+
+2015-08-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* xAOD::TFileMerger was ignoring empty TTree-s completely
+	  until now, as pointed out in ATLASG-241. As I don't know of
+	  any good reason (other than a possible performance improvement)
+	  for doing this check there, it is now removed.
+	* Tagging as xAODRootAccess-00-01-25
+
+2015-08-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Setting the job monitoring rate to 100%, as requested by
+	  Mario Lassnig.
+	* Tagging as xAODRootAccess-00-01-24
+
+2015-08-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adding a missing include to Init.h that only showed up while
+	  recompiling the full release.
+	* Tagging as xAODRootAccess-00-01-23
+
+2015-08-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Changed how messages going through the ROOT messaging
+	  system get printed after calling xAOD::Init(). Now they get
+	  printed in a format that is meant to resemble the Athena message
+	  stream format.
+	* Added a function for controlling the (fixed) width of the
+	  message source strings in this new formatting.
+	* Fixed an issue in xAOD::TFileMerger with merging TObject
+	  objects from the input files. The objects were merged correctly
+	  in the previous code, but the updated versions never got
+	  written to the output file from memory. It was fixed by adding
+	  an explicit TObject::Write(...) command in the right place.
+	* Tagging as xAODRootAccess-00-01-22
+
+2015-07-17 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Changed the monitoring fraction to 0.3 by default.
+	* Updated the monitoring code to accept an override value for
+	  thr monitoring fraction from the environment variable
+	  XAOD_ACCESSTRACER_FRACTION. In case we need to turn it
+	  up/down on the grid in the future.
+	* Updated TFileAccessTracer to send the monitoring fraction
+	  that it used as a new element in the report, called "ReportRate".
+	* Tagging as xAODRootAccess-00-01-21
+
+2015-07-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adapting to the changes made in xAODRootAccessInterfaces,
+	  allowing the code to fail silently on object/container retrieval
+	  requests.
+	* This meant updating the TEvent::getInputObject(...) function
+	  slightly.
+	* Tagging as xAODRootAccess-00-01-20
+
+2015-07-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed another bug that came forward in Frank's code. When
+	  retrieving auxiliary containers directly, their dynamic stores
+	  were not getting updated to look at the right event.
+	* Tagging as xAODRootAccess-00-01-19
+
+2015-07-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* While debugging an issue discovered by Frank Paige, it was
+	  discovered that when one retrieved an auxiliary store object
+	  directly, it was not set up correctly to access dynamic auxiliary
+	  variables.
+	* The xAOD::TEvent code was updated to resolve this, making
+	  sure that the auxiliary store would be set up correctly even in
+	  this case.
+	* Tagging as xAODRootAccess-00-01-18
+
+2015-06-26 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* The unit tests only revealed in the nightly that if the user
+	  doesn't process any events (because of some failure), the access
+	  monitoring code would throw an FPE. (Division by zero.) Which
+	  is treated much more seriously in the analysis release than
+	  I realised...
+	* Updated the code to avoid such a division by zero.
+	* Added a unit test for xAOD::TFileAccessTracer that would
+	  catch similar issues in the future. Although the test is very
+	  basic at the moment, so some additions could be good later on.
+	* Tagging as xAODRootAccess-00-01-17
+
+2015-06-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removing all the error messages from TFileAccessTracer in
+	  order not to print such things when something goes south.
+	  Since we don't really care about not being able to send the
+	  info correctly...
+	* Tagging as xAODRootAccess-00-01-16
+
+2015-06-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated xAOD::TFileAccessTracer to work with the new CERN-based
+	  data collection service.
+	* Changed the format of the submitted message a bit, adding
+	  some information about the running task, and the host machine's
+	  configuration.
+	* The new code is set to collect information from a random 10% of
+	  all the jobs.
+	* Tagging as xAODRootAccess-00-01-15
+
+2015-06-18 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new incident type, EndInputData. It is here to make
+	  the code in AsgTools easier. But we can't reproduce the behaviour
+	  of Athena with this incident. Users should not actually use
+	  such incidents in their regular code.
+	* Updated xAOD::TFileMerger to finally be able to correctly
+	  fast-merge multiple files that have been produced by Athena,
+	  and have some non-ROOT-readable branches. These branches
+	  are now completely skipped by the fast-merging. (As well...)
+	* Tagging as xAODRootAccess-00-01-14
+
+2015-06-17 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Only realised while running xAODCheck on fast-merged files
+	  that fast merging didn't copy the xAOD::EventFormat metadata
+	  correctly just yet. The code now fixes this.
+	* Metadata that has an explicit metadata tool, should still be
+	  possible to copy correctly in both slow and fast merging modes.
+	* Tagging as xAODRootAccess-00-01-13
+
+2015-06-17 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated the code in TEvent::putAux(...) to work correctly when
+	  in a test application the same piece of memory gets re-used
+	  for opening a second file after a first one.
+	* Upgraded xAOD::TFileMerger to correctly fast-merge files that
+	  have different (dynamic) auxiliary branches in them. The code is
+	  largely based on CMS's cmssw/IOPool/Output/src/RootOutputTree.cc
+	  code.
+	* Added a unit test for the capabilities of TFileMerger.
+	* Tagging as xAODRootAccess-00-01-12
+
+2015-06-09 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed the requirements file, to be able to compile the
+	  package successfully in AthAnalysisBase-2.3.X.
+	* Tagging as xAODRootAccess-00-01-11
+
+2015-06-08 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed TEvent::getInputObject(...), so that when the user asks
+	  TEvent::contains<...>(...) with an existing key, but with the
+	  wrong type, there would be no warning printed.
+	* Added a new class, xAOD::TFileChecker, which will be used
+	  to run sanity checks on xAOD files.
+	* Added a new executable, xAODChecker, which uses the
+	  xAOD::TFileChecker class on files specified for it.
+	* Added the ability to xAODMerge to specify how many events
+	  to put into the output file. This is only meant for testing
+	  purposes, to be able to test things quickly, without processing
+	  20k events.
+	* Added more fixes for dealing correctly with empty files, and
+	  their metadata.
+	* Tagging as xAODRootAccess-00-01-10
+
+2015-06-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made it possible to pass xAOD files with 0 events, and hence
+	  no CollectionTree, to xAOD::TEvent::readFrom(...). When such
+	  a file is detected, xAOD::TEvent::getEntries() returns 0 to allow
+	  event looping code to handle such files as regular files.
+	* However, one can not use such empty files with a TChain as
+	  input, as TChain can't deal with files not having an event tree
+	  in them.
+	* Created a unit test for the new feature locally, but since empty
+	  files have not been put on AFS yet, leaving it out of the package
+	  for the moment.
+	* Tagging as xAODRootAccess-00-01-09
+
+2015-06-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixing a problem with slow-merging xAOD files produced by
+	  the standalone code, using xAODMerge/xAOD::TFileMerger.
+	  The code was trying to copy dynamic auxiliary variables as if
+	  they were interface containers.
+	* Tagging as xAODRootAccess-00-01-08
+
+2015-06-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making an error message in TEvent::connectAux a bit more
+	  explicit.
+	* Made TAuxStore not complain about the m_parentLink variable
+	  of the shallow copy auxiliary stores anymore. By making the
+	  code ignore variables that are static, and have a name starting
+	  with "m_".
+	* Tagging as xAODRootAccess-00-01-07
+
+2015-05-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added Ilija's modifications for TFileAccessTracer.cxx. So that
+	  his server would be able to collect the information.
+	* No word from Ilija about the success of this yet, so not
+	  tagging just yet.
+
+2015-05-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated xAOD::TAuxStore to register branch accesses also
+	  when accessing the branch through getIOData(...). By now doing
+	  the data collection in
+	  xAOD::TAuxStore::TBranchHandle::getEntry(...).
+	* Extended TFileAccessTracer to collect information from the
+	  variable access monitoring, and send that to a data collecting
+	  site as well.
+	* The latter code is actually not working at the moment. But
+	  it seems easier to check in the code as is, and then check
+	  Ilija's changes once the current version is already in SVN.
+	* Not tagging for the moment.
+
+2015-04-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started implementing additional code for the package that
+	  can send information to central DDM monitoring about which
+	  files are getting accessed by user jobs. To be able to detect
+	  back-door access to files stored on Tier1/2/3 sites.
+	* Added a new class, xAOD::TFileAccessTracer to take care of
+	  formatting and sending this information to Mario's development
+	  server for the time being.
+	* By default the information posting is turned off for now.
+	* Tagging as xAODRootAccess-00-01-06
+
+2015-04-29 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added functions to TEvent and TStore for recording objects
+	through std::unique_ptr smart pointers. Very similar to how it
+	is done in StoreGateSvc.
+	* Updated the unit tests to exercise the new functions.
+	* Tagging as xAODRootAccess-00-01-05
+
+2015-04-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Thanks to the Chicago group, a weird ROOT bug was found in
+	  the code. Apparently when one asks TClass::GetClass for a
+	  non-existent type repeatedly, ROOT keeps accumulating
+	  memory. Not leaking it, just accumulating it.
+	* So TStore::record was updated to cache the TClass pointers
+	  internally. Since it's absolutely okay to keep recording
+	  objects that don't have dictionaries. But for TEvent there's
+	  no need for a change, as trying to record something into
+	  TEvent without a dictionary, is anyway an error condition.
+	* Tagging as xAODRootAccess-00-01-04
+
+2015-04-08 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made the destructor of xAOD::TStore virtual, to make it possible
+	  to determine at runtime whether the return value of
+	  xAOD::TActiveStore::store() is of type xAOD::TStore, or
+	  xAOD::TPyStore.
+	* Added an alias for the TStore::print() function in TPyStore.
+	  (Called TPyStore::dump().) To make its usage easier from
+	  python.
+	* Tagging as xAODRootAccess-00-01-03
+
+2015-04-01 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Tweaked the xAOD::TFileMerger code a little further, it now
+	  has a number of its issues fixed.
+	* But fast merging multiple files that have non-ROOT-readable
+	  payload, still causes a crash. To be taken up with the ROOT
+	  developers.
+	* Still not tagging...
+
+2015-03-31 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started updating xAOD::TFileMerger and xAODMerge to be able
+	  to make use of dual-use metadata tools both in slow and fast
+	  merging modes.
+	* There are still a lot of kinks to sort out, but the code seems
+	  to work on a basic level at least.
+	* Not tagging at the moment.
+
+2015-03-31 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Created a new incident type. It is emitted just before the
+	  TEvent object would start writing out metadata objects.
+	  Allowing clients to write out metadata that they collected
+	  during the job.
+	* Updated the RETURN_CHECK macro so that it would be
+	  usable with AsgTools's StatusCode class as well.
+	* Setting the split level of the auxiliary store metadata objects
+	  to 1.
+	* Tagging as xAODRootAccess-00-01-02
+
+2015-03-31 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started with introducing proper metadata handling in TEvent.
+	  Now it is possible to finally record objects as metadata into the
+	  output file.
+	* Extended the TObjectManager interface a bit, as it was needed
+	  in the metadata handling code.
+	* Added a unit test for some of the basic metadata handling
+	  features.
+	* Tagging as xAODRootAccess-00-01-01
+
+2015-03-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* The last change actually introduced a crash in two of the
+	  package's unit tests, which I missed until now. :-(
+	* To fix this, some additional code was added in the TCDVHolderT
+	  constructor, which handles the corner case example that lead
+	  to this crash. (When the DataVector inside the ConstDataVector
+	  doesn't have a dictionary.)
+	* Tagging as xAODRootAccess-00-01-00
+
+2015-03-24 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated the ConstDataVector handling code so that one could
+	  retrieve base types of the wrapped DataVector from the store/event
+	  as well.
+	* Updated TStore::record to make sure that ConstDataVector
+	  objects can be deleted from memory when needed.
+	* Tagging as xAODRootAccess-00-00-99
+
+2015-03-22 Will Buttinger <will@cern.ch>
+	* cmt/requirements: Added a requirements file for cmt compilation
+	* Tagging as xAODRootAccess-00-00-98
+
+2015-03-20 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated TEvent::fill() to print a more helpful error message
+	  when the user forgets to set one of the objects in the event
+	  before trying to write it out.
+	* Updated ut_xaodrootaccess_tevent_test.cxx to test this new
+	  feature, along with some other file writing features.
+	* Tagging as xAODRootAccess-00-00-97
+
+2015-03-17 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a standalone checkxAOD.py script to the package, with
+	  some basic functionality.
+	* Tagging as xAODRootAccess-00-00-96
+
+2015-03-12 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new Python helper module, GenerateDVIterators.py,
+	  based on the code posted by Noel Dawe on
+	  https://its.cern.ch/jira/browse/ATLASG-31
+	* Updated ut_xaodrootaccess_transtree2_test.py to use this new
+	  module.
+	* Tagging as xAODRootAccess-00-00-95
+
+2015-03-12 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added python wrapper classes for xAOD::TPyEvent and
+	  xAOD::TPyStore, to make it more convenient to use them from
+	  PyROOT.
+	* Updated the unit tests of the package to use these new python
+	  classes instead of the underlying C++ classes directly.
+	* Not tagging at the moment, as this is all very experimental code.
+
+2015-03-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added the ability to specify the input file access method for
+	  the transient tree creation functions. The dictionary, at least
+	  in ROOT 6 is even created for these enumeration values.
+	* Made the transient tree creation ignore the dynamic branches
+	  created by a standalone job. (TEvent writes some extra
+	  information into the file's metadata, which needs to be ignored
+	  by the transient tree creation function.)
+	* Tagging as xAODRootAccess-00-00-94
+
+2015-03-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixing the crash reported in ATLASG-21.
+	* Added a test for recording xAOD::EventInfo into xAOD::TPyEvent
+	  as it was discussed in ATLASG-21.
+	* Tagging as xAODRootAccess-00-00-93
+
+2015-03-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Tweaked xAOD::TEvent::putAux(...) to fill empty objects into
+	  dynamic branches if the branch is created after some events
+	  have already been written out.
+	* This didn't affect the payload of the output file seen by
+	  compiled code, but it did affect how one could browse the
+	  output file in vanilla ROOT.
+	* Tagging as xAODRootAccess-00-00-92
+
+2015-03-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Trying to fix ATLASG-29. As it turns out, creating a transient
+	  tree from a chain that has multiple files, was causing problems.
+	  The usual... The input TChain went to another file, and the
+	  connected TEvent object didn't take notice.
+	* With the latest update the unit tests are working nicely once
+	  more.
+	* Updated the transient tree unit tests to use 2 input files
+	  in their TChain tests.
+	* Tagging as xAODRootAccess-00-00-91
+
+2015-02-26 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Silenced the errors reported in ATLASG-16, because it turns
+	  out, it's not strictly speaking an error that's happening.
+	* Modified the code in THolder::deleteObject() for this, and
+	  introduced a warning into one of its headers, to complain
+	  if the object is given an emulated dictionary.
+	* Fixed a typo in TDestructorRegistry.cxx.
+	* Added a unit test for checking the health of creating a
+	  transient tree from a TChain in Python.
+	* Tagging as xAODRootAccess-00-00-90
+
+2015-02-26 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added two new classes, xAOD::TPyStore and xAOD::TPyEvent.
+	  They are meant to provide a Python friendly interface to the
+	  TStore and TEvent classes.
+	* Modified the TStore and TEvent classes to make this possible.
+	  Most of all, made their private functions protected, and allowed
+	  their internal record functions not to take ownership of the
+	  objects that they received.
+	* Added dictionaries for the new types.
+	* Added two PyROOT scripts as unit tests for the two new classes.
+	  These will still need to be made a bit smarter.
+	* Not tagging yet, as TPyEvent::record still needs to be made a
+	  bit smarter.
+
+2015-02-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Introduced TStore::isConst<...>(...), as it is needed in order
+	  to handle the retrieval of ConstDataVector objects as
+	  "const DataVector" through TEvent.
+	* Updated ut_xaodrootaccess_tstore_test.cxx to test this new
+	  function as well.
+	* Modified the logic in
+	  TEvent::getInputObject/TEvent::getOutputObject to handle the
+	  retrieval of ConstDataVector-s as "const DataVector" correctly,
+	  and without any warnings.
+	* Updated ut_xaodrootaccess_tevent_test.cxx to test the ability
+	  of retrieving ConstDataVector objects recorded into TStore
+	  from TEvent as "const DataVector".
+	* Fixed the APP_NAME value in
+	  ut_xaodrootaccess_slimming_test.cxx.
+	* Tagging as xAODRootAccess-00-00-89
+
+2015-02-24 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Finally understood why so many people were having problems with
+	  using the TrigDecisionTool in ROOT. Because of the way that
+	  TEvent was notifying the metadata tools about opening new
+	  files and events.
+	* The code now uses an std::vector instead of an std::set to
+	  keep track of the listener pointers, ensuring that the listeners
+	  are notified in the order in which they were created in the job.
+	* At the same time, the ConstDataVector code is not fully functional
+	  yet as it turns out, but that needs to wait for another tag to be
+	  fixed.
+	* Tagging as xAODRootAccess-00-00-88
+
+2015-02-23 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Hiding the specialisation of TStore::record for ConstDataVector
+	  from gccxml. Because ROOT 5's dictionary generator cann't
+	  understand the class otherwise. (ROOT 6, and of course GCC/Clang
+	  manage just fine.)
+	* Also had to hide this code from rootcint, as some of the CP packages
+	  end up exposing TStore.h to rootcint as well. Which also didn't
+	  like this new code. :-P
+	* Tagging as xAODRootAccess-00-00-87
+
+2015-02-20 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Giving a first implementation for the feature request
+	  described in ATLASG-10.
+	* Modifed the xAOD::THolder class a bit in order to be able to
+	  make other classes inherit from it, overriding some of its
+	  functions.
+	* Introduced a templated xAOD::TCDVHolderT class, for managing
+	  ConstDataVector objects in memory. It inherits most of its
+	  functionality from xAOD::THolder, only overriding the newly
+	  defined getAsConst(...) function.
+	* Adapted the TStore code to use the modified THolder and the new
+	  TCDVHolderT classes correctly.
+	* Adapted the TEvent code to use the modified THolder code
+	  correctly.
+	* Extended ut_xaodrootaccess_tstore_test to test this new
+	  capability of the TStore class.
+	* Started using SG::normalizedTypeinfoName(...) in the few places
+	  in the code where it still used the "less pretty" function call.
+	* Tagging as xAODRootAccess-00-00-86
+
+2015-02-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Found some glaring bugs in xAOD::TAuxStore using Simon's
+	  test code from ATLASG-2. TAuxStore was not relaying all
+	  DataVector commands to its internal transient store object
+	  correctly. Which could result in invalid memory reads/writes
+	  all over the place with the sort of code described in that
+	  bug report.
+	* Adding the missing call forwards made the issue disappear
+	  according to valgrind.
+	* Tagging as xAODRootAccess-00-00-85
+
+2015-02-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed how xAOD::TEvent::recordAux(...) interacts with
+	  xAOD::TEvent::setAuxItemList(...). Unfortunately the code now
+	  prints a set of warnings about the selected variables when
+	  recordAux(...) is called, but at least the end result is
+	  correct. The warnings will have to be silenced in the next
+	  round... :-/
+	* Added a unit test, ut_xaodrootaccess_slimming_test, to
+	  check the health of the slimming functionality under differemt
+	  conditions.
+	* Tagging as xAODRootAccess-00-00-84
+
+2015-02-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made all the unit tests work on SLC6 (with AFS input files).
+	* Corrected an issue with how xAOD::TEvent::dump() would handle
+	  data12 files from the DC14 production. The EventFormat
+	  description of these files lists some cluster containers with
+	  an xAOD type, since the offline calo cluster converter algorithm
+	  ran on everything, but the files still contain the persistent
+	  cluster containers. (This is for some HLT containers.) The code
+	  now detects it correctly when such a situation happens,
+	  and prints some error messages.
+	* Tagging as xAODRootAccess-00-00-83
+
+2015-02-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed a logic issue in the xAOD::MakeTransientMetaTree(TChain*)
+	  function.
+	* Added a Reflex dictionary for xAOD::TStore and
+	  xAOD::TActiveStore. At the same time, updated the list of
+	  variables declared as transient in the xAOD::TEvent dictionary.
+	* Added a new xAOD::MakeTransientTrees(...) function that
+	  creates a transient event level and metadata tree at the same
+	  time. To ease analysis in PyROOT that needs metadata during
+	  the event processing.
+	* Updated the unit test to use this new function. The file name
+	  used in the unit test is still that from my laptop, but that
+	  will be fixed once I test the code on SLC6.
+	* Tagging as xAODRootAccess-00-00-82
+
+2015-02-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a version of xAOD::MakeTransientMetaTree that accepts
+	  a TChain as input.
+	* Created a new helper class, xAOD::TTransTrees that I plan to
+	  use as the return value of a new set of transient tree creating
+	  functions.
+	* Updated the unit test to exercise the newly created function.
+	* Interactive access to the transient metadata tree with a
+	  TBrowser still produces a crash for some unknown reason.
+	  But access to the tree with TTree::Draw(...) and from PyROOT
+	  seems successful enough.
+	* Still not tagging.
+
+2015-02-09 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started a big code re-organisation to be able to provide
+	  transient TTree access to the metadata of the xAOD files.
+	  Mostly for PyROOT access.
+	* Renamed the xAOD::TTree and xAOD::TBranch types to
+	  xAOD::TEventTree and xAOD::TEventBranch. After that two new
+	  classes, xAOD::TMetaTree and xAOD::TMetaBranch were introduced
+	  as a copy of the former classes, to implement the access to the
+	  metadata information.
+	* Enabled pedantic compilation for the package.
+	* Not tagging at the moment.
+
+2015-02-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed xAOD::MakeTransientTree(TChain*) to work after the
+	  updates that happened in TEvent::readFrom(TTree*).
+	* Added a unit test to check the basic functionality of the
+	  xAOD::MakeTransientTree functions.
+	* Not tagging at the moment.
+
+2015-02-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new feature: Remapping of container/object names
+	  while reading an old xAOD. This is to allow ROOT analysis code
+	  to use the release 20 container names while reading DC14
+	  samples.
+	* The feature seems functional, but I don't expect much usage
+	  out of it to be honest.
+	* Added a new unit test to test the health of this functionality.
+	* Tagging as xAODRootAccess-00-00-81
+
+2014-12-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Taught TAuxStore how to deal correctly with
+	  xAOD::AuxContainerBase/xAOD::AuxInfoBase.
+	* Silenced some warnings about encountering static branches
+	  describing the base classes of these classes.
+	* Added some hacks to TAuxStore to work around an issue
+	  generated by Athena I/O. That it generates branches that
+	  describe their own type as "vector<basic_string<char> >"
+	  instead of "vector<string>".
+	* Tagging as xAODRootAccess-00-00-80
+
+2014-12-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Taught TAuxStore and TEvent how to tell xAOD::ReadStats
+	  how many variables we have in the input file.
+	* Tweaked TEvent not to open the first file of a TChain twice.
+	  (Thereby noticeably slowing down the job.)
+	* Tweaked the way TTreeCache is set up when using a TChain
+	  as input. Previously the code was not setting up a cache in
+	  this case at all.
+	* Increased the default TTreeCache size to 30 MB. (To be in sync
+	  with all the other places where we set up a cache.)
+	* TEvent now automatically initiates xAOD::PerfStats to collect
+	  statistics about the I/O performance of the job.
+	* Added a convenience function, TEvent::printIOStats() for
+	  printing the I/O statistics. Just so that novice users wouldn't
+	  have to know that much of the heavy lifting is done by the
+	  xAODCore code.
+	* Tagging as xAODRootAccess-00-00-79
+
+2014-12-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a TEvent::dump() function which is supposed to work
+	  exactly like StoreGateSvc::dump() does in Athena.
+	* It is implemented in an extremely basic way at the moment,
+	  it needs to be improved later on.
+	* Extended ut_xaodrootaccess_tevent_test.cxx to make use of this
+	  new function, but at the same time there seems to be a new error
+	  reported by this test. :-/
+	* Not tagging for now.
+
+2014-12-01 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed a memory corruption that happens while slimming an
+	  xAOD object/container in branch access mode. The problem
+	  was introduced while too zealously optimising the code. (What
+	  a difference a single character can make.)
+	* Thanks to Simon Head for pointing out this issue.
+	* Tagging as xAODRootAccess-00-00-78
+
+2014-11-17 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Extended ut_xaodrootaccess_tchain_test to try processing
+	  (a) 13 TeV MC file(s) as well. The path name will have to
+	  be updated to the central PAT location once proper 13 TeV
+	  files arrive there.
+	* Since this latest tag is needed to process 13 TeV files,
+	  tagging it for AnalysisBase-2.0.19.
+	* Tagging as xAODRootAccess-00-00-77
+
+2014-11-14 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out, the merging works correctly with
+	  ROOT's v6-02-00-patches branch.
+	* Had to add a fix in TAuxStore for slow-merging the PFO
+	  containers. They use an enum type as a dynamic variable.
+	  Will have to kick some butt around there... :-(((
+	* Not tagging for now, as the code is still not in the greatest
+	  shape.
+
+2014-11-14 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Continuing with the xAODMerge developments.
+	* The executable is much more functional now, but still not
+	  ready.
+	* Hit the same issue with ROOT 6.02/01 during merging that
+	  we observe in EventLoop as well. Will try to construct an
+	  example for the ROOT developers out of it. Unfortunately the
+	  simple examples I tried so far didn't break ROOT 6. :-/
+	* Not tagging for the moment.
+
+2014-11-12 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed an issue in TEvent::initStats(), where it would interpret
+	  variables from an "object store" with the wrong type, if these
+	  happened to be vector variables. This showed up with
+	  xAOD::TrigNavigation.
+	* I had to realise that the monitoring code doesn't work all that
+	  well in class access mode for the TrigNavigation type. But for
+	  now I wanted to check in this fix, will look at the monitoring
+	  issue a little later.
+	* Tagging as xAODRootAccess-00-00-76
+
+2014-11-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making sure that when an xAOD::TEvent or xAOD::TStore object
+	  is deleted, which at that time serves as the active event/store,
+	  the pointer in TActiveEvent and TActiveStore is reset.
+	* This still doesn't make it possible to willy-nilly create and
+	  delete TEvent/TStore objects on the fly, as the asg::AsgTool
+	  and the ElementLink/DataLink code will still cache the pointers
+	  to these objects internally. So deleting the objects from under
+	  their feet will still lead to crashes. But it fixes the particular
+	  issue that some people were having with the tutorial.
+	* Tagging as xAODRootAccess-00-00-75
+
+2014-11-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* The recent statistics collection code update introduced an
+	  issue with using TChains as input to TEvent. This is now fixed.
+	* Added a unit test for checking the health of jobs using a
+	  TChain, to hopefully avoid such embarrassing incidents in
+	  the future.
+	* Updated the statistics unit test to print some meaningful
+	  output. The code does seem to work in this basic test
+	  correctly...
+	* The merging code was not touched at all. That is still
+	  not to be used.
+	* Tagging as xAODRootAccess-00-00-74
+
+2014-10-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started writing an application (xAODMerge) for conveniently
+	  merging xAOD files in the standalone environment.
+	* Added a new class, xAOD::TFileMerger to implement this.
+	  Which the users will be allowed to use in their private codes
+	  as well.
+	* The code is largely non-functional at the moment, I practically
+	  just ported the code from SFrame/ROOT in here. The xAOD
+	  specific functionality will be added afterwards.
+	* Not tagging yet.
+
+2014-10-28 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Taught xAOD::TAuxStore how to deal correctly with transient
+	  decorations. (So that it would forget about them when going
+	  from one event to the next.)
+	* Added the same multi-threading protections to TAuxStore that
+	  we have in all the classes in xAODCore.
+	* Added a unit test for TAuxStore that tests some of its
+	  capabilities in a simple environment. Could be extended with
+	  additional tests later on. For now I just wanted to test the
+	  functionality of the decorations.
+	* Removed the info messages from TAuxStore when finding a
+	  non-ROOT-readable auxiliary variable. There were too many
+	  of these messages by now.
+	* Tagging as xAODRootAccess-00-00-73
+
+2014-10-16 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated xAOD::TEvent to consider forwarding calls to TStore
+	  in all the functions that it implements from TVirtualEvent.
+	  So that ElementLinks would have a realistic chance of finding
+	  objects that are recorded into TStore.
+	* Updated the TEvent/TStore tests to execute some basic checks
+	  on this new functionality.
+	* Tagging as xAODRootAccess-00-00-72
+
+2014-10-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Taught TEvent::connectAux and TEvent::connectMetaAux how
+	  to set the names of the containers that they read in. To get
+	  more useful output from the I/O monitoring code in class
+	  access mode.
+	* Tagging as xAODRootAccess-00-00-71
+
+2014-10-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added Paul's code, with a lot of modifications...
+	* There are still a number of things that I don't like, but it's
+	  now time to make a snapshot of the code.
+	* Tagging as xAODRootAccess-00-00-70
+
+2014-10-08 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Established a closer connection between TEvent and TStore
+	  after all. This was necessary to be able to use ElementLinks
+	  in ROOT at runtime to reference objects that are recorded into
+	  TStore. As this is a use case in the MET tools by now...
+	* For this TEvent, when it can't find an object by itself, it
+	  checks whether it can find it using TStore. So at the moment
+	  the object in TStore doesn't override an object with the same
+	  name in TEvent. This might be revised later on.
+	* Added two basic unit tests for TEvent and TStore.
+	* Tagging as xAODRootAccess-00-00-69
+
+2014-10-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out, it was quite easy to get TEvent into an
+	  inconsistent state when reading from a TChain. If the user
+	  loaded some objects from the first event, and only then asked
+	  how many events are in the chain in total, the code would
+	  just crash. (Not realising that the TChain object closed and
+	  re-opened the first file between the time that the retrieval
+	  happened and when the second event is loaded.)
+	* Introduced a helper class (TChainStateTracker) to resolve this
+	  issue. TEvent should now correctly update its internal state
+	  on every TEvent::getEntry(...) call.
+	* Tagging as xAODRootAccess-00-00-68
+
+2014-09-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removed the hwaf file from the package. It's not likely that
+	  hwaf is coming back any time soon...
+	* Made the code able to deal with the DC14 13 TeV validation
+	  samples. These samples claim in their metadata that they hold
+	  xAOD::ElectronAuxContainer_v1 and xAOD::PhotonAuxContainer_v1
+	  classes, while they really hold the _v2 versions. The logic was
+	  re-worked in TEvent::connectBranch for how it should decide
+	  what type to use for the reading.
+	* The change should also allow the reading of primitive types
+	  that get added in Athena to derived files. (Not tested though.)
+	* Tagging as xAODRootAccess-00-00-67
+
+2014-09-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out the "TLV issue" was also related...
+	* Now all of the output branches are written with a split level of
+	  0 by default, overriding it to 1 for auxiliary container object.
+	  (That have a name ending in "Aux.")
+	* The users are allowed to use a different split level if they
+	  want, but apparently ROOT's read rules become unreliable when
+	  using splitting on these branches.
+	* Tagging as xAODRootAccess-00-00-66
+
+2014-09-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Finally... Managed to solve the issue with xAOD::Muon::charge()...
+	* The first issue was that the hashed keys saved for the copied
+	  objects were re-calculated during the copy. And so ended up being
+	  different from the hashed keys that the ElementLinks knew about.
+	  The code now copies over the original hashed key if one already
+	  exists for a given object/container.
+	* The other one was much more sinister... As it turns out, saving
+	  the variables in TAuxStore with a split level of 99 makes the
+	  branches broken somehow. At least the ElementLink branches
+	  become unreadable afterwards. While the TTree looks fine in
+	  a TBrowser, compiled code is not able to read back the
+	  variables from it correctly. So now reverted back to saving
+	  the dynamic auxiliary variables without any splitting. It's not
+	  like we need the splitting anyway.
+	* This might have something to do with the TLV errors reported
+	  by Simon as well, but by now I wanted to check in some
+	  improvements at least.
+	* Tagging as xAODRootAccess-00-00-65
+
+2014-08-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made some changes while hunting for an error with reading the
+	  trigger decision in branch access mode.
+	* Now allowed TAuxStore's "mode" to be changed as long as it
+	  didn't connect to any branches, and it still has an undefined
+	  mode. In the end this didn't fix my issue, but left the change
+	  in nevertheless.
+	* Tried to protect against reading "invalid" trigger menus from
+	  merged xAODs that don't have a trigger menu, but failed
+	  so far...
+	* Taught Utils::getTypeName to remove "__1::" from the STL
+	  type names. This is the new annoying namespace that clang
+	  likes to use.
+	* Finally changes the default mode of TEvent to be class access.
+	  While this is less efficient than the branch access mode, it's
+	  more robust for analysis use at the moment.
+	* Tagging as xAODRootAccess-00-00-64
+
+2014-08-18 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* While running tests in the ROOT master branch, found that the
+	  missing dictionary warnings are now coming from TClass::Init,
+	  and not TClass::TClass. Now silenced the new source when using a
+	  new ROOT version.
+	* Tagging as xAODRootAccess-00-00-63
+
+2014-08-15 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added the ability to have xAOD::TEvent notify listeners about
+	  certain "incidents". This is necessary for proper metadata
+	  handling in the dual-use tools.
+	* For now only the most important incidents are being transmitted.
+	  But the code will be very easy to extend to distribute other
+	  incidents as well if necessary.
+	* Tagging as xAODRootAccess-00-00-62
+
+2014-08-14 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a first implementation in xAOD::TEvent for accessing
+	  metadata from the input files. The code is still lacking a
+	  lot of features, but there were enough changes already that
+	  it's worth checking them in.
+	* The basic functionality seems to be working already anyway.
+	* Tagging as xAODRootAccess-00-00-61
+
+2014-08-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Ported Scott's changes from xAODRootAccess-00-00-58-branch.
+	* This improved the performance of my test job slightly, but
+	  there will definitely still be work with this. But for now let's
+	  start adding some new features...
+	* Tagging as xAODRootAccess-00-00-60
+
+2014-08-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Finally got back to fixing the remaining issues in the handling
+	  of decorations in TAuxStore.
+	* The error that I saw previously was because of a mistake with
+	  object ownership in TEvent::record(TAuxStore*,...).
+	* Beside this, I had to silence an error in TAuxStore::getIOData
+	  that would appear in kClassAccess mode when writing out an
+	  empty container that was previously decorated.
+	* Tried hunting down a memory leak that Valgrind doesn't want
+	  to let go, when reading xAOD::EventInfo, but didn't manage to
+	  make things a lot better.
+	* Next will be to incorporate Scott's performance improvements
+	  from the branch. The code does seem to be slow when changing
+	  input files in a TChain, but let's just look at that once the
+	  known improvements are already in place.
+	* Tagging as xAODRootAccess-00-00-59
+
+2014-07-18 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started the code that should provide proper decoration support
+	  for ROOT analysis in all configurations.
+	* The code now works seemingly correctly in TEvent::kClassAccess
+	  mode, but in TEvent::kBranchAccess mode there's still some
+	  memory corruption happening when switching input files.
+	* In TAuxStore I took much of the code from Scott's development
+	  branch, but ended up implementing many things quite differently.
+	* Updated TAuxManager to use a shared_ptr for holding on to
+	  TAuxStore objects. At one point I thought that the memory
+	  handling of the old implementation was faulty. But I still see
+	  issues with this implementation as well...
+	* Created a new convention between TEvent and TAuxStore. When
+	  one calls TAuxStore::getEntry( ..., 99 ), that means that all
+	  known branches should be read in from the input, but the
+	  transient store should not be deleted. As it will be needed
+	  later on in this same event.
+	* Added a Reflex dictionary for TVirtualManager, as ROOT 6
+	  started complaining about its absence.
+	* Not tagging, as the code has some known issues at the moment.
+
+2014-07-07 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made sure that the code would not request the creation of a
+	  TTree cache for a file inside a TChain, if the file is already
+	  associated to a cache. This could lead to big memory leaks
+	  before.
+	* TEvent::finishWritingTo(...) now cleans up after the output
+	  objects. So the TEvent object could be properly re-used to
+	  write to another output file in the same job.
+	* Protected TEvent::getEntry(...) against incorrect event
+	  numbers when reading from a TFile opened by the user. The code
+	  was protected against incorrect event numbers when reading
+	  from a TChain, but not when reading from a TFile.
+	* The first and 3rd issues were reported by Thomas Maier and
+	  Laurent Duflot respectively.
+	* Tagging as xAODRootAccess-00-00-58
+
+2014-07-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Reduced the number of messages printed by TAuxStore about
+	  unreadable branches. Now the objects remember if they already
+	  scanned the input TTree or not.
+	* Taught TEvent::fill() how to deal correctly with TChain inputs.
+	  Previously calling fill() made the code go back to the first
+	  file all the time. Slowing the code down a lot on linux, and
+	  crashing it with ROOT 6 on MacOS X.
+	* Tagging as xAODRootAccess-00-00-57
+
+2014-06-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making xAOD::Init a bit smarter, so that it wouldn't produce
+	  reports in Valgrind with memory leaks coming from TApplication
+	  in the setup used in most cases.
+	* Tagging as xAODRootAccess-00-00-56
+
+2014-06-12 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As part of the first xAOD mini-tutorial I had to find that the
+	  file writing code in the package does something in a very
+	  wrong way. The files produced by the standalone code are in
+	  most cases not readable by vanilla ROOT. (ROOT crashes with
+	  them.) But they can be read happily using the dictionaries.
+	* Added a function called xAOD::Utils::getTypeName that tries
+	  to produce a string type name using an std::type_info object,
+	  which corresponds to the name under which ROOT knows that
+	  type. (Getting rid of the default template arguments of
+	  DataVector and std::vector constructs.)
+	* Removed all usage of AthContainers_detail::typeinfoName from
+	  the code, and replaced it with this new function.
+	* Changed the default parameters with which TAuxStore creates
+	  auxiliary branches. Now it makes them with 2kB buffers and a
+	  split level of 99.
+	* Removed the AuxRootObject class from TAuxStore. With the new
+	  version of the auxiliary store code this class was not actively
+	  used anymore.
+	* Fixed how TAuxStore would create complex output branches.
+	  Previously it was creating ElementLink branches in a wrong way,
+	  resulting in occasional crashes. Now the code should be always
+	  using a correct TClass object for the branch creation.
+	* Fixed THolder to correctly clean up after the objects that it
+	  manages. The leak was introduced by mistake as part of some
+	  previous efforts for finding issues with the code.
+	* Fixed the behaviour of TEvent::copy in kClassAccess mode. The
+	  code didn't allow to copy over the auxiliary store objects
+	  because of an oversight in the previous commit.
+	* The problem with the output files created by the code remains
+	  unfortunately, but there are enough changes to still warrant
+	  a new tag.
+	* Tagging as xAODRootAccess-00-00-55
+
+2014-06-09 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixing yet another issue around TEvent::copy(...) and using
+	  multiple input files. If the user was making use of a
+	  container before copying it to the output, the code crashed
+	  after the second file got opened. (As at that point a leftover,
+	  non-functional object was still in the output list of
+	  TEvent. Now the code makes sure to keep using the same memory
+	  address for the object as it did on the first file. Keeping
+	  the address held by the output list valid.)
+	* Tagging as xAODRootAccess-00-00-54
+
+2014-06-08 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Now TEvent::fill() makes sure that if it's connected to an
+	  input file/chain, all the accessed objects would be read into
+	  memory from the input before filling the output.
+	* Tagging as xAODRootAccess-00-00-53
+
+2014-06-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed some further issues with information copying.
+	* Updated the TAuxStore::getIOType and TAuxStore::getIOData
+	  functions to work correctly when we copy objects in
+	  TEvent::kClassAccess mode.
+	* Downgraded the previous warnings about unknown branch types
+	  to an Info message that now states correctly that the branch
+	  not be usable for anything. (It can't even be copied, since we
+	  don't have a dictionary for it.)
+	* Made TAuxStore::setupInputData fail with a meaningful message
+	  when we try to copy some Athena-only dynamic decoration on
+	  an object.
+	* Not actually sure what happens when we want to deep copy such
+	  objects. The code may still not have the correct logic in that
+	  case...
+	* Tagging as xAODRootAccess-00-00-52
+
+2014-06-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed an issue with the way TAuxStore was using AuxSelection.
+	  The code would crash with the previous setup if the user
+	  required some selection of the auxiliary variables.
+	* Fixed the issue reported by Simon Head and Louise Heelan
+	  about TEvent::copy not working correctly with multiple input
+	  files. The TEvent::record function needed to be made smarter,
+	  as it didn't anticipate this situation. (A new TAuxStore object
+	  being created for reading the input, while the output list
+	  already has a TAuxManager object manager.)
+	* Tagging as xAODRootAccess-00-00-51
+
+2014-06-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Found an issue in the TStore code using the jet reconstruction
+	  code. ROOT would create emulated TClass dictionaries for
+	  certain types, and TStore just blindly believed that these can
+	  be used to manage the memory of these objects. Now the code
+	  explicitly checks if the TClass returned by
+	  TClass::GetClass(...) is actually a "proper" dictionary.
+	* Added a print() function to TStore to help in debugging.
+	  Should really add a function like this to TEvent as well. In
+	  the next tag...
+	* Added a function to THolder to retrieve the std::type_info
+	  pointer that it is holding on to.
+	* Tagging as xAODRootAccess-00-00-50
+
+2014-06-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Tested the code on SLC6 with Valgrind, and ironed out some
+	  remaining memory issues.
+	* Tagging as xAODRootAccess-00-00-49
+
+2014-06-01 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new class: xAOD::TStore. It is meant to be used as a
+	  generic object store during analysis. Holding on to objects that
+	  are only needed transiently during the analyis, and we don't
+	  want to write them out.
+	* Basic functionality seems to be there, but the TStore::retrieve
+	  functions are still behaving a bit weird. (Always the non-const
+	  one gets called, regardless of what sort of pointer is used
+	  for the function call.) To be followed up on.
+	* Added xAOD::TActiveStore as well, which behaves just like
+	  xAOD::TActiveEvent for the TEvent object.
+	* Tagging as xAODRootAccess-00-00-48
+
+2014-06-01 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Changed the behaviour of TEvent::getHash(...) to return 0 for
+	  an empty string. This is because the AthLinks code was
+	  implicitly assuming this behaviour
+	* Started the implementation of a transient store that would be
+	  able to work with types that we don't have a dictionary for.
+	  As a first step I updated the THolder code to be able to delete
+	  objects that it doesn't have a dictionary for.
+	* This required the introduction of a registry of "destructor
+	  objects" that take care of deleting an object through a typeless
+	  pointer.
+	* The implementation of the transient store will begin now.
+	* Not tagging yet.
+
+2014-05-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Upgraded the entire package to use TReturnCode return values
+	  in places where it used boolean return codes before.
+	* Had to introduce a kRecoverable return code, as the code was
+	  already returning kFALSE in some cases for errors that are
+	  not fatal.
+	* There may still be some unchecked return codes within this
+	  package itself, but the first basic tests now don't reveal any
+	  left.
+	* Tagging as xAODRootAccess-00-00-47
+
+2014-05-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As I feared, yesterday's fix was not robust enough. So now
+	  TEvent checks explicitly whether the auxiliary store belongs
+	  to a standalone object or a container. And sets it up
+	  accordingly.
+	* Apart from that, did a few minor visual cleanups in the code.
+	* Tagging as xAODRootAccess-00-00-46
+
+2014-05-21 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a kind of fragile fix for to make TAuxStore work with
+	  xAOD::EventInfo when using the kBranchAccess mode in the
+	  new setup.
+	* Tagging as xAODRootAccess-00-00-45
+
+2014-05-21 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Found a mistake in how TAuxStore::setupAuxBranch was trying
+	  to figure out if the requested SG::AuxTypeVectorFactory
+	  dictionary is available. Now the code doesn't try to use
+	  emulated dictionaries anymore.
+	* Tagging as xAODRootAccess-00-00-44
+
+2014-05-20 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* The way the code was using TMethodCall was not really working
+	  with ROOT 6. The updated version seems to behave better.
+	* Tagging as xAODRootAccess-00-00-43
+
+2014-05-20 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adapted Scott's code from RootStorageSvc to work in this
+	  standalone environment.
+	* The code seems to work, but only very basic tests were done with
+	  it so far.
+	* ROOT 6 seems to have some issues with figuring out if the
+	  dictionary for a given SG::AuxTypeVectorFactory<T> type is
+	  available or not. Will have to follow up on that...
+	* Tagging as xAODRootAccess-00-00-42
+
+2014-05-20 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Now xAOD::TAuxStore implements the SG::IAuxStoreIO interface
+	  as well.
+	* This was necessary because xAOD::ShallowAuxContainer may need
+	  to ask the parent object (and by extension an xAOD::TAuxStore)
+	  for I/O information about a variable.
+	* Not tagging yet, still a few changes in the pipeline.
+
+2014-05-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* This was painful...
+	* As it turns out, it's not enough to use
+	  TBranch::SetMakeClass(...) on the branch of interest before
+	  calling TTree::SetBranchAddress(...). One has to call
+	  TTree::SetMakeClass(...).
+	* Makes the code slower, but nothing that we can do about it...
+	* Tagging as xAODRootAccess-00-00-41
+
+2014-05-16 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Had to change the interface of MakeTransientTree from receiving
+	  a TTree pointer to receiving a TChain one. ROOT 5 was confusing
+	  the TTree pointer used there with the xAOD::TTree class that it
+	  has to generate a dictionary for in the same rootcint command.
+	* Added a dictionary for xAOD::TReturnCode to be able to use it
+	  from PyROOT.
+	* Tagging as xAODRootAccess-00-00-40
+
+2014-05-15 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed an issue found by Simon Head. When calling the TEvent
+	  functions "in the wrong order" the output file writing failed
+	  to finish the file writing in TEvent::finishWritingTo(...)
+	  correctly. This was because the code was not making sure that
+	  it would be in the right TDirectory inside that function.
+	* Introduced a new helper class, xAOD::TDirectoryReset that
+	  can be used to make sure that when a function returns, it puts
+	  the user back into the same TDirectory that the user had when
+	  the function got called.
+	* Tagging as xAODRootAccess-00-00-39
+
+2014-05-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made xAOD::Init() more friendly towards PyROOT.
+	* Started using xAOD::TReturnCode finally. And already found an
+	  issue with it from PyROOT.
+	* Not tagging right now, more updates are still coming.
+
+2014-05-12 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Valgrind ftw! It managed to show me how memory got corrupted.
+	  The TChain object was getting out of sync with the TEvent
+	  object very easily.
+	* Now the input TTree/TChain will explicitly notify the TEvent
+	  object when something about it changes.
+	* Found another issue with xAOD::TBranch. The TBranchObject
+	  constructor was making use of the value of this class's m_object
+	  pointer before it would've been reset to 0. Now things should be
+	  initialised in the correct order.
+	* Added a function for clearing up the memory created by the
+	  xAOD::MakeTransientTree functions. Mostly to allow for a
+	  meaningful memory leak hunt. (Function not too useful from a
+	  user analysis, as the amount of memory allocated by
+	  xAOD::MakeTransientTree doesn't expand. Whatever the user
+	  code does...)
+	* Getting rid of a warning in TReturnCode.cxx.
+	* Tagging as xAODRootAccess-00-00-38
+
+2014-05-12 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Renamed xAOD::ReturnCode to xAOD::TReturnCode, and added
+	  an explicit assignment operator to it.
+	* Now to check the memory issues of the code...
+
+2014-05-09 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new class: xAOD::ReturnCode
+	* It will be used like StatusCode is used in the offline code. All
+	  functions of the public classes of the package will start
+	  returning such objects instead of booleans.
+	* The class seems to be functional, but none of the other classes
+	  have been updated yet to use it.
+	* Still not tagging.
+
+2014-05-09 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Silencing an unnecessary warning that would show up every time
+	  the user checks for the existence of a dynamic variable.
+	* Still not tagging.
+
+2014-05-09 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added the ability to connect a TEvent object to a TTree/TChain
+	  in addition to connecting it to a TFile.
+	* Added a version of MakeTransientTree that can work off of an
+	  input TTree/TChain.
+	* The code is doing something funky, so I'm not tagging yet.
+	  Will have to debug it with Valgrind on Linux first. (Interactive
+	  ROOT sometimes crashes in impossible places.)
+
+2014-05-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out, TAuxStore was not handling dynamic ElementLink
+	  branches correctly so far. The code is now updated to try to
+	  do this correctly.
+	* Tagging as xAODRootAccess-00-00-37
+
+2014-05-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Created a first, functional implementation of an xAOD
+	  transient tree.
+	* In the end created a special xAOD::TTree class as well, although
+	  it wouldn't have been strickly necessary just for TBrowser
+	  and TTree::Draw usage.
+	* Made a CINT dictionary for the xAOD::Init() function. This way
+	  it can be used directly after calling
+	  $ROOTCOREDIR/scripts/load_packages.C.
+	* Tweaked xAOD::TEvent a bit to allow the transient tree maker
+	  function to get all the information out of it. And so that
+	  xAOD::TBranch would be able to get event-wise information out
+	  of it efficiently.
+	* Removed the extrai_include pragma statements from LinkDef.h,
+	  as it turned out that that's not the way to make the dictionary
+	  work with ROOT 6.
+	* Tagging as xAODRootAccess-00-00-36
+
+2014-05-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adding some first experimental code that will be meant to
+	  create "transient xAOD trees" similar to how ARA does it.
+	* The code is not functional at the moment at all, as I had to
+	  deal with ROOT 6 dictionary issues so far. Will continue the
+	  development with ROOT 5 for now.
+	* Not tagging yet, as nothing is working properly just yet.
+
+2014-05-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Completed the migration of the package's code to the ATLAS
+	  coding rules.
+	* Tagging as xAODRootAccess-00-00-35
+
+2014-05-03 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Continuing with updating the whole package to follow the
+	  ATLAS coding rules.
+	* Now updated all the code under xAODRootAccess/tools/.
+	* Moved the RootType (now rootType) function to xAOD::Utils,
+	  and removed the previous files holding this function.
+	* Not tagging yet, the next will be the main user classes.
+
+2014-05-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated the transient variable names in selection.xml. For
+	  some reason I didn't see the warnings from genreflex before.
+	  (rootcling apparently doesn't warn about wrong variable names.)
+	* Implemented the new getName(...) function declared in
+	  TVirtualEvent.
+	* Tagging as xAODRootAccess-00-00-34
+
+2014-04-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated xAOD::TEvent to follow the ATLAS coding rules finally.
+	  And hence be compatible with the updated
+	  xAODRootAccessInterfaces.
+	* Didn't touch any of the other classes yet, those will come in
+	  the next step.
+	* Tagging as xAODRootAccess-00-00-33
+
+2014-04-28 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* The code without TMethodCall was not actually working correctly
+	  for standalone objects. Most importantly, it was not working
+	  correctly for xAOD::EventInfo.
+	* Had to make the TEvent::SetAuxStore(...) code a bit more
+	  complicated to cover the use case of standalone objects.
+	* The CPToolTests example works correctly now on MacOS X
+	  as well!
+	* Tagging as xAODRootAccess-00-00-32
+
+2014-04-24 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out, TMethodCall doesn't work correctly in ROOT 6
+	  when the job is being profiled by Callgrind... :-/
+	* This finally forced me to get rid of the usage of that class
+	  in TEvent::SetAuxStore(...), and use a more basic C++
+	  implementation in its place. In principle this should be
+	  slightly faster than the previous code.
+	* To make the code a bit nicer, added a function in TAuxManager
+	  that returns an SG::IConstAuxStore pointer.
+	* With all of this the code can finally be profiled with
+	  Callgrind when compiled against ROOT 6. GPerfTools is still
+	  a no-go though. :-(
+	* Tagging as xAODRootAccess-00-00-31
+
+2014-04-24 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Spent a bit of time with GPerfTools and Callgrind to optimise
+	  the code.
+	* Removed the TTree::SetMakeClass(...) statements, and replaced
+	  them with TBranch::SetMakeClass(...) statements everywhere.
+	* TAuxStore now only creates a transient auxiliary store when
+	  it is needed. Otherwise the check for the transient store's
+	  auxiliary IDs in TAuxStore::getData(...) can become a
+	  noticeable performance penalty.
+	* Decided to delete the transient auxiliary store in TAuxStore
+	  when a new entry is loaded from the input. Unfortunately
+	  this is not a perfect solution though. It will not reset the
+	  object when it's only used for event writing, without being
+	  attached to an input tree. However, deleting the transient
+	  store in TAuxStore::Reset() is not good either. Because it
+	  would prevent us from seamlessly writing multiple trees in
+	  a single process. Something will probably have to be done
+	  with this later on...
+	* Tried to make TAuxStore::getData(...) as efficient as I could.
+	* TAuxStore now correctly keeps track of which auxiliary IDs
+	  it is handling. So that Accessor::isAvailable(...) woulnd't
+	  need to call getData(...) over and over.
+	* TEvent now clears out all the input objects when a new file
+	  is opened. Later on it will probably be better to keep using
+	  the existing objects, connecting them to the new input tree.
+	  But for now this should be good enough.
+	* Tagging as xAODRootAccess-00-00-30
+
+2014-04-08 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Now that there are no longer clashes between the different
+	  xAOD packages in terms of dictionaries, the suppression of
+	  the messages about these clashes could be removed.
+	* Not tagging for this small update.
+
+2014-04-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* After the changes in xAODCore, it's no longer necessary to
+	  call xAOD::AddDVProxy::addProxies() in the code. In fact, that
+	  function was now removed.
+	* At this point only TAuxStore depends on xAODCore, so we may
+	  want to factor out that dependency in a next iteration as well.
+	* Tagging as xAODRootAccess-00-00-29
+
+2014-04-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Removed the TAuxStore::TBranchHandle::fContainer variable,
+	  as apparently (according to clang) I was not using it for
+	  anything.
+	* Reverted to the "simple" type checking in TEvent::Record
+	  now that the selection rules are mostly working on ROOT 6.
+	* Still not tagging, as other changes will be coming presumably.
+
+2014-04-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Hid the warning messages coming from dictionary clashes
+	  that ROOT 6 prints a lot of at the moment.
+	* Fixed a warning in TEvent.cxx's compilation.
+	* Made TEvent::Record work with ROOT 6 at least to some
+	  level for now. But this made the function slower than before.
+	* Made Utils.cxx work in C++11 mode.
+	* Not tagging for the moment...
+
+2014-04-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making the usage of Cintex conditional in xAOD::Init. So it
+	  would work with ROOT 6 as well.
+	* Tagging as xAODRootAccess-00-00-28
+
+2014-03-18 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Finally came back to further debug the slimming/copying code.
+	  There was a problem when one accessed a variable that was already
+	  copied to the output file in an automatic way. The output branch
+	  was not correctly updated to take the variable from a new location
+	  in memory. The location that got set up by the explicit access.
+	* The code now tries to clean up the memory for the automatically
+	  copied branches correctly. (At least Valgrind seems happy now.)
+	* Tagging as xAODRootAccess-00-00-27
+
+2014-02-21 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Managed to find a logic error in the code right away.
+	  TAuxStore was not able to set up the variables for copying if no
+	  variables were accessed explicitly. Should be fixed now.
+	* Tagging as xAODRootAccess-00-00-26
+
+2014-02-21 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Made a *huge* update in the code.
+	* Fixed some logic errors around the way THolder behaves.
+	* Extended TVirtualManager to allow for full and partial object
+	  reads.
+	* Made it possible to use TAuxStore for copying variables from the
+	  input to the output without ever explicitly accessing them.
+	  Very much according to the same logic that Marcin used in the
+	  offline code.
+	* Added a new function (TEvent::Copy(...)) for copying an
+	  object/container together with its auxiliary store, to the
+	  output. This way the user doesn't have to worry about the auxiliary
+	  store object when they don't want to change which objects to
+	  write out.
+	* Everything seems to work quite nicely in the current tests, but
+	  because so many things were changed, the tests will have to
+	  continue a little longer...
+	* Tagging as xAODRootAccess-00-00-25
+
+2014-02-20 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added the ability to slim dynamic auxiliary variables using
+	  TEvent. The interface may change slightly later on, but the
+	  goal is to provide an interface very similar to the one
+	  used by Athena ItemLists. (So the same smart slimming code
+	  could be used standalone as well.)
+	* Fixed the dictionary generation for xAOD::Init.
+	* Not tagging yet, as some TAuxStore updates are still on the
+	  way...
+
+2014-02-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed some issues found when I actually tried to write multiple
+	  xAOD-style TTree-s to a single output file at once.
+	* Made xAOD::THolder a reference counting smart pointer.
+	  This was necessary to be able to record the same EDM object
+	  into multiple TEvent stores, without having to make N copies of
+	  the object first.
+	* Made one of the error messages in TAuxStore a bit more
+	  informative.
+	* Tagging as xAODRootAccess-00-00-24
+
+2014-02-17 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started implementing the possibility of using multiple TEvent
+	  objects, writing separate event trees into the same output file.
+	* The basic code seems to work, but not much testing was done
+	  yet. At least not testing the actual new capability.
+	* Not tagging at the moment.
+
+2014-01-29 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Moved the interfaces used by AthLinks out of this package,
+	  and into xAODRootAccessInterfaces.
+	* TEvent now makes itself the active event by default on
+	  construction.
+	* Tagging as xAODRootAccess-00-00-23
+
+2014-01-24 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* After some testing it's time to tag the package for being
+	  included in the ASG nightly.
+	* Tagging as xAODRootAccess-00-00-22
+
+2014-01-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Converted the package to compile with RootCore.
+	* Only tested the compilation so far, not the runtime health.
+	* Not tagging yet.
+
+2013-12-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* When writing a dynamic auxiliary branch, the code will now try to
+	  access the type's dictionary through its type_info object first.
+	  This makes it possible to find the correct dictionary for
+	  ElementLink types. It only works if the corresponding library
+	  is already loaded, but it should be the case in such situations.
+	* Tagging as xAODRootAccess-00-00-21
+
+2013-11-26 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Tried to make the retrieval failure messages more meaningful.
+	  (Made some error messages warnings rather.)
+	* Introduced the TEvent::Contains and TEvent::TransientContains
+	  functions to allow the user to check if an object retrieval is
+	  going to succeed or not.
+	* This needed some smaller changes in the signatures of some of
+	  the internal functions of TEvent.
+	* Tagging as xAODRootAccess-00-00-20
+
+2013-11-25 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* The code now also reads back the auxiliary branches written
+	  using TAuxStore, correctly.
+	* This also showed that the code was poised to fail for
+	  DataVector types that don't have an auxiliary store.
+	* Tagging as xAODRootAccess-00-00-19
+
+2013-11-22 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* TEvent::RecordAux now properly connects the created TAuxStore
+	  object to the output tree.
+	* Tagging as xAODRootAccess-00-00-18
+
+2013-11-21 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Adding the ability to use TAuxStore objects for writing an
+	  output file. The code should in principle work, but didn't
+	  test it yet.
+	* Cleaned up hscript.yml a bit.
+	* Tagging as xAODRootAccess-00-00-17
+
+2013-11-14  Sebastien Binet  <binet@farnsworth>
+
+	* tagging xAODRootAccess-00-00-16
+	* hwafize
+	* A hscript
+	* D wscript
+
+2013-11-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Argh... And now actually fixed the bloody thing...
+	* Tagging as xAODRootAccess-00-00-15
+
+2013-11-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* xAOD::Init(...) now sets up a filtering for the ROOT messages
+	  that get printed. For now the <TClass::TClass> warnings are
+	  filtered out. (So we wouldn't get a lot of warnings when reading
+	  a file written by Athena.)
+	* Tagging as xAODRootAccess-00-00-14
+
+2013-11-13 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Modified xAOD::Utils::DynBranchPrefix to be in sync with the
+	  offline code's naming convention.
+	* Tagging as xAODRootAccess-00-00-13
+
+2013-11-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started adding TTree writing capabilities to TAuxStore.
+	* Only relatively basic tests done so far, and TEvent will also
+	  have to be taught how to write such objects properly.
+	* Tagging as xAODRootAccess-00-00-12
+
+2013-11-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed a silly memory leak in TEvent.
+	* Not tagging yet, as Valgrind is still reporting some leaks that
+	  I'm looking for...
+
+2013-11-11 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Taught TAuxStore how to recognise when it needs to read a branch
+	  that describes a container of objects, and when it needs to read
+	  a branch that describes a single object.
+	* Tagging as xAODRootAccess-00-00-11
+
+2013-11-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new function, TVirtualEvent::GetKey(...) to find the
+	  hashed key of an object that's already in the event. It is used
+	  by the smart pointers.
+	* Tagging as xAODRootAccess-00-00-10
+
+2013-11-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Finished the migration to the new data recording and
+	  retrieval functions.
+	* This reduced the amount of template code in the package
+	  drastically without changing the functionality of the code.
+	* Made some printouts a little nicer.
+	* Tagging as xAODRootAccess-00-00-09
+
+2013-11-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Switched TActiveEvent to storing a TVirtualEvent pointer.
+	* Added the Hash(...) function to TVirtualEvent, as it is
+	  needed by the smart pointer classes.
+	* Fixed the implementation of TEvent::Record<...>(...).
+	* Still not tagging, the implementation of Record<...>(...)
+	  will be updated next.
+
+2013-11-05 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Started the process of introducing a light-weight event
+	  interface that the smart pointer classes can use instead of the
+	  full-blown TEvent class.
+	* Removed the template code from THolder, as a first step in
+	  removing the over-abundance of template code in the package.
+	* Introduced the TVirtualEvent class, which is supposed to be
+	  this new light-weight interface.
+	* TEvent now has a first implementation of the TVirtualEvent
+	  virtual functions, but the code is pretty much a mess at this
+	  point...
+	* Not tagging yet.
+
+2013-11-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated TAuxStore to be able to handle primitive branches
+	  (both static and dynamic) on the input.
+	* The reading of xAOD::EventInfo seems to be fully functional
+	  now.
+	* Tagging as xAODRootAccess-00-00-08
+
+2013-11-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* TEvent can now write primitive dynamic auxiliary branches
+	  into the output.
+	* However the reading code for such branches is not available
+	  just yet.
+	* This needed the introduction of a new manager class,
+	  TPrimitiveAuxBranchManager, as primitive branches behave a bit
+	  differently than branches created from objects.
+	* Not tagging yet, as TAuxStore is yet to be upgraded to handle
+	  such branches.
+
+2013-10-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Updated TEvent to use the new class hierarchy of AthContainers.
+	* The code now explicitly depends on the classes defined in
+	  AthContainers instead of hard-coding their names, so the next
+	  time there is a class name change, the debugging would be
+	  easier.
+	* At the same time removed all the class name string constants
+	  from TEvent.
+	* Making use of the SG::IAuxStoreHolder interface in the code
+	  now.
+	* Made one of the error messages of TAuxStore a bit more
+	  explicit.
+	* Tagging as xAODRootAccess-00-00-07
+
+2013-10-29 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* TEvent can now find output objects in its Get<...>(...)
+	  function as well. Coming in very handy in larger projects where
+	  different parts of the code don't communicate with each other
+	  directly. (On the road towards StoreGate... :-( )
+	* Tagging as xAODRootAccess-00-00-06
+
+2013-10-27 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* TAuxManager can now be told that it doesn't own the TAuxStore
+	  object that is given to it in its constructor. This is needed
+	  because in certain situations we need to make an auxiliary
+	  container object own the TAuxStore object.
+	* Implemented the code in TEvent to put a TAuxStore object
+	  inside the hand-written auxiliary container object that the
+	  user is reading. The purpose of the TAuxStore object in this
+	  case is to read the dynamically created auxiliary variables.
+	  The static ones are taken care of by the hand-written object
+	  in this case.
+	* All this came from Marcin's idea on how this all should be
+	  implemented...
+	* Tagging as xAODRootAccess-00-00-05
+
+2013-10-27 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Fixed TEvent so that now it would correctly write out dynamic
+	  auxiliary variables even if they were created after the
+	  auxiliary container was added to the event.
+	* Changed TEvent::PutAux(...) to use the same sort of naming
+	  that Marcin started using recently.
+	* The name prefix for the dynamic auxiliary variables is now
+	  created in xAOD::Utils::DynBranchPrefix(...).
+	* Made some big developments in TAuxStore.
+	  - It can now read both static and dynamic auxiliary variables
+	    at the same time.
+	  - Now it finally implement just-in-time branch reading for
+	    all the auxiliary branches.
+	* Introduced a small macro in xAODRootAccess/tools/Message.h
+	  that will be used in all parts of the code from now on to print
+	  error messages.
+	* Tagging as xAODRootAccess-00-00-04
+
+2013-10-24 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* With Scott fixing the const-logic in AthContainers, the logic
+	  in TAuxStore had to be finally fixed.
+	* Will still need to add the file writing functionality to the
+	  code soon.
+	* Tagging as xAODRootAccess-00-00-03
+
+2013-10-19 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Making the documentation in TEvent.h a little nicer.
+	* Adding some new functions to TEvent to help with using smart
+	  pointers in standalone ROOT code.
+	* Tagging as xAODRootAccess-00-00-02
+
+2013-10-04 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Moved the code over to this new package from the RootAccess
+	  demonstrator package.
+	* Moved some of the classes into the tools/ sub-directories.
+	  These are classes that the user should not interact with
+	  directly. I'm still split on whether to move TAuxStore there
+	  or not...
+	* Tagging as xAODRootAccess-00-00-01

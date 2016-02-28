@@ -1,0 +1,102 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'Control/Navigation',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+
+    ctx.use_pkg('Control/CxxUtils')
+    ctx.use_pkg('Control/DataModel')
+    ctx.use_pkg('Control/SGTools')
+    ctx.use_pkg('Control/AthenaKernel')
+                 
+    ctx.use_pkg('GaudiKernel')
+                 
+    ctx.use_pkg('AtlasTest/TestTools')
+    
+    ctx.use_pkg('External/AtlasROOT') #reflex
+    ctx.use_pkg('External/AtlasUUID')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_linklib(
+        name     = 'Navigation',
+        source   = '*.cxx',
+        use      = ['DataModel', 'SGTools', 'CxxUtils', #'SGAudCore',
+                    'AthenaKernel',
+                    #'TestTools',
+                    'GaudiKernel',
+                    #'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'Reflex',
+                    'uuid',
+                    ],
+        )
+
+    ctx.build_reflex_dict(
+        name     = 'Navigation',
+        source   = 'Navigation/NavigationDict.h',
+        selection_file = 'Navigation/selection.xml',
+        use      = ['DataModel', 'SGTools', 'CxxUtils', #'SGAudCore',
+                    'AthenaKernel',
+                    'Navigation',
+                    'GaudiKernel',
+                    ],
+    )
+
+
+    ctx.install_headers()
+
+
+    ### --- tests -------------------------------------------------------------
+    ctx.build_app(
+        name     = 'NavigationToken_test',
+        source   = 'test/NavigationToken_test.cxx',
+        use      = ['Navigation', 'DataModel', 'SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    #'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    #'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'AthenaBarCodeImpl_test',
+        source   = 'test/AthenaBarCodeImpl_test.cxx',
+        use      = ['Navigation', 'DataModel', 'SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    #'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    #'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'NavigableIterator_test',
+        source   = 'test/NavigableIterator_test.cxx',
+        use      = ['Navigation', 'DataModel', 'SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    #'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    #'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    return
+### EOF ###

@@ -1,0 +1,45 @@
+// $Id$
+/**
+ * @file SGTools/CurrentEventStore.icc
+ * @author scott snyder <snyder@bnl.gov>
+ * @date Apr, 2015
+ * @brief Hold a pointer to the current event store.
+ */
+
+
+namespace SG {
+
+
+#if 0
+/**
+ * @brief Fetch the current store.
+ */
+inline
+IProxyDict* CurrentEventStore::store()
+{
+  return m_curStore;
+}
+#endif
+
+
+/**
+ * @brief Temporarily change the current event store.
+ */
+inline
+CurrentEventStore::Push::Push (IProxyDict* store)
+  : m_oldStore (setStore (store))
+{
+}
+
+
+/**
+ * @brief Restore the current event store.
+ */
+inline
+CurrentEventStore::Push::~Push()
+{
+  setStore (m_oldStore);
+}
+
+
+} // namespace SG

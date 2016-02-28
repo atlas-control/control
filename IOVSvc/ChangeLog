@@ -1,0 +1,749 @@
+2016-02-16 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Patching (in a backwards compativle way) to build against the
+	  latest changes in the Gaudi master.
+	* Tagging as IOVSvc-00-07-38
+
+2016-02-15  charles leggett
+	* patch to handle proxy delted by StoreGateSvc::overwrite (from scott)
+	* jira TEAM-261
+	* tag IOVSvc-00-07-37
+
+2015-09-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging IOVSvc-00-07-36.
+	* src/IOVSvcTool.cxx: Move m_firstRun flag inside an anonymous
+	namespace, and rename to s_firstRun to comply with naming
+	conventions.
+
+2015-07-02  Charles Leggett
+	* for hybrid MP/MT, need mechanism to force reloading of proxies
+	  by resetting all callbacks
+	* tag IOVSvc-00-07-35
+
+M       src/IOVSvcTool.cxx
+
+2015-05-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging IOVSvc-00-07-34.
+	* test/IOVSvcTool_test.cxx: Force off NDEBUG.
+
+2014-09-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging IOVSvc-00-07-33.
+	* Fix test comparisons.
+
+2014-09-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging IOVSvc-00-07-32.
+	* src/IOVSvc.cxx: Fix compilation errors in last change.
+
+2014-09-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging IOVSvc-00-07-31.
+	* Migrate AlgTool -> AthAlgTool, Service -> AthService.
+	* Tagging IOVSvc-00-07-30.
+	* Fix coverity warning.
+
+2014-05-13  Paolo Calafiura  <calaf@electra>
+	* Tagging IOVSvc-00-07-29
+	* added replaceProxy method to IOVSvc and IOVSvcTool (savannah #104311)
+
+2013-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging IOVSvc-00-07-28.
+	* Fix coverity warnings.
+
+2013-01-17  Paolo Calafiura  <calaf@calaf-desktop>
+	* src/IOVSvcTool.cxx (handle): new updateAddress signature
+	* tag IOVSvc-00-07-27
+
+2012-10-15  Charles Leggett
+	* fix checkreq problems
+M       cmt/requirements
+	* tag IOVSvc-00-07-26
+
+2012-04-20  Charles Leggett
+	* get time in ns from event
+M       src/IOVSvcTool.cxx
+	* tag IOVSvc-00-07-25
+
+2011-11-16  Charles Leggett
+	* ordered set<proxiesToReset> to have consistent ordering
+M       src/IOVSvcTool.cxx
+M       IOVSvc/IOVSvcTool.h
+	* tag IOVSvc-00-07-24
+
+2011-10-11  Charles Leggett
+	* perhaps -Wno-format is no longer necessary?
+M       cmt/requirements
+	* tag IOVSvc-00-07-23
+
+2011-10-09  Charles Leggett
+	* fixed checkreq warnings 
+M       cmt/requirements
+	* tag IOVSvc-00-07-22
+
+2011-06-28  Charles Leggett
+	* removed some more #ifndef NDEBUG protection from IOVSvcTool to make
+	  debugging on HLT easier.
+M       src/IOVSvcTool.cxx
+	* tag IOVSvc-00-07-21
+
+2011-06-28  Charles Leggett
+	* removed some #ifndef NDEBUG protection from IOVSvcTool to make
+	  debugging on HLT easier.
+M       src/IOVSvcTool.cxx
+	* tag IOVSvc-00-07-20
+
+2011-05-20  Charles Leggett
+	* cleaned up some more printouts: bug #80067
+M       src/IOVSvcTool.cxx
+	* tag IOVSvc-00-07-19
+
+2011-04-25  Charles Leggett
+	* cleaned up some more printouts: bug #80067
+M       src/IOVSvcTool.cxx
+	* tag IOVSvc-00-07-18
+
+2011-04-21  Charles Leggett
+	* get rid of unused variable warning messages
+M       src/IOVSvcTool.cxx
+	* tag IOVSvc-00-07-17
+
+2011-03-25  Charles Leggett
+	* cleaned up some printouts: bug #80067
+M       src/IOVSvcTool.cxx
+M       src/IOVSvc.cxx
+	* tag IOVSvc-00-07-16
+
+2011-03-15  Charles Leggett
+	* fixed some stuff that coverity thinks are defects, though they
+	  aren't really, just to make it shut up.
+M       src/IOVSvcTool.cxx
+M       src/IOVSvc.cxx
+	* tag IOVSvc-00-07-15
+
+2011-03-10  Charles Leggett
+	* add NDEBUG protection to DEBUG and VERBOSE msgStreams
+M       src/IOVSvcTool.cxx
+M       src/IOVSvc.cxx
+	* tag IOVSvc-00-07-13
+
+2010-08-18  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* src/IOVSvcTool.cxx (IOVSvcTool::getRangeFromDB): fix unchecked pointer
+	(coverity 19425)
+	* tag IOVSvc-00-07-12
+
+2010-02-27 David Quarrie
+    * src/IOVSvcTool.cxx: Correct placement of "}" relative to #ifndef NDEBUG/#endif block
+    * tag IOVSvc-00-07-11
+    
+2010-02-11 Charles Leggett
+	* IOVSvcTool: check EventInfo object in CheckIOV incident before 
+	              EventStore.
+	* bug #62361
+	* tag IOVSvc-00-07-10
+
+2010-02-11 Charles Leggett
+	* IOVSvcTool: listen for CheckIOV incident
+	* bug #62361
+	* tag IOVSvc-00-07-09
+
+2009-10-23 Charles Leggett
+	* IOVSvcTool::setRange(): delete old IOVEntry before adding a new
+	                          one. 
+	* bug #55126
+	* tag IOVSvc-00-07-08
+	
+	
+2009-10-09 Charles Leggett
+	* IOVSvcTool: do clearProxyPayload on DetectorStore, not
+	              EventStore
+	* Bug #57178
+	* tag IOVSvc-00-07-07
+
+2009-10-09 Charles Leggett
+	* IOVSvcTool.cxx: add Auditor hook
+	* tag IOVSvc-00-07-06
+
+2009-08-14 Charles Leggett
+	* IOVSvcTool.cxx: StoreGate::clearProxyPayload
+	* bugs #54154
+	* tag IOVSvc-00-07-05
+
+2009-08-09  RD Schaffer  <R.D.Schaffer@cern.ch>
+	* src/IOVSvcTool.cxx (IOVSvcTool::resetAllProxies): reverting
+	temporarily to reset of proxy
+	* tag IOVSvc-00-07-04
+
+2009-08-07 Charles Leggett
+	* IOVSvcTool.cxx: valgrind errors
+	* bugs #53538 and #54120
+	* tag IOVSvc-00-07-03
+	
+2009-08-06 Charles Leggett
+	* IOVSvcTool.cxx: test for invalid DataProxy in preLoadProxies
+	* bug #54123, #54125
+	* tag IOVSvc-00-07-02
+
+2009-08-05 Charles Leggett
+	* IOVSvcTool.cxx: use store->releaseObject() instead of proxy->reset()
+	* tag IOVSvc-00-07-01
+
+2009-08-04 Charles Leggett
+	* IOVSvcTool.cxx, requirements: merged changes with 
+	  IOVSvc-00-06-16-01 branch for Coral
+	* tag IOVSvc-00-07-00
+
+2009-08-04 Charles Leggett
+	* IOVSvcTool.cxx: fix invalid read: bug #53538 and 53935
+	* tag IOVSvc-00-06-19
+	
+2009-03-25 Ilija Vukotic <ilija@vukotic.me>
+	* a bit of readability and printout changes
+	* tagging IOVSvc-00-06-18
+	
+2009-02-13  Sebastien Binet  <binet@farnsworth>
+
+	* tagging IOVSvc-00-06-17
+	* removing last bits of SEAL deps.
+	* M src/IOVSvcTool.cxx
+	* M cmt/requirements
+
+2008-06-11 Charles Leggett
+	* IOVSvcTool: add hook to AuditorSvc for Callback
+	* tag IOVSvc-00-06-16
+
+2008-06-04 Charles Leggett
+	* IOVSvcTool: don't do beginrun reset on first begin run
+	* IOVSvc: do cleanup of IOVSvcTool in finalize, not destructor
+	* better printing of full proxy names
+	* tag IOVSvc-00-06-15
+
+2008-05-28 Charles Leggett
+	* IOVSvcTool: warn of duplicate TADs on insert in preLoadTAD and 
+	  preLoadDataTAD
+	* IOVSvc: change default for job opt partialPreLoadData to true
+	* tag IOVSvc-00-06-14
+
+2008-05-27 Charles Leggett
+	* IOVSvcTool: sort preLoad sets on values of clid/name instead of
+	  TAD*, to avoid duplicates
+	* tag IOVSvc-00-06-13
+
+2008-05-19 Charles Leggett
+	* IOVSvcTool.cxx: bugfix to handle callbacks when forceReset == true
+	* tag IOVSvc-00-06-12
+
+2008-05-15 Charles Leggett
+	* IOVSvc.cxx: more deal with store named "default"
+	* Tagged as IOVSvc-00-06-11
+
+2008-05-15 Charles Leggett
+	* IOVSvc.h, IOVSvc.cxx: minor formatting fixes, deal with store named "default", remove default parameter in IOVSvc.h 
+	  to make sure it comes in from IIOVSvc.h
+	* Tagged as IOVSvc-00-06-10
+
+2008-05-14 Charles Leggett
+	* IOVSvc/IOVSvcTool: use ServiceHandles, make default store "StoreGateSvc"
+	* Tagged as IOVSvc-00-06-09
+
+2008-05-14 Charles Leggett
+	* IOVSvcTool.cxx: BeginRun type bugfix
+	* Tagged as IOVSvc-00-06-08
+
+2008-05-13  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* src/IOVSvcTool.cxx (IOVSvcTool::preLoadTAD): must copy tads in
+	case they are deleted in the proxy. Seen to cause a crash.
+	* Tagged as IOVSvc-00-06-07
+
+2008-05-09 Charles Leggett
+	* bugfix 'cause CMT didn't do a proper build!
+	* Tagged as IOVSvc-00-06-05
+
+2008-05-09 Charles Leggett
+	* bugfix for forceResetAtBeginRun
+	* Tagged as IOVSvc-00-06-04
+
+2008-05-09 Charles Leggett
+	* reset all proxies at begin run incident or via resetAllProxies() 
+	  method. Controlled by jobOpt "forceResetAtBeginRun"
+	* Tagged as IOVSvc-00-06-03
+
+2008-04-30 Charles Leggett
+	* add MsgStream.h include for opt build
+	* Tagged as IOVSvc-00-06-02
+
+2008-04-03 Charles Leggett
+      * print a warning message when setRange is called for an
+        unregistered proxy when no store specified.
+      * Tagged as IOVSvc-00-06-01
+
+2008-04-03 Charles Leggett
+      * massive changes to work with multiple stores.
+      * an IOVSvcTool is associated with each store, IOVSvc
+        forwards functionality to appropriate tool
+      * Tagged as IOVSvc-00-06-00
+
+2008-03-27 Charles Leggett
+	* src/CBTree.cxx: removed prinout in destructor
+	
+2008-03-06 Charles Leggett
+	* IOVSvc.h/cxx: added partial preLoading of data via
+	preLoadDataTAD() method and "partialPreLoadData" job opt.
+
+2008-01-23  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+ 	* Tagged as IOVSvc-00-05-04
+	* src/IOVSvc.cxx: moved service base init to before log creation
+	added call to iovdbsvc to signalEndProxyPreload
+
+2008-01-04 Chalres Leggett
+ 	* IOVSvc.cxx: set sortKeys=true by default
+ 	* Tagged as IOVSvc-00-05-03
+
+2007-09-06 Chalres Leggett
+ 	* IOVSvc.cxx/h: add sortKeys jobOpt, to sort keys passed to
+	                callback functions if desired.
+	* Athena bug #29222
+ 	* Tagged as IOVSvc-00-05-02
+
+2007-08-20 Chalres Leggett
+ 	* throw exception from handle if preLoadProxies fails
+	* ask IncidentSvc to rethrow incidents
+ 	* Tagged as IOVSvc-00-05-01
+
+2007-08-15 Chalres Leggett
+ 	* Added SerialNo patch (athena bug #28677)
+	* Thow IOVCallbackError exception when callback fails
+ 	* Tagged as IOVSvc-00-05-00
+
+2007-08-01 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+ 	* Removed AtlasReflex and put back SEAL
+ 	* Tagged as IOVSvc-00-04-44
+
+2007-07-24 Nir Amram <Nir.Amram@cern.ch>
+ 	* Changed used package AtlasSEAL to AtlasReflex
+ 	* Tagged as IOVSvc-00-04-43
+
+2007-07-12  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+
+	* src/IOVSvc.cxx: remove extra DECLARE_SERVICE_FACTORY
+	* tag IOVSvc-00-04-42
+	
+2007-07-11  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+
+	* src/components/IOVSvc_entries.cxx (DECLARE_SERVICE_FACTORY): missing factory declaration for IOVSvc...
+	* tag IOVSvc-00-04-41
+	
+2007-01-12  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* src/IOVSvc.cxx: move to use lumi block instead of event number
+	* tag IOVSvc-00-04-40
+
+2006-12-20 Paolo Calafiura <pcalafiura@lbl.gov>
+	* share/IOVSvc.*: empty files left for backward compatibility
+	* tag IOVSVC-00-04-39
+
+2006-12-18 Charles Leggett <charles.leggett@cern.ch>
+        * use DECLARE_SERVICE_FACTORY macro
+        * tag IOVSVC-00-04-38
+
+2006-12-18 Charles Leggett <charles.leggett@cern.ch>
+      * replace svcType_t with long
+	* tag IOVSvc-00-04-37
+
+2006-09-28 Charles Leggett <charles.leggett@cern.ch>	
+	* hmmm. IOVSvc-00-04-35 already seems to be used!
+	* tag IOVSvc-00-04-36
+	
+2006-09-28 Charles Leggett <charles.leggett@cern.ch>
+	* src/IOVSvc.cxx: changed ERROR messages to DEBUG when
+	  Fcn has already been registered against everything it
+	  can be.
+	* tag IOVSvc-00-04-35
+	
+2006-08-09 Charles Leggett <charles.leggett@cern.ch>
+	* src/IOVSvc.cxx: changed some ERROR messages to INFO
+	  when trying to regFcn with trigger=true in initialize
+	  (Athena bug #18683)
+	* src/IOVSvc.cxx: fixed memory leak in destructor
+	* tag IOVSvc-00-04-34
+
+2005-12-12 Charles Leggett <charles.leggett@cern.ch>
+	* src/IOVSvc.cxx: changed some WARNING messages to DEBUG
+	  (Athena bug #10556)
+	* tag IOVSvc-00-04-33
+
+2005-10-29  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag IOVSvc-00-04-32
+	* src/IOVSvc.cxx: changed reset to apply to only the callbacks.
+
+2005-10-27  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag IOVSvc-00-04-31
+	* src/IOVSvc.cxx (reinitialize): added flag to reset all proxies
+	upon reinitialize
+
+2005-10-17  David Quarrie <David.Quarrie@cern.ch>
+	* src/IOVSvc.cxx: Don't signal an error if the IOVDbSvc can't
+	be found.
+
+2005-10-05  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag IOVSvc-00-04-29
+	* src/IOVSvc.cxx: get event info from begin run incident if not in
+	TES
+	* added some extra printout for isValid failure
+	* signal begin run to IOVDbSvc to provide the IOVTime
+
+2005-08-03: Charles Leggett <charles.leggett@cern.ch>
+	* cmt/requirements: added use AtlasSEAL
+	* tag IOVSvc-00-04-28
+
+2005-07-20  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* src/IOVSvc.cxx: added check of sc
+	Using timestamp in ns - must convert time from eventinfo
+	* tag IOVSvc-00-04-27
+
+2005-06-24  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* src/IOVSvc.cxx: check on stop changed so that the max of IOV is
+	considered as NOT part of the inverval, i.e. [min,
+	max). I.e. remove stop if <= curTime instead of < curTime.
+	* tag IOVSvc-00-04-26
+
+2005-06-16: Charles Leggett <charles.leggett@cern.ch>
+	* IOVSvc.h: cleaned up headers
+	* tag IOVSvc-00-04-25
+
+2005-06-10: Charles Leggett <charles.leggett@cern.ch>
+	* IOVSvc.cxx: fixed statuscode check in preLoadProxies
+	* tag IOVSvc-00-04-24
+
+2005-05-17  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* moved _load,_entries to component dir
+	* tag IOVSvc-00-04-23
+
+2005-04-07: Charles Leggett <charles.leggett@cern.ch>
+	* move .cpp files to .cxx
+	* tag IOVSvc-00-04-22
+
+2005-04-07: Charles Leggett <charles.leggett@cern.ch>
+	* IOVSvc.cxx: convert m_updateInterval to upper more elegantly
+	* tag IOVSvc-00-04-21
+
+2005-03-11: Charles Leggett <charles.leggett@cern.ch>
+	* requirements: fix redundant "library" statement"
+	* tag IOVSvc-00-04-20
+
+2004-10-23  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag IOVSvc-00-04-19
+	* share/IOVSvc.py: added block for double include
+
+2004-09-07: Charles Leggett <charles.leggett@cern.ch>
+	* IOVSvc.cxx: insert node in tree when doing a setRange
+	* tag IOVSvc-00-04-18
+
+2004-09-06  David Quarrie  <David.Quarrie@cern.ch>
+
+	* IOVSvc; Replace IID by InterfaceID since the former
+	is no longer available.
+
+2004-08-13: Charles Leggett <charles.leggett@cern.ch>
+	* to restore IOVTime to v1.7
+        * tag IOVSvc-00-04-16
+
+2004-08-04  David Quarrie  <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Change dependency on Boost to one on
+	AtlasBoost to avoid a name clash
+
+2004-06-29: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.cxx: fixes for change in IOVTime (AthenaKernel-00-01-28)
+                    IOVTime == 0 is now a legal time(stamp/re)
+                    changed some INFO messages to DEBUG	
+      * IOVAddress.h: proper use of svcType_t
+      * tag IOVSvc-00-04-14
+
+2004-06-02: Charles Leggett <charles.leggett@cern.ch>
+      * IOVAddress.h: use svcType_t
+      * tag IOVSvc-00-04-13
+
+2004-05-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag IOVSvc-00-04-12
+	* src/IOVSvc.cxx: fixed typo for timestamp undef
+
+2004-05-07: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.cxx: test if timestamp == undef instead of 0
+      * tag IOVSvc-00-04-11
+
+2004-05-04: Charles Leggett <charles.leggett@cern.ch>
+      * IOVTime.*: added consts to define min/max/undef event/run/timestamp
+      * tag IOVSvc-00-04-10
+
+2004-04-13: Charles Leggett <charles.leggett@cern.ch>
+      * moved IOVTime, IOVRange to AthenaKernel
+      * tag IOVSvc-00-04-09
+
+2004-04-09  RD Schaffer  <R.D.Schaffer@cern.ch>
+	* tag IOVSvc-00-04-08
+	* IOVSvc/IOVTime.h: add set_re_time
+
+2004-04-05: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.cxx: bugfix - call functions in correct order in
+        preLoadProxies
+      * tag IOVSvc-00-04-07
+	
+2004-04-05: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.cxx: bugfix - was always adding nodes instead of connecting
+	pre-existing ones
+      * tag IOVSvc-00-04-06
+
+2004-04-02: Charles Leggett <charles.leggett@cern.ch>
+      * IOVTime, IOVRange: removed isClockTime() method - doesn't really
+	make sense. Added m_timestamp to IOVTime. Just check if 
+	timestamp is non-zero, and react accordingly.
+      * IOVTime: order by R/E if timestamp == 0, otherwise by timestamp
+      * tag IOVSvc-00-04-05
+
+2004-04-01: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.cxx: bugfix - check BeginRun incident even if checkInterval
+        is BeginEvent. Don't duplicate checks in same event for
+	BeginRun/BeginEvent. Scan both ClockTime and R/E sets every time
+      * IOVTime.cxx: bugfix - when initializing with EventInfo, check if
+	timestamp info available and set ClockTime appropriately	
+      * tag IOVSvc-00-04-04
+
+2004-03-31: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.cxx: bugfix - check trigger status before calling fcn,
+	don't call fcn if preLoadProxies has done so for first event
+      * tag IOVSvc-00-04-03
+
+2004-03-30: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.cxx: split startSet and stopSet into ClockTime and R/E
+      sets. Depending on state of m_curTime, will check the appropriate set.
+      * tag IOVSvc-00-04-02
+	
+2004-03-29: Charles Leggett <charles.leggett@cern.ch>
+      * added isClockTime() to IOVRange to determine if IOVTimes are
+        run/event or clocktime
+      * tag IOVSvc-00-04-01
+
+2004-03-23: Charles Leggett <charles.leggett@cern.ch>
+      * added acyclic graph classes CBNode, CBTree, to manage callbacks.
+      * tag IOVSvc-00-04-00
+
+2004-03-17: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.*: added regFcn(string toolName) to register a callback
+	against a pre-existing AlgTool
+      * IOVSvc.*: added getTriggeredTools(key, set<string> toolNames) that
+	returns the set of all tools that have been triggered by key
+      * tag IOVSvc-00-03-07
+	
+2004-02-04: Charles Leggett <charles.leggett@cern.ch>
+      * IOVSvc.h/cxx: added BeginRun incident
+      * IOVSvc.h/cxx: added jobOption "updateInterval", which control
+                      when the start/stop set is scanned. Can be
+                      one of "job", "run", or "event"
+	              If "preLoadData" is set, data will be preloaded
+	              at same interval as "updateInterval"
+      * tag IOVSvc-00-03-06
+	
+2003-12-04: Charles Leggett <charles.leggett@cern.ch>
+      * cmt/requirements: added .py to declare_joboptions
+      * tag IOVSvc-00-03-05
+
+2003-12-04: Wim Lavrijsen <WLavrijsen@lbl.gov>
+      * added IOVSvc.py in share
+      * tag IOVSvc-00-03-04
+
+2003-12-02: Charles Leggett <charles.leggett@cern.ch>
+      * cmt/requirements: fixed use statements
+      * tag IOVSvc-00-03-03
+
+2003-11-13: Charles Leggett <charles.leggett@cern.ch>
+	* IOVSvc/IOVSvc.cxx: changed ConditionsStore to DetectorStore
+	* tag IOVSvc-00-03-02
+
+2003-11-12: Charles Leggett <charles.leggett@cern.ch>
+	* IOVSvc/IOVSvc.h: removed obsolete commented code
+	* IOVSvc/IOVSvc.cxx: changed queryInterface slightly
+	* tag IOVSvc-00-03-01
+
+2003-11-10: Charles Leggett <charles.leggett@cern.ch>
+	* class IOVSvc moved regHandle/regFcn to StoreGate
+	* moved IOVSvcDefs.h to AthenaKernel
+	* moved CallBackID.h to SGTools
+	* tag IOVSvc-00-03-00
+
+2003-11-04:  Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVSvc.cxx: trigger callback functions for first event
+	                   : callback functions always triggered when new
+	                     range is entered, even if associated
+	                     DataHandle is not referenced
+	* IOVSvc/IOVSvc.h: added triggerCallback() methods
+	                 : added optional bool parameter to regFcn(), to
+                           force callbacks to be triggered at once (assuming
+	                   we have a valid event). Default is FALSE.
+	
+	* tag IOVSvc-00-02-00
+	        
+
+2003-08-13:  Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVSvc.h: made pointer to obj const
+	                 : fixed comment for double function register
+	* CallBackID: made pointer to obj const
+	* tag IOVSvc-00-01-04
+
+2003-06-13:  Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVSvc.h: changes for IIOVSvc interface
+	* src/IOVSvc.cxx: changes for IIOVSvc interface
+	* tag IOVSvc-00-01-03
+
+2003-05-28  Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVSvcDefs.h: changed IOVSvcCallBackFcn definition to
+	  function<StatusCode (IOVSVC_CALLBACK_ARGS) >
+	* tag IOVSvc-00-01-02
+
+2003-05-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* IOVSvc/IOVSvcDefs.h: changed IOVSvcCallBackFcn definition to
+	function2 (boost 1.30.0 compilation error) 
+	* tag IOVSvc-00-01-01
+
+05-06-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* added IOVSvc::preLoadTAD(), IOVSvc::regProxy(clid, key)
+	* changed args of IOVSvc::regProxy(DataProxy*, key), so key is
+	  same as storegate key
+	* at start of first event, all TADs added via preLoadTAD are
+	  registered with svc. This is interface to allow 
+	  IOVDbSvc::preLoadPoxies() to supply TADs that should be
+	  automatially loaded without the need for the user to register
+	  the DataHandles. Note that this requires user to do a
+	  StoreGate->retrieve() for each event.
+	* IOVSvc::setRange() will now automaticaly add new proxies to
+	  map of managed proxies if they're not known to the IOVSvc.
+	  This allows use of proxies which haven't been registered with
+	  the svc via regHandle/Fcn ir preLoadProxies. Disadvantage over
+	  preLoadProxies is that proxies registered this way won't show
+	  up in the list of known proxies at the start of the job.
+	* fixed include guards to match PACKAGE_FILE format
+	* tag IOVSvc-00-01-00
+
+04-15-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* added include file protections to all headers and sources
+	* tag IOVSvc-00-00-16
+
+04-14-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVTime: added test for clock or run/event time constructor
+	           added run(), event() methods
+	           fixes for stringstream
+	* IOVRange: fixes for stringstream
+	* CallBackID: fixes for stringstream
+	* IOVSvc: added setRangeInDB() to add info to DB via converter
+	        : initialize() prints out version
+	* tag: IOVSvc-00-00-15
+	
+04-02-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* fixes for SGTools (SG::DataProxy, SG::TransientAddress)
+	* tag: IOVSvc-00-00-14
+
+03-11-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVTime.h: removed constructor for EventID, added 
+	  constructor for (long run, long event)
+	* IOVSvc/IOVSvc.cxx: added include for EventID
+	* tag: IOVSvc-00-00-13
+	
+03-11-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVTime.h: use 64 bits instead of 32.
+	* Remove index from access to IIOVDbSvc
+	* Roll back some changes....
+	  * don't assume use of IOVAddress
+	  * change m_preLoad to m_preLoadRanges, m_preLoadData, to
+	    handle both cases. Default for both is false.
+	* fixes for gcc 3.2
+	* move IIOVDbSvc to AthenaKernel
+	* tag: IOVSvc-00-00-12
+
+03-06-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVAddress.h: IOpaqueAddress, hold IOVRange, tag, dbKey
+	* IOVSvc/IIOVDbSvc.h:  abstract interface for IOVDbSvc to supply
+	  getRange() and setRange(). Should really go in AthenaKernel
+	* IOVSvc.cxx/.h: added preLoadProxies(), jobOption preLoad, which
+	  causes all DataProxies to be accessed at the start of the first
+	  event (default is off). This way dependents don't require object
+	  to be derefed for the callbacks to be triggered. If preLoad is
+	  set to false, only the IOVRanges are read in, if set true,
+	  IOVRange and data are read in.
+	* IOVSvc/IOVSvc.cxx: no longer need to search for proxy in start and
+	  stop sets, as IOVEntry now carries pointer around. 
+	* IOVSvc/IOVSvc.h: made regProxy() public
+	* IOVSvc/IOVSvc.h: added getRangeFromDB to have direct access to
+	  IIOVDbSvc::getRange. Can get for current event or any IOVTime.
+	* IOVSvc/IOVSvc.cxx: cleaned up start/stop set printouts
+	* IOVSvc/IOVSvc.cxx: set current time (m_curTime) once per event
+	  in handle() to avoid getting event multiple times.
+	* IOVEntry.h: moved IOVEntry[Start/Stop]Critereon into IOVEntry
+	              added iterator to locations in start and stop sets. This
+	   makes finding entry in IOVSvc.cxx much easier.
+
+
+02-25-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* with gcc 3.2, function addressing has changed, and can now
+	  distinguish between virutal and non-virtual function. Put
+	  in test for GCC version to handle this.
+	
+02-24-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* added " -Wno-format " to requirements to get rid of sprintf warning
+	* tag: IOVSvc-00-00-11
+
+01-31-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* fixed CVS keywords
+	* removed IOVSvc/IIOVSvc.h
+
+01-27-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* tag IOVSvc-00-00-10 for release 5.3.0
+
+01-23-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* src/IOVSvc.cxx: cleaned up output for setRange
+
+01-23-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVTime.h: cleaned up output, added string conversion op
+	* tag IOVSvc-00-00-09
+
+01-22-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* Added non const regFcn() and regHandle() to trap use of non
+	  const DataHandles
+	* tag IOVSvc-00-00-08
+
+01-15-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* IOVSvc/IOVSvc.h removed regIVRO, merged into regFcn
+	* IOVSVc/IOVSvc.icc fixed retrieveProxy call
+	      added check to see if bind() fail in regFcn
+	      fixed bug to deref proxy if ==0
+	 * tag IOVSvc-00-00-07
+	
+01-10-03:   Charles Leggett <Charles.Leggett@cern.ch>
+	* Removed references to TransientID
+	* Changed IOVSvc to reflect changes in IProxyProvider: 
+	       getProxy -> retrieveProxy
+	* tag IOVSvc-00-00-06
+	
+12-23-02:   Charles Leggett <Charles.Leggett@cern.ch> 
+	* Fixed IOVSvc::setRange - entries not being reset after update
+	* Colourized some output
+
+12-19-02:   Charles Leggett <Charles.Leggett@cern.ch> 
+	* Minor cleanup, filled out 2 function register
+
+12-18-02:   Charles Leggett <Charles.Leggett@cern.ch>  IOVSvc-00-00-05
+
+	* Initial import into CVS
+	

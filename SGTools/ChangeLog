@@ -1,0 +1,1714 @@
+2016-02-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-16.
+	* SGTools/TestStore.h, src/TestStore.cxx: Implement updatedObject
+	stub.
+
+2016-02-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-15.
+	* src/TestStore.cxx: Reference counting fixes.
+
+2016-02-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-14.
+	* SGTools/DataBucket.h, SGTools/DataBucket.icc,
+	SGTools/StorableConversions.h, test/DataBucket_test.cxx: Allow
+	passing DataObjectSharedPtr to asStorable.
+
+2016-02-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-13.
+	* SGTools/TestStore.h, src/TestStore.cxx: Update for IProxyDict
+	changes.
+
+2016-02-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-12.
+	* SGTools/TestStore.h, src/TestStore.cxx: Add implementation for
+	recordObject().
+
+2016-01-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-11.
+	* src/CLIDRegistry.cxx: Need to update this too.
+	* Tagging SGTools-00-27-10.
+	* Undo other changes committed by mistake.
+	* Tagging SGTools-00-27-09.
+	* SGTools/CLIDRegistry.h: Change namespace `default' to
+	`CLIDdefault'.
+
+2015-12-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-08.
+	* SGTools/DataBucketBase.h: Clean up tinfo() declaration.
+
+2015-12-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-07.
+	* IProxyDictWithPool -> IProxyDict.h.
+
+2015-12-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-06.
+	* SGTools/BaseInfo.h: Fix for clang+root 6.04.
+
+2015-10-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-05.
+	* src/DataProxy.cxx (accessData): Check cached object pointer
+	again after calling isValidAddress().
+
+2015-10-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-04.
+	* Fix placement of using directives.
+
+2015-10-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-03.
+	* Comply with ATLAS conventions for naming and using directive
+	placement.
+
+2015-09-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-02.
+	* src/DataProxy.cxx: Make boundHandle/unboundHandle callbacks to
+	store.
+	* SGTools/TestStore.h, src/TestStore.cxx: Include stubs for
+	boundHandle/unboundHandle.
+	* test/DataProxy_test.cxx, share/DataProxy_test.ref: Test the
+	changes.
+
+2015-09-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-27-01.
+	* SGTools/DataProxy.h, src/DataProxy.cxx: Allow defaulting the
+	argument to DataProxy::reset().
+
+	* Tagging SGTools-00-27-00.
+	* Add HARD argument to reset() method for handles.
+
+2015-09-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-26-03.
+	* SGTools/CurrentEventStore.h, src/CurrentEventStore.cxx: Make
+	m_curStore thread-local in hive builds.
+
+2015-09-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-26-02.
+	* SGTools/ClassName.h (ClassName), SGTools/BaseInfo.icc
+	(RegisterBaseInit): Add ((used)) attributes to force these
+	functions to appear as symbols in the output file, even if they're
+	always inlined.  Otherwise, we can get complaints from cling that
+	it can't find the symbols (as of root 6.04).
+
+2015-08-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-26-01.
+	* SGTools/DataBucket.icc: Fix coverity warning: circular
+	#include.
+
+2015-07-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-26-00.
+	* Updating interfaces to support handles.
+
+	* SGTools/IStringPool.h: (deleted) Moved to AthenaKernel.
+	* SGTools/IProxyDictWithPool.h: Don't derive from IStringPool (now
+	IProxyDict does).  Remove tryELRemap (now in IProxyDict).
+	* SGTools/SGToolsDict.h, SGTools/selection.xml: Remove
+	IStringPool.
+	* src/IProxyDictWithPool.cxx: (deleted)
+
+	* SGTools/DataBucketBase.h, SGTools/DataBucket.h,
+	SGTools/DataBucket.icc: Add tinfo().  Remove c++11 conditionals.
+	* test/DataBucket_test.cxx: Test tinfo().
+
+	* SGTools/TestStore.h, src/TestStore.cxx: Update implementation of
+	name().  Add recordObject() and updatedObject().  Removed
+	proxy(CLID) and deep_proxy().
+	* test/DataStore_test.cxx, test/DataProxy_test.cxx: Use
+	TestStore.icc.
+
+2015-07-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-25-04.
+	* src/DataProxy.cxx (accessData): Be sure to set proper default
+	store before calling createObj.
+	* test/DataProxy_test.cxx: Test the change.
+
+2015-06-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-25-03.
+	* Remove temporary setStorePtr method --- no longer needed.
+
+2015-06-10  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging SGTools-00-25-02
+	* SGTools/SGVersionedKey.h (SG): added helpers to handle auto and
+	default version
+
+2015-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-25-01.
+	* SGTools/DataBucket.h: Fix clang warning.
+
+2015-06-05  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging SGTools-00-25-00
+	* SGTools/SGVersionedKey.h (SG): major rewrite to get rid of crufty optimization (and coverity warnings)
+
+2015-05-19  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-12.
+	* SGTools/CLASS_DEF.h, SGTools/CLIDRegistry.h,
+	src/CLIDRegistry.cxx: Cling was sometimes failing to properly
+	instantiate the templated addEntry method in the gcc5 build.  Have
+	cling use the non-templated addEntry.
+
+2015-05-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-11.
+	* Adding CurrentEventStore.  This is meant to replace the current
+	store tracking done now in AthLinks with something that's
+	thread-safe and which will cooperate with ActiveStoreSvc.  The
+	current version is a transitional form and not fully functional.
+	* Adding common TestStore class here.
+
+2015-04-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-10.
+	* Move more of the CLID registration code out-of-line.  Avoids an
+	issue with a mismatch between cling and the new gcc5 abi.
+
+2015-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-09.
+	* src/BaseInfo.cxx: Make more robust against differing global ctor
+	ordering.
+
+	* Tagging SGTools-00-24-08.
+	* Fix some coverity warnings.
+
+2015-02-03  Paolo Calafiura  <calaf@lxplus0019.cern.ch>
+
+	* Tagging SGTools-00-24-07
+	* src/DataProxy.cxx (finalReset): handle correctly proxy and handles
+	deletion
+
+2015-01-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-06.
+	* SGTools/StringPool.h, src/StringPool.cxx: Add clear().
+	* test/StringPool_test.cxx, share/StringPool_test.ref: Test it.
+
+2015-01-28  Paolo Calafiura  <calaf@calaf-C7Z87-OCE>
+
+	* Tagging SGTools-00-24-05
+	* SGTools/DataProxy.h: do not return bool by reference... 
+	* SGTools/SGVersionedKey.h: protect SGImplSvc friend decl to remove
+	compiler warning in non-HIVE mode
+
+2014-12-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-04.
+	* SGTools/BaseInfo.h, src/BaseInfo.cxx: Be more tolerant of
+	duplicated type_info instances.  Add a debugging dump.
+
+2014-11-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-03.
+	* src/BaseInfo.cxx: Fix initlist handling.  Entries could be lost
+	if find() was entered recursively.  Speed up by changing to a
+	hashmap.
+
+2014-11-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-02.
+	* SGTools/ClassID_traits.h (ClassID_traits): Rename typeId ->
+	typeInfo to match what's in CLASS_DEF.h.
+
+	* Tagging SGTools-00-24-01.
+	* src/BaseInfo.cxx: Work around problems with duplicate
+	type_info instances.
+
+2014-10-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-24-00.
+	* If you try to supply the CLID to BaseInfo structures when they
+	are constructed, one runs into problems with order of
+	instantiation, as the macros that create the BaseInfo objects
+	usually have to come before CLASS_DEF.  Change the BaseInfo
+	machinery so that it instead looks up the CLID <> type_info
+	correspondence when needed, using CLIDRegistry.
+	* SGTools/CLASS_DEF.h: Pass type_info to addEntry.
+	* SGTools/CLIDRegistry.h, src/CLIDRegistry.cxx: Maintain maps
+	between clid and type_info.
+	* SGTools/BaseInfo.h, src/BaseInfo.cxx: Get rid of maps indexed by
+	clid.  Change type_info maps to either unordered_map or vector.
+	Use CLIDRegistry to translate from clid to type_info.
+	* test/BaseInfo_test.cxx, test/CLIDRegistry_test.cxx: Test the
+	changes.
+
+2014-06-18  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-23-02.
+	* Updates for c++98 compatibility.
+
+2014-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-23-01.
+	* SGTools/DataBucket.h, SGTools/DataBucket.icc: Add a version of
+	the ctor taking unique_ptr.
+	* SGTools/StorableConversions.h: Add asStorable() overload taking
+	unique_ptr.
+	* test/DataBucket_test.cxx: Test it.
+
+2014-06-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-23-00.
+	* SGTools/DataProxy.h, src/DataProxy.cxx: If the proxy was
+	originally created as const, don't let reset() clear the const
+	flag.  Fixes the long-standing problem where objects read from an
+	input file become non-const after the first event.
+
+2014-05-30  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* merge in SGTools-00-21-01-01
+	* tag SGTools-00-22-01
+
+2014-04-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-22-00.
+	* SGTools/DataProxy.h, src/DataProxy.cxx: When setConst() is
+	called on an object that derives from ILockable, call lock().
+	* SGTools/DataBucket.h, SGTools/DataBucket.icc: Implement lock().
+	* SGTools/DataBucketBase.h: Add lock() interface.
+	* test/DataBucket_test.cxx, test/DataProxy_test.cxx,
+	share/DataProxy_test.ref, share/DataBucket_test.ref: Test the
+	changes.
+
+2014-05-06  Marcin Nowak  <Marcin.Nowak@cern.ch>
+	* removed DataBucketCast
+	* tagging SGTools-00-21-01-01 
+
+2014-04-02  Paolo Calafiura  <calaf@calaf-desktop>
+	* Tagging SGTools-00-21-01
+	* src/CLIDRegistry.cxx (registry): remove all inline decls as they
+	cause undefined refs when building library
+
+2014-04-01  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* Tagging SGTools-00-21-00.
+	* SGTools/CLIDRegistry.h: added new methods providing access to
+	new entries in registry (Niels optimization of ClassIDSvc);
+	* test/CLIDRegistry_test.cxx (main): moved from CLIDComps, test
+	newEntries
+
+2014-03-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-14.
+	* SGTools/BaseInfo.h, src/BaseInfo.cxx: If we don't have a CLID
+	for a type we're trying to add, also check the initlist.
+
+2014-03-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-13.
+	* SGTools/CLASS_DEF.h: Add UNUSED to the clidEntry definitions, to
+	prevent warnings on compilation failures. (Suggested by Will
+	Buttinger.)
+
+2014-03-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-12.
+	* src/DataStore.cxx (removeProxy): Fix coverity warning.
+
+2014-02-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-11.
+	* SGTools/exceptions.h: Avoid requiring c++11 in header, to
+	prevent coverity warnings.
+
+2014-02-21 Rolf Seusterk
+
+	* Tagging SGTools-00-20-10.
+	* add missing include file for new LCGCMT 67.
+
+2014-02-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-09.
+	* SGTools/DataStore.h: Faster exit if we've already looked for the
+	audit service.
+
+2014-02-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-08.
+	* SGTools/DataStore.h, src/DataStore.cxx: addToStore now sets the
+	store on the added proxy.  Ctor arg changed to
+	IProxyDictWithPool.
+	* test/DataStore_test.cxx: Test the changes.
+
+2014-02-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-07.
+	* SGTools/DataStore.h, src/DataStore.cxx: Handle dummy proxies.
+	* test/DataStore_test.cxx, share/DataStore_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2014-02-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-06.
+	* SGTools/exceptions.h, src/exceptions.cxx: (new)
+	* test/exceptions_test.cxx, share/exceptions_test.ref: (new)
+	* cmt/requirements: Add it.
+	* SGTools/DataProxy.h: Use ExcBadDataProxyCast.
+
+2014-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-05.
+	* SGTools/DataStore.h, src/DataStore.cxx: Maintain map of
+	sgkey->DP.  Set primary sgkey in TAD when a proxy is added to the
+	store.  Add proxy_exact taking a hashed key as input.
+
+2014-01-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-04.
+	* SGTools/DataStore.h, src/DataStore.cxx: Pass an IStringPool into
+	the constructor.
+
+	* Tagging SGTools-00-20-03.
+	* SGTools/IStringPool.h: Get sgkey_t from AthenaKernel/sgkey_t.h.
+
+2014-01-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-02.
+	* src/DataProxy.cxx (accessData): Comment out the warning about
+	null IConversionSvc.
+	* SGTools/DataProxy.h, src/DataProxy.cxx: Add store(),
+	setStore().
+	* test/DataProxy_test.cxx, share/DataProxy_test.ref: (new)
+	* cmt/requirements: Add it.
+
+2014-01-28  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-20-01.
+	* SGTools/TransientAddress.h, src/TransientAddress.cxx: Add
+	setID(), sgkey(), setSGKey().  Remove unused method setClid().
+	Allow calling ctor with a null clid.
+	* test/TransientAddress_test.cxx, share/TransientAddress_test.ref:
+	(new)
+	* cmt/requirements: Add it.
+
+2013-11-20  charles leggett
+	* use uniform method for auditing
+	* requires SGAudCore-00-02-00
+	* tag SGTools-00-20-00
+
+M       src/DataStore.cxx
+M       SGTools/DataStore.h
+
+2013-09-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-19-12.
+	* SGTools/AuxStore_traits.h: Moved to AthContainersInterfaces.
+
+2013-09-16  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* Tagging SGTools-00-19-11
+	* SGTools/AuxStore_traits.h (AuxStore_traits): added const_type
+	* SGTools/CLASS_AUXSTORE.h: moved to AthContainers
+
+2013-09-10  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* tagging SGTools-00-19-10
+	* adding clid for vec of long
+	* M SGTools/StlVectorClids.h
+
+2013-08-30  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-19-09.
+	* SGTools/selection.xml, SGTools/SGToolsDict.h: Generate
+	IProxyDictWithPool / IStringPool dicts here (instead of
+	DataModel).
+
+2013-08-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-19-08.
+	* test/ClassName_test.cxx, share/ClassName_test.ref: Move here
+	from DataModel.
+	* cmt/requirements: Add it.
+	* SGTools/unordered_set.h: Deleted.
+	* Fix some typos in comments.
+
+2013-08-28  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* Tagging SGTools-00-19-07
+	* SGTools/AuxStore_traits.h (AuxStore_traits): new traits class associating a data object type with an
+	AuxStore type. By default a dobj is associated with NoAuxStore
+	* SGTools/CLASS_AUXSTORE.h: new CLASS_AUXSTORE macro to specialize the traits class as needed
+
+2013-08-07  Sebastien Binet  <binet@farnsworth>
+
+	* Tagging SGTools-00-19-06
+	* fix package name
+	* M wscript
+
+2013-06-13  Paolo Calafiura  <calaf@pb-d-128-141-154-169.cern.ch>
+
+	* Tagging SGTools-00-19-05
+	* SGTools/SGVersionedKey.h (SG): adding SGImplSvc as friend
+
+2013-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-19-04.
+	* SGTools/DataBucket.h: Fix coverity warning.
+
+2013-04-01  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-19-03.
+	* Fix clang warning.
+	* Tagging SGTools-00-19-02.
+	* Disallow copying conversion of non-const objects.
+	* Tagging SGTools-00-19-01.
+	* test/DataBucket_test.cxx: Fix gcc43 compilation.
+	* Tagging SGTools-00-19-00.
+	* Add support for arbitrary copying conversions.
+	* SGTools/BaseInfo.h, SGTools/BaseInfo.icc, src/BaseInfo.cxx: Hold
+	copy conversion information.
+	* SGTools/DataBucket.h, SGTools/DataBucket.icc: Implement copying
+	conversions.
+	* test/BaseInfo_test.cxx., share/BaseInfo_test.ref: Test the
+	changes.
+	* test/DataBucket_test.cxx, share/DataBucket_test.ref: Likewise.
+
+2013-01-21  Sebastien Binet  <binet@cern.ch>
+
+	* tagging SGTools-00-18-01
+	* adding wscript file
+	* A wscript
+
+2013-01-16  Paolo Calafiura  <calaf@calaf-desktop>
+
+	* tagging SGTools-00-18-00
+	* SGTools/TransientAddress.h: added m_storeID needed by isValid 
+	when calling updateAddress
+	NB this is not backward compatible nor cacheable. Branch under here
+
+2012-11-16  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tagging SGTools-00-17-08
+	* SGTools/SGVersionedKey.h (SG): clang fix (savannah 98889)
+
+2012-06-20  Sebastien Binet  <binet@voatlas04.cern.ch>
+
+	* tagging SGTools-00-17-07
+	* adding clids for vec of vec of uint8_t and char
+	* M SGTools/StlVectorClids.h
+
+2012-06-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging  SGTools-00-17-06.
+	* Coverity warning fixes.
+
+2012-03-30  Sebastien Binet  <binet@cern.ch>
+
+	* tagging  SGTools-00-17-05
+	* adding vec of vec of short, ushort, ulong and ulonglong
+	* M SGTools/StlVectorClids.h
+
+2012-03-26  Sebastien Binet  <binet@cern.ch>
+
+	* tagging  SGTools-00-17-04
+	* add clid for map of str to str
+	* add clid for vec of vec of vec of {int,float}
+	* M SGTools/StlVectorClids.h
+	* M SGTools/StlMapClids.h
+
+2012-03-13  Sebastien Binet  <binet@voatlas51.cern.ch>
+
+	* tagging  SGTools-00-17-03
+	* add a default ctor for SGFolderItem so a vector of those can be resized(0)
+	* M SGTools/SGFolderItem.h
+
+	2012-03-05  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* Tagging  SGTools-00-17-02.
+	* src/DataProxy.cxx (DataProxy::requestRelease): further protect
+	VERBOSE message (#82923)
+
+2012-02-06  scott snyder  <snyder@bnl.gov>
+
+	* Tagging  SGTools-00-17-01.
+	* src/DataStore.cxx (proxy): Change logic for default key
+	retrieval: If there are multiple matching proxies, but only one is
+	of the exact type requested, then that one wins.  This means that
+	making a symlink from another type won't spoil an existing
+	default key retrieval.
+
+2011-11-28  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging SGTools-00-17-00
+	* split-up DataHandle into DataHandle and DataHandleBase (reduce
+	  template bloat)
+	* add clid for vector of bools
+	* A SGTools/DataHandleBase.h
+	* A src/DataHandleBase.cxx
+	* M SGTools/StlVectorClids.h
+	* M src/DataProxy.cxx
+
+2011-09-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging  SGTools-00-16-17.
+	* SGTools/ClassID_traits.h, SGTools/CLASS_DEF.h: Add s_isConst.
+
+2011-08-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging  SGTools-00-16-16.
+	* cmt/requirements: More patterns to ignore.
+
+2011-08-19  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging  SGTools-00-16-15
+	* add the CLIDs for builtins, maps and vectors in libSGTools.so
+	* A src/SGToolsClids.cxx
+
+2011-07-11  Paolo Calafiura  <calaf@localhost6.localdomain6>
+
+	* tagging  SGTools-00-16-14
+	* src/DataStore.cxx (DataStore::proxy): fix the alias counting
+
+2011-05-20  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* tagging  SGTools-00-16-13
+	* src/DataStore.cxx (DataStore::proxy): do not count aliases as
+	separate objects when checking for defaultkey object
+
+2011-05-20  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging  SGTools-00-16-12
+	* more clids to read d3pds
+	* M SGTools/BuiltinsClids.h
+	* M SGTools/StlVectorClids.h
+
+2011-05-18  Sebastien Binet  <sebastien.binet@cern.ch>
+
+	* tagging  SGTools-00-16-11
+	* add clids for vector of vector of builtins
+	* M SGTools/StlVectorClids.h
+
+2011-04-21  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-16-10.
+	* cmt/requirements: Fix checkreq warnings.
+	* Tagging SGTools-00-16-09.
+	* SGTools/CallBackID.icc: Fix gcc 4.6 warning.
+	* SGTools/BaseInfo.h: Fix clang warnings.
+
+2011-01-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-16-08.
+	* SGTools/DataProxy.icc: Improve diagnostic for invalid proxy
+	state message.
+
+2010-11-16  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging SGTools-00-16-07
+	* SGTools/DataProxy.h: must rename errno() to errNo()
+
+2010-11-11  Paolo Calafiura  <calaf@calaf-laptop>
+	* Tagging SGTools-00-16-06
+	* SGTools/DataProxy.h: added errno-style error code to query 
+	accessData problems 
+
+	* Tagging SGTools-00-16-04
+	* SGTools/StorableConversions.h (SG): make icc happy
+	* test/DataBucket_test.cxx: make icc happy
+	* test/StringPool_test.cxx: make icc happy
+
+2010-08-18  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging SGTools-00-16-03
+	* src/DataProxy.cxx: Coverity fixes. Get rid of setDefaults method.
+
+2010-06-15  Peter van Gemmeren  <gemmeren@anl.gov>
+
+	* Tagging SGTools-00-16-02
+	* SGTools/DataProxy.h: Remove setTransientAddress as it does not fix proxy reinit.
+
+2010-05-14  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging SGTools-00-16-01
+	* SGTools/DataProxy.h (setTransientAddress): new method allowing to
+	effectively reinit the proxy (#62088)
+
+2010-01-11  Paolo Calafiura  <calaf@calaf-laptop>
+
+	* Tagging SGTools-00-16-00.
+	* src/DataStore.cxx (DataStore::keys): new functionality
+
+2010-01-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-15-04.
+	* Fix bad tag.
+	
+	* Tagging SGTools-00-15-03.
+	* SGTools/CLIDRegistry.h: gcc 4.4 fixes.
+	* SGTools/ClassID_traits.h: gcc 4.4 fixes.
+
+2009-10-19  Thomas Kittelmann  <thomas.kittelmann@cern.ch>
+	* Provide SG auditor with actual key on keyless retrieves.
+	* tag SGTools-00-15-02 
+
+2009-10-12  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-15-01.
+	* SGTools/BaseInfo.icc (RegisterAddBaseInit): Fix for the case in
+	which the BIB does not already exist.
+	* test/BaseInfo_test.cxx: Test this case.
+
+2009-10-10  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-15-00.
+	* SGTools/BaseInfo.h: Add SG_ADD_BASE.
+	* SGTools/BaseInfo.icc: Likewise.
+	* test/BaseInfo_test.cxx: Test the changes.
+
+2009-09-29  Charles Leggett
+	* DataProxy::bindHandle(): return a bool instead of void. no error
+	  message of exception thrown here
+	* tag SGTools-00-14-02
+
+2009-09-28  Charles Leggett
+	* DataProxy::bindHandle(): change runtime error for multiply bound 
+	* proxies to a warning to give folks time to fix it.
+	* tag SGTools-00-14-01
+
+2009-09-25  Charles Leggett
+	* DataProxy::bindHandle(): check to see if handle is already bound
+	  to another proxy
+	* requires change to IResetable
+	* tag SGTools-00-14-00
+	
+2009-09-21  Paolo Calafiura  <calaf@lxcalaf.cern.ch>
+
+	* src/DataStore.cxx (addToStore): minor code cleanup
+
+2009-09-14  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-13-03.
+	* SGTools/IStringPool.h: Add interface ID.
+	* SGTools/IProxyDictWithPool.h: Add interface ID.
+
+2009-07-16  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-13-02.
+	* src/StringPool.cxx, SGTools/T2pMap.h: Get hashtable classes from
+	CxxUtils.
+	* Check spelling throughout.  Add ispellwords.
+	* SGTools/BaseInfo.h, SGTools/BaseInfo.icc, src/BaseInfo.cxx: More
+	initialization order fixes.
+
+2009-07-14  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-13-01.
+	* SGTools/BaseInfo.h, src/BaseInfo.cxx: Add get_ti_bases().
+	* test/BaseInfo_test.cxx: Test the changes.
+
+	* Tagging SGTools-00-13-00.
+
+	* src/BaseInfo.cxx (class BaseInfoBaseImpl, castTo, castfnTo,
+	add_info, info ctor): Add base->derived conversions.
+	* SGTools/BaseInfo.icc (add_base, converterTo, converterToHelper,
+	castTo, castfnTo): Likewise.
+	* SGTools/BaseInfo.h: Likewise.
+	* test/BaseInfo_test.cxx: Test the changes.
+
+	* Tagging SGTools-00-12-03.
+	* src/BaseInfo.cxx (class BaseInfoBaseImpl, add_info, BaseInfoBase
+	ctor, find): Initialization order fixes.
+
+2009-06-24  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-12-02
+	* SGTools/BaseInfo.h, src/BaseInfo.cxx: Add clid() and baseinfo()
+	methods to BaseInfoBase.
+	* test/BaseInfo_test.cxx: Test the changes.
+
+2009-05-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-12-01
+	* test/SGTools.xml: Treat test output differences wrt reference
+	files as errors.
+
+2009-03-04  Paolo Calafiura 
+
+	* Tagging SGTools-00-12-00
+	* SGTools/DataStore.h: added forwarding method to let t2p interact with IPageAccessControlSvc
+	* SGTools/T2PMap.h: t2pRegister will now call IPageAccessControlSvc::controlPage if the pointer to the service is set.
+
+2009-01-15  Sebastien Binet  <binet@farnsworth>
+
+	* tagging SGTools-00-11-00
+	* new CLASS_DEF schema to handle typedefs
+	* A SGTools/ClassName.h
+	* A SGTools/ClassName.icc
+	* M SGTools/CLASS_DEF.h
+	* M SGTools/CLIDRegistry.h
+	* M SGTools/ClassID_traits.h
+
+2008-12-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-10-08.
+	* SGTools/BaseInfo.h: Forgot to re-hide addInit().
+	
+	* Tagging SGTools-00-10-07.
+	* SGTools/BaseInfo.h: Restore gcc 4.3 changes.  Also hide from
+	reflex inlined code that was calling the hidden functions.
+	* SGTools/BaseInfo.icc: Likewise.
+
+2008-12-15  David Quarrie <David.Quarrie@cern.ch>
+	* Tagging SGTools-00-10-06
+	* SGTools/BaseInfo.h: Revert some of Scott's changes temporarily
+	
+2008-12-11  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-10-05.
+	* SGTools/BaseInfo.h: Prevent gcc 4.3 compiler warnings for
+	generated dictionaries.
+	* SGTools/BaseInfo.icc: Likewise.
+
+2008-11-25  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-10-04.
+	* src/BaseInfo.cxx: Store type_info's as pointers, rather than as
+	the names.
+	* SGTools/BaseInfo.h: Don't need to include <string>.
+
+2008-11-17  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-10-03.
+	* src/BaseInfo.cxx: Comment out use of boost mutex.  We don't
+	require thread-safety anymore, and the boost mutex code is broken
+	in boost 1.35 (compilation error in timespec.hpp).
+
+2008-10-27  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-10-02.
+	* src/DataStore.cxx (addSymLink): Fail if the specified entry is
+	already pointing at another proxy (prevents mem leak).
+
+2008-10-09  Sebastien Binet  <binet@lblbox.dyndns.cern.ch>
+
+	* tagging SGTools-00-10-01
+	* made std::map<std::string, std::vector<{int,uint,float,double}> > 
+	  store-able in StoreGate
+	* M SGTools/StlMapClids.h
+
+2008-09-16  Sebastien Binet  <binet@lblbox>
+
+	* tagging SGTools-00-10-00
+	* migrating pure C++ classes/utils to CxxUtils
+	* M SGTools/hashtable.h
+	* M SGTools/unordered_map.h
+	* M SGTools/unordered_set.h
+	* M cmt/requirements
+	* R share/hashtable_test.ref
+	* R src/hashtable.cxx
+	* R test/hashtable_test.cxx
+
+2008-08-15  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-09-00.
+	* SGTools/IStringPool.h: Change SG hash key from 62 to 30 bits.
+	* SGTools/StringPool.h: Likewise
+	* share/StringPool_test.ref: Updated.
+
+2008-07-24  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging SGTools-00-08-05
+	* BaseInfo.icc: Don't create a concrete implementation of the s_regbase static for MacOSX. This is handled by the DATAVECTOR_BASE_SINGLETON macro on his platform because the default implementation results in duplicate symbols in every program unit.
+
+2008-07-14  Paolo Calafiura  
+
+	* tagging SGTools-00-08-04
+	* src/DataProxy.cxx: use IMessageSvcHolder to address bug #38278
+
+2008-07-10  David Quarrie <David.Quarrie@cern.ch>
+
+	* tagging SGTools-00-08-03
+	* SGTools/SGVersionedKey.h: Default namespace tweaks for MacOSX. Tested for both Mac & SLC4
+
+2008-06-21  Paolo Calafiura  <calaf@lxplus206.cern.ch>
+
+	* Tagging SGTools-00-08-02
+	* reverted changes made in 00-08-00 as the make existing code using IDC bomb
+	
+2008-06-24  Sebastien Binet  <binet@lblbox>
+
+	* tagging SGTools-00-08-01
+	* adding dict for SG::BaseInfoBase (mostly for debugging purposes)
+	* modifying ClassID_traits API to remove std::string temporaries
+	* M SGTools/CLASS_DEF.h
+	* M SGTools/ClassID_traits.h
+	* M SGTools/SGToolsDict.h
+	* M SGTools/selection.xml
+
+2008-06-21  Paolo Calafiura  <calaf@lxplus206.cern.ch>
+
+	* Tagging SGTools-00-08-00
+	* src/DataProxy.cxx: reset dobj pointer only when pointee is released
+	* SGTools/DataBucket.*: overload release() to release bucket only when host dobj is released.
+	* these two changes should allow to honor DataObject::addRef() in SG, without resetting the dobj pointer at the end of each event
+	* ----> Change significantly behaviour of store after clear. Needs to be validated carefully.
+	
+2008-06-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-07-09
+	* src/DataProxy.cxx (accessData): Remove code that was trying to
+	do createObj with a symlinked address when the primary createObj
+	failed.  This was added originally because the DataHeader lost
+	information on which CLID was the primary (as it stored the CLIDs
+	as a set).  This deficiency in the DataHeader has been fixed for
+	some time.  But having this code here causes problems for
+	recovering from P->T conversion failures.  If the converter fails,
+	it will cause the symlink search code to run.  If there is a
+	symlink, we'll try to create the object through that CLID.
+	However, since this is not the primary CLID, there will probably
+	not be a P->T converter registered for it.  So, we'll end up
+	getting the persistent object returned (hard-casted) as the
+	transient object.  This will crash us later.
+
+2008-05-30  Paolo Calafiura  
+
+	* Tagging SGTools-00-07-08
+	* DataBucket[Base]: added relinquish method to handle failed records properly
+	* src/DataStore.cxx (DataStore::clearStore): improved debug printout
+
+2008-05-22  Paolo Calafiura  
+
+	* Tagging SGTools-00-07-07
+	* test/DataBucket_test.cxx (main): cleanup heap allocated objects at end of test
+
+2008-05-07  Paolo Calafiura  
+
+	* Tagging SGTools-00-07-06
+	* substantially extend SG::VersionedKey interface
+
+2008-05-05  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-07-04.
+	* src/SGVersionedKey.cxx: Missing <cassert> include.
+
+2008-04-23  Paolo Calafiura  
+
+	* Tagging SGTools-00-07-03.
+	* SGIFolder.h: added clear() method as requested by Peter to
+	address the issue of "exploding" trigger keys
+
+
+2008-04-23  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-07-02.
+	* src/BaseInfo.cxx (find): Protect against null initlist.
+
+2008-04-22  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-07-01.
+
+	* SGTools/BaseInfo.h: Allow automatic initialization.  Clean up
+	header dependencies.  Add locking for thread-safety.
+	* SGTools/BaseInfo.icc: Likewise.
+	* src/BaseInfo.cxx: Likewise.
+	* cmt/requirements: Likewise.
+	* test/BaseInfo_test.cxx: Likewise.
+
+2008-04-17  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-07-00.
+
+	* SGTools/IProxyDictWithPool.h: Add tryELRemap().
+	* src/IProxyDictWithPool.cxx: (new)
+
+2008-04-09  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-06-00.
+
+2008-04-07  scott snyder  <snyder@bnl.gov>
+
+	* SGTools/ptrhash.h: (new)
+	* SGTools/T2pMap.h: Use it.
+
+2008-03-31  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/DataBucketTraitFwd.h: (new)
+	* SGTools/asStorableFwd.h: (deleted)
+	* SGTools/StorableConversions.h: Use DataBucketTrait.
+
+	* SGTools/BaseInfo.h: Add BaseType.
+	* test/BaseInfo_test.cxx: Test it.
+
+2008-03-30  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/asStorableFwd.h: (new)
+	* SGTools/StorableConversions.h: Use it.
+
+	* SGTools/StorableConversions.h: Add IRegisterTransient arg to
+	fromStorable, Storable_cast.
+	* src/StorableConversions.cxx: Likewise.
+	* SGTools/DataProxy.icc: Pass proxy as IRegisterTransient arg to
+	Storable_cast.
+
+	* SGTools/DataProxy.h: Derive from IRegisterTransient.
+	* src/DataProxy.cxx: Likewise.
+
+2008-03-29  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/IRegisterTransient.h: (new)
+	* SGTools/DataBucket.h: Add optional IRT arg to cast().
+	* SGTools/DataBucket.icc: Likewise.
+	* SGTools/DataBucketBase.h: Likewise.
+
+2008-03-28  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/BaseInfo.h (class BaseInfo): Add baseinfo(), castfn().
+	* SGTools/BaseInfo.icc: Likewise.
+	* src/BaseInfo.cxx: Likewise.
+	* test/BaseInfo_test.cxx: Test.
+
+	* src/DataProxy.cxx (accessData): Register base instances in the
+	t2p map as well.
+
+2008-03-27  scott s snyder  <snyder@bnl.gov>
+
+	* share/VersionedKey_test.ref (VersionedKey): (new)
+
+	* SGTools/T2pMap.h: Change to use a hash map.
+
+2008-03-25  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/DataBucketBase.icc: Fix comments.
+
+2008-04-06  Sebastien Binet  <binet@lblbox>
+
+	* tagging SGTools-00-05-01
+	* removing injection of Stl-CLIDS from libSGTools.so (breaks CLIDComps test)
+	* R src/StlClids.cxx
+
+2008-04-04  Sebastien Binet  <binet@lblbox>
+
+	* tagging SGTools-00-05-00
+	* adding new CLIDs for a few builtins and STL containers
+	* updated and added ref files
+	* A SGTools/BuiltinsClids.h
+	* A SGTools/StlMapClids.h
+	* A SGTools/StlVectorClids.h
+	* A src/StlClids.cxx
+	* A share/VersionedKey_test.ref
+	* M cmt/requirements
+	* M test/DataBucket_test.cxx
+
+2008-03-26  Paolo Calafiura  
+	* tagging SGTools-00-04-03	
+	* SGTools/SGVersionedKey.h: adding new class
+	* test/VersionedKey_test.cxx: and its test
+
+2008-02-11  Sebastien Binet  <binet@lblbox>
+
+	* tagging SGTools-00-04-02
+	* adding dict. generation for vectors of DataProxy
+	* M SGTools/selection.xml
+	* M SGTools/SGToolsDict.h
+
+2007-12-14  Sebastien Binet  <binet@lblbox>
+
+	* tagging SGTools-00-04-01
+	* SGTools/DataBucket.icc: correctly handle case where T's copy 
+	  constructor is private
+
+2007-12-13  Sebastien Binet  <binet@lblbox>
+
+	* tagging SGTools-00-04-00
+	* extended DataBucketBase interface (clone)
+	* migration of ClassID_traits from CLIDSvc package to here
+	* M SGTools/BaseInfo.icc
+	* A SGTools/CLASS_DEF.h
+	* A SGTools/CLIDRegistry.h
+	* A SGTools/ClassID_traits.h
+	* M SGTools/DataBucket.h
+	* M SGTools/DataBucket.icc
+	* M SGTools/DataBucketBase.h
+	* M SGTools/DataBucketBase.icc
+	* M SGTools/DataProxy.icc
+	* M SGTools/StorableConversions.h
+	* M SGTools/safe_clid.icc
+	* M cmt/requirements
+	* A src/CLIDRegistry.cxx
+	* M test/BaseInfo_test.cxx
+	* M test/DataBucket_test.cxx
+	* M test/safe_clid_test.cxx
+
+2007-12-10  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-03-18.
+	* SGTools/IStringPool.h: Fix typo; add missing #include.
+
+	* Tagging SGTools-00-03-17.
+	* SGTools/StringPool.h (class StringPool): Add dump().
+	* src/StringPool.cxx: Switch to using a hash table.  Add dump().
+	* test/StringPool_test.cxx: Test dump().
+	* share/StringPool_test.ref: Updated.
+
+	* SGTools/unordered_map.h: Moved here from DataModel.
+	* SGTools/unordered_set.h: Moved here from DataModel.
+	* SGTools/hashtable.h: Moved here from DataModel.
+	* test/hashtable_test.cxx: Moved here from DataModel.
+	* src/hashtable.cxx: Moved here from DataModel.
+	* share/hashtable_test.ref: Moved here from DataModel.
+	* cmt/requirements: Add it.
+
+2007-12-03  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-03-16.
+	* src/DataStore.cxx: Fix include path for ISGAudSvc.
+
+2007-11-09  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* Tagging SGTools-00-03-15
+	* src/DataProxy.cxx (DataProxy::accessData): downgrade FATAL to WARNING,
+	following policy.
+
+2007-11-07  Paolo Calafiura  
+
+	* Tagging SGTools-00-03-14
+	* src/DataStore.cxx: disable SGAudSvc by default (thanks Sebastien).
+	Enable adding SGAudSvc to theApp.CreateSvc
+
+2007-10-29  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-03-13.
+	* SGTools/selection.xml: Generate dict for DataProxy (for
+	debugging purposes).
+	* SGTools/SGToolsDict.h: Likewise.
+
+2007-10-12  Paolo Calafiura  
+
+	* src/DataStore.cxx (DataStore::DataStore): fix data members init order
+	* tagging as SGTools-00-03-12
+
+2007-10-03  Ilija Vukotic  <ivukotic@cern.ch>
+	* DataStore - speeded up SGAudSvc lookup
+	* tagging as SGTools-00-03-11
+
+2007-10-02  Ilija Vukotic  <ivukotic@cern.ch>
+	* src/DataStore.cxx changes how SGAudSvc is initialized
+	* last change made it not initialized. Few printouts added if problems.
+	* tagging as SGTools-00-03-10
+
+2007-08-29  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* SGTools/SGIFolder.h: added new method updateItemList (bug 29015) 
+	* tagging as SGTools-00-03-09
+
+2007-08-22  Paolo Calafiura  <calaf@localhost.localdomain>
+	* src/DataProxy.cxx (DataProxy::accessData): on error, return null ptr 
+	rather than throwing
+	* tagging as SGTools-00-03-08
+
+2007-08-15  Paolo Calafiura  <calaf@0-11-25-81-1e-12.dhcp.lbl.gov>
+
+	* src/DataStore.cxx (DataStore::SGAudSvc): new method to delay access
+	to SGAudSvc and dependency loop with StoreGateSvc
+	* tagging as SGTools-00-03-07
+
+2007-08-11 Ilija Vukotic <ivukotic@cern.ch>
+	* requirements fix
+	* tagging as SGTools-00-03-06
+	 
+2007-08-10 Ilija Vukotic <ivukotic@cern.ch>
+	* move ISGAudSvc.h from AthenaKernel to SGAudCore
+	* tagging as SGTools-00-03-05
+
+2007-07-26 Ilija Vukotic <ivukotic@cern.ch>
+	* Tagging SGTools-00-03-04
+	* fixing circular dependency
+	
+2007-07-23 Ilija Vukotic <ivukotic@cern.ch>
+	* Tagging SGTools-00-03-03
+	* fixed requirements
+	
+2007-07-19 Ilija Vukotic <ivukotic@cern.ch>
+	* Tagging SGTools-00-03-02
+	* added call to SGAudSvc
+
+2007-07-06  Paolo Calafiura  <calaf@0-d-60-fb-f8-d3.dhcp.lbl.gov>
+	* Tagging SGTools-00-03-01
+	* cmt/requirements: make chkconfig happy
+
+2007-06-06  Paolo Calafiura  
+	* Tagging SGTools-00-03-00
+	* SGTools/SGIFolder.h: new SG::IFolder interface, should be used 
+	instead of SG::Folder which was moved to the new SGComps component
+	library.
+
+2007-04-27  Paolo Calafiura  
+	* Tagging SGTools-00-02-10
+	* src/DataStore.cxx (clearStore):  in VERBOSE, print which dobjs are
+	cleared
+
+2007-03-13  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-02-09.
+	* test/StringPool_test.cxx: Forgot to commit.
+
+	* Tagging SGTools-00-02-08.
+
+	* SGTools/IProxyDictWithPool.h: (new)
+	* SGTools/IStringPool.h: (new)
+
+2007-03-11  scott snyder  <snyder@bnl.gov>
+
+	* gcc4 fixes:
+	* test/DataBucket_test.cxx (class AbstractType): Add a virtual
+	dtor to avoid compilation warnings.
+	* test/BaseInfo_test.cxx: Add missing <cassert> include.
+
+2007-03-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-02-07.
+
+	* cmt/requirements: Re-enable tests inadvertently commented out.
+
+	* SGTools/StringPool.h (class StringPool): Add aux args.  Change
+	signature of keyToString.  Add keyToString with aux arg.
+	* src/StringPool.cxx: Updated.
+	* test/StringPool_test.cxx: Updated.
+	* share/StringPool_test.ref: Updated.
+
+	* SGTools/crc64.h: Add crc64addint().
+	* src/crc64.cxx (crc64addint): (new)
+	* test/crc64_test.cxx: Update test.
+
+2007-03-07  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-02-06.
+
+	* SGTools/StringPool.h: (new)
+	* src/StringPool.cxx: (new)
+	* test/StringPool_test.cxx: (new)
+	* share/StringPool_test.ref: (new)
+	* cmt/requirements: Add the test.
+
+	* SGTools/crc64.h: (new)
+	* src/crc64.cxx: (new)
+	* test/crc64_test.cxx: (new)
+	* share/crc64_test.ref: (new)
+	* cmt/requirements: Add the test.
+
+2007-03-04  scott snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-02-05.
+	* share/SGFolder_test.ref: Updated.
+	* share/DataBucket_test.ref: Updated.
+
+2007-02-22  Sebastien Binet  <binet@lblbox>
+
+	* tagging SGTools-00-02-04
+	* SGTools/SGFolder.h: get rid of unneeded std::string copy
+
+2007-01-23  Peter van Gemmeren  <gemmeren@anl.gov>
+	* Tagging SGTools-00-02-03
+	* src/DataStore.cxx: Fix SG alias to be set for all events.
+
+2007-01-05  Scott Snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-02-01.
+
+	* SGTools/BaseInfo.h: Fix comments.
+	* SGTools/BaseInfo.icc: Likewise.
+	* src/BaseInfo.cxx: Likewise.
+
+	* SGTools/BaseInfo.h (class BaseInfoBase): Change s_bi_by_clid,
+	s_bi_by_ti to pointers, to avoid global ctor ordering problems
+	with static linking.
+
+2006-12-22  Paolo Calafiura <pcalafiura@lbl.gov>
+	* src/SGFolder.cxx: gaudi 19 setProperty
+	* share/*ref: updated for gaudi 19
+	* tag SGTools-00-02-00
+
+2006-12-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* DataStore (removeProxy): merge back 12.0.x branch change
+	* tag SGTools-00-01-14
+
+2006-12-20  Scott Snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-01-13.
+
+	* test/BaseInfo_test.cxx: Fix test failure in optimized mode.
+	* test/SGFolder_test.cxx: Likewise.
+
+2006-12-19  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* SGFolder (setProperty): hack to have it work with Gaudi v16 and v19
+	* test/SGTools.xml: replace old .sh test script
+	* tag SGTools-00-01-12
+
+2006-12-12 David Quarrie <David.Quarrie@cern.ch>
+	* src/SGFolder.cxx: 
+	* SGTools/SGFolder.h:
+	Add setProperty(std::string&) in preparation for Gaudi v1r19
+
+2006-12-05 David Quarrie <David.Quarrie@cern.ch>
+	* src/SGFolder.cxx: 
+	* SGTools/SGFolder.h:
+	Remove setProperty(std::istream) in preparation for Gaudi v1r19
+
+2006-11-17 Peter van Gemmeren <gemmeren@anl.gov>
+	* DataHeader: Remove DataHeader (now in DBDataModel).
+	* tag SGTools-00-01-09
+
+2006-11-07  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* src/DataBucketCast.cxx (castObject): removed printout.
+	* tag SGTools-00-01-08
+
+2006-11-06  Paolo Calafiura  <pcalafiura@lbl.gov>
+         * src/DataStore.cxx (removeProxy): added forceRemove flag 	 
+         * tag SGTools-00-01-01-04
+
+2006-09-25 David Quarrie <David.Quarrie@cern.ch>
+	* src/SGFolder.cxx: Minor tweak for 64-bit compatibility
+
+2006-08-28 Peter van Gemmeren <gemmeren@anl.gov>
+	* DataHeader: Add support for SG alias readback to TransientAddress.
+	* SGTools/TransientAddress.h: Add setAlias(const std::set<std::string>& keys)
+	function to assign the set of SG aliases.
+	* tag SGTools-00-01-06
+
+2006-08-23 Peter van Gemmeren <gemmeren@anl.gov>
+	* DataHeader: Add support for SG Key Alias to DataHeader.
+	Note: The DataHeader is in the process of moving to DBDataModel and will be
+	      removed from SGTools soon.
+	* tag SGTools-00-01-05
+
+2006-08-16  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-01-04.
+	* test/DataBucket_test.cxx: Test refcounting changes.
+
+	* Tagging SGTools-00-01-03.
+
+	* SGTools/DataBucket.h, SGTools/DataBucket.icc: If the held
+	pointer is a DataObject, then manage its refcount.
+	* SGTools/StorableConversions.h: Can now use the same asStorable
+	implementation for both the DataObject and non-DataObject cases.
+
+2006-08-07  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-01-02
+
+2006-08-03  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/DataStore.h: Add FORCE arg to clearStore.
+	* src/DataStore.cxx (clearStore): Likewise.
+	* SGTools/DataProxy.h: Add FORCE arg to requestRelease.
+	* src/DataProxy.cxx (requestRelease): Likewise.
+	(setDefaults): Properly maintain IConversionSvc refcounts.
+
+2006-05-31  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/DataStore.cxx (removeProxy):trying to make StatusCodeSvc happy 
+	* SGTools/DataProxy.h: remove superfluous StatusCode.h include
+	* tag SGTools-00-01-01
+
+2006-05-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* SGTools/DataProxy.h: make copy constructor and op= private (no impl)
+	* tag SGTools-00-01-00
+
+2006-04-19 S. Rajagopalan <srinir@bnl.gov>
+	* add method keys() to return all StoreGate Keys for a clid
+	* tag SGTools-00-00-63
+
+2006-04-12 S. Rajagopalan <srinir@bnl.gov>
+	* Fix remove proxy to release aliased proxies as well
+	* introduce typedefs and alias() method in DataProxy
+	* tag SGTools-00-00-62
+
+2006-04-10 S. Rajagopalan <srinir@bnl.gov>
+	* add alias feature
+	* change to DataStore (add addAlias())
+	* change to TransientAddress: save alias names
+	* Tag SGTools-00-00-61
+	
+2006-04-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging SGTools-00-00-60
+	* cmt/requirements: removed no_auto_imports from AtlasReflex -
+	tests are failing, is safer
+
+2006-04-09  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* Tagging SGTools-00-00-59
+	* SGTools/DataBucketCast.h: introduced simple class to cast
+	DataObject to real type from python
+
+2006-03-30  scott s snyder  <snyder@bnl.gov>
+
+	* src/DataStore.cxx (proxy): Restore logic change.
+
+	* Tagging SGTools-00-00-58.
+	* src/DataStore.cxx (proxy): Revert last change here for next
+	tag.
+
+2006-03-18  scott s snyder  <snyder@bnl.gov>
+
+	* share/SGFolder_test.ref: Updated.
+
+	* src/DataStore.cxx (proxy_exact): (new)
+	(proxy): Alter logic so that we return an exact match for the
+	default key, if it exists.
+	(addSymLink): Use proxy_exact.
+	* SGTools/DataStore.h: Add proxy_exact().
+
+2006-03-03  Scott Snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-00-57.
+
+	* src/TransientAddress.cxx: Fixes for gcc 3.4 compatibility.
+	* test/DataBucket_test.cxx: Likewise.
+	* test/safe_clid_test.cxx: Likewise.
+	* test/BaseInfo_test.cxx: Likewise.
+
+2005-11-30  scott s snyder  <snyder@bnl.gov>
+
+	* Tagging SGTools-00-00-56.
+
+2005-11-28  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/BaseInfo.h: Move BaseInfoBase from the icc file to
+	here.  Provide an interface for looking up BaseInfoBase instances
+	by clid or typeinfo name.  Adjust instance() so that the instances
+	are created at global ctor time, not when instance() is called.
+	* SGTools/BaseInfo.icc: Likewise.
+	* src/BaseInfo.cxx: Likewise.
+	* test/BaseInfo_test.cxx: Test the changes.
+
+2005-11-16 Peter van Gemmeren <gemmeren@anl.gov>
+	* tag SGTools-00-00-55
+
+2005-11-09  scott s snyder  <snyder@bnl.gov>
+
+	* src/DataHeader.cxx: (getPrimaryClassID): Don't return reference
+	to temporary.
+
+	* src/DataStore.cxx (removeProxy): Remove symlinks too.
+
+	* src/StorableConversions.cxx: (new)
+	* SGTools/StorableConversions.h: Add conversions from a DataObject
+	to a void* by CLID.
+	* src/DataProxy.cxx (DataProxy_cast): (new) Cast via CLID.
+	* SGTools/DataProxy.h: Add it.
+
+	* src/DataStore.cxx (addSymLink): Check that the symlink doesn't
+	already exist.
+
+2005-11-09 Peter van Gemmeren <gemmeren@anl.gov>
+	* Try re-adding new primary CLID member to DHE.
+	* tag SGTools-00-00-54
+
+2005-11-08  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/DataBucket.h: Change for BaseInfo methods being made
+	static.
+	* SGTools/DataBucket.icc: Likewise.
+
+	* SGTools/BaseInfo.h: Document and clean up.  Make BaseInfo
+	methods static.
+	* src/BaseInfo.cxx: Likewise.
+	* SGTools/BaseInfo.icc: (new)
+	* test/BaseInfo_test.cxx: Updated.
+
+	* SGTools/CallBackID.h: Change m_offset to long.
+	* SGTools/CallBackID.icc: Don't use printf to convert pointer;
+	cast through an alias.  This avoids gcc warnings.
+
+	* SGTools/safe_clid.h: Document and clean up.
+	* SGTools/safe_clid.icc: (new)
+
+2005-11-07  scott s snyder  <snyder@bnl.gov>
+
+	* SGTools/DataBucketBase.h (class DataBucketBase): Add cast()
+	functions.
+	* SGTools/DataBucketBase.icc: (new)
+	* SGTools/DataBucket.h: Add cast().
+	* SGTools/DataBucket.icc (cast): (new)
+	* SGTools/StorableConversions.h: Try to use BaseInfo to do pointer
+	conversions.
+	* test/DataBucket_test.cxx: Test pointer conversions.
+
+	* SGTools/safe_clid.h: (new)
+	* test/safe_clid_test.cxx: (new)
+	* share/safe_clid_test.ref: (new)
+	* cmt/requirements: Add safe_clid test.
+
+	* SGTools/BaseInfo.h: (new)
+	* src/BaseInfo.cxx: (new)
+	* test/BaseInfo_test.cxx: (new)
+	* share/BaseInfo_test.ref: (new)
+	* cmt/requirements: Add BaseInfo test.
+
+	* Tagging SGTools-00-00-53.
+
+	* share/DataBucket_test.ref: Update for Gaudi changes.
+	* share/SGFolder_test.ref: Likewise.
+
+	* src/DataHeader.cxx (getPrimaryClassID): Use the pool token to
+	decide which class ID is primary, rather than just choosing the
+	first one.
+	(getAddress): Use getPrimaryClassID rather than just choosing the
+	first one.
+
+2005-08-05 Peter van Gemmeren <gemmeren@bnl.gov>
+	* SGTools/selection.xml: add iterator needed by relPool as advised by Nuno FdB.
+	* tag SGTools-00-00-52
+
+2005-07-27 Peter van Gemmeren <gemmeren@bnl.gov>
+	* SGTools/selection.xml: remove temporary fix to selection file for seal 1.6.3.
+	* tag SGTools-00-00-51
+
+2005-06-25 Peter van Gemmeren <gemmeren@bnl.gov>
+	* For now back out the symlink fix as it may hurt backward compatibility.
+	* tag SGTools-00-00-50
+
+2005-06-24 Peter van Gemmeren <gemmeren@bnl.gov>
+	* Fix DataHeader symlink problem by adding new member to DHE.
+	* Enhance and rename some interface functions in DataHeader.
+	* tag SGTools-00-00-49
+
+2005-06-10  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag SGTools-00-00-47
+	* SGTools/selection.xml: temporary fix to selection file for seal
+	1.6.3. (pattern for set) can be changed back after seal 1.6.3
+
+2005-05-26 Charles Leggett
+	* src/SGFolder.cxx: fixes for unchecked status codes
+	* tag SGTools-00-00-46
+
+2005-04-17 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add DataHeader::appendInputDataHeader() function to copy all InputDataHeader refs.
+	* tag SGTools-00-00-45
+
+2005-04-06  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag SGTools-00-00-44
+
+	* SGTools/SGToolsDict.h (SGToolsDict): added back in iterator
+	instantiation.
+
+2005-03-18  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag SGTools-00-00-43
+	* SGTools/selection.xml: added selection for iterators - needed
+	for object relational
+
+2005-03-16 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add doxygen markups for DataHeader
+	* tag SGTools-00-00-42
+
+2005-03-11  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* SGTools/selection.xml: added pattern to generate iterator
+
+2005-03-08 Charles Leggett <charles.leggett@cern.ch>
+      * fix unmatched delete in CallBackID, change int to long cast
+      * tag SGTools-00-00-41
+
+2005-02-22 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add doxygen mainpage and info for DataHeader
+	* tag SGTools-00-00-40
+
+2004-12-23 S. Rajagopalan <srinir@bnl.gov>
+	* Remove check of primary clid for symLinks
+	* this is because symLinks may not be ordered correctly when
+	* read back from persistency
+	* tag SGTools-00-00-39
+	
+2004-11-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* SGTools/StorableConversions.h(const Storable_cast): 
+	fix TWO compilation errors in one line(thanks Joe B.!)
+	* test/DataBucket_test.cxx: test the above
+	* tag SGTools-00-00-38
+
+2004-11-04  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* test/SGTools.sh:: moved from TestTools
+	* share/*.ref: updated
+	* tag SGTools-00-00-37 
+
+2004-10-06 Peter van Gemmeren <gemmeren@bnl.gov>
+	* remove the hack again. EventSelectorAthenaPool can deal with it.
+	* tag SGTools-00-00-36
+
+2004-09-30 Peter van Gemmeren <gemmeren@bnl.gov>
+	* re-add primary CLID index to m_token in DataHeader needed by back navigation
+
+2004-09-09 Peter van Gemmeren <gemmeren@bnl.gov>
+	* change isInput to stateFlag (enum)
+	* tag SGTools-00-00-35
+
+2004-09-05  David Quarrie  <David.Quarrie@cern.ch>
+	* SGFolder - replace IID by InterfaceID since the former typedef
+	is no longer available
+
+004-08-12  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* SGTools/DataProxy.h: forward declare SG::T2pMap not T2pMap
+	* tag SGTools-00-00-33
+
+2004-08-04  David Quarrie  <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Change dependency on Boost to one on
+	AtlasBoost to avoid a name clash
+
+2004-07-29 S. Rajagopalan <srinir@bnl.gov>
+	* TransientAddress.h : add setClid method
+	* DataProxy.cxx : correct clid in TAD if correct CLID found
+	* DataProxy.cxx : other minor clean-ups
+	* tag SGTools-00-00-31
+	
+2004-07-29 Peter van Gemmeren <gemmeren@bnl.gov>
+	* remove m_token modifs below.
+	* tag SGTools-00-00-30
+
+2004-07-29 Peter van Gemmeren <gemmeren@bnl.gov>
+	* include m_token modifs below.
+	* tag SGTools-00-00-29
+
+2004-07-29  RD Schaffer  <R.D.Schaffer@cern.ch>
+
+	* tag SGTools-00-00-28
+	* src/DataProxy.cxx (accessData): added loop over ids for symlink
+	mixup. DID NOT include m_token modifs below.
+
+2004-07-28 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add primary CLID index to m_token in DataHeader
+
+2004-07-14  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* SGTools/StorableConversions.h "copy" refCount when wrapping
+        DataObject in a bucket
+	* tag SGTools-00-00-27
+
+2004-07-13 S. Rajagopalan <srinir@bnl.gov>
+	* StorableConversion.h: Always put T in DataBucket even if T is
+	- a Gaudi "DataObject"
+	* remove asStorable_i and fromStorable_i methods and merge with
+	- asStorable and fromStorable respectively.
+	* tag SGTools-00-00-26
+
+2004-07-09 S. Rajagopalan <srinir@bnl.gov>
+	* create new class T2pMap which holds t2p map
+	* DataStore forwards calls to new T2pMap
+	* DataProxy now fills t2pmap in accessData
+	* only works if it is a non-DataObject for now
+	* tag SGTools-00-00-25
+	
+2004-06-24  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* updated ref outputs
+	* tag SGTools-00-00-24
+
+2004-06-21 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add unsetInput() function to DataHeader
+	* tag SGTools-00-00-23
+
+2004-05-12 Peter van Gemmeren <gemmeren@bnl.gov>
+	* remove key from IOpaqueAddress in DataHeader
+	* tag SGTools-00-00-21
+
+2004-05-03  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/DataProxy.cxx: include <cassert> (bug #3229)
+	* tag SGTools-00-00-20
+
+2004-04-23 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add some member functions to DataHeader
+	* tag SGTools-00-00-19
+
+2004-04-21  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/DataStore.cxx (pRange): make valgrind happy
+	* tag SGTools-00-00-18
+
+2004-03-26  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* SGTools/DataProxy.icc (DataProxy_cast): use getMessageSvc
+	* SGTools/StorableConversion.h: use getMessageSvc
+	* src/DataProxy.cxx (accessData): print a more informative error 
+	message and use getMessageSvc
+	* test/DataBucket_test.cxx: initGaudi to getMessageSvc
+	* tag SGTools-00-00-17
+
+2004-03-25  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* class SGFolder: minor change to const to support inheritance 
+	from Folder. Still to be finalized. Also to be fixed is the way
+	wild cards in ItemList are handled (now are simply passed on)
+
+2004-03-24 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add InputDataHeader vector to DataHeader class
+	* tag SGTools-00-00-16
+
+2004-03-17  Charles Leggett <charles.leggett@cern.ch>
+	* SGTools/CallBackID.* : added objName(), and ptr()
+	* tag SGTools-00-00-14
+
+2004-03-09  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/SGFolder.cxx: reverse order in which one tries to decode an 
+	item in the ItemList (removes fake error message)
+	* tag SGTools-00-00-13
+
+2004-02-25 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add isInput() flag to DataHeader
+	* tag SGTools-00-00-12
+
+2004-02-23 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add DataHeaderElement::getAddress(unsigned char Pool_StorageType) function
+	* tag SGTools-00-00-11
+
+2004-02-20 Peter van Gemmeren <gemmeren@bnl.gov>
+	* add DataHeader and DataHeaderElement Classes and Dictionary.
+	* DataHeader and DataHeaderElement are copies to replace EventHeader
+	* also got rid of some public data members.
+	* tag SGTools-00-00-10
+
+2004-02-19  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/SGFolder.cxx (add): print error msg when type not in clid db 
+	* tag SGTools-00-00-09
+	
+2004-01-28  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* src/SGFolder.cxx (Folder): check before setting outputLevel
+	* tag SGTools-00-00-08
+
+2004-01-23  Paolo Calafiura  <calaf@electra.lbl.gov>
+	* moved SG::Folder and its test here. 
+	Moved back the DataBucket_test here
+	* tag SGTools-00-00-07
+
+2003-12-01 S. Rajagopalan <srinir@bnl.gov>
+	* DataProxy:proxy(clid) : return 0 if more than one
+	  DataObject for default key ("") : ambiguous.
+	* Change ordering... process keyed request first
+	* tag SGTools-00-00-06 
+	
+2003-11-10  Charles Leggett <charles.leggett@cern.ch>
+	* added class CallBackID for IOVSvc
+	* DataBucketBase.h: fixed include guard
+	* tag SGTools-00-00-05
+
+2003-04-15  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/DataProxy.cxx: added <iostream>
+	* SGTools/*.h: used Charles script to add include guards
+	* tag SGTools-00-00-03
+
+2003-04-11  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* src/TransientAddress.cxx (TransientAddress): fix memory leak in
+	constructor with IOA
+	* tag SGTools-00-00-02
+
+2003-04-02  Paolo Calafiura  <pcalafiura@lbl.gov>
+	* initial release
+	* tag SGTools-00-00-01
+

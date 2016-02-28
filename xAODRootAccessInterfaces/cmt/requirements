@@ -1,0 +1,8 @@
+package xAODRootAccessInterfaces
+
+use AtlasPolicy    AtlasPolicy-*
+use AtlasROOT      AtlasROOT-* External
+
+apply_pattern installed_library
+library xAODRootAccessInterfaces ../Root/*.cxx
+

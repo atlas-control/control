@@ -1,0 +1,119 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'Control/StoreGate',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+
+    ctx.use_pkg('GaudiKernel')
+    ctx.use_pkg('Control/CxxUtils')
+    ctx.use_pkg('Control/SGTools')
+    ctx.use_pkg('Control/AthenaKernel')
+    ctx.use_pkg('Control/DataModel')
+
+    ctx.use_pkg('External/AtlasUUID')
+    ctx.use_pkg('External/AtlasROOT') # reflex
+    ctx.use_pkg('External/AtlasBoost')
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_dual_use_lib(
+        name     = 'StoreGate',
+        source   = 'src/*.cxx',
+        use      = ['DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    #'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    #'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'uuid',],
+    )
+
+
+    ctx.build_pymodule(source=['python/*.py'])
+
+    ctx.install_joboptions(source=[
+        'share/StoreGate_jobOptions.txt',
+        'share/StoreGate_jobOptions.py',
+        ])
+
+
+    ### --- tests -------------------------------------------------------------
+    
+    ctx.build_linklib(
+        name     = 'SGtests',
+        source   = 'test/SGtests.cxx',
+        use      = ['StoreGate', 'DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools',
+                    'GaudiKernel', 'Reflex',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'uuid',],
+        )
+
+    ctx.build_app(
+        name     = 'SGIterator_test',
+        source   = 'test/SGIterator_test.cxx',
+        use      = ['StoreGate', 'DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools', 'GaudiKernel',
+                    'Reflex',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'uuid',],
+       do_test  = True,
+    )
+
+    ctx.build_app(
+        name     = 'KeyConcept_test',
+        source   = 'test/KeyConcept_test.cxx',
+        use      = ['StoreGate', 'DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools', 'GaudiKernel',
+                    'Reflex',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'uuid',],
+        do_test  = True,
+    )
+
+    ctx.build_app(
+        name     = 'DataHandle_test',
+        source   = 'test/DataHandle_test.cxx',
+        use      = ['StoreGate', 'DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools', 'GaudiKernel',
+                    'Reflex',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'uuid',],
+        do_test  = True,
+    )
+
+    ctx.build_app(
+        name     = 'StoreClearedIncident_test',
+        source   = 'test/StoreClearedIncident_test.cxx',
+        use      = ['StoreGate', 'DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools', 'GaudiKernel',
+                    'Reflex',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'uuid',],
+        do_test  = True,
+    )
+
+    ctx.build_app(
+        name     = 'SegMemSvc_test',
+        source   = 'test/SegMemSvc_test.cxx',
+        use      = ['StoreGate', 'DataModel', 'SGTools', 'SGAudCore', 'AthenaKernel', 'CxxUtils',
+                    'TestTools', 'GaudiKernel',
+                    'Reflex',
+                    'boost-filesystem', 'boost-system', 'boost-regex', 'boost-thread',
+                    'uuid',],
+        do_test  = True,
+    )
+
+
+    return
+### EOF ###

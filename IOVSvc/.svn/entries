@@ -1,0 +1,80 @@
+10
+
+dir
+726715
+svn+ssh://svn.cern.ch/reps/atlasoff/Control/IOVSvc/trunk
+svn+ssh://svn.cern.ch/reps/atlasoff
+
+
+
+2016-02-16T16:48:17.722477Z
+724304
+krasznaa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4525493e-7705-40b1-a816-d608a930855b
+
+test
+dir
+
+share
+dir
+
+cmt
+dir
+
+src
+dir
+
+ChangeLog
+file
+
+
+
+
+2016-02-28T22:03:56.000000Z
+56c6dd8621eaaa2f3a676c4286704915
+2016-02-16T16:48:17.722477Z
+724304
+krasznaa
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+24979
+
+docs
+dir
+
+IOVSvc
+dir
+

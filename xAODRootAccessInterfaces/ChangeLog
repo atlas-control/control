@@ -1,0 +1,44 @@
+2015-08-06 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* As it turns out, I managed to introduce a very stupid mistake
+	  in the previous update into the template code.
+	* The issue was discovered/discussed on ATLASG-249
+	* Tagging as xAODRootAccessInterfaces-00-00-07
+
+2015-07-10 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added an optional parameter to the TVirtualEvent::retrieve
+	  functions to make them fail silently. This was needed to be
+	  able to implement the ElementLink<...>::isValid() and
+	  DataLink<...>::isValid() functions such that they wouldn't
+	  print warnings under any circumstance.
+	* This meant adding a new parameter to one of the pure virtual
+	  functions defined in TVirtualEvent as well.
+	* Tagging as xAODRootAccessInterfaces-00-00-06
+
+2014-08-27 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Added a new helper value, xAOD::TVirtualEvent::KEY_MASK. It is
+	  used in the code to identify default ElementLink/DataLink keys.
+	  Under some circumstances these become not zero, but 0x3fffffff.
+	* Tagging as xAODRootAccessInterfaces-00-00-05
+
+2014-05-02 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Extended the TVirtualEvent interface a little further, so it
+	  would become possible to implement the dataID() functions in
+	  AthLinks in standalone mode.
+	* Tagging as xAODRootAccessInterfaces-00-00-04
+
+2014-04-30 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Changed the variable/function names of the classes to adhere to
+	  the Athena naming rules. The class names still begin with "T",
+	  but as far as I know that's not against the ATLAS coding rules.
+	* Tagging as xAODRootAccessInterfaces-00-00-03
+
+2014-04-26  scott snyder  <snyder@bnl.gov>
+
+	* Tagging xAODRootAccessInterfaces-00-00-02.
+	* cmt/requirements: (new)
+
+2014-01-29 Attila Krasznahorkay <Attila.Krasznahorkay@cern.ch>
+	* Created this very light-weight package for holding the
+	  classes that AthLinks needs. So that AthLinks would not need
+	  to depend on all the packages that xAODRootAccess depends on.
+	* Tagging as xAODRootAccessInterfaces-00-00-01

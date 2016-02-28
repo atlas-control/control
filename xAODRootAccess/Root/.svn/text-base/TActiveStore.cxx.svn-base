@@ -1,0 +1,16 @@
+// $Id$
+
+// Local include(s):
+#include "xAODRootAccess/TActiveStore.h"
+
+namespace xAOD {
+
+   // Initialize the store pointer:
+   TStore* TActiveStore::s_store = 0;
+
+   TStore* TActiveStore::store() {
+
+      return s_store;
+   }
+
+} // namespace xAOD

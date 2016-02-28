@@ -1,0 +1,135 @@
+# -*- python -*-
+
+import waflib.Logs as msg
+
+PACKAGE = {
+    'name': 'Control/SGTools',
+    'author': ['atlas collaboration'],
+}
+
+def pkg_deps(ctx):
+    ctx.use_pkg('AtlasPolicy')
+
+    ctx.use_pkg('GaudiKernel')
+    ctx.use_pkg('Control/CxxUtils')
+    ctx.use_pkg('Control/AthenaKernel')
+
+    ctx.use_pkg('External/AtlasROOT') # reflex
+    return
+
+def configure(ctx):
+    msg.debug ('[configure] package name: '+PACKAGE['name'])
+    return
+
+def build(ctx):
+
+
+    ctx.build_linklib(
+        name     = 'SGTools',
+        source   = '*.cxx',
+        use      = ['CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    #'TestTools',
+                    'GaudiKernel',
+                    #'boost-filesystem', 'boost-system', 'boost-thread', 'boost-regex',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        )
+
+    ctx.build_reflex_dict(
+        name     = 'SGTools',
+        source   = 'SGTools/SGToolsDict.h',
+        selection_file = 'SGTools/selection.xml',
+        use      = ['SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    #'TestTools',
+                    'GaudiKernel',
+                    #'boost-filesystem', 'boost-system', 'boost-thread', 'boost-regex',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        )
+
+
+    ctx.install_headers()
+
+    ### --- tests -------------------------------------------------------------
+    ctx.build_app(
+        name     = 'StringPool_test',
+        source   = 'test/StringPool_test.cxx',
+        use      = ['SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    'boost-filesystem', 'boost-system', 'boost-thread', 'boost-regex',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'crc64_test',
+        source   = 'test/crc64_test.cxx',
+        use      = ['SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    'boost-filesystem', 'boost-system', 'boost-thread', 'boost-regex',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'VersionedKey_test',
+        source   = 'test/VersionedKey_test.cxx',
+        use      = ['SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    'boost-filesystem', 'boost-system', 'boost-thread', 'boost-regex',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'safe_clid_test',
+        source   = 'test/safe_clid_test.cxx',
+        use      = ['SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    'boost-filesystem', 'boost-system', 'boost-thread', 'boost-regex',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    ctx.build_app(
+        name     = 'DataBucket_test',
+        source   = 'test/DataBucket_test.cxx',
+        use      = ['SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    'boost-filesystem', 'boost-system', 'boost-thread', 'boost-regex',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+    )
+
+    ctx.build_app(
+        name     = 'BaseInfo_test',
+        source   = 'test/BaseInfo_test.cxx',
+        use      = ['SGTools', 'CxxUtils', 'SGAudCore', 'AthenaKernel',
+                    'TestTools',
+                    'GaudiKernel',
+                    'boost-filesystem', 'boost-system', 'boost-thread', 'boost-regex',
+                    'Reflex',
+                    #'uuid',
+                    ],
+        do_test  = True,
+        )
+
+    return
+### EOF ###
